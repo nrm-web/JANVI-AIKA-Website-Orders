@@ -517,16 +517,35 @@ body {
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid var(--border-color);
     color: white;
-    padding: 8px 12px;
+    padding: 8px 32px 8px 12px; /* Extra right padding for custom arrow */
     border-radius: 8px;
     font-family: var(--font-body);
     font-size: 13px;
     cursor: pointer;
     outline: none;
+    min-width: 140px;
+    max-width: 220px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    appearance: none; /* Hide default browser arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.6)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.filter-select:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.02);
 }
 
 .filter-select:focus {
     border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
 }
 
 /* Orders Table */
@@ -812,4 +831,37 @@ body {
     outline: none;
     height: auto !important;
     width: auto !important;
+}
+
+/* Mobile Responsiveness for Filters */
+@media (max-width: 768px) {
+    .filter-controls {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .search-input-wrapper {
+        width: 100% !important;
+    }
+    
+    .search-input-wrapper input {
+        width: 100% !important;
+        max-width: none !important;
+    }
+    
+    .search-input-wrapper input:focus {
+        width: 100% !important;
+    }
+    
+    .filter-select {
+        width: 100% !important;
+        max-width: none !important;
+        min-width: 0 !important;
+    }
+    
+    .flex-header {
+        align-items: stretch !important;
+    }
 }
