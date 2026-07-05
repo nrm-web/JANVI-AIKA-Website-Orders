@@ -299,7 +299,12 @@ function populateFilterOptions() {
             months.add(getMonthYearStr(o.dateOfOrder));
         }
         if (o.logisticsStatus) {
-            statuses.add(o.logisticsStatus);
+            let statusText = o.logisticsStatus.toUpperCase().trim();
+            if (statusText.includes('UNDELIVERED')) {
+                statuses.add('UNDELIVERED');
+            } else {
+                statuses.add(statusText);
+            }
         }
     });
     
@@ -322,7 +327,11 @@ function populateFilterOptions() {
     // Populate Statuses
     elements.filterStatus.innerHTML = '<option value="">All Logistics Statuses</option>';
     Array.from(statuses).sort().forEach(s => {
-        elements.filterStatus.innerHTML += `<option value="${s}">${s}</option>`;
+        let label = s;
+        if (s === 'UNDELIVERED') {
+            label = 'UNDELIVERED (Upto 5 Attempts)';
+        }
+        elements.filterStatus.innerHTML += `<option value="${s}">${label}</option>`;
     });
 }
 
@@ -766,7 +775,14 @@ function applyFilters() {
         const matchesPayment = !pay || o.paymentMethod.toLowerCase().includes(pay.toLowerCase());
         
         // Logistics Status dropdown
-        const matchesStatus = !status || o.logisticsStatus.toLowerCase().trim() === status.toLowerCase().trim();
+        let matchesStatus = false;
+        if (!status) {
+            matchesStatus = true;
+        } else if (status === 'UNDELIVERED') {
+            matchesStatus = o.logisticsStatus.toUpperCase().includes('UNDELIVERED');
+        } else {
+            matchesStatus = o.logisticsStatus.toLowerCase().trim() === status.toLowerCase().trim();
+        }
         
         return matchesQuery && matchesMonth && matchesPayment && matchesStatus;
     });
