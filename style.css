@@ -548,6 +548,11 @@ body {
     box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.15);
 }
 
+.filter-select option {
+    background-color: #111625; /* Dark background matching the page theme */
+    color: white; /* Clean white text for readability */
+}
+
 /* Orders Table */
 .table-scroll-wrapper {
     overflow-x: auto;
