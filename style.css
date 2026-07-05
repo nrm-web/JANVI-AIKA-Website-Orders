@@ -838,77 +838,108 @@ body {
     width: auto !important;
 }
 
-/* Mobile Responsiveness for Filters and Header */
-@media (max-width: 768px) {
-    .app-header {
-        flex-direction: column;
-        align-items: stretch !important;
-        gap: 16px;
-        padding: 16px;
-    }
-    
-    .header-controls {
-        flex-direction: row;
-        justify-content: space-between;
-        width: 100%;
-        gap: 12px;
-    }
-    
-    .header-filter-group {
-        margin-right: 0 !important;
-    }
+/* ==========================================
+   PERFECT RESPONSIVENESS AND DEVICE STYLES
+   ========================================== */
 
-    .filter-controls {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 8px;
+/* 1. Large Screen / TV & Desktop (> 1200px) */
+@media (min-width: 1201px) {
+    .kpi-grid {
+        grid-template-columns: repeat(6, 1fr) !important; /* Force a single clean row of 6 cards! */
     }
-    
-    .search-input-wrapper {
-        width: 100% !important;
-    }
-    
-    .search-input-wrapper input {
-        width: 100% !important;
-        max-width: none !important;
-    }
-    
-    .search-input-wrapper input:focus {
-        width: 100% !important;
-    }
-    
-    .filter-select {
-        width: 100% !important;
-        max-width: none !important;
-        min-width: 0 !important;
-    }
-    
-    .flex-header {
-        align-items: stretch !important;
+    .charts-row {
+        grid-template-columns: 2fr 1fr;
     }
 }
 
-/* Extra Mobile Optimizations for Phones */
-@media (max-width: 600px) {
-    body {
-        padding: 12px;
+/* 2. Standard Laptops / Small Desktop (1025px to 1200px) */
+@media (min-width: 1025px) and (max-width: 1200px) {
+    .kpi-grid {
+        grid-template-columns: repeat(3, 1fr) !important; /* 2 clean rows of 3 cards each! */
     }
-    
-    /* Header */
+    .charts-row {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+/* 3. Tablets Landscape & Portrait (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .kpi-grid {
+        grid-template-columns: repeat(3, 1fr) !important; /* 2 clean rows of 3 cards each! */
+        gap: 12px !important;
+    }
+    .charts-row {
+        grid-template-columns: 1fr !important; /* Stack charts vertically */
+    }
+    .donut-charts-wrapper {
+        flex-direction: row !important; /* Keep donut charts side-by-side on tablet */
+    }
+    .app-header {
+        padding: 16px 20px;
+    }
+    body {
+        padding: 20px;
+    }
+}
+
+/* 4. Small Tablet / Mobile Landscape (481px to 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .kpi-grid {
+        grid-template-columns: repeat(2, 1fr) !important; /* 3 rows of 2 cards each */
+        gap: 12px !important;
+    }
+    .charts-row {
+        grid-template-columns: 1fr !important;
+    }
+    .donut-charts-wrapper {
+        flex-direction: row !important;
+    }
     .app-header {
         flex-direction: column;
         align-items: stretch !important;
         gap: 12px;
-        padding: 12px 16px;
+    }
+    .header-controls {
+        flex-direction: row !important;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .filter-controls {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px !important;
+        width: 100% !important;
+    }
+    .search-input-wrapper {
+        grid-column: span 2 !important;
+    }
+    #filter-month, #filter-payment {
+        grid-column: span 1 !important;
+    }
+    #filter-status, #clear-filters-btn {
+        grid-column: span 1 !important; /* Side by side on tablet */
+    }
+}
+
+/* 5. Mobile Portrait (< 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .app-header {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 12px;
+        padding: 12px 14px;
     }
     
     .header-title h1 {
-        font-size: 20px;
+        font-size: 18px;
     }
     
     .header-title .subtitle {
-        font-size: 12px;
+        font-size: 11px;
     }
     
     .header-controls {
@@ -916,114 +947,115 @@ body {
         align-items: center !important;
         justify-content: space-between !important;
         width: 100% !important;
-        gap: 8px !important;
+        gap: 6px !important;
     }
     
     .header-filter-group {
-        margin-right: 0 !important;
-        flex: 1;
-        justify-content: space-between;
+        padding: 4px 8px !important;
+    }
+    
+    .header-month-select {
+        font-size: 12px !important;
     }
     
     /* KPI Cards (2 Columns Compact) */
     .kpi-grid {
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 10px !important;
+        gap: 8px !important;
     }
     
     .kpi-card {
         flex-direction: column !important;
         align-items: flex-start !important;
-        gap: 10px !important;
-        padding: 12px !important;
+        gap: 8px !important;
+        padding: 10px !important;
     }
     
     .kpi-icon-wrapper {
-        width: 36px !important;
-        height: 36px !important;
-        border-radius: 8px !important;
+        width: 32px !important;
+        height: 32px !important;
+        border-radius: 6px !important;
     }
     
     .kpi-icon {
-        width: 18px !important;
-        height: 18px !important;
-    }
-    
-    .kpi-content {
-        width: 100% !important;
+        width: 16px !important;
+        height: 16px !important;
     }
     
     .kpi-label {
-        font-size: 11px !important;
-        margin-bottom: 2px !important;
+        font-size: 10px !important;
     }
     
     .kpi-value {
-        font-size: 15px !important;
+        font-size: 13px !important; /* Compact to fit INR symbols */
     }
     
     .kpi-subtext {
-        display: none !important; /* Hide subtext on mobile to save space */
+        display: none !important;
     }
     
-    /* Pipeline Stages (Vertical connector timeline) */
+    /* Pipeline */
     .pipeline-wrapper {
         flex-direction: column !important;
         align-items: stretch !important;
-        gap: 12px !important;
-        padding: 16px !important;
+        gap: 10px !important;
+        padding: 12px 14px !important;
     }
     
     .pipeline-step {
         width: 100% !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        padding-bottom: 8px;
-    }
-    
-    .pipeline-step:last-child {
-        border-bottom: none !important;
-        padding-bottom: 0 !important;
+        padding-bottom: 6px;
     }
     
     .pipeline-arrow {
-        display: none !important; /* Hide horizontal arrow indicators */
+        display: none !important;
     }
     
     /* Charts */
     .donut-charts-wrapper {
-        flex-direction: column;
-        height: auto;
+        flex-direction: column !important;
+        height: auto !important;
     }
     
     .donut-chart-box {
-        width: 100%;
-        height: 260px;
+        width: 100% !important;
+        height: 240px !important;
     }
     
     .chart-container {
-        padding: 16px !important;
+        padding: 12px !important;
     }
     
     .chart-canvas-wrapper {
-        height: 200px !important;
+        height: 180px !important;
     }
     
-    /* Table Filters Grid */
+    /* Filters */
     .filter-controls {
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
-        gap: 8px !important;
+        gap: 6px !important;
         width: 100% !important;
     }
     
     .search-input-wrapper {
         grid-column: span 2 !important;
-        width: 100% !important;
     }
     
     .search-input-wrapper input {
-        width: 100% !important;
-        max-width: none !important;
+        padding: 6px 12px 6px 30px !important;
+        font-size: 12px !important;
+    }
+    
+    .search-icon {
+        width: 14px !important;
+        height: 14px !important;
+        left: 10px !important;
+    }
+    
+    .filter-select {
+        font-size: 12px !important;
+        padding: 6px 24px 6px 10px !important;
     }
     
     #filter-month {
@@ -1041,23 +1073,21 @@ body {
     #clear-filters-btn {
         grid-column: span 2 !important;
         width: 100% !important;
-    }
-    
-    /* Pagination Controls */
-    .pagination-wrapper {
-        flex-direction: row !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        padding: 10px 12px !important;
-        gap: 8px !important;
-    }
-    
-    .pagination-btn {
-        padding: 6px 12px !important;
+        padding: 6px !important;
         font-size: 12px !important;
     }
     
-    .pagination-info {
+    /* Pagination */
+    .pagination-wrapper {
+        padding: 8px 10px !important;
+    }
+    
+    .pagination-btn {
+        padding: 5px 10px !important;
         font-size: 11px !important;
+    }
+    
+    .pagination-info {
+        font-size: 10px !important;
     }
 }
