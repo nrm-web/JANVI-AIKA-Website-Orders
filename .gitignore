@@ -1,0 +1,13 @@
+# Antigravity agentic files
+.agents/
+.gemini/
+
+# Python caches
+__pycache__/
+*.pyc
+
+# OS/IDE configs
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

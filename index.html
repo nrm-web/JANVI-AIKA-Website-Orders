@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JANVI AIKA Website Orders - Live Dashboard</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-mode">
+    <div class="app-container">
+        
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-title">
+                <h1>JANVI AIKA Website Orders</h1>
+                <p class="subtitle">Live Performance & Logistics Dashboard</p>
+            </div>
+            
+            <div class="header-controls">
+                <div class="header-filter-group">
+                    <span class="header-filter-label">Month:</span>
+                    <select id="top-filter-month" class="filter-select header-month-select">
+                        <option value="">All Months</option>
+                    </select>
+                </div>
+                
+                <div id="sync-status" class="sync-indicator loading">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Loading configuration...</span>
+                </div>
+                
+                <div class="url-config-container">
+                    <input type="password" id="api-url-input" placeholder="Paste Apps Script Web App URL here" class="url-input">
+                    <button id="save-url-btn" class="btn btn-primary">Save URL</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- KPI Cards Grid -->
+        <section class="kpi-grid">
+            <!-- Total Orders -->
+            <div class="kpi-card" id="card-orders">
+                <div class="kpi-icon-wrapper blue">
+                    <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4H6z"/>
+                        <path d="M3 6h18"/>
+                        <path d="M16 10a4 4 0 01-8 0"/>
+                    </svg>
+                </div>
+                <div class="kpi-content">
+                    <p class="kpi-label">Total Orders</p>
+                    <h3 class="kpi-value" id="kpi-total-orders">--</h3>
+                    <p class="kpi-subtext" id="kpi-total-orders-sub">Active Shopify Orders</p>
+                </div>
+                <div class="kpi-progress-bar blue">
+                    <div class="progress-fill" style="width: 100%;"></div>
+                </div>
+            </div>
+
+            <!-- Total Sales -->
+            <div class="kpi-card" id="card-revenue">
+                <div class="kpi-icon-wrapper green">
+                    <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 4h12M6 9h12M6 4c0 0 8 0 8 5s-8 5-8 5h4l6 7"/>
+                    </svg>
+                </div>
+                <div class="kpi-content">
+                    <p class="kpi-label">Total Revenue</p>
+                    <h3 class="kpi-value" id="kpi-total-revenue">--</h3>
+                    <p class="kpi-subtext" id="kpi-total-revenue-sub">From active orders</p>
+                </div>
+                <div class="kpi-progress-bar green">
+                    <div class="progress-fill" style="width: 100%;"></div>
+                </div>
+            </div>
+
+            <!-- Total Refunded -->
+            <div class="kpi-card" id="card-refunded">
+                <div class="kpi-icon-wrapper red">
+                    <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 12a9 9 0 109-9 9.75 9.75 0 00-6.74 2.74L3 8"/>
+                        <path d="M3 3v5h5"/>
+                        <path d="M12 7v5l4 2"/>
+                    </svg>
+                </div>
+                <div class="kpi-content">
+                    <p class="kpi-label">Total Refunded</p>
+                    <h3 class="kpi-value" id="kpi-total-refunded">--</h3>
+                    <p class="kpi-subtext" id="kpi-total-refunded-sub">From returned/RTO orders</p>
+                </div>
+                <div class="kpi-progress-bar red">
+                    <div class="progress-fill" style="width: 100%;"></div>
+                </div>
+            </div>
+
+            <!-- Total Profit -->
+            <div class="kpi-card" id="card-profit">
+                <div class="kpi-icon-wrapper green">
+                    <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                        <polyline points="17 6 23 6 23 12"/>
+                    </svg>
+                </div>
+                <div class="kpi-content">
+                    <p class="kpi-label">Total Profit</p>
+                    <h3 class="kpi-value" id="kpi-total-profit">--</h3>
+                    <p class="kpi-subtext" id="kpi-total-profit-sub">Revenue minus Refunded</p>
+                </div>
+                <div class="kpi-progress-bar green">
+                    <div class="progress-fill" style="width: 100%;"></div>
+                </div>
+            </div>
+
+            <!-- Return Rate -->
+            <div class="kpi-card" id="card-return">
+                <div class="kpi-icon-wrapper orange">
+                    <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="23 4 23 10 17 10"/>
+                        <polyline points="1 20 1 14 7 14"/>
+                        <path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/>
+                    </svg>
+                </div>
+                <div class="kpi-content">
+                    <p class="kpi-label">Return Rate</p>
+                    <h3 class="kpi-value" id="kpi-return-rate">--</h3>
+                    <p class="kpi-subtext" id="kpi-return-rate-sub">Shopify returned count</p>
+                </div>
+                <div class="kpi-progress-bar orange">
+                    <div class="progress-fill" id="kpi-return-progress" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <!-- COD Denial Rate -->
+            <div class="kpi-card" id="card-denial">
+                <div class="kpi-icon-wrapper red">
+                    <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="15" y1="9" x2="9" y2="15"/>
+                        <line x1="9" y1="9" x2="15" y2="15"/>
+                    </svg>
+                </div>
+                <div class="kpi-content">
+                    <p class="kpi-label">COD Denial Rate</p>
+                    <h3 class="kpi-value" id="kpi-denial-rate">--</h3>
+                    <p class="kpi-subtext" id="kpi-denial-rate-sub">Delivery denials / COD total</p>
+                </div>
+                <div class="kpi-progress-bar red">
+                    <div class="progress-fill" id="kpi-denial-progress" style="width: 0%;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fulfillment & Logistics Pipeline -->
+        <section class="dashboard-section pipeline-section">
+            <div class="section-header">
+                <h2>Fulfillment & Delivery Pipeline</h2>
+                <span class="badge">Live Logistics</span>
+            </div>
+            
+            <div class="pipeline-wrapper">
+                <!-- Step 1: Unfulfilled -->
+                <div class="pipeline-step" id="step-unfulfilled">
+                    <div class="step-icon">
+                        <span class="step-num">1</span>
+                    </div>
+                    <div class="step-details">
+                        <h4>Unfulfilled</h4>
+                        <div class="step-count">--</div>
+                        <p>Processing in Shopify</p>
+                    </div>
+                </div>
+                
+                <div class="pipeline-arrow"></div>
+
+                <!-- Step 2: Returned / RTO -->
+                <div class="pipeline-step" id="step-returned">
+                    <div class="step-icon">
+                        <span class="step-num">2</span>
+                    </div>
+                    <div class="step-details">
+                        <h4>Returned / RTO</h4>
+                        <div class="step-count">--</div>
+                        <p>Returns & Denials</p>
+                    </div>
+                </div>
+
+                <div class="pipeline-arrow"></div>
+
+                <!-- Step 3: Pickup Scheduled -->
+                <div class="pipeline-step" id="step-pickup">
+                    <div class="step-icon">
+                        <span class="step-num">3</span>
+                    </div>
+                    <div class="step-details">
+                        <h4>Pickup Scheduled</h4>
+                        <div class="step-count">--</div>
+                        <p>Fulfillment initiated</p>
+                    </div>
+                </div>
+
+                <div class="pipeline-arrow"></div>
+
+                <!-- Step 4: In Transit -->
+                <div class="pipeline-step" id="step-transit">
+                    <div class="step-icon">
+                        <span class="step-num">4</span>
+                    </div>
+                    <div class="step-details">
+                        <h4>In Transit</h4>
+                        <div class="step-count">--</div>
+                        <p>Out for delivery / shipped</p>
+                    </div>
+                </div>
+
+                <div class="pipeline-arrow"></div>
+
+                <!-- Step 5: Delivered -->
+                <div class="pipeline-step" id="step-delivered">
+                    <div class="step-icon">
+                        <span class="step-num">5</span>
+                    </div>
+                    <div class="step-details">
+                        <h4>Delivered</h4>
+                        <div class="step-count">--</div>
+                        <p>Fulfillment completed</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="charts-row">
+            <!-- Sales & Orders Chart -->
+            <div class="chart-container grid-2-3">
+                <div class="section-header">
+                    <h2>Monthly Sales & Volume Trends</h2>
+                </div>
+                <div class="chart-canvas-wrapper">
+                    <canvas id="salesTrendChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Breakdowns Grid -->
+            <div class="chart-container grid-1-3">
+                <div class="section-header">
+                    <h2>Financial & Delivery Statuses</h2>
+                </div>
+                <div class="donut-charts-wrapper">
+                    <div class="donut-chart-box">
+                        <h5>Shopify Finance</h5>
+                        <div class="donut-canvas-wrapper">
+                            <canvas id="financeChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="donut-chart-box">
+                        <h5>Shiprocket Delivery</h5>
+                        <div class="donut-canvas-wrapper">
+                            <canvas id="deliveryChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search, Filters, and Orders List -->
+        <section class="dashboard-section orders-section">
+            <div class="section-header flex-header">
+                <div class="section-title-group">
+                    <h2>Active Orders Master Table</h2>
+                    <p class="section-subtitle" id="table-record-count">Showing -- active orders</p>
+                </div>
+                
+                <!-- Filters Controls -->
+                <div class="filter-controls">
+                    <div class="search-input-wrapper">
+                        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                        </svg>
+                        <input type="text" id="search-input" placeholder="Search Order No, Name, City...">
+                    </div>
+                    
+                    <select id="filter-month" class="filter-select">
+                        <option value="">All Months</option>
+                    </select>
+
+                    <select id="filter-payment" class="filter-select">
+                        <option value="">All Payments</option>
+                        <option value="Prepaid">Prepaid</option>
+                        <option value="COD">COD</option>
+                    </select>
+
+                    <select id="filter-status" class="filter-select">
+                        <option value="">All Logistics Statuses</option>
+                    </select>
+                    
+                    <button id="clear-filters-btn" class="btn btn-secondary">Clear</button>
+                </div>
+            </div>
+
+            <!-- Table -->
+            <div class="table-scroll-wrapper">
+                <table class="orders-table" id="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Order No</th>
+                            <th>Date</th>
+                            <th>Customer Name</th>
+                            <th>Items Ordered</th>
+                            <th>City</th>
+                            <th>Payment</th>
+                            <th>Total Price</th>
+                            <th>Shopify Finance</th>
+                            <th>Fulfillment</th>
+                            <th>Logistics Status</th>
+                            <th>Comments</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orders-tbody">
+                        <tr>
+                            <td colspan="11" class="empty-state">Loading data from Google Sheet...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Table Pagination -->
+            <div class="pagination-wrapper" id="pagination-wrapper">
+                <button class="pagination-btn" id="prev-page-btn" disabled>&larr; Previous</button>
+                <span class="pagination-info" id="pagination-info">Page 1 of 1</span>
+                <button class="pagination-btn" id="next-page-btn" disabled>Next &rarr;</button>
+            </div>
+        </section>
+
+        <!-- Order Detail Modal -->
+        <div id="order-modal" class="modal">
+            <div class="modal-content glassmorphism">
+                <div class="modal-header">
+                    <h3 id="modal-order-title">Order #1001</h3>
+                    <span class="close-btn" id="modal-close-btn">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <!-- Flex Grid -->
+                    <div class="detail-grid">
+                        <div class="detail-column">
+                            <h3>Shopify Core Details</h3>
+                            <hr>
+                            <div class="detail-item"><span class="detail-label">Customer Name:</span> <span class="detail-val" id="det-name">--</span></div>
+                            <div class="detail-item"><span class="detail-label">Order Date:</span> <span class="detail-val" id="det-date">--</span></div>
+                            <div class="detail-item"><span class="detail-label">Payment Method:</span> <span class="detail-val" id="det-pay-method">--</span></div>
+                            <div class="detail-item"><span class="detail-label">Prepaid Check:</span> <span class="detail-val" id="det-prepaid">--</span></div>
+                            <div class="detail-item"><span class="detail-label">COD Check:</span> <span class="detail-val" id="det-cod">--</span></div>
+                            <div class="detail-item"><span class="detail-label">Total Price:</span> <span class="detail-val" id="det-price">--</span></div>
+                            <div class="detail-item"><span class="detail-label">City:</span> <span class="detail-val" id="det-city">--</span></div>
+                            <div class="detail-item"><span class="detail-label">PIN Code:</span> <span class="detail-val" id="det-pin">--</span></div>
+                        </div>
+                        <div class="detail-column">
+                            <h3>Fulfillment & Status Updates</h3>
+                            <hr>
+                            <div class="detail-item"><span class="detail-label">Financial Status:</span> <span class="detail-val" id="det-financial">--</span></div>
+                            <div class="detail-item"><span class="detail-label">Fulfillment Status:</span> <span class="detail-val" id="det-fulfillment">--</span></div>
+                            <div class="detail-item"><span class="detail-label">Logistics Status:</span> <span class="detail-val" id="det-logistics">--</span></div>
+                            <div class="detail-item"><span class="detail-label">Returned (Shopify):</span> <span class="detail-val" id="det-returned">--</span></div>
+                            <div class="detail-item"><span class="detail-label">COD Denies Check:</span> <span class="detail-val" id="det-cod-denial">--</span></div>
+                            <div class="detail-item"><span class="detail-label">Feedback Sent:</span> <span class="detail-val" id="det-feedback-sent">--</span></div>
+                            <div class="detail-item"><span class="detail-label">Feedback Received:</span> <span class="detail-val" id="det-feedback-received">--</span></div>
+                        </div>
+                    </div>
+                    <div class="items-ordered-box">
+                        <h3>Items Ordered</h3>
+                        <hr>
+                        <p id="det-items" class="items-text">--</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script -->
+    <script src="data.js"></script>
+    <script src="config.js"></script>
+    <script src="app.js?v=2.7"></script>
+</body>
+</html>
