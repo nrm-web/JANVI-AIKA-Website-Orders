@@ -763,10 +763,10 @@ function applyFilters() {
         const matchesMonth = !month || getMonthYearStr(o.dateOfOrder) === month;
         
         // Payment dropdown
-        const matchesPayment = !pay || o.paymentMethod === pay;
+        const matchesPayment = !pay || o.paymentMethod.toLowerCase().includes(pay.toLowerCase());
         
         // Logistics Status dropdown
-        const matchesStatus = !status || o.logisticsStatus === status;
+        const matchesStatus = !status || o.logisticsStatus.toLowerCase().trim() === status.toLowerCase().trim();
         
         return matchesQuery && matchesMonth && matchesPayment && matchesStatus;
     });
