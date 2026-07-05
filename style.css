@@ -838,8 +838,26 @@ body {
     width: auto !important;
 }
 
-/* Mobile Responsiveness for Filters */
+/* Mobile Responsiveness for Filters and Header */
 @media (max-width: 768px) {
+    .app-header {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 16px;
+        padding: 16px;
+    }
+    
+    .header-controls {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        gap: 12px;
+    }
+    
+    .header-filter-group {
+        margin-right: 0 !important;
+    }
+
     .filter-controls {
         width: 100%;
         display: grid;
@@ -868,5 +886,40 @@ body {
     
     .flex-header {
         align-items: stretch !important;
+    }
+}
+
+/* Extra Mobile Optimizations for Phones */
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+    
+    .donut-charts-wrapper {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .donut-chart-box {
+        width: 100%;
+        height: 260px;
+    }
+    
+    .header-title h1 {
+        font-size: 20px;
+    }
+    
+    .header-title .subtitle {
+        font-size: 12px;
+    }
+    
+    .header-controls {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .header-filter-group {
+        justify-content: space-between;
     }
 }
