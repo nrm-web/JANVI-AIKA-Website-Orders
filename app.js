@@ -463,6 +463,10 @@ const donutLabelsLinePlugin = {
     id: 'donutLabelsLine',
     afterDraw(chart) {
         const { ctx } = chart;
+        const style = getComputedStyle(document.body);
+        const lineStroke = style.getPropertyValue('--text-muted').trim() || 'rgba(128, 128, 128, 0.4)';
+        const labelColor = style.getPropertyValue('--text-secondary').trim() || '#475569';
+        
         chart.data.datasets.forEach((dataset, i) => {
             const meta = chart.getDatasetMeta(i);
             if (!meta.hidden && chart.config.type === 'doughnut') {
@@ -526,13 +530,13 @@ const donutLabelsLinePlugin = {
                     const tickX = labelX + (isLeft ? -tickLength : tickLength);
                     ctx.lineTo(tickX, labelY);
                     
-                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
-                    ctx.lineWidth = 1.2;
+                    ctx.strokeStyle = lineStroke;
+                    ctx.lineWidth = 1.5;
                     ctx.stroke();
                     
                     // Draw text label next to the tick
-                    ctx.fillStyle = '#94a3b8';
-                    ctx.font = 'bold 10px Outfit';
+                    ctx.fillStyle = labelColor;
+                    ctx.font = '600 10px Inter';
                     ctx.textBaseline = 'middle';
                     ctx.textAlign = isLeft ? 'right' : 'left';
                     
