@@ -165,12 +165,20 @@ function setupEventListeners() {
     });
 
     elements.searchInput.addEventListener('input', applyFilters);
-    elements.topFilterDate.addEventListener('input', applyFilters);
+    elements.topFilterDate.addEventListener('input', () => {
+        if (elements.topFilterDate.value) {
+            elements.topFilterMonth.value = '';
+            elements.filterMonth.value = '';
+        }
+        applyFilters();
+    });
     elements.topFilterMonth.addEventListener('change', () => {
+        elements.topFilterDate.value = '';
         elements.filterMonth.value = elements.topFilterMonth.value;
         applyFilters();
     });
     elements.filterMonth.addEventListener('change', () => {
+        elements.topFilterDate.value = '';
         elements.topFilterMonth.value = elements.filterMonth.value;
         applyFilters();
     });
