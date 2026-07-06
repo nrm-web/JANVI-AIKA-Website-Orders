@@ -5,6 +5,7 @@ from openpyxl.utils import get_column_letter
 import os
 import datetime
 import re
+import json
 
 def process_and_create_excel():
     # File paths for imported files
@@ -267,6 +268,44 @@ def process_and_create_excel():
     
     print(f"Orders in final operational date range (June 2026 - March 2027): {len(df_consolidated)}")
     
+    # ----------------------------------------------------
+    # SECTION 3.5: WRITE OFFLINE DATA.JS FOR THE BROWSER APP
+    # ----------------------------------------------------
+    try:
+        master_cols = [
+            "Order No", "Customer Name", "Items Ordered", "Date of Order", "Total Price",
+            "Payment Method", "Prepaid (Yes/No)", "COD (Yes/No)", "Returned (True/False)",
+            "COD Denies (Yes/No)", "Shiprocket Comments", "City", "PIN Code", "Fulfillment Status",
+            "Feedback Link Sent (Yes/No)", "Feedback Received (Yes/No)", "AWB Code", "Tracking Link"
+        ]
+        
+        # We format Date of Order as YYYY-MM-DD
+        df_master = df_consolidated.copy()
+        df_master['Date of Order'] = pd.to_datetime(df_master['Date of Order']).dt.strftime('%Y-%m-%d')
+        
+        # Filter to columns
+        df_master = df_master[master_cols]
+        
+        # Convert to list of lists (grid) including headers
+        grid = [master_cols]
+        for _, row in df_master.iterrows():
+            grid.append(list(row))
+            
+        payload = {
+            "sheets": {
+                "Master Sheet": grid
+            }
+        }
+        
+        # Write to data.js
+        with open("data.js", "w", encoding="utf-8") as f:
+            f.write("window.DASHBOARD_DATA = ")
+            json.dump(payload, f, default=str)
+            f.write(";\n")
+        print("Successfully generated/updated local offline data: data.js")
+    except Exception as e:
+        print(f"Warning: Could not write data.js: {e}")
+
     # ----------------------------------------------------
     # SECTION 4: AGGREGATE DAILY SUMMARY
     # ----------------------------------------------------
@@ -827,45 +866,7 @@ def process_and_create_excel():
         print("* Previous sheet did not exist. This is a clean initialization.")
         print(f"* All {len(added_orders)} orders were successfully written as new.")
     print("="*60 + "\n")
-    
-    # ----------------------------------------------------
-    # SECTION 9: WRITE OFFLINE DATA.JS FOR THE BROWSER APP
-    # ----------------------------------------------------
-    try:
-        import json
-        master_cols = [
-            "Order No", "Customer Name", "Items Ordered", "Date of Order", "Total Price",
-            "Payment Method", "Prepaid (Yes/No)", "COD (Yes/No)", "Returned (True/False)",
-            "COD Denies (Yes/No)", "Shiprocket Comments", "City", "PIN Code", "Fulfillment Status",
-            "Feedback Link Sent (Yes/No)", "Feedback Received (Yes/No)"
-        ]
-        
-        # We format Date of Order as YYYY-MM-DD
-        df_master = df_consolidated.copy()
-        df_master['Date of Order'] = pd.to_datetime(df_master['Date of Order']).dt.strftime('%Y-%m-%d')
-        
-        # Filter to columns
-        df_master = df_master[master_cols]
-        
-        # Convert to list of lists (grid) including headers
-        grid = [master_cols]
-        for _, row in df_master.iterrows():
-            grid.append(list(row))
-            
-        payload = {
-            "sheets": {
-                "Master Sheet": grid
-            }
-        }
-        
-        # Write to data.js
-        with open("data.js", "w", encoding="utf-8") as f:
-            f.write("window.DASHBOARD_DATA = ")
-            json.dump(payload, f, default=str)
-            f.write(";\n")
-        print("Successfully generated/updated local offline data: data.js")
-    except Exception as e:
-        print(f"Warning: Could not write data.js: {e}")
+
 
 if __name__ == "__main__":
     process_and_create_excel()
