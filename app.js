@@ -61,6 +61,10 @@ const elements = {
 
 // Initial Setup
 window.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.body.classList.add(savedTheme + '-mode');
+    document.body.classList.remove(savedTheme === 'dark' ? 'light-mode' : 'dark-mode');
+    
     loadConfiguration();
     setupEventListeners();
 });
@@ -122,6 +126,23 @@ async function loadConfiguration() {
 
 // Setup listeners
 function setupEventListeners() {
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const isDark = document.body.classList.contains('dark-mode');
+            if (isDark) {
+                document.body.classList.remove('dark-mode');
+                document.body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.body.classList.remove('light-mode');
+                document.body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            }
+            updateChartsTheme();
+        });
+    }
+
     elements.saveUrlBtn.addEventListener('click', () => {
         const url = elements.apiUrlInput.value.trim();
         if (url) {
@@ -538,6 +559,13 @@ function renderCharts() {
     if (state.charts.finance) state.charts.finance.destroy();
     if (state.charts.delivery) state.charts.delivery.destroy();
     
+    // Read theme colors dynamically from computed styles (CSS variables)
+    const style = getComputedStyle(document.body);
+    const textSecondary = style.getPropertyValue('--text-secondary').trim() || '#94a3b8';
+    const borderChart = style.getPropertyValue('--border-chart').trim() || '#111625';
+    const gridColor = style.getPropertyValue('--grid-color').trim() || 'rgba(255,255,255,0.03)';
+    const brandColor = style.getPropertyValue('--color-brand').trim() || '#3b82f6';
+    
     // --- Chart 1: Sales Trend (Combo Bar/Line) ---
     // Group orders chronologically
     const chronMonths = [
@@ -575,9 +603,9 @@ function renderCharts() {
                     label: 'Order Count',
                     data: monthlyCounts,
                     type: 'line',
-                    borderColor: '#3b82f6',
+                    borderColor: brandColor,
                     borderWidth: 3,
-                    pointBackgroundColor: '#3b82f6',
+                    pointBackgroundColor: brandColor,
                     pointRadius: 4,
                     fill: false,
                     tension: 0.3,
@@ -589,21 +617,21 @@ function renderCharts() {
             responsive: true,
             maintainAspectRatio: false,
             plugins: {
-                legend: { labels: { color: '#94a3b8', font: { family: 'Outfit' } } }
+                legend: { labels: { color: textSecondary, font: { family: 'Inter' } } }
             },
             scales: {
-                x: { grid: { color: 'rgba(255,255,255,0.03)' }, ticks: { color: '#94a3b8' } },
+                x: { grid: { color: gridColor }, ticks: { color: textSecondary, font: { family: 'Inter' } } },
                 yRevenue: {
                     type: 'linear',
                     position: 'left',
-                    grid: { color: 'rgba(255,255,255,0.03)' },
-                    ticks: { color: '#10b981', callback: val => '₹' + val.toLocaleString() }
+                    grid: { color: gridColor },
+                    ticks: { color: '#10b981', font: { family: 'Inter' }, callback: val => '₹' + val.toLocaleString() }
                 },
                 yCount: {
                     type: 'linear',
                     position: 'right',
                     grid: { drawOnChartArea: false },
-                    ticks: { color: '#3b82f6', stepSize: 5 }
+                    ticks: { color: brandColor, font: { family: 'Inter' }, stepSize: 5 }
                 }
             }
         }
@@ -626,7 +654,7 @@ function renderCharts() {
             datasets: [{
                 data: [financeCounts.paid, financeCounts.pending, financeCounts.refunded],
                 backgroundColor: ['#10b981', '#f97316', '#ef4444'],
-                borderColor: '#111625',
+                borderColor: borderChart,
                 borderWidth: 2,
                 radius: '70%'
             }]
@@ -639,7 +667,7 @@ function renderCharts() {
                 padding: 20
             },
             plugins: {
-                legend: { position: 'bottom', labels: { color: '#94a3b8', boxWidth: 12 } }
+                legend: { position: 'bottom', labels: { color: textSecondary, boxWidth: 12, font: { family: 'Inter' } } }
             },
             cutout: '65%'
         }
@@ -668,7 +696,7 @@ function renderCharts() {
             datasets: [{
                 data: [deliveryCounts.delivered, deliveryCounts.transit, deliveryCounts.rto, deliveryCounts.canceled],
                 backgroundColor: ['#10b981', '#3b82f6', '#f97316', '#ef4444'],
-                borderColor: '#111625',
+                borderColor: borderChart,
                 borderWidth: 2,
                 radius: '70%'
             }]
@@ -681,11 +709,45 @@ function renderCharts() {
                 padding: 20
             },
             plugins: {
-                legend: { position: 'bottom', labels: { color: '#94a3b8', boxWidth: 12 } }
+                legend: { position: 'bottom', labels: { color: textSecondary, boxWidth: 12, font: { family: 'Inter' } } }
             },
             cutout: '65%'
         }
     });
+}
+
+// Update existing charts color theme without full destroy/recreate
+function updateChartsTheme() {
+    if (!state.charts.salesTrend && !state.charts.finance && !state.charts.delivery) return;
+
+    const style = getComputedStyle(document.body);
+    const textSecondary = style.getPropertyValue('--text-secondary').trim() || '#94a3b8';
+    const borderChart = style.getPropertyValue('--border-chart').trim() || '#111625';
+    const gridColor = style.getPropertyValue('--grid-color').trim() || 'rgba(255,255,255,0.03)';
+    const brandColor = style.getPropertyValue('--color-brand').trim() || '#3b82f6';
+
+    if (state.charts.salesTrend) {
+        state.charts.salesTrend.data.datasets[1].borderColor = brandColor;
+        state.charts.salesTrend.data.datasets[1].pointBackgroundColor = brandColor;
+        state.charts.salesTrend.options.plugins.legend.labels.color = textSecondary;
+        state.charts.salesTrend.options.scales.x.grid.color = gridColor;
+        state.charts.salesTrend.options.scales.x.ticks.color = textSecondary;
+        state.charts.salesTrend.options.scales.yRevenue.grid.color = gridColor;
+        state.charts.salesTrend.options.scales.yCount.ticks.color = brandColor;
+        state.charts.salesTrend.update();
+    }
+
+    if (state.charts.finance) {
+        state.charts.finance.data.datasets[0].borderColor = borderChart;
+        state.charts.finance.options.plugins.legend.labels.color = textSecondary;
+        state.charts.finance.update();
+    }
+
+    if (state.charts.delivery) {
+        state.charts.delivery.data.datasets[0].borderColor = borderChart;
+        state.charts.delivery.options.plugins.legend.labels.color = textSecondary;
+        state.charts.delivery.update();
+    }
 }
 
 // Render Table matching current filter sets
