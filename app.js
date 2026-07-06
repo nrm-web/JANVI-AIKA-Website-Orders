@@ -464,6 +464,81 @@ function renderDashboard() {
 }
 
 
+// Donut chart outer-label plugin: percentage on left/right, sorted & evenly spaced
+const donutLabelsLinePlugin = {
+    id: 'donutLabelsLine',
+    afterDraw(chart) {
+        if (chart.config.type !== 'doughnut') return;
+        const { ctx } = chart;
+        const cssStyle = getComputedStyle(document.body);
+        const lineColor  = cssStyle.getPropertyValue('--text-muted').trim()  || 'rgba(128,128,128,0.6)';
+        const textColor  = cssStyle.getPropertyValue('--text-primary').trim() || '#1e293b';
+
+        chart.data.datasets.forEach((dataset, i) => {
+            const meta = chart.getDatasetMeta(i);
+            if (meta.hidden) return;
+            const sum = dataset.data.reduce((a, b) => a + b, 0);
+            if (!sum) return;
+
+            // Build entries for non-zero slices
+            const entries = [];
+            meta.data.forEach((el, idx) => {
+                const val = dataset.data[idx];
+                if (!val) return;
+                const { x, y, outerRadius, startAngle, endAngle } = el;
+                const mid   = startAngle + (endAngle - startAngle) / 2;
+                const cosM  = Math.cos(mid);
+                const sinM  = Math.sin(mid);
+                const pct   = (val * 100 / sum).toFixed(1) + '%';
+                entries.push({ x, y, outerRadius, mid, cosM, sinM, isLeft: cosM < 0, pct, natY: y + sinM * outerRadius });
+            });
+
+            // Split left / right, sort each group top → bottom by natural Y
+            const left  = entries.filter(e =>  e.isLeft).sort((a, b) => a.natY - b.natY);
+            const right = entries.filter(e => !e.isLeft).sort((a, b) => a.natY - b.natY);
+
+            const EXT  = 16;  // px beyond ring to elbow
+            const TICK = 8;   // horizontal tick length
+            const ROW  = 16;  // min row height
+
+            const draw = (group, side) => {
+                const n = group.length;
+                if (!n) return;
+                const cY    = group[0].y;
+                const span  = (n - 1) * ROW;
+                const top   = Math.max(8, Math.min(chart.height - 8 - span, cY - span / 2));
+
+                group.forEach((e, j) => {
+                    const rowY  = top + j * ROW;
+                    const edgeX = e.x + e.cosM * e.outerRadius;
+                    const edgeY = e.y + e.sinM * e.outerRadius;
+                    const elbX  = e.x + e.cosM * (e.outerRadius + EXT);
+                    const tikX  = elbX + (side === 'left' ? -TICK : TICK);
+
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.moveTo(edgeX, edgeY);
+                    ctx.lineTo(elbX,  rowY);
+                    ctx.lineTo(tikX,  rowY);
+                    ctx.strokeStyle = lineColor;
+                    ctx.lineWidth   = 1;
+                    ctx.stroke();
+
+                    ctx.fillStyle    = textColor;
+                    ctx.font         = 'bold 10px Inter, sans-serif';
+                    ctx.textBaseline = 'middle';
+                    ctx.textAlign    = side === 'left' ? 'right' : 'left';
+                    ctx.fillText(e.pct, tikX + (side === 'left' ? -3 : 3), rowY);
+                    ctx.restore();
+                });
+            };
+
+            draw(left,  'left');
+            draw(right, 'right');
+        });
+    }
+};
+
 // Generate sales trend and donut breakdown charts
 function renderCharts() {
     // Destroy previous chart instances if they exist
@@ -570,9 +645,11 @@ function renderCharts() {
                 borderWidth: 2
             }]
         },
+        plugins: [donutLabelsLinePlugin],
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            layout: { padding: { left: 42, right: 42, top: 12, bottom: 12 } },
             plugins: {
                 legend: { position: 'bottom', labels: { color: textSecondary, boxWidth: 12, font: { family: 'Inter' } } }
             },
@@ -607,9 +684,11 @@ function renderCharts() {
                 borderWidth: 2
             }]
         },
+        plugins: [donutLabelsLinePlugin],
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            layout: { padding: { left: 42, right: 42, top: 12, bottom: 12 } },
             plugins: {
                 legend: { position: 'bottom', labels: { color: textSecondary, boxWidth: 12, font: { family: 'Inter' } } }
             },
