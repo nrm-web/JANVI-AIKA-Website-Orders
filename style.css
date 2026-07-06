@@ -669,7 +669,7 @@ body.dark-mode .moon-icon { display: none; }
 .donut-charts-wrapper {
     display: flex;
     gap: var(--space-4);
-    height: 330px;
+    height: 350px;
 }
 
 .donut-chart-box {
@@ -1184,7 +1184,7 @@ body.dark-mode .filter-select {
     }
     .donut-chart-box {
         width: 100% !important;
-        height: 320px !important;
+        height: 340px !important;
     }
     .app-header {
         flex-direction: column;
@@ -1381,7 +1381,7 @@ body.dark-mode .filter-select {
     
     .donut-chart-box {
         width: 100% !important;
-        height: 320px !important;
+        height: 340px !important;
     }
     
     .chart-container {

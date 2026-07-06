@@ -482,8 +482,8 @@ const donutLabelsLinePlugin = {
             if (!sum) return;
 
             const labels  = chart.data.labels || [];
-            const RADEXT  = 26;   // px beyond ring for the angled segment
-            const TICK    = 10;   // px for horizontal tick
+            const RADEXT  = 18;   // px beyond ring for the angled segment
+            const TICK    = 8;    // px for horizontal tick
             const GAP     = 4;    // px between tick end and text
             const MINGAP  = 15;   // min px between adjacent label Y positions
 
@@ -684,7 +684,7 @@ function renderCharts() {
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            layout: { padding: { left: 52, right: 52, top: 18, bottom: 18 } },
+            layout: { padding: { left: 75, right: 75, top: 35, bottom: 20 } },
             plugins: {
                 legend: { position: 'bottom', labels: { color: textSecondary, boxWidth: 12, font: { family: 'Inter' } } }
             },
@@ -723,7 +723,7 @@ function renderCharts() {
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            layout: { padding: { left: 52, right: 52, top: 18, bottom: 18 } },
+            layout: { padding: { left: 75, right: 75, top: 35, bottom: 20 } },
             plugins: {
                 legend: { position: 'bottom', labels: { color: textSecondary, boxWidth: 12, font: { family: 'Inter' } } }
             },
