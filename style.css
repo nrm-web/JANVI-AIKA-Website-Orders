@@ -590,9 +590,17 @@ body.dark-mode .moon-icon { display: none; }
 }
 
 .step-details .step-count {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--color-brand);
+    margin: var(--space-1) 0;
+    line-height: 1;
+}
+
+.step-details p {
     font-size: 11px;
     color: var(--text-muted);
-    margin-top: 2px;
+    line-height: 1.2;
 }
 
 .pipeline-arrow {
