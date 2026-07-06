@@ -464,101 +464,103 @@ function renderDashboard() {
 }
 
 // Custom Chart.js Plugin to draw leader lines and percentages outside doughnut charts
+// Uses two-column layout: labels pre-sorted and evenly distributed on left/right sides
 const donutLabelsLinePlugin = {
     id: 'donutLabelsLine',
     afterDraw(chart) {
+        if (chart.config.type !== 'doughnut') return;
+
         const { ctx } = chart;
         const style = getComputedStyle(document.body);
-        const lineStroke = style.getPropertyValue('--text-muted').trim() || 'rgba(128, 128, 128, 0.4)';
+        const lineStroke = style.getPropertyValue('--text-muted').trim() || 'rgba(128,128,128,0.5)';
         const labelColor = style.getPropertyValue('--text-secondary').trim() || '#475569';
-        
+
         chart.data.datasets.forEach((dataset, i) => {
             const meta = chart.getDatasetMeta(i);
-            if (!meta.hidden && chart.config.type === 'doughnut') {
-                // Keep track of drawn Y positions to prevent overlaps
-                const drawnYLeft = [];
-                const drawnYRight = [];
-                
-                meta.data.forEach((element, index) => {
-                    const { x, y, outerRadius, startAngle, endAngle } = element;
-                    const value = dataset.data[index];
-                    if (!value || value === 0) return; // Skip zero/undefined values
-                    
-                    // Centroid angle of the slice
-                    const midAngle = startAngle + (endAngle - startAngle) / 2;
-                    
-                    // Coordinates of the slice edge
+            if (meta.hidden) return;
+
+            const sum = dataset.data.reduce((a, b) => a + b, 0);
+            if (!sum) return;
+
+            // Build all label entries
+            const entries = [];
+            meta.data.forEach((element, index) => {
+                const value = dataset.data[index];
+                if (!value || value === 0) return;
+                const { x, y, outerRadius, startAngle, endAngle } = element;
+                const midAngle = startAngle + (endAngle - startAngle) / 2;
+                const isLeft = Math.cos(midAngle) < 0;
+                const percentage = (value * 100 / sum).toFixed(1) + '%';
+                const text = `${percentage} (${value})`;
+                entries.push({ x, y, outerRadius, midAngle, isLeft, text, value });
+            });
+
+            // Split into left/right groups sorted by their natural Y position
+            const leftGroup  = entries.filter(e => e.isLeft).sort((a, b) => {
+                const ya = a.y + Math.sin(a.midAngle) * a.outerRadius;
+                const yb = b.y + Math.sin(b.midAngle) * b.outerRadius;
+                return ya - yb;
+            });
+            const rightGroup = entries.filter(e => !e.isLeft).sort((a, b) => {
+                const ya = a.y + Math.sin(a.midAngle) * a.outerRadius;
+                const yb = b.y + Math.sin(b.midAngle) * b.outerRadius;
+                return ya - yb;
+            });
+
+            // Evenly distribute each group vertically within the canvas
+            const lineLength = 22;
+            const tickLength = 10;
+            const rowHeight  = 18; // minimum gap between rows
+
+            const distributeGroup = (group, side) => {
+                const n = group.length;
+                if (n === 0) return;
+
+                // Calculate the spread of Y positions needed
+                const totalHeight = (n - 1) * rowHeight;
+                const chartCenterY = group[0].y; // all elements share chart centre Y
+                const startY = Math.max(14, chartCenterY - totalHeight / 2);
+
+                group.forEach((entry, idx) => {
+                    const { x, y, outerRadius, midAngle, text } = entry;
+                    const rowY = startY + idx * rowHeight;
+
+                    // Edge of the slice
                     const edgeX = x + Math.cos(midAngle) * outerRadius;
                     const edgeY = y + Math.sin(midAngle) * outerRadius;
-                    
-                    // Coordinates of the label start (external point)
-                    const lineLength = 15; // Length of the pointer line
-                    const labelX = x + Math.cos(midAngle) * (outerRadius + lineLength);
-                    let labelY = y + Math.sin(midAngle) * (outerRadius + lineLength);
-                    
-                    // Boundary check: initial clamp
-                    labelY = Math.max(15, Math.min(chart.height - 15, labelY));
-                    
-                    const isLeft = Math.cos(midAngle) < 0;
-                    const drawnYArray = isLeft ? drawnYLeft : drawnYRight;
-                    
-                    // Collision detection: adjust Y if too close to another label on the same side
-                    const minDistance = 16; // Increased to 16 for better line height / readability
-                    let attempts = 0;
-                    let hasCollision = true;
-                    
-                    while (hasCollision && attempts < 20) {
-                        hasCollision = false;
-                        for (let j = 0; j < drawnYArray.length; j++) {
-                            if (Math.abs(drawnYArray[j] - labelY) < minDistance) {
-                                hasCollision = true;
-                                // If near the top half, push down; if near bottom half, push up
-                                const isTopHalf = labelY < chart.height / 2;
-                                labelY += isTopHalf ? minDistance : -minDistance;
-                                
-                                // Re-clamp inside canvas
-                                labelY = Math.max(15, Math.min(chart.height - 15, labelY));
-                                break;
-                            }
-                        }
-                        attempts++;
-                    }
-                    
-                    drawnYArray.push(labelY);
-                    
-                    // Draw the pointer line
+
+                    // Elbow point: directly out from slice edge
+                    const elbowX = x + Math.cos(midAngle) * (outerRadius + lineLength);
+                    const elbowY = edgeY; // keeps elbow on the same horizontal as edge
+
+                    // End point of horizontal tick
+                    const tickX = elbowX + (side === 'left' ? -tickLength : tickLength);
+
                     ctx.save();
+
+                    // Draw angled line from slice edge → elbow → rowY → tick end
                     ctx.beginPath();
                     ctx.moveTo(edgeX, edgeY);
-                    ctx.lineTo(labelX, labelY);
-                    
-                    // Draw horizontal tick line
-                    const tickLength = 8;
-                    const tickX = labelX + (isLeft ? -tickLength : tickLength);
-                    ctx.lineTo(tickX, labelY);
-                    
+                    ctx.lineTo(elbowX, rowY);
+                    ctx.lineTo(tickX, rowY);
                     ctx.strokeStyle = lineStroke;
-                    ctx.lineWidth = 1.5;
+                    ctx.lineWidth = 1.2;
                     ctx.stroke();
-                    
-                    // Draw text label next to the tick
+
+                    // Draw text
                     ctx.fillStyle = labelColor;
                     ctx.font = '600 10px Inter';
                     ctx.textBaseline = 'middle';
-                    ctx.textAlign = isLeft ? 'right' : 'left';
-                    
-                    // Calculate percentage
-                    let sum = dataset.data.reduce((a, b) => a + b, 0);
-                    let percentage = sum > 0 ? (value * 100 / sum).toFixed(1) + "%" : "0%";
-                    
-                    // Label text: percentage (value)
-                    const labelText = `${percentage} (${value})`;
-                    
-                    const textX = tickX + (isLeft ? -4 : 4);
-                    ctx.fillText(labelText, textX, labelY);
+                    ctx.textAlign = side === 'left' ? 'right' : 'left';
+                    const textX = tickX + (side === 'left' ? -4 : 4);
+                    ctx.fillText(text, textX, rowY);
+
                     ctx.restore();
                 });
-            }
+            };
+
+            distributeGroup(leftGroup,  'left');
+            distributeGroup(rightGroup, 'right');
         });
     }
 };
