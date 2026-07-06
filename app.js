@@ -51,6 +51,7 @@ const elements = {
     filterPayment: document.getElementById('filter-payment'),
     filterStatus: document.getElementById('filter-status'),
     clearFiltersBtn: document.getElementById('clear-filters-btn'),
+    headerClearBtn: document.getElementById('header-clear-btn'),
     ordersTbody: document.getElementById('orders-tbody'),
     tableCount: document.getElementById('table-record-count'),
     prevPageBtn: document.getElementById('prev-page-btn'),
@@ -185,6 +186,12 @@ function setupEventListeners() {
     elements.filterPayment.addEventListener('change', applyFilters);
     elements.filterStatus.addEventListener('change', applyFilters);
     elements.clearFiltersBtn.addEventListener('click', clearFilters);
+    elements.headerClearBtn.addEventListener('click', () => {
+        elements.topFilterMonth.value = '';
+        elements.filterMonth.value = '';
+        elements.topFilterDate.value = '';
+        applyFilters();
+    });
     
     // Pagination event listeners
     elements.prevPageBtn.addEventListener('click', () => {

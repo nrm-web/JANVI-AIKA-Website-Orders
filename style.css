@@ -343,6 +343,29 @@ body.dark-mode .header-month-select {
     height: 16px;
 }
 
+/* Header Clear Button */
+.header-clear-btn {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    color: var(--color-brand);
+    font-size: 12px;
+    font-weight: 600;
+    height: 34px;
+    padding: 0 14px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-family: var(--font-sans);
+}
+
+.header-clear-btn:hover {
+    background: var(--bg-hover);
+    border-color: var(--border-hover);
+}
+
 /* Hide sun/moon based on active theme class */
 body.light-mode .sun-icon { display: none; }
 body.light-mode .moon-icon { display: block; }
