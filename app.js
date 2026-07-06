@@ -482,10 +482,10 @@ const donutLabelsLinePlugin = {
             if (!sum) return;
 
             const labels  = chart.data.labels || [];
-            const RADEXT  = 22;   // px beyond ring for the angled segment
+            const RADEXT  = 26;   // px beyond ring for the angled segment
             const TICK    = 10;   // px for horizontal tick
             const GAP     = 4;    // px between tick end and text
-            const MINGAP  = 13;   // min px between adjacent label Y positions
+            const MINGAP  = 15;   // min px between adjacent label Y positions
 
             // Build label positions from midAngle
             const items = [];
@@ -561,15 +561,10 @@ const donutLabelsLinePlugin = {
                     ctx.textBaseline = 'middle';
                     ctx.textAlign    = it.isLeft ? 'right' : 'left';
 
-                    // Percentage — primary, bold
-                    ctx.font      = 'bold 10px Inter, sans-serif';
+                    // Percentage only — bold, centered on the tick line
+                    ctx.font      = 'bold 10.5px Inter, sans-serif';
                     ctx.fillStyle = textColor;
-                    ctx.fillText(it.pct, tx, it.tikY - 6);
-
-                    // Label name — secondary, lighter
-                    ctx.font      = '9px Inter, sans-serif';
-                    ctx.fillStyle = subColor;
-                    ctx.fillText(it.name, tx, it.tikY + 5);
+                    ctx.fillText(it.pct, tx, it.tikY);
 
                     ctx.restore();
                 });
