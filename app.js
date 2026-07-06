@@ -579,6 +579,18 @@ const donutLabelsLinePlugin = {
 };
 
 
+// Build an HTML legend for a donut chart and inject it into the given element
+function renderDonutLegend(containerId, labels, colors) {
+    const el = document.getElementById(containerId);
+    if (!el) return;
+    el.innerHTML = labels.map((label, i) =>
+        `<span class="chart-legend-item">
+            <span class="chart-legend-dot" style="background:${colors[i]}"></span>
+            <span class="chart-legend-label">${label}</span>
+        </span>`
+    ).join('');
+}
+
 // Generate sales trend and donut breakdown charts
 function renderCharts() {
     // Destroy previous chart instances if they exist
@@ -689,13 +701,12 @@ function renderCharts() {
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            layout: { padding: { left: 75, right: 75, top: 30, bottom: 45 } },
-            plugins: {
-                legend: { position: 'bottom', labels: { color: textSecondary, boxWidth: 12, font: { family: 'Inter' } } }
-            },
+            layout: { padding: { left: 75, right: 75, top: 30, bottom: 15 } },
+            plugins: { legend: { display: false } },
             cutout: '65%'
         }
     });
+    renderDonutLegend('financeChartLegend', ['Paid','Pending','Refunded'], ['#10b981','#f97316','#ef4444']);
 
     // --- Chart 3: Shiprocket Logistics Status Donut ---
     const deliveryCounts = { delivered: 0, transit: 0, rto: 0, canceled: 0 };
@@ -728,13 +739,12 @@ function renderCharts() {
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            layout: { padding: { left: 75, right: 75, top: 30, bottom: 45 } },
-            plugins: {
-                legend: { position: 'bottom', labels: { color: textSecondary, boxWidth: 12, font: { family: 'Inter' } } }
-            },
+            layout: { padding: { left: 75, right: 75, top: 30, bottom: 15 } },
+            plugins: { legend: { display: false } },
             cutout: '65%'
         }
     });
+    renderDonutLegend('deliveryChartLegend', ['Delivered','In Transit','RTO','Canceled'], ['#10b981','#3b82f6','#f97316','#ef4444']);
 }
 
 // Update existing charts color theme without full destroy/recreate
