@@ -41,22 +41,22 @@
 
 /* Light Theme */
 body.light-mode {
-    --bg-app: #f8fafc;
+    --bg-app: #fafaff;
     --bg-surface: #ffffff;
-    --bg-surface-hover: #f8fafc;
-    --bg-muted: #f1f5f9;
-    --bg-hover: #f1f5f9;
+    --bg-surface-hover: #f3f3ff;
+    --bg-muted: #f0f0fa;
+    --bg-hover: #ececf8;
     
-    --border-color: #e2e8f0;
-    --border-hover: #cbd5e1;
+    --border-color: #e5e3f2;
+    --border-hover: #d2cee5;
     
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
-    --text-muted: #94a3b8;
+    --text-primary: #110e26;
+    --text-secondary: #58547a;
+    --text-muted: #9c97bf;
     
-    --color-brand: #4f46e5;
-    --color-brand-hover: #4338ca;
-    --color-brand-light: #eeebff;
+    --color-brand: #7c3aed; /* Deep Amethyst */
+    --color-brand-hover: #6d28d9;
+    --color-brand-light: #f5f3ff;
     
     --color-success: #10b981;
     --color-success-bg: #ecfdf5;
@@ -70,13 +70,13 @@ body.light-mode {
     --color-danger-bg: #fef2f2;
     --color-danger-text: #b91c1c;
 
-    --color-info: #3b82f6;
-    --color-info-bg: #eff6ff;
-    --color-info-text: #1d4ed8;
+    --color-info: #6366f1;
+    --color-info-bg: #eef2ff;
+    --color-info-text: #4f46e5;
 
     /* KPI Theme Colors */
-    --bg-kpi-orders: #eff6ff;
-    --text-kpi-orders: #1e40af;
+    --bg-kpi-orders: #eef2ff;
+    --text-kpi-orders: #4f46e5;
     
     --bg-kpi-revenue: #ecfdf5;
     --text-kpi-revenue: #065f46;
@@ -101,22 +101,22 @@ body.light-mode {
 
 /* Dark Theme */
 body.dark-mode {
-    --bg-app: #090d16;
-    --bg-surface: #111827;
-    --bg-surface-hover: #1f2937;
-    --bg-muted: #1f2937;
-    --bg-hover: rgba(255, 255, 255, 0.04);
+    --bg-app: #0b0914; /* Midnight obsidian amethyst */
+    --bg-surface: #131122; /* Dark amethyst surface */
+    --bg-surface-hover: #1b192e;
+    --bg-muted: #1b192e;
+    --bg-hover: rgba(139, 92, 246, 0.08);
     
-    --border-color: #1f2937;
-    --border-hover: #374151;
+    --border-color: #23203c;
+    --border-hover: #36325c;
     
-    --text-primary: #f9fafb;
-    --text-secondary: #9ca3af;
-    --text-muted: #6b7280;
+    --text-primary: #f5f4f9;
+    --text-secondary: #a9a4c5;
+    --text-muted: #726e95;
     
-    --color-brand: #6366f1;
-    --color-brand-hover: #4f46e5;
-    --color-brand-light: rgba(99, 102, 241, 0.15);
+    --color-brand: #a78bfa; /* Light Amethyst */
+    --color-brand-hover: #c4b5fd;
+    --color-brand-light: rgba(167, 139, 250, 0.15);
     
     --color-success: #10b981;
     --color-success-bg: rgba(16, 185, 129, 0.1);
@@ -130,13 +130,13 @@ body.dark-mode {
     --color-danger-bg: rgba(239, 68, 68, 0.1);
     --color-danger-text: #f87171;
 
-    --color-info: #3b82f6;
-    --color-info-bg: rgba(59, 130, 246, 0.1);
-    --color-info-text: #60a5fa;
+    --color-info: #6366f1;
+    --color-info-bg: rgba(99, 102, 241, 0.15);
+    --color-info-text: #818cf8;
 
     /* KPI Theme Colors */
-    --bg-kpi-orders: rgba(59, 130, 246, 0.1);
-    --text-kpi-orders: #60a5fa;
+    --bg-kpi-orders: rgba(99, 102, 241, 0.15);
+    --text-kpi-orders: #818cf8;
     
     --bg-kpi-revenue: rgba(16, 185, 129, 0.1);
     --text-kpi-revenue: #34d399;
@@ -153,10 +153,10 @@ body.dark-mode {
     --bg-kpi-denial: rgba(239, 68, 68, 0.15);
     --text-kpi-denial: #f87171;
 
-    --border-chart: #111827;
-    --grid-color: rgba(255, 255, 255, 0.03);
-    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.25);
-    --shadow-modal: 0 20px 40px rgba(0, 0, 0, 0.5);
+    --border-chart: #131122;
+    --grid-color: rgba(255, 255, 255, 0.02);
+    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.35);
+    --shadow-modal: 0 24px 48px rgba(0, 0, 0, 0.6);
 }
 
 /* ==========================================================================
