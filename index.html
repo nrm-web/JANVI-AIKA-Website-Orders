@@ -102,6 +102,24 @@
                 </div>
             </div>
 
+            <!-- Returned Orders (Count) -->
+            <div class="kpi-card" id="card-returned-count">
+                <div class="kpi-icon-wrapper red">
+                    <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 14L4 9l5-5"/>
+                        <path d="M4 9h10a5 5 0 015 5v3"/>
+                    </svg>
+                </div>
+                <div class="kpi-content">
+                    <p class="kpi-label">Returned Orders</p>
+                    <h3 class="kpi-value" id="kpi-returned-count">--</h3>
+                    <p class="kpi-subtext">Returned & RTO count</p>
+                </div>
+                <div class="kpi-progress-bar red">
+                    <div class="progress-fill" style="width: 100%;"></div>
+                </div>
+            </div>
+
             <!-- Total Refunded -->
             <div class="kpi-card" id="card-refunded">
                 <div class="kpi-icon-wrapper red">
@@ -117,6 +135,24 @@
                     <p class="kpi-subtext" id="kpi-total-refunded-sub">From returned/RTO orders</p>
                 </div>
                 <div class="kpi-progress-bar red">
+                    <div class="progress-fill" style="width: 100%;"></div>
+                </div>
+            </div>
+
+            <!-- Successful Orders (Count) -->
+            <div class="kpi-card" id="card-successful-count">
+                <div class="kpi-icon-wrapper green">
+                    <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
+                        <polyline points="22 4 12 14.01 9 11.01"/>
+                    </svg>
+                </div>
+                <div class="kpi-content">
+                    <p class="kpi-label">Successful Orders</p>
+                    <h3 class="kpi-value" id="kpi-successful-count">--</h3>
+                    <p class="kpi-subtext">Delivered & active count</p>
+                </div>
+                <div class="kpi-progress-bar green">
                     <div class="progress-fill" style="width: 100%;"></div>
                 </div>
             </div>

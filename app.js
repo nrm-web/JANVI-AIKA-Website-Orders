@@ -24,7 +24,9 @@ const elements = {
     // KPIs
     kpiOrders: document.getElementById('kpi-total-orders'),
     kpiRevenue: document.getElementById('kpi-total-revenue'),
+    kpiReturnedCount: document.getElementById('kpi-returned-count'),
     kpiRefunded: document.getElementById('kpi-total-refunded'),
+    kpiSuccessfulCount: document.getElementById('kpi-successful-count'),
     kpiProfit: document.getElementById('kpi-total-profit'),
     kpiReturnRate: document.getElementById('kpi-return-rate'),
     kpiDenialRate: document.getElementById('kpi-denial-rate'),
@@ -386,6 +388,7 @@ function renderDashboard() {
     
     const returnCount = state.filteredOrders.filter(o => o.returned).length;
     const returnRate = totalOrders > 0 ? (returnCount / totalOrders) * 100 : 0;
+    const successfulCount = totalOrders - returnCount;
     
     const codOrders = state.filteredOrders.filter(o => o.paymentMethod === 'COD');
     const codDenials = codOrders.filter(o => o.codDenies === 'Yes').length;
@@ -394,7 +397,9 @@ function renderDashboard() {
     // Write values
     elements.kpiOrders.textContent = totalOrders;
     elements.kpiRevenue.textContent = formatCurrency(totalRevenue);
+    elements.kpiReturnedCount.textContent = returnCount;
     elements.kpiRefunded.textContent = formatCurrency(totalRefunded);
+    elements.kpiSuccessfulCount.textContent = successfulCount;
     elements.kpiProfit.textContent = formatCurrency(totalProfit);
     elements.kpiReturnRate.textContent = `${returnRate.toFixed(1)}%`;
     elements.kpiDenialRate.textContent = `${denialRate.toFixed(1)}%`;

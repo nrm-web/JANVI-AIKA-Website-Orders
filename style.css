@@ -462,7 +462,9 @@ body.dark-mode .moon-icon { display: none; }
 /* KPI Card Icon Colors (Centralized SaaS Palette) */
 #card-orders .kpi-icon-wrapper { background: var(--bg-kpi-orders); color: var(--text-kpi-orders); }
 #card-revenue .kpi-icon-wrapper { background: var(--bg-kpi-revenue); color: var(--text-kpi-revenue); }
+#card-returned-count .kpi-icon-wrapper { background: var(--bg-kpi-refunded); color: var(--text-kpi-refunded); }
 #card-refunded .kpi-icon-wrapper { background: var(--bg-kpi-refunded); color: var(--text-kpi-refunded); }
+#card-successful-count .kpi-icon-wrapper { background: var(--bg-kpi-profit); color: var(--text-kpi-profit); }
 #card-profit .kpi-icon-wrapper { background: var(--bg-kpi-profit); color: var(--text-kpi-profit); }
 #card-return .kpi-icon-wrapper { background: var(--bg-kpi-return); color: var(--text-kpi-return); }
 #card-denial .kpi-icon-wrapper { background: var(--bg-kpi-denial); color: var(--text-kpi-denial); }
@@ -521,7 +523,9 @@ body.dark-mode .moon-icon { display: none; }
 
 #card-orders .progress-fill { background: var(--color-info); }
 #card-revenue .progress-fill { background: var(--color-success); }
+#card-returned-count .progress-fill { background: var(--color-danger); }
 #card-refunded .progress-fill { background: var(--color-danger); }
+#card-successful-count .progress-fill { background: var(--color-success); }
 #card-profit .progress-fill { background: var(--color-success); }
 #card-return .progress-fill { background: var(--color-warning); }
 #card-denial .progress-fill { background: var(--color-danger); }
@@ -1108,21 +1112,21 @@ body.dark-mode .filter-select {
 /* 1. Large Screen / TV & Desktop (> 1200px) */
 @media (min-width: 1201px) {
     .kpi-grid {
-        grid-template-columns: repeat(6, 1fr) !important;
+        grid-template-columns: repeat(8, 1fr) !important;
     }
 }
 
 /* 2. Standard Laptops / Small Desktop (1025px to 1200px) */
 @media (min-width: 1025px) and (max-width: 1200px) {
     .kpi-grid {
-        grid-template-columns: repeat(3, 1fr) !important;
+        grid-template-columns: repeat(4, 1fr) !important;
     }
 }
 
 /* 3. Tablets Landscape & Portrait (769px to 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
     .kpi-grid {
-        grid-template-columns: repeat(3, 1fr) !important;
+        grid-template-columns: repeat(4, 1fr) !important;
         gap: var(--space-3) !important;
     }
     .charts-row {
