@@ -78,6 +78,39 @@ def process_and_create_excel():
     print(f"Total unique consolidated orders: {len(merged)}")
     
     # ----------------------------------------------------
+    # SECTION 1.5: FETCH EXTERNAL FEEDBACK DATA FROM GOOGLE SHEETS
+    # ----------------------------------------------------
+    feedback_map = {}
+    feedback_url = "https://docs.google.com/spreadsheets/d/18K0SAdTm10ZDaYISJjwJcCf-87vI9IWQv66LdV1g5XA/export?format=csv&gid=310446875"
+    try:
+        print("Fetching feedback and review data from Google Sheet...")
+        df_fb = pd.read_csv(feedback_url)
+        df_fb.columns = df_fb.columns.str.strip()
+        
+        # Build lookup dictionary mapping clean Order No key (#1234) to statuses
+        for _, fb_row in df_fb.iterrows():
+            raw_ord = fb_row.get("Order No.")
+            if pd.notna(raw_ord):
+                try:
+                    # Clean float order number to int string, e.g. 1073.0 -> 1073
+                    ord_num = str(int(float(raw_ord)))
+                    ord_key = f"#{ord_num}"
+                    
+                    # Convert to string and strip spaces
+                    link_sent_val = str(fb_row.get("Reviews Link Sended", "")).strip().upper()
+                    review_done_val = str(fb_row.get("REVIEWS DONE", "")).strip().upper()
+                    
+                    feedback_map[ord_key] = {
+                        "sent": "Yes" if "SEND" in link_sent_val or "YES" in link_sent_val else "No",
+                        "done": "Yes" if "DONE" in review_done_val or "YES" in review_done_val else "No"
+                    }
+                except Exception as e:
+                    pass
+        print(f"Loaded feedback info for {len(feedback_map)} orders from external Google Sheet.")
+    except Exception as e:
+        print(f"Warning: Failed to fetch external feedback Google Sheet: {e}. Falling back to defaults.")
+
+    # ----------------------------------------------------
     # SECTION 2: DERIVE COLUMNS FOR MASTER SHEET
     # ----------------------------------------------------
     consolidated = []
@@ -151,11 +184,13 @@ def process_and_create_excel():
         fulfillment_status = sr_status if sr_status else (str(row['Fulfillment Status']).upper().strip() if pd.notna(row['Fulfillment Status']) else "NEW ORDER")
         
         # 11. Feedback
-        feedback_sent = "No"
-        if fulfillment_status == "DELIVERED":
-            feedback_sent = "Yes"
-            
-        feedback_rec = "No"
+        fb_info = feedback_map.get(order_no)
+        if fb_info:
+            feedback_sent = fb_info["sent"]
+            feedback_rec = fb_info["done"]
+        else:
+            feedback_sent = "Yes" if fulfillment_status == "DELIVERED" else "No"
+            feedback_rec = "No"
         
         # 12. Shiprocket Comments/Remarks
         is_delivered_to_customer = (fulfillment_status.upper() == "DELIVERED") or (sr_status.upper() == "DELIVERED")
