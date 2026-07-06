@@ -1295,17 +1295,37 @@ body.dark-mode .filter-select {
         display: none !important;
     }
     
-    /* Pipeline Stack */
+    /* Pipeline Stack with Vertical Line Connector */
     .pipeline-wrapper {
         flex-direction: column !important;
         align-items: stretch !important;
-        gap: var(--space-2) !important;
-        padding: var(--space-3) var(--space-4) !important;
+        gap: var(--space-4) !important;
+        padding: var(--space-4) var(--space-5) !important;
+        position: relative !important;
+    }
+    
+    .pipeline-wrapper::before {
+        content: '';
+        position: absolute;
+        left: 34px; /* Centered behind the 28px circles: 20px padding + 14px radius */
+        top: 24px;
+        bottom: 24px;
+        width: 2px;
+        background-color: var(--border-color);
+        z-index: 0;
     }
     
     .pipeline-step {
         width: 100% !important;
-        padding-bottom: 6px;
+        padding-bottom: 0 !important;
+        position: relative !important;
+        z-index: 1 !important;
+        background: transparent !important;
+    }
+    
+    .step-icon {
+        background: var(--bg-surface) !important; /* Masks the line behind it */
+        z-index: 2 !important;
     }
     
     .pipeline-arrow {
@@ -1331,21 +1351,32 @@ body.dark-mode .filter-select {
         height: 180px !important;
     }
     
-    /* Table Filters */
+    /* Table Header and Filters Control Stacking */
+    .orders-section .flex-header {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: var(--space-3) !important;
+    }
+
     .filter-controls {
         display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        gap: 6px !important;
+        grid-template-columns: 1fr !important; /* Stack elements cleanly in 1 column */
+        gap: 8px !important;
         width: 100% !important;
     }
     
     .search-input-wrapper {
-        grid-column: span 2 !important;
+        grid-column: span 1 !important;
     }
     
     .search-input-wrapper input {
-        padding: 6px var(--space-3) 6px 30px !important;
+        padding: 8px var(--space-3) 8px 30px !important;
         font-size: 12px !important;
+        width: 100% !important;
+    }
+
+    .search-input-wrapper input:focus {
+        width: 100% !important;
     }
     
     .search-icon {
@@ -1355,45 +1386,73 @@ body.dark-mode .filter-select {
     }
     
     .filter-select {
+        grid-column: span 1 !important;
         font-size: 12px !important;
-        padding: 6px 24px 6px 10px !important;
+        padding: 8px 32px 8px 12px !important;
+        width: 100% !important;
+        max-width: 100% !important;
     }
     
-    #filter-month {
+    #filter-month, #filter-payment, #filter-status {
         grid-column: span 1 !important;
-    }
-    
-    #filter-payment {
-        grid-column: span 1 !important;
-    }
-    
-    #filter-status {
-        grid-column: span 2 !important;
     }
     
     #clear-filters-btn {
-        grid-column: span 2 !important;
+        grid-column: span 1 !important;
         width: 100% !important;
-        padding: 6px !important;
+        padding: 8px !important;
         font-size: 12px !important;
     }
     
+    /* Clean Responsive Mobile Table (Hiding Non-Essential Columns) */
+    .table-scroll-wrapper {
+        overflow-x: hidden !important; /* No horizontal scrolling needed */
+        border: none !important;
+    }
+
+    .orders-table {
+        font-size: 12px !important;
+    }
+
+    .orders-table th, .orders-table td {
+        padding: 8px 10px !important;
+    }
+
+    /* Hide: Date, Items, City, Payment Method, Financial Status, Fulfillment Status, Comments */
+    .orders-table th:nth-child(2),
+    .orders-table td:nth-child(2),
+    .orders-table th:nth-child(4),
+    .orders-table td:nth-child(4),
+    .orders-table th:nth-child(5),
+    .orders-table td:nth-child(5),
+    .orders-table th:nth-child(6),
+    .orders-table td:nth-child(6),
+    .orders-table th:nth-child(8),
+    .orders-table td:nth-child(8),
+    .orders-table th:nth-child(9),
+    .orders-table td:nth-child(9),
+    .orders-table th:nth-child(11),
+    .orders-table td:nth-child(11) {
+        display: none !important;
+    }
+
     /* Pagination */
     .pagination-wrapper {
         padding: var(--space-2) var(--space-3) !important;
     }
     
     .pagination-btn {
-        padding: 5px var(--space-2) !important;
-        font-size: 11px !important;
+        padding: 6px var(--space-3) !important;
+        font-size: 12px !important;
     }
     
     .pagination-info {
-        font-size: 10px !important;
+        font-size: 11px !important;
     }
     
     .modal-content {
         padding: var(--space-4) !important;
+        width: 95% !important;
     }
     
     .detail-grid {
