@@ -901,19 +901,15 @@ function applyFilters() {
     
     // 2. Filter by all inputs for master table rows
     state.filteredOrders = state.orders.filter(o => {
-        // Search text
+        // Search text (with safe property checks)
         const matchesQuery = !q || 
-            String(o.orderNo).toLowerCase().includes(q) ||
-            o.customerName.toLowerCase().includes(q) ||
+            (o.orderNo && String(o.orderNo).toLowerCase().includes(q)) ||
+            (o.customerName && o.customerName.toLowerCase().includes(q)) ||
             (o.itemsOrdered && o.itemsOrdered.toLowerCase().includes(q)) ||
             (o.shiprocketComments && o.shiprocketComments.toLowerCase().includes(q)) ||
-            o.city.toLowerCase().includes(q) ||
-            o.pinCode.toLowerCase().includes(q);
+            (o.city && o.city.toLowerCase().includes(q)) ||
+            (o.pinCode && o.pinCode.toLowerCase().includes(q));
             
-        if (q) {
-            return matchesQuery;
-        }
-        
         // Month dropdown
         const matchesMonth = !month || getMonthYearStr(o.dateOfOrder) === month;
         
