@@ -1199,27 +1199,63 @@ body.dark-mode .filter-select {
         padding: var(--space-3) var(--space-4);
     }
     
+    .logo-wrapper {
+        gap: var(--space-2) !important;
+    }
+
+    .app-logo {
+        height: 38px !important;
+        padding: 2px !important;
+    }
+
     .header-title h1 {
-        font-size: 18px;
+        font-size: 16px !important;
     }
     
     .header-title .subtitle {
-        font-size: 11px;
+        font-size: 10px !important;
     }
     
     .header-controls {
-        flex-direction: row !important;
+        display: flex !important;
+        flex-flow: row wrap !important;
         align-items: center !important;
-        justify-content: space-between !important;
-        width: 100% !important;
         gap: var(--space-2) !important;
+        width: 100% !important;
     }
     
     .header-filter-group {
+        flex: 1 1 auto !important;
         padding: 4px var(--space-2) !important;
     }
     
     .header-month-select {
+        font-size: 12px !important;
+    }
+
+    .sync-indicator {
+        flex: 1 1 auto !important;
+        justify-content: center !important;
+        padding: 4px var(--space-2) !important;
+    }
+    
+    .btn-theme-toggle {
+        flex: 0 0 auto !important;
+        width: 32px !important;
+        height: 32px !important;
+    }
+
+    .url-config-container {
+        flex: 1 1 100% !important;
+        display: flex !important;
+        gap: var(--space-2) !important;
+        margin-top: 4px;
+    }
+
+    .url-input {
+        flex: 1 !important;
+        width: 100% !important;
+        padding: 6px var(--space-2) !important;
         font-size: 12px !important;
     }
     
@@ -1248,11 +1284,11 @@ body.dark-mode .filter-select {
     }
     
     .kpi-label {
-        font-size: 10px !important;
+        font-size: 11px !important;
     }
     
     .kpi-value {
-        font-size: 13px !important;
+        font-size: 15px !important;
     }
     
     .kpi-subtext {
