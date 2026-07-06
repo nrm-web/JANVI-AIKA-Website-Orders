@@ -677,6 +677,7 @@ body.dark-mode .moon-icon { display: none; }
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     background: var(--bg-muted);
     border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
@@ -691,12 +692,14 @@ body.dark-mode .moon-icon { display: none; }
     letter-spacing: 0.05em;
     color: var(--text-secondary);
     margin-bottom: var(--space-2);
+    flex-shrink: 0;
 }
 
 .donut-canvas-wrapper {
-    height: 200px;
+    flex: 1;
     position: relative;
     width: 100%;
+    min-height: 0;
 }
 
 /* ==========================================================================
