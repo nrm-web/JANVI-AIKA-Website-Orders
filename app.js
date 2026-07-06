@@ -464,80 +464,120 @@ function renderDashboard() {
 }
 
 
-// Donut chart outer-label plugin: percentage on left/right, sorted & evenly spaced
+// Donut chart outer-label plugin — radial lines with label text, matching sample style
 const donutLabelsLinePlugin = {
     id: 'donutLabelsLine',
     afterDraw(chart) {
         if (chart.config.type !== 'doughnut') return;
         const { ctx } = chart;
-        const cssStyle = getComputedStyle(document.body);
-        const lineColor  = cssStyle.getPropertyValue('--text-muted').trim()  || 'rgba(128,128,128,0.6)';
-        const textColor  = cssStyle.getPropertyValue('--text-primary').trim() || '#1e293b';
+        const cssStyle  = getComputedStyle(document.body);
+        const lineColor = cssStyle.getPropertyValue('--text-muted').trim()    || 'rgba(128,128,128,0.55)';
+        const textColor = cssStyle.getPropertyValue('--text-primary').trim()  || '#1e293b';
+        const subColor  = cssStyle.getPropertyValue('--text-secondary').trim()|| '#64748b';
 
-        chart.data.datasets.forEach((dataset, i) => {
-            const meta = chart.getDatasetMeta(i);
+        chart.data.datasets.forEach((dataset, dsIdx) => {
+            const meta = chart.getDatasetMeta(dsIdx);
             if (meta.hidden) return;
             const sum = dataset.data.reduce((a, b) => a + b, 0);
             if (!sum) return;
 
-            // Build entries for non-zero slices
-            const entries = [];
+            const labels  = chart.data.labels || [];
+            const RADEXT  = 22;   // px beyond ring for the angled segment
+            const TICK    = 10;   // px for horizontal tick
+            const GAP     = 4;    // px between tick end and text
+            const MINGAP  = 13;   // min px between adjacent label Y positions
+
+            // Build label positions from midAngle
+            const items = [];
             meta.data.forEach((el, idx) => {
                 const val = dataset.data[idx];
                 if (!val) return;
                 const { x, y, outerRadius, startAngle, endAngle } = el;
-                const mid   = startAngle + (endAngle - startAngle) / 2;
-                const cosM  = Math.cos(mid);
-                const sinM  = Math.sin(mid);
-                const pct   = (val * 100 / sum).toFixed(1) + '%';
-                entries.push({ x, y, outerRadius, mid, cosM, sinM, isLeft: cosM < 0, pct, natY: y + sinM * outerRadius });
+                const mid  = startAngle + (endAngle - startAngle) / 2;
+                const cosM = Math.cos(mid);
+                const sinM = Math.sin(mid);
+                const pct  = (val * 100 / sum).toFixed(1) + '%';
+                const name = labels[idx] || '';
+
+                // Anchor: outer ring midpoint
+                const anchorX = x + cosM * outerRadius;
+                const anchorY = y + sinM * outerRadius;
+
+                // Elbow: extend radially
+                const elbX = x + cosM * (outerRadius + RADEXT);
+                const elbY = y + sinM * (outerRadius + RADEXT);
+
+                const isLeft = cosM < 0;
+                const tikX = elbX + (isLeft ? -TICK : TICK);
+                const tikY = elbY;
+
+                items.push({ anchorX, anchorY, elbX, elbY, tikX, tikY: elbY, isLeft, pct, name, sortY: elbY });
             });
 
-            // Split left / right, sort each group top → bottom by natural Y
-            const left  = entries.filter(e =>  e.isLeft).sort((a, b) => a.natY - b.natY);
-            const right = entries.filter(e => !e.isLeft).sort((a, b) => a.natY - b.natY);
+            // Separate left / right, then nudge overlapping Y values
+            ['left', 'right'].forEach(side => {
+                const group = items
+                    .filter(it => (side === 'left') === it.isLeft)
+                    .sort((a, b) => a.sortY - b.sortY);
 
-            const EXT  = 16;  // px beyond ring to elbow
-            const TICK = 8;   // horizontal tick length
-            const ROW  = 16;  // min row height
+                // Push apart any labels that are too close vertically
+                for (let pass = 0; pass < 20; pass++) {
+                    let moved = false;
+                    for (let k = 1; k < group.length; k++) {
+                        const prev = group[k - 1];
+                        const curr = group[k];
+                        if (curr.tikY - prev.tikY < MINGAP) {
+                            const shift = (MINGAP - (curr.tikY - prev.tikY)) / 2;
+                            prev.tikY -= shift;
+                            curr.tikY += shift;
+                            moved = true;
+                        }
+                    }
+                    if (!moved) break;
+                }
 
-            const draw = (group, side) => {
-                const n = group.length;
-                if (!n) return;
-                const cY    = group[0].y;
-                const span  = (n - 1) * ROW;
-                const top   = Math.max(8, Math.min(chart.height - 8 - span, cY - span / 2));
-
-                group.forEach((e, j) => {
-                    const rowY  = top + j * ROW;
-                    const edgeX = e.x + e.cosM * e.outerRadius;
-                    const edgeY = e.y + e.sinM * e.outerRadius;
-                    const elbX  = e.x + e.cosM * (e.outerRadius + EXT);
-                    const tikX  = elbX + (side === 'left' ? -TICK : TICK);
-
+                // Draw each label
+                group.forEach(it => {
                     ctx.save();
+
+                    // Line: slice edge → elbow → horizontal tick
                     ctx.beginPath();
-                    ctx.moveTo(edgeX, edgeY);
-                    ctx.lineTo(elbX,  rowY);
-                    ctx.lineTo(tikX,  rowY);
+                    ctx.moveTo(it.anchorX, it.anchorY);
+                    ctx.lineTo(it.elbX, it.tikY);
+                    ctx.lineTo(it.tikX, it.tikY);
                     ctx.strokeStyle = lineColor;
                     ctx.lineWidth   = 1;
+                    ctx.lineJoin    = 'round';
                     ctx.stroke();
 
-                    ctx.fillStyle    = textColor;
-                    ctx.font         = 'bold 10px Inter, sans-serif';
+                    // Small dot at elbow
+                    ctx.beginPath();
+                    ctx.arc(it.tikX, it.tikY, 1.5, 0, Math.PI * 2);
+                    ctx.fillStyle = lineColor;
+                    ctx.fill();
+
+                    // Text alignment
+                    const tx = it.tikX + (it.isLeft ? -GAP : GAP);
                     ctx.textBaseline = 'middle';
-                    ctx.textAlign    = side === 'left' ? 'right' : 'left';
-                    ctx.fillText(e.pct, tikX + (side === 'left' ? -3 : 3), rowY);
+                    ctx.textAlign    = it.isLeft ? 'right' : 'left';
+
+                    // Percentage — primary, bold
+                    ctx.font      = 'bold 10px Inter, sans-serif';
+                    ctx.fillStyle = textColor;
+                    ctx.fillText(it.pct, tx, it.tikY - 6);
+
+                    // Label name — secondary, lighter
+                    ctx.font      = '9px Inter, sans-serif';
+                    ctx.fillStyle = subColor;
+                    ctx.fillText(it.name, tx, it.tikY + 5);
+
                     ctx.restore();
                 });
-            };
-
-            draw(left,  'left');
-            draw(right, 'right');
+            });
         });
     }
 };
+
 
 // Generate sales trend and donut breakdown charts
 function renderCharts() {
@@ -649,7 +689,7 @@ function renderCharts() {
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            layout: { padding: { left: 42, right: 42, top: 12, bottom: 12 } },
+            layout: { padding: { left: 52, right: 52, top: 18, bottom: 18 } },
             plugins: {
                 legend: { position: 'bottom', labels: { color: textSecondary, boxWidth: 12, font: { family: 'Inter' } } }
             },
@@ -688,7 +728,7 @@ function renderCharts() {
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            layout: { padding: { left: 42, right: 42, top: 12, bottom: 12 } },
+            layout: { padding: { left: 52, right: 52, top: 18, bottom: 18 } },
             plugins: {
                 legend: { position: 'bottom', labels: { color: textSecondary, boxWidth: 12, font: { family: 'Inter' } } }
             },
