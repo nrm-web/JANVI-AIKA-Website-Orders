@@ -52,7 +52,7 @@ body.light-mode {
     
     --text-primary: #28191b; /* Very dark warm maroon-charcoal */
     --text-secondary: #5c4a4c;
-    --text-muted: #9c898b;
+    --text-muted: #705e60;
     
     --color-brand: #800020; /* Royal Burgundy / Maroon */
     --color-brand-hover: #5a0014;
@@ -1177,8 +1177,10 @@ body.dark-mode .filter-select {
     }
     .header-controls {
         flex-direction: row !important;
+        flex-wrap: wrap !important;
         justify-content: space-between;
         width: 100%;
+        gap: var(--space-2) !important;
     }
     .filter-controls {
         display: grid !important;
@@ -1188,12 +1190,59 @@ body.dark-mode .filter-select {
     }
     .search-input-wrapper {
         grid-column: span 2 !important;
+        width: 100% !important;
+    }
+    .search-input-wrapper input {
+        width: 100% !important;
+    }
+    .search-input-wrapper input:focus {
+        width: 100% !important;
     }
     #filter-month, #filter-payment {
         grid-column: span 1 !important;
     }
     #filter-status, #clear-filters-btn {
         grid-column: span 1 !important;
+    }
+}
+
+/* 4.5. Shared Mobile Stacking (Portrait & Landscape <= 768px) */
+@media (max-width: 768px) {
+    /* Pipeline Stack with Vertical Line Connector */
+    .pipeline-wrapper {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: var(--space-4) !important;
+        padding: var(--space-4) var(--space-5) !important;
+        position: relative !important;
+    }
+    
+    .pipeline-wrapper::before {
+        content: '';
+        position: absolute;
+        left: 34px; /* Centered behind the 28px circles: 20px padding + 14px radius */
+        top: 24px;
+        bottom: 24px;
+        width: 2px;
+        background-color: var(--border-color);
+        z-index: 0;
+    }
+    
+    .pipeline-step {
+        width: 100% !important;
+        padding-bottom: 0 !important;
+        position: relative !important;
+        z-index: 1 !important;
+        background: transparent !important;
+    }
+    
+    .step-icon {
+        background: var(--bg-surface) !important; /* Masks the line behind it */
+        z-index: 2 !important;
+    }
+    
+    .pipeline-arrow {
+        display: none !important;
     }
 }
 
@@ -1306,41 +1355,8 @@ body.dark-mode .filter-select {
         display: none !important;
     }
     
-    /* Pipeline Stack with Vertical Line Connector */
-    .pipeline-wrapper {
-        flex-direction: column !important;
-        align-items: stretch !important;
-        gap: var(--space-4) !important;
-        padding: var(--space-4) var(--space-5) !important;
-        position: relative !important;
-    }
-    
-    .pipeline-wrapper::before {
-        content: '';
-        position: absolute;
-        left: 34px; /* Centered behind the 28px circles: 20px padding + 14px radius */
-        top: 24px;
-        bottom: 24px;
-        width: 2px;
-        background-color: var(--border-color);
-        z-index: 0;
-    }
-    
-    .pipeline-step {
-        width: 100% !important;
-        padding-bottom: 0 !important;
-        position: relative !important;
-        z-index: 1 !important;
-        background: transparent !important;
-    }
-    
-    .step-icon {
-        background: var(--bg-surface) !important; /* Masks the line behind it */
-        z-index: 2 !important;
-    }
-    
-    .pipeline-arrow {
-        display: none !important;
+    .charts-row {
+        grid-template-columns: 1fr !important;
     }
     
     /* Charts */
