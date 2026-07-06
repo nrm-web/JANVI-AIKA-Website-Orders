@@ -39,24 +39,24 @@
    Theme Variables (Light & Dark)
    ========================================================================== */
 
-/* Light Theme */
+/* Light Theme (Ivory & Maroon) */
 body.light-mode {
-    --bg-app: #fafaff;
+    --bg-app: #fcf9f2; /* Creamy Ivory */
     --bg-surface: #ffffff;
-    --bg-surface-hover: #f3f3ff;
-    --bg-muted: #f0f0fa;
-    --bg-hover: #ececf8;
+    --bg-surface-hover: #fcf9f2;
+    --bg-muted: #f7f3e8;
+    --bg-hover: #f0ebd9;
     
-    --border-color: #e5e3f2;
-    --border-hover: #d2cee5;
+    --border-color: #e6dec9;
+    --border-hover: #d1c7aa;
     
-    --text-primary: #110e26;
-    --text-secondary: #58547a;
-    --text-muted: #9c97bf;
+    --text-primary: #28191b; /* Very dark warm maroon-charcoal */
+    --text-secondary: #5c4a4c;
+    --text-muted: #9c898b;
     
-    --color-brand: #7c3aed; /* Deep Amethyst */
-    --color-brand-hover: #6d28d9;
-    --color-brand-light: #f5f3ff;
+    --color-brand: #800020; /* Royal Burgundy / Maroon */
+    --color-brand-hover: #5a0014;
+    --color-brand-light: #fef2f4;
     
     --color-success: #10b981;
     --color-success-bg: #ecfdf5;
@@ -70,13 +70,13 @@ body.light-mode {
     --color-danger-bg: #fef2f2;
     --color-danger-text: #b91c1c;
 
-    --color-info: #6366f1;
-    --color-info-bg: #eef2ff;
-    --color-info-text: #4f46e5;
+    --color-info: #e11d48; /* Crimson / Rose Accent */
+    --color-info-bg: #fff1f2;
+    --color-info-text: #be123c;
 
     /* KPI Theme Colors */
-    --bg-kpi-orders: #eef2ff;
-    --text-kpi-orders: #4f46e5;
+    --bg-kpi-orders: #fff1f2;
+    --text-kpi-orders: #be123c;
     
     --bg-kpi-revenue: #ecfdf5;
     --text-kpi-revenue: #065f46;
@@ -94,29 +94,29 @@ body.light-mode {
     --text-kpi-denial: #9b2c2c;
 
     --border-chart: #ffffff;
-    --grid-color: rgba(0, 0, 0, 0.04);
+    --grid-color: rgba(40, 25, 27, 0.04);
     --shadow-card: var(--shadow-sm);
     --shadow-modal: var(--shadow-lg);
 }
 
-/* Dark Theme */
+/* Dark Theme (Ebony & Crimson Maroon) */
 body.dark-mode {
-    --bg-app: #0b0914; /* Midnight obsidian amethyst */
-    --bg-surface: #131122; /* Dark amethyst surface */
-    --bg-surface-hover: #1b192e;
-    --bg-muted: #1b192e;
-    --bg-hover: rgba(139, 92, 246, 0.08);
+    --bg-app: #12090b; /* Midnight warm black */
+    --bg-surface: #1a0f12; /* Warm obsidian maroon */
+    --bg-surface-hover: #26181b;
+    --bg-muted: #26181b;
+    --bg-hover: rgba(225, 29, 72, 0.08);
     
-    --border-color: #23203c;
-    --border-hover: #36325c;
+    --border-color: #2e1a1d;
+    --border-hover: #45282d;
     
-    --text-primary: #f5f4f9;
-    --text-secondary: #a9a4c5;
-    --text-muted: #726e95;
+    --text-primary: #fbfbfc;
+    --text-secondary: #d4c8ca;
+    --text-muted: #918486;
     
-    --color-brand: #a78bfa; /* Light Amethyst */
-    --color-brand-hover: #c4b5fd;
-    --color-brand-light: rgba(167, 139, 250, 0.15);
+    --color-brand: #fda4af; /* Soft rose gold */
+    --color-brand-hover: #fecdd3;
+    --color-brand-light: rgba(253, 164, 175, 0.15);
     
     --color-success: #10b981;
     --color-success-bg: rgba(16, 185, 129, 0.1);
@@ -130,13 +130,13 @@ body.dark-mode {
     --color-danger-bg: rgba(239, 68, 68, 0.1);
     --color-danger-text: #f87171;
 
-    --color-info: #6366f1;
-    --color-info-bg: rgba(99, 102, 241, 0.15);
-    --color-info-text: #818cf8;
+    --color-info: #e11d48; /* Crimson / Rich Maroon */
+    --color-info-bg: rgba(225, 29, 72, 0.15);
+    --color-info-text: #fda4af;
 
     /* KPI Theme Colors */
-    --bg-kpi-orders: rgba(99, 102, 241, 0.15);
-    --text-kpi-orders: #818cf8;
+    --bg-kpi-orders: rgba(225, 29, 72, 0.15);
+    --text-kpi-orders: #fda4af;
     
     --bg-kpi-revenue: rgba(16, 185, 129, 0.1);
     --text-kpi-revenue: #34d399;
@@ -153,7 +153,7 @@ body.dark-mode {
     --bg-kpi-denial: rgba(239, 68, 68, 0.15);
     --text-kpi-denial: #f87171;
 
-    --border-chart: #131122;
+    --border-chart: #1a0f12;
     --grid-color: rgba(255, 255, 255, 0.02);
     --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.35);
     --shadow-modal: 0 24px 48px rgba(0, 0, 0, 0.6);
