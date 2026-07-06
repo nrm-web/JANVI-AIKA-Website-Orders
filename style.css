@@ -682,7 +682,7 @@ body.dark-mode .moon-icon { display: none; }
 .section-title-group h2 {
     font-size: 16px;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--color-brand);
     letter-spacing: -0.01em;
 }
 
@@ -811,6 +811,10 @@ body.dark-mode .filter-select {
     color: var(--text-primary);
     border-bottom: 1px solid var(--border-color);
     white-space: nowrap;
+}
+
+.orders-table td:first-child strong {
+    color: var(--color-brand);
 }
 
 .orders-table tr:last-child td {

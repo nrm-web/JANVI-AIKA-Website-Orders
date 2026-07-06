@@ -800,8 +800,9 @@ function renderTable() {
         if (o.logisticsStatus.includes('RTO')) logClass = 'warning';
         
         // Row Cells
+        const orderNoDisplay = String(o.orderNo).startsWith('#') ? o.orderNo : `#${o.orderNo}`;
         tr.innerHTML = `
-            <td><strong>#${o.orderNo}</strong></td>
+            <td><strong>${orderNoDisplay}</strong></td>
             <td>${formatDateDisplay(o.dateOfOrder)}</td>
             <td>${o.customerName}</td>
             <td class="items-col">${o.itemsOrdered}</td>
