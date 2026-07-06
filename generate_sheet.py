@@ -220,6 +220,12 @@ def process_and_create_excel():
                     
             comments = ", ".join(unique_reasons) if unique_reasons else "-"
         
+        # 13. AWB Code & Tracking Link
+        awb_code = str(row['AWB Code']).split('.')[0].strip() if pd.notna(row['AWB Code']) else ""
+        if awb_code.lower() == 'nan':
+            awb_code = ""
+        tracking_link = f"https://shiprocket.co/tracking/{awb_code}" if awb_code else "-"
+        
         consolidated.append({
             "Order No": order_no,
             "Customer Name": cust_name,
@@ -237,6 +243,8 @@ def process_and_create_excel():
             "Fulfillment Status": fulfillment_status,
             "Feedback Link Sent (Yes/No)": feedback_sent,
             "Feedback Received (Yes/No)": feedback_rec,
+            "AWB Code": awb_code if awb_code else "-",
+            "Tracking Link": tracking_link,
             "_shopify_financial_status": fin_status if fin_status else "pending",
             "_shopify_fulfillment_status": str(row['Fulfillment Status']).strip().lower() if pd.notna(row['Fulfillment Status']) else "unfulfilled",
             "_shiprocket_status": sr_status
@@ -415,7 +423,7 @@ def process_and_create_excel():
                 col_name = df.columns[col_idx - 1]
                 
                 # Formats and alignments
-                if col_name in ["Order No", "Date of Order", "Payment Method", "Prepaid (Yes/No)", "COD (Yes/No)", "Returned (True/False)", "COD Denies (Yes/No)", "PIN Code", "Fulfillment Status", "Feedback Link Sent (Yes/No)", "Feedback Received (Yes/No)"]:
+                if col_name in ["Order No", "Date of Order", "Payment Method", "Prepaid (Yes/No)", "COD (Yes/No)", "Returned (True/False)", "COD Denies (Yes/No)", "PIN Code", "Fulfillment Status", "Feedback Link Sent (Yes/No)", "Feedback Received (Yes/No)", "AWB Code", "Tracking Link"]:
                     cell.alignment = align_center
                 elif col_name == "Items Ordered":
                     cell.alignment = Alignment(horizontal="left", vertical="center", wrap_text=True)

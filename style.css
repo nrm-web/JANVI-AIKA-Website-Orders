@@ -1515,3 +1515,14 @@ body.dark-mode .filter-select {
         gap: var(--space-4) !important;
     }
 }
+
+.awb-link {
+    color: var(--color-brand);
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.awb-link:hover {
+    color: var(--text-primary);
+    text-decoration: none;
+}

@@ -304,6 +304,8 @@ function parseData() {
             fulfillmentStatus: fulfillmentStatus,
             feedbackSent: row[14],
             feedbackReceived: row[15],
+            awbCode: row[16],
+            trackingLink: row[17],
             logisticsStatus: logisticsStatus
         });
     });
@@ -843,6 +845,11 @@ function renderTable() {
             feedbackHTML = '<span class="status-pill danger">Not Sent</span>';
         }
         
+        // AWB code cell
+        const awbDisplay = (o.awbCode && o.awbCode !== '-') 
+            ? `<a href="${o.trackingLink}" target="_blank" class="awb-link" onclick="event.stopPropagation();">${o.awbCode} ↗</a>` 
+            : '-';
+            
         // Row Cells
         const orderNoDisplay = String(o.orderNo).startsWith('#') ? o.orderNo : `#${o.orderNo}`;
         tr.innerHTML = `
@@ -856,6 +863,7 @@ function renderTable() {
             <td><span class="status-pill ${finClass}">${o.financialStatus}</span></td>
             <td><span class="status-pill ${fulClass}">${o.fulfillmentStatus}</span></td>
             <td><span class="status-pill ${logClass}">${o.logisticsStatus}</span></td>
+            <td>${awbDisplay}</td>
             <td class="comments-col">${o.shiprocketComments || '-'}</td>
             <td>${feedbackHTML}</td>
         `;
@@ -947,6 +955,14 @@ function showOrderDetail(o) {
     document.getElementById('det-cod-denial').textContent = o.codDenies || 'No';
     document.getElementById('det-feedback-sent').textContent = o.feedbackSent || 'No';
     document.getElementById('det-feedback-received').textContent = o.feedbackReceived || 'No';
+    document.getElementById('det-awb').textContent = o.awbCode || '-';
+    
+    const trLinkEl = document.getElementById('det-tracking');
+    if (o.trackingLink && o.trackingLink !== '-') {
+        trLinkEl.innerHTML = `<a href="${o.trackingLink}" target="_blank" class="track-btn" style="color:var(--color-brand); font-weight:600; text-decoration:underline;">Track Shipment ↗</a>`;
+    } else {
+        trLinkEl.textContent = '-';
+    }
     
     document.getElementById('det-items').textContent = o.itemsOrdered || 'N/A';
     
