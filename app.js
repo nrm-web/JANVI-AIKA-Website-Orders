@@ -536,7 +536,12 @@ const donutLabelsLinePlugin = {
                     if (!moved) break;
                 }
 
-                // Draw each label
+                // Clamp: keep labels out of the bottom legend zone (~50px)
+                group.forEach(it => {
+                    it.tikY = Math.min(it.tikY, chart.height - 52);
+                    it.tikY = Math.max(it.tikY, 8);
+                });
+
                 group.forEach(it => {
                     ctx.save();
 
@@ -684,7 +689,7 @@ function renderCharts() {
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            layout: { padding: { left: 75, right: 75, top: 35, bottom: 20 } },
+            layout: { padding: { left: 75, right: 75, top: 30, bottom: 45 } },
             plugins: {
                 legend: { position: 'bottom', labels: { color: textSecondary, boxWidth: 12, font: { family: 'Inter' } } }
             },
@@ -723,7 +728,7 @@ function renderCharts() {
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            layout: { padding: { left: 75, right: 75, top: 35, bottom: 20 } },
+            layout: { padding: { left: 75, right: 75, top: 30, bottom: 45 } },
             plugins: {
                 legend: { position: 'bottom', labels: { color: textSecondary, boxWidth: 12, font: { family: 'Inter' } } }
             },
