@@ -1417,8 +1417,9 @@ body.dark-mode .filter-select {
     
     /* Clean Responsive Mobile Table (Hiding Non-Essential Columns) */
     .table-scroll-wrapper {
-        overflow-x: hidden !important; /* No horizontal scrolling needed */
-        border: none !important;
+        overflow-x: auto !important; /* Allow swipe scrolling for hidden columns */
+        -webkit-overflow-scrolling: touch; /* Smooth iOS swipe scrolling */
+        border: 1px solid var(--border-color) !important;
     }
 
     .orders-table {
