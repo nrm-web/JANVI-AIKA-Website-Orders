@@ -6,6 +6,7 @@ const state = {
     rawSheets: null,
     orders: [],
     filteredOrders: [],
+    monthFilteredOrders: [],
     currentPage: 1,
     pageSize: 15,
     charts: {
@@ -313,6 +314,7 @@ function parseData() {
     // Sort orders by date descending
     state.orders.sort((a, b) => new Date(b.dateOfOrder) - new Date(a.dateOfOrder));
     state.filteredOrders = [...state.orders];
+    state.monthFilteredOrders = [...state.orders];
     
     // Populate filter select options
     populateFilterOptions();
@@ -388,18 +390,19 @@ function formatCurrency(amount) {
 }
 
 // Render KPIs and visual metrics
+// Always calculated based on the selected Month (state.monthFilteredOrders)
 function renderDashboard() {
     // 1. Calculate general stats
-    const totalOrders = state.orders.length;
-    const totalRevenue = state.orders.reduce((sum, o) => sum + o.totalPrice, 0);
-    const totalRefunded = state.orders.filter(o => o.returned).reduce((sum, o) => sum + o.totalPrice, 0);
+    const totalOrders = state.monthFilteredOrders.length;
+    const totalRevenue = state.monthFilteredOrders.reduce((sum, o) => sum + o.totalPrice, 0);
+    const totalRefunded = state.monthFilteredOrders.filter(o => o.returned).reduce((sum, o) => sum + o.totalPrice, 0);
     const totalProfit = totalRevenue - totalRefunded;
     
-    const returnCount = state.orders.filter(o => o.returned).length;
+    const returnCount = state.monthFilteredOrders.filter(o => o.returned).length;
     const returnRate = totalOrders > 0 ? (returnCount / totalOrders) * 100 : 0;
     const successfulCount = totalOrders - returnCount;
     
-    const codOrders = state.orders.filter(o => o.paymentMethod === 'COD');
+    const codOrders = state.monthFilteredOrders.filter(o => o.paymentMethod === 'COD');
     const codDenials = codOrders.filter(o => o.codDenies === 'Yes').length;
     const denialRate = codOrders.length > 0 ? (codDenials / codOrders.length) * 100 : 0;
     
@@ -429,7 +432,7 @@ function renderDashboard() {
         delivered: 0
     };
     
-    state.orders.forEach(o => {
+    state.monthFilteredOrders.forEach(o => {
         const status = o.logisticsStatus.toUpperCase().trim();
         
         if (o.returned || status.includes('RTO') || status.includes('CANCELED') || status.includes('CANCELLED')) {
@@ -687,7 +690,7 @@ function renderCharts() {
     
     // --- Chart 2: Shopify Financial Status Donut ---
     const financeCounts = { paid: 0, pending: 0, refunded: 0 };
-    state.orders.forEach(o => {
+    state.monthFilteredOrders.forEach(o => {
         const s = o.financialStatus.toLowerCase();
         if (financeCounts[s] !== undefined) {
             financeCounts[s]++;
@@ -719,7 +722,7 @@ function renderCharts() {
 
     // --- Chart 3: Shiprocket Logistics Status Donut ---
     const deliveryCounts = { delivered: 0, transit: 0, rto: 0, canceled: 0 };
-    state.orders.forEach(o => {
+    state.monthFilteredOrders.forEach(o => {
         const s = o.logisticsStatus.toLowerCase();
         if (s === 'delivered') {
             deliveryCounts.delivered++;
@@ -878,6 +881,12 @@ function applyFilters() {
     const pay = elements.filterPayment.value;
     const status = elements.filterStatus.value;
     
+    // 1. Filter by month for dashboard stats, KPIs, and donut charts
+    state.monthFilteredOrders = state.orders.filter(o => {
+        return !month || getMonthYearStr(o.dateOfOrder) === month;
+    });
+    
+    // 2. Filter by all inputs for master table rows
     state.filteredOrders = state.orders.filter(o => {
         // Search text
         const matchesQuery = !q || 
