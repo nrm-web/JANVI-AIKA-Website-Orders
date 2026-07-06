@@ -72,6 +72,17 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 async function loadConfiguration() {
+    // 0. Try local offline data first (bypasses ALL network requests and CORS limits)
+    if (window.DASHBOARD_DATA && window.DASHBOARD_DATA.sheets) {
+        state.rawSheets = window.DASHBOARD_DATA.sheets;
+        parseData();
+        updateStatus('synced', 'Local Sync Mode (Offline)');
+        // Hide API input container to look clean
+        const configContainer = document.querySelector('.url-config-container');
+        if (configContainer) configContainer.style.display = 'none';
+        return;
+    }
+
     let hasApi = false;
 
     // 1. Try global window.APP_CONFIG loaded via script tag (bypasses local file CORS)
@@ -116,17 +127,6 @@ async function loadConfiguration() {
     if (hasApi) {
         updateStatus('loading', 'Loading data from Google Sheet...');
         fetchData();
-        return;
-    }
-
-    // 0. Fallback: Try local offline data first (bypasses ALL network requests and CORS limits)
-    if (window.DASHBOARD_DATA && window.DASHBOARD_DATA.sheets) {
-        state.rawSheets = window.DASHBOARD_DATA.sheets;
-        parseData();
-        updateStatus('synced', 'Local Sync Mode (Offline)');
-        // Hide API input container to look clean
-        const configContainer = document.querySelector('.url-config-container');
-        if (configContainer) configContainer.style.display = 'none';
         return;
     }
 
