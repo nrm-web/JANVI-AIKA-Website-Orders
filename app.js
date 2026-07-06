@@ -64,7 +64,7 @@ const elements = {
 
 // Initial Setup
 window.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme') || 'dark';
+    const savedTheme = localStorage.getItem('theme') || 'light';
     document.body.classList.add(savedTheme + '-mode');
     document.body.classList.remove(savedTheme === 'dark' ? 'light-mode' : 'dark-mode');
     
