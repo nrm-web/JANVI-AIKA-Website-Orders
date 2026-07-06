@@ -46,6 +46,7 @@ const elements = {
     // Filters & Table
     searchInput: document.getElementById('search-input'),
     topFilterMonth: document.getElementById('top-filter-month'),
+    topFilterDate: document.getElementById('top-filter-date'),
     filterMonth: document.getElementById('filter-month'),
     filterPayment: document.getElementById('filter-payment'),
     filterStatus: document.getElementById('filter-status'),
@@ -164,6 +165,7 @@ function setupEventListeners() {
     });
 
     elements.searchInput.addEventListener('input', applyFilters);
+    elements.topFilterDate.addEventListener('input', applyFilters);
     elements.topFilterMonth.addEventListener('change', () => {
         elements.filterMonth.value = elements.topFilterMonth.value;
         applyFilters();
@@ -880,10 +882,13 @@ function applyFilters() {
     const month = elements.filterMonth.value;
     const pay = elements.filterPayment.value;
     const status = elements.filterStatus.value;
+    const selectedDate = elements.topFilterDate.value;
     
-    // 1. Filter by month for dashboard stats, KPIs, and donut charts
+    // 1. Filter by month/date for dashboard stats, KPIs, and donut charts
     state.monthFilteredOrders = state.orders.filter(o => {
-        return !month || getMonthYearStr(o.dateOfOrder) === month;
+        const matchesMonth = !month || getMonthYearStr(o.dateOfOrder) === month;
+        const matchesDate = !selectedDate || o.dateOfOrder === selectedDate;
+        return matchesMonth && matchesDate;
     });
     
     // 2. Filter by all inputs for master table rows
@@ -900,6 +905,9 @@ function applyFilters() {
         // Month dropdown
         const matchesMonth = !month || getMonthYearStr(o.dateOfOrder) === month;
         
+        // Date input
+        const matchesDate = !selectedDate || o.dateOfOrder === selectedDate;
+        
         // Payment dropdown
         const matchesPayment = !pay || o.paymentMethod.toLowerCase().includes(pay.toLowerCase());
         
@@ -913,7 +921,7 @@ function applyFilters() {
             matchesStatus = o.logisticsStatus.toLowerCase().trim() === status.toLowerCase().trim();
         }
         
-        return matchesQuery && matchesMonth && matchesPayment && matchesStatus;
+        return matchesQuery && matchesMonth && matchesDate && matchesPayment && matchesStatus;
     });
     
     state.currentPage = 1; // Reset to page 1 on filter
@@ -924,10 +932,12 @@ function applyFilters() {
 function clearFilters() {
     elements.searchInput.value = '';
     elements.topFilterMonth.value = '';
+    elements.topFilterDate.value = '';
     elements.filterMonth.value = '';
     elements.filterPayment.value = '';
     elements.filterStatus.value = '';
     state.filteredOrders = [...state.orders];
+    state.monthFilteredOrders = [...state.orders];
     state.currentPage = 1; // Reset to page 1
     renderDashboard();
 }

@@ -287,6 +287,28 @@ body {
     background-size: 12px 12px;
 }
 
+.header-date-select {
+    border: none !important;
+    background: transparent !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: var(--color-brand) !important;
+    cursor: pointer;
+    outline: none;
+    height: auto !important;
+    width: auto !important;
+    font-family: var(--font-sans);
+}
+
+.header-date-select::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(9%) sepia(92%) saturate(4645%) hue-rotate(339deg) brightness(89%) contrast(106%);
+}
+
+body.dark-mode .header-date-select::-webkit-calendar-picker-indicator {
+    filter: invert(83%) sepia(21%) saturate(2250%) hue-rotate(309deg) brightness(101%) contrast(99%);
+}
+
 body.light-mode .header-month-select {
     background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23800020' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") !important;
 }
