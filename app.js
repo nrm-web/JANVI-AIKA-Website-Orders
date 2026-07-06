@@ -910,6 +910,10 @@ function applyFilters() {
             o.city.toLowerCase().includes(q) ||
             o.pinCode.toLowerCase().includes(q);
             
+        if (q) {
+            return matchesQuery;
+        }
+        
         // Month dropdown
         const matchesMonth = !month || getMonthYearStr(o.dateOfOrder) === month;
         
