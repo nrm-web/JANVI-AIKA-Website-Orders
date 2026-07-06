@@ -368,8 +368,7 @@ body.dark-mode .moon-icon { display: none; }
 
 /* API URL Input config */
 .url-config-container {
-    display: flex;
-    gap: var(--space-2);
+    display: none !important;
 }
 
 .url-input {
