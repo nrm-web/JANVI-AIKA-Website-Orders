@@ -229,7 +229,7 @@ body {
     font-size: 20px;
     font-weight: 700;
     letter-spacing: -0.02em;
-    color: var(--text-primary);
+    color: var(--color-brand);
 }
 
 .header-title .subtitle {
@@ -418,13 +418,15 @@ body.dark-mode .moon-icon { display: none; }
 
 .btn-secondary {
     background-color: var(--bg-surface);
-    border-color: var(--border-color);
-    color: var(--text-primary);
+    border-color: var(--color-brand);
+    color: var(--color-brand);
+    font-weight: 600;
 }
 
 .btn-secondary:hover {
-    background-color: var(--bg-hover);
-    border-color: var(--border-hover);
+    background-color: var(--color-brand);
+    border-color: var(--color-brand);
+    color: #ffffff;
 }
 
 .btn:focus {
