@@ -664,8 +664,7 @@ function renderCharts() {
                 data: [financeCounts.paid, financeCounts.pending, financeCounts.refunded],
                 backgroundColor: ['#10b981', '#f97316', '#ef4444'],
                 borderColor: borderChart,
-                borderWidth: 2,
-                radius: '70%'
+                borderWidth: 2
             }]
         },
         plugins: [donutLabelsLinePlugin],
@@ -673,7 +672,12 @@ function renderCharts() {
             responsive: true,
             maintainAspectRatio: false,
             layout: {
-                padding: 20
+                padding: {
+                    left: 45,
+                    right: 45,
+                    top: 15,
+                    bottom: 15
+                }
             },
             plugins: {
                 legend: { position: 'bottom', labels: { color: textSecondary, boxWidth: 12, font: { family: 'Inter' } } }
@@ -706,8 +710,7 @@ function renderCharts() {
                 data: [deliveryCounts.delivered, deliveryCounts.transit, deliveryCounts.rto, deliveryCounts.canceled],
                 backgroundColor: ['#10b981', '#3b82f6', '#f97316', '#ef4444'],
                 borderColor: borderChart,
-                borderWidth: 2,
-                radius: '70%'
+                borderWidth: 2
             }]
         },
         plugins: [donutLabelsLinePlugin],
@@ -715,7 +718,12 @@ function renderCharts() {
             responsive: true,
             maintainAspectRatio: false,
             layout: {
-                padding: 20
+                padding: {
+                    left: 45,
+                    right: 45,
+                    top: 15,
+                    bottom: 15
+                }
             },
             plugins: {
                 legend: { position: 'bottom', labels: { color: textSecondary, boxWidth: 12, font: { family: 'Inter' } } }
