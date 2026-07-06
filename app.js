@@ -72,7 +72,54 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 async function loadConfiguration() {
-    // 0. Try local offline data first (bypasses ALL network requests and CORS limits)
+    let hasApi = false;
+
+    // 1. Try global window.APP_CONFIG loaded via script tag (bypasses local file CORS)
+    if (window.APP_CONFIG && window.APP_CONFIG.google_web_app_url) {
+        const scriptUrl = window.APP_CONFIG.google_web_app_url;
+        if (scriptUrl && !scriptUrl.includes('YOUR_URL') && !scriptUrl.includes('YOUR_GOOGLE_WEB_APP_URL_HERE')) {
+            state.apiUrl = scriptUrl;
+            elements.apiUrlInput.value = scriptUrl;
+            hasApi = true;
+        }
+    }
+
+    // 2. Try local storage
+    if (!hasApi) {
+        const savedUrl = localStorage.getItem('google_web_app_url');
+        if (savedUrl) {
+            state.apiUrl = savedUrl;
+            elements.apiUrlInput.value = savedUrl;
+            hasApi = true;
+        }
+    }
+
+    // 3. Try config.json on the server
+    if (!hasApi) {
+        try {
+            const response = await fetch('config.json');
+            if (response.ok) {
+                const config = await response.json();
+                const configUrl = config.google_web_app_url;
+                if (configUrl && !configUrl.includes('YOUR_URL') && !configUrl.includes('YOUR_GOOGLE_WEB_APP_URL_HERE')) {
+                    state.apiUrl = configUrl;
+                    elements.apiUrlInput.value = configUrl;
+                    hasApi = true;
+                }
+            }
+        } catch (e) {
+            // config.json fetch might fail due to local file protocol CORS, which is expected
+        }
+    }
+
+    // If we have an API URL, load live data from Google Sheets Web App
+    if (hasApi) {
+        updateStatus('loading', 'Loading data from Google Sheet...');
+        fetchData();
+        return;
+    }
+
+    // 0. Fallback: Try local offline data first (bypasses ALL network requests and CORS limits)
     if (window.DASHBOARD_DATA && window.DASHBOARD_DATA.sheets) {
         state.rawSheets = window.DASHBOARD_DATA.sheets;
         parseData();
@@ -81,46 +128,6 @@ async function loadConfiguration() {
         const configContainer = document.querySelector('.url-config-container');
         if (configContainer) configContainer.style.display = 'none';
         return;
-    }
-
-    // 1. Try global window.APP_CONFIG loaded via script tag (bypasses local file CORS)
-    if (window.APP_CONFIG && window.APP_CONFIG.google_web_app_url) {
-        const scriptUrl = window.APP_CONFIG.google_web_app_url;
-        if (scriptUrl && !scriptUrl.includes('YOUR_URL') && !scriptUrl.includes('YOUR_GOOGLE_WEB_APP_URL_HERE')) {
-            state.apiUrl = scriptUrl;
-            elements.apiUrlInput.value = scriptUrl;
-            updateStatus('loading', 'Loading data from Google Sheet...');
-            fetchData();
-            return;
-        }
-    }
-
-    // 2. Try local storage
-    const savedUrl = localStorage.getItem('google_web_app_url');
-    if (savedUrl) {
-        state.apiUrl = savedUrl;
-        elements.apiUrlInput.value = savedUrl;
-        updateStatus('loading', 'Loading data from Google Sheet...');
-        fetchData();
-        return;
-    }
-
-    // 3. Try config.json on the server
-    try {
-        const response = await fetch('config.json');
-        if (response.ok) {
-            const config = await response.json();
-            const configUrl = config.google_web_app_url;
-            if (configUrl && !configUrl.includes('YOUR_URL') && !configUrl.includes('YOUR_GOOGLE_WEB_APP_URL_HERE')) {
-                state.apiUrl = configUrl;
-                elements.apiUrlInput.value = configUrl;
-                updateStatus('loading', 'Loading data from Google Sheet...');
-                fetchData();
-                return;
-            }
-        }
-    } catch (e) {
-        // config.json fetch might fail due to local file protocol CORS, which is expected
     }
 
     updateStatus('error', 'API URL not set. Please paste it above.');
