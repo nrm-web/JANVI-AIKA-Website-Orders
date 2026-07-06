@@ -463,107 +463,6 @@ function renderDashboard() {
     renderTable();
 }
 
-// Custom Chart.js Plugin to draw leader lines and percentages outside doughnut charts
-// Uses two-column layout: labels pre-sorted and evenly distributed on left/right sides
-const donutLabelsLinePlugin = {
-    id: 'donutLabelsLine',
-    afterDraw(chart) {
-        if (chart.config.type !== 'doughnut') return;
-
-        const { ctx } = chart;
-        const style = getComputedStyle(document.body);
-        const lineStroke = style.getPropertyValue('--text-muted').trim() || 'rgba(128,128,128,0.5)';
-        const labelColor = style.getPropertyValue('--text-secondary').trim() || '#475569';
-
-        chart.data.datasets.forEach((dataset, i) => {
-            const meta = chart.getDatasetMeta(i);
-            if (meta.hidden) return;
-
-            const sum = dataset.data.reduce((a, b) => a + b, 0);
-            if (!sum) return;
-
-            // Build all label entries
-            const entries = [];
-            meta.data.forEach((element, index) => {
-                const value = dataset.data[index];
-                if (!value || value === 0) return;
-                const { x, y, outerRadius, startAngle, endAngle } = element;
-                const midAngle = startAngle + (endAngle - startAngle) / 2;
-                const isLeft = Math.cos(midAngle) < 0;
-                const percentage = (value * 100 / sum).toFixed(1) + '%';
-                const text = `${percentage} (${value})`;
-                entries.push({ x, y, outerRadius, midAngle, isLeft, text, value });
-            });
-
-            // Split into left/right groups sorted by their natural Y position
-            const leftGroup  = entries.filter(e => e.isLeft).sort((a, b) => {
-                const ya = a.y + Math.sin(a.midAngle) * a.outerRadius;
-                const yb = b.y + Math.sin(b.midAngle) * b.outerRadius;
-                return ya - yb;
-            });
-            const rightGroup = entries.filter(e => !e.isLeft).sort((a, b) => {
-                const ya = a.y + Math.sin(a.midAngle) * a.outerRadius;
-                const yb = b.y + Math.sin(b.midAngle) * b.outerRadius;
-                return ya - yb;
-            });
-
-            // Evenly distribute each group vertically within the canvas
-            const lineLength = 22;
-            const tickLength = 10;
-            const rowHeight  = 18; // minimum gap between rows
-
-            const distributeGroup = (group, side) => {
-                const n = group.length;
-                if (n === 0) return;
-
-                // Calculate the spread of Y positions needed
-                const totalHeight = (n - 1) * rowHeight;
-                const chartCenterY = group[0].y; // all elements share chart centre Y
-                const startY = Math.max(14, chartCenterY - totalHeight / 2);
-
-                group.forEach((entry, idx) => {
-                    const { x, y, outerRadius, midAngle, text } = entry;
-                    const rowY = startY + idx * rowHeight;
-
-                    // Edge of the slice
-                    const edgeX = x + Math.cos(midAngle) * outerRadius;
-                    const edgeY = y + Math.sin(midAngle) * outerRadius;
-
-                    // Elbow point: directly out from slice edge
-                    const elbowX = x + Math.cos(midAngle) * (outerRadius + lineLength);
-                    const elbowY = edgeY; // keeps elbow on the same horizontal as edge
-
-                    // End point of horizontal tick
-                    const tickX = elbowX + (side === 'left' ? -tickLength : tickLength);
-
-                    ctx.save();
-
-                    // Draw angled line from slice edge → elbow → rowY → tick end
-                    ctx.beginPath();
-                    ctx.moveTo(edgeX, edgeY);
-                    ctx.lineTo(elbowX, rowY);
-                    ctx.lineTo(tickX, rowY);
-                    ctx.strokeStyle = lineStroke;
-                    ctx.lineWidth = 1.2;
-                    ctx.stroke();
-
-                    // Draw text
-                    ctx.fillStyle = labelColor;
-                    ctx.font = '600 10px Inter';
-                    ctx.textBaseline = 'middle';
-                    ctx.textAlign = side === 'left' ? 'right' : 'left';
-                    const textX = tickX + (side === 'left' ? -4 : 4);
-                    ctx.fillText(text, textX, rowY);
-
-                    ctx.restore();
-                });
-            };
-
-            distributeGroup(leftGroup,  'left');
-            distributeGroup(rightGroup, 'right');
-        });
-    }
-};
 
 // Generate sales trend and donut breakdown charts
 function renderCharts() {
@@ -671,18 +570,9 @@ function renderCharts() {
                 borderWidth: 2
             }]
         },
-        plugins: [donutLabelsLinePlugin],
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            layout: {
-                padding: {
-                    left: 55,
-                    right: 55,
-                    top: 30,
-                    bottom: 30
-                }
-            },
             plugins: {
                 legend: { position: 'bottom', labels: { color: textSecondary, boxWidth: 12, font: { family: 'Inter' } } }
             },
@@ -717,18 +607,9 @@ function renderCharts() {
                 borderWidth: 2
             }]
         },
-        plugins: [donutLabelsLinePlugin],
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            layout: {
-                padding: {
-                    left: 55,
-                    right: 55,
-                    top: 30,
-                    bottom: 30
-                }
-            },
             plugins: {
                 legend: { position: 'bottom', labels: { color: textSecondary, boxWidth: 12, font: { family: 'Inter' } } }
             },
