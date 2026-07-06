@@ -1430,23 +1430,6 @@ body.dark-mode .filter-select {
         padding: 8px 10px !important;
     }
 
-    /* Hide: Date, Items, City, Payment Method, Financial Status, Fulfillment Status, Comments */
-    .orders-table th:nth-child(2),
-    .orders-table td:nth-child(2),
-    .orders-table th:nth-child(4),
-    .orders-table td:nth-child(4),
-    .orders-table th:nth-child(5),
-    .orders-table td:nth-child(5),
-    .orders-table th:nth-child(6),
-    .orders-table td:nth-child(6),
-    .orders-table th:nth-child(8),
-    .orders-table td:nth-child(8),
-    .orders-table th:nth-child(9),
-    .orders-table td:nth-child(9),
-    .orders-table th:nth-child(11),
-    .orders-table td:nth-child(11) {
-        display: none !important;
-    }
 
     /* Pagination */
     .pagination-wrapper {
