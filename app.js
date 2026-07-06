@@ -47,7 +47,7 @@ const elements = {
     searchInput: document.getElementById('search-input'),
     topFilterMonth: document.getElementById('top-filter-month'),
     topFilterDate: document.getElementById('top-filter-date'),
-    filterMonth: document.getElementById('top-filter-month'),
+    filterMonth: document.getElementById('filter-month'),
     filterPayment: document.getElementById('filter-payment'),
     filterStatus: document.getElementById('filter-status'),
     clearFiltersBtn: document.getElementById('clear-filters-btn'),
@@ -168,11 +168,18 @@ function setupEventListeners() {
     elements.topFilterDate.addEventListener('input', () => {
         if (elements.topFilterDate.value) {
             elements.topFilterMonth.value = '';
+            elements.filterMonth.value = '';
         }
         applyFilters();
     });
     elements.topFilterMonth.addEventListener('change', () => {
         elements.topFilterDate.value = '';
+        elements.filterMonth.value = elements.topFilterMonth.value;
+        applyFilters();
+    });
+    elements.filterMonth.addEventListener('change', () => {
+        elements.topFilterDate.value = '';
+        elements.topFilterMonth.value = elements.filterMonth.value;
         applyFilters();
     });
     elements.filterPayment.addEventListener('change', applyFilters);
@@ -346,6 +353,7 @@ function populateFilterOptions() {
     });
     
     // Populate Months
+    elements.filterMonth.innerHTML = '<option value="">All Months</option>';
     elements.topFilterMonth.innerHTML = '<option value="">All Months</option>';
     // Chronological order: compile list of months and sort
     const chronMonths = [
@@ -355,6 +363,7 @@ function populateFilterOptions() {
     chronMonths.forEach(m => {
         if (months.has(m)) {
             const opt = `<option value="${m}">${m}</option>`;
+            elements.filterMonth.innerHTML += opt;
             elements.topFilterMonth.innerHTML += opt;
         }
     });
