@@ -675,10 +675,10 @@ function renderCharts() {
             maintainAspectRatio: false,
             layout: {
                 padding: {
-                    left: 45,
-                    right: 45,
-                    top: 15,
-                    bottom: 15
+                    left: 55,
+                    right: 55,
+                    top: 30,
+                    bottom: 30
                 }
             },
             plugins: {
@@ -721,10 +721,10 @@ function renderCharts() {
             maintainAspectRatio: false,
             layout: {
                 padding: {
-                    left: 45,
-                    right: 45,
-                    top: 15,
-                    bottom: 15
+                    left: 55,
+                    right: 55,
+                    top: 30,
+                    bottom: 30
                 }
             },
             plugins: {
