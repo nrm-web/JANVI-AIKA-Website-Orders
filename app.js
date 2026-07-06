@@ -786,7 +786,7 @@ function renderTable() {
     const totalRecords = state.filteredOrders.length;
     
     if (totalRecords === 0) {
-        elements.ordersTbody.innerHTML = `<tr><td colspan="11" class="empty-state">No matching orders found.</td></tr>`;
+        elements.ordersTbody.innerHTML = `<tr><td colspan="12" class="empty-state">No matching orders found.</td></tr>`;
         elements.tableCount.textContent = 'Showing 0 orders';
         const pagWrapper = document.getElementById('pagination-wrapper');
         if (pagWrapper) pagWrapper.style.display = 'none';
@@ -826,6 +826,16 @@ function renderTable() {
         if (o.logisticsStatus === 'CANCELED') logClass = 'danger';
         if (o.logisticsStatus.includes('RTO')) logClass = 'warning';
         
+        // Feedback status pill
+        let feedbackHTML = '';
+        if (o.feedbackReceived === 'Yes') {
+            feedbackHTML = '<span class="status-pill success">Received</span>';
+        } else if (o.feedbackSent === 'Yes') {
+            feedbackHTML = '<span class="status-pill warning">Sent</span>';
+        } else {
+            feedbackHTML = '<span class="status-pill danger">Not Sent</span>';
+        }
+        
         // Row Cells
         const orderNoDisplay = String(o.orderNo).startsWith('#') ? o.orderNo : `#${o.orderNo}`;
         tr.innerHTML = `
@@ -840,6 +850,7 @@ function renderTable() {
             <td><span class="status-pill ${fulClass}">${o.fulfillmentStatus}</span></td>
             <td><span class="status-pill ${logClass}">${o.logisticsStatus}</span></td>
             <td class="comments-col">${o.shiprocketComments || '-'}</td>
+            <td>${feedbackHTML}</td>
         `;
         elements.ordersTbody.appendChild(tr);
     });
