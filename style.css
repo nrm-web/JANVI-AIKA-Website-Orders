@@ -269,9 +269,8 @@ body {
 }
 
 .header-month-select {
-    background: transparent !important;
     border: none !important;
-    padding: 0 20px 0 0 !important;
+    padding: 0 16px 0 0 !important;
     font-size: 13px !important;
     font-weight: 600 !important;
     color: var(--color-brand) !important;
@@ -280,6 +279,20 @@ body {
     height: auto !important;
     width: auto !important;
     min-width: 0 !important;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 10px;
+}
+
+body.light-mode .header-month-select {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23800020' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") !important;
+}
+
+body.dark-mode .header-month-select {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fda4af' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") !important;
 }
 
 /* Theme Toggle Button */
@@ -1244,6 +1257,10 @@ body.dark-mode .filter-select {
     .pipeline-arrow {
         display: none !important;
     }
+    
+    .url-config-container {
+        display: none !important;
+    }
 }
 
 /* 5. Mobile Portrait (< 480px) */
@@ -1305,19 +1322,7 @@ body.dark-mode .filter-select {
         height: 32px !important;
     }
 
-    .url-config-container {
-        flex: 1 1 100% !important;
-        display: flex !important;
-        gap: var(--space-2) !important;
-        margin-top: 4px;
-    }
 
-    .url-input {
-        flex: 1 !important;
-        width: 100% !important;
-        padding: 6px var(--space-2) !important;
-        font-size: 12px !important;
-    }
     
     /* KPI Cards (2 Columns Compact) */
     .kpi-grid {
