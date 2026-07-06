@@ -496,31 +496,33 @@ const donutLabelsLinePlugin = {
                     const labelX = x + Math.cos(midAngle) * (outerRadius + lineLength);
                     let labelY = y + Math.sin(midAngle) * (outerRadius + lineLength);
                     
+                    // Boundary check: initial clamp
+                    labelY = Math.max(15, Math.min(chart.height - 15, labelY));
+                    
                     const isLeft = Math.cos(midAngle) < 0;
                     const drawnYArray = isLeft ? drawnYLeft : drawnYRight;
                     
                     // Collision detection: adjust Y if too close to another label on the same side
-                    const minDistance = 12; // Minimum vertical distance between labels
+                    const minDistance = 16; // Increased to 16 for better line height / readability
                     let attempts = 0;
                     let hasCollision = true;
                     
-                    while (hasCollision && attempts < 10) {
+                    while (hasCollision && attempts < 20) {
                         hasCollision = false;
                         for (let j = 0; j < drawnYArray.length; j++) {
                             if (Math.abs(drawnYArray[j] - labelY) < minDistance) {
                                 hasCollision = true;
-                                // Shift up if in top half, down if in bottom half
-                                const isTopHalf = Math.sin(midAngle) < 0;
-                                labelY += isTopHalf ? -minDistance : minDistance;
+                                // If near the top half, push down; if near bottom half, push up
+                                const isTopHalf = labelY < chart.height / 2;
+                                labelY += isTopHalf ? minDistance : -minDistance;
+                                
+                                // Re-clamp inside canvas
+                                labelY = Math.max(15, Math.min(chart.height - 15, labelY));
                                 break;
                             }
                         }
                         attempts++;
                     }
-                    
-                    // Boundary check: prevent label from going outside the canvas height
-                    if (labelY < 12) labelY = 12;
-                    if (labelY > chart.height - 12) labelY = chart.height - 12;
                     
                     drawnYArray.push(labelY);
                     

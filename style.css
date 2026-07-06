@@ -1254,6 +1254,12 @@ body.dark-mode .filter-select {
         z-index: 2 !important;
     }
     
+    .pipeline-step.active .step-icon {
+        background: var(--color-brand) !important;
+        color: #ffffff !important;
+        border-color: var(--color-brand) !important;
+    }
+    
     .pipeline-arrow {
         display: none !important;
     }
