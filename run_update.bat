@@ -12,6 +12,16 @@ if %ERRORLEVEL% EQU 0 (
     python sync_via_web_app.py
 )
 echo.
+echo Syncing updates to GitHub for Vercel web app...
+git add data.js Janvi_Consolidated_Orders_2026_2027.xlsx
+git commit -m "Auto-update consolidated order data and Excel sheet"
+if %ERRORLEVEL% EQU 0 (
+    echo Pushing latest dataset to Vercel...
+    git push
+) else (
+    echo No new changes to push.
+)
+echo.
 echo ===================================================
 echo   Update completed successfully!
 echo   Excel file generated: Janvi_Consolidated_Orders_2026_2027.xlsx
