@@ -999,6 +999,7 @@ function showOrderDetail(o) {
     }
     
     document.getElementById('det-items').textContent = o.itemsOrdered || 'N/A';
+    document.getElementById('det-comments').textContent = o.shiprocketComments || '-';
     
     elements.modal.style.display = 'flex';
 }
