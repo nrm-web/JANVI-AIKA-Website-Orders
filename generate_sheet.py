@@ -215,7 +215,13 @@ def process_and_create_excel():
                 
             unique_reasons = []
             for r in reasons:
-                r_clean = r.replace('_', ' ').replace('-', ' ').strip().title()
+                # Only split camelCase if the string has both uppercase and lowercase letters
+                if any(c.isupper() for c in r) and any(c.islower() for c in r):
+                    r_split = re.sub(r'(?<!^)(?=[A-Z])', ' ', r)
+                else:
+                    r_split = r
+                r_clean = r_split.replace('_', ' ').replace('-', ' ')
+                r_clean = ' '.join(r_clean.split()).strip().title()
                 if r_clean not in unique_reasons:
                     unique_reasons.append(r_clean)
                     
