@@ -42,6 +42,7 @@ const elements = {
     pipePickup: document.querySelector('#step-pickup .step-count'),
     pipeTransit: document.querySelector('#step-transit .step-count'),
     pipeDelivered: document.querySelector('#step-delivered .step-count'),
+    pipeCanceled: document.querySelector('#step-canceled .step-count'),
     
     // Filters & Table
     searchInput: document.getElementById('search-input'),
@@ -446,13 +447,16 @@ function renderDashboard() {
         returned: 0,
         pickup: 0,
         transit: 0,
-        delivered: 0
+        delivered: 0,
+        canceled: 0
     };
     
     state.monthFilteredOrders.forEach(o => {
         const status = o.logisticsStatus.toUpperCase().trim();
         
-        if (o.returned || status.includes('RTO') || status.includes('CANCELED') || status.includes('CANCELLED')) {
+        if (status.includes('CANCELED') || status.includes('CANCELLED')) {
+            pipeCounts.canceled++;
+        } else if (o.returned || status.includes('RTO')) {
             pipeCounts.returned++;
         } else if (status === 'DELIVERED' || status === 'SELF FULFILED') {
             pipeCounts.delivered++;
@@ -474,6 +478,7 @@ function renderDashboard() {
     elements.pipePickup.textContent = pipeCounts.pickup;
     elements.pipeTransit.textContent = pipeCounts.transit;
     elements.pipeDelivered.textContent = pipeCounts.delivered;
+    elements.pipeCanceled.textContent = pipeCounts.canceled;
     
     // Animate pipeline states
     document.querySelectorAll('.pipeline-step').forEach(step => {
