@@ -527,6 +527,8 @@ body.dark-mode .moon-icon { display: none; }
 #card-profit .kpi-icon-wrapper { background: var(--bg-kpi-profit); color: var(--text-kpi-profit); }
 #card-return .kpi-icon-wrapper { background: var(--bg-kpi-return); color: var(--text-kpi-return); }
 #card-denial .kpi-icon-wrapper { background: var(--bg-kpi-denial); color: var(--text-kpi-denial); }
+#card-canceled-count .kpi-icon-wrapper { background: var(--bg-kpi-return); color: var(--text-kpi-return); }
+#card-canceled-amount .kpi-icon-wrapper { background: var(--bg-kpi-denial); color: var(--text-kpi-denial); }
 
 .kpi-icon {
     width: 18px;
@@ -584,6 +586,8 @@ body.dark-mode .moon-icon { display: none; }
 #card-profit .progress-fill { background: var(--color-success); }
 #card-return .progress-fill { background: var(--color-warning); }
 #card-denial .progress-fill { background: var(--color-danger); }
+#card-canceled-count .progress-fill { background: var(--color-warning); }
+#card-canceled-amount .progress-fill { background: var(--color-danger); }
 
 /* ==========================================================================
    Fulfillment Status Pipeline Section
