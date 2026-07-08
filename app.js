@@ -423,10 +423,10 @@ function renderDashboard() {
 
     const totalOrders = state.monthFilteredOrders.length;
     const totalRevenue = state.monthFilteredOrders.reduce((sum, o) => sum + o.totalPrice, 0);
-    const totalRefunded = state.monthFilteredOrders.filter(o => o.returned).reduce((sum, o) => sum + o.totalPrice, 0);
+    const totalRefunded = state.monthFilteredOrders.filter(o => o.returned && !o.logisticsStatus.toUpperCase().includes('CANCELED') && !o.logisticsStatus.toUpperCase().includes('CANCELLED')).reduce((sum, o) => sum + o.totalPrice, 0);
     const totalProfit = totalRevenue - totalRefunded - totalCanceledAmount;
     
-    const returnCount = state.monthFilteredOrders.filter(o => o.returned).length;
+    const returnCount = state.monthFilteredOrders.filter(o => o.returned && !o.logisticsStatus.toUpperCase().includes('CANCELED') && !o.logisticsStatus.toUpperCase().includes('CANCELLED')).length;
     const returnRate = totalOrders > 0 ? (returnCount / totalOrders) * 100 : 0;
     const successfulCount = totalOrders - returnCount - canceledCount;
     
