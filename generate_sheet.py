@@ -165,8 +165,10 @@ def process_and_create_excel():
         refund_amt = float(row['Refunded Amount']) if pd.notna(row['Refunded Amount']) else 0.0
         
         returned = False
-        if 'RTO' in sr_status or fin_status == 'refunded' or refund_amt > 0:
-            returned = True
+        is_canceled = 'CANCELED' in sr_status or 'CANCELLED' in sr_status
+        if not is_canceled:
+            if 'RTO' in sr_status or fin_status == 'refunded' or refund_amt > 0:
+                returned = True
             
         # 8. COD Denial
         cod_denied = "No"
@@ -607,7 +609,12 @@ def process_and_create_excel():
     return_orders = df_consolidated[df_consolidated["Returned (True/False)"] == True]
     return_rate = (len(return_orders) / total_orders) if total_orders > 0 else 0
     total_refunded = return_orders["Total Price"].sum()
-    total_profit = total_revenue - total_refunded
+    
+    canceled_orders = df_consolidated[df_consolidated["Fulfillment Status"].str.upper().str.contains("CANCELED|CANCELLED", na=False)]
+    total_canceled_count = len(canceled_orders)
+    total_canceled_amount = canceled_orders["Total Price"].sum()
+    
+    total_profit = total_revenue - total_refunded - total_canceled_amount
     
     cod_orders_df = df_consolidated[df_consolidated["COD (Yes/No)"] == "Yes"]
     total_cod = len(cod_orders_df)
@@ -681,8 +688,30 @@ def process_and_create_excel():
     dash_sheet["G4"].number_format = '0.0%'
     dash_sheet["G4"].fill = PatternFill(start_color=color_accent, end_color=color_accent, fill_type="solid")
     
+    # KPI 5: Canceled Orders Count
+    dash_sheet["H3"] = "CANCELED ORDERS"
+    dash_sheet["H3"].font = Font(name=font_family, size=9, bold=True, color="555555")
+    dash_sheet["H3"].alignment = align_center
+    dash_sheet["H3"].fill = PatternFill(start_color=color_accent, end_color=color_accent, fill_type="solid")
+    dash_sheet["H4"] = total_canceled_count
+    dash_sheet["H4"].font = Font(name=font_family, size=18, bold=True, color="BA4A00")
+    dash_sheet["H4"].alignment = align_center
+    dash_sheet["H4"].number_format = '#,##0'
+    dash_sheet["H4"].fill = PatternFill(start_color=color_accent, end_color=color_accent, fill_type="solid")
+    
+    # KPI 6: Total Canceled Amount
+    dash_sheet["I3"] = "TOTAL CANCELED"
+    dash_sheet["I3"].font = Font(name=font_family, size=9, bold=True, color="555555")
+    dash_sheet["I3"].alignment = align_center
+    dash_sheet["I3"].fill = PatternFill(start_color=color_accent, end_color=color_accent, fill_type="solid")
+    dash_sheet["I4"] = total_canceled_amount
+    dash_sheet["I4"].font = Font(name=font_family, size=18, bold=True, color="A93226")
+    dash_sheet["I4"].alignment = align_center
+    dash_sheet["I4"].number_format = '₹#,##0.00'
+    dash_sheet["I4"].fill = PatternFill(start_color=color_accent, end_color=color_accent, fill_type="solid")
+    
     # KPI Borders
-    for col in ["B", "C", "D", "E", "F", "G"]:
+    for col in ["B", "C", "D", "E", "F", "G", "H", "I"]:
         dash_sheet[f"{col}3"].border = Border(left=thin_side, right=thin_side, top=thin_side)
         dash_sheet[f"{col}4"].border = Border(left=thin_side, right=thin_side, bottom=thin_side)
         
@@ -821,6 +850,9 @@ def process_and_create_excel():
     print(f"* Total Sales Revenue     : Rs. {total_revenue:,.2f}")
     print(f"* Return Rate             : {return_rate:.1%} ({len(return_orders)} returned orders)")
     print(f"* COD Denial Rate         : {cod_denial_rate:.1%} ({len(cod_denies_df)} COD denied out of {total_cod} COD orders)")
+    print(f"* Canceled Orders Count   : {total_canceled_count} orders")
+    print(f"* Total Canceled Value    : Rs. {total_canceled_amount:,.2f}")
+    print(f"* Total Calculated Profit : Rs. {total_profit:,.2f}")
     
     print("\n----------------- Shopify Statuses ------------------")
     print("* Financial Status:")
