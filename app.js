@@ -35,6 +35,10 @@ const elements = {
     kpiDenialProgress: document.getElementById('kpi-denial-progress'),
     kpiReturnRateSub: document.getElementById('kpi-return-rate-sub'),
     kpiDenialRateSub: document.getElementById('kpi-denial-rate-sub'),
+    kpiCanceledCount: document.getElementById('kpi-canceled-count'),
+    kpiCanceledCountSub: document.getElementById('kpi-canceled-count-sub'),
+    kpiTotalCanceled: document.getElementById('kpi-total-canceled'),
+    kpiTotalCanceledSub: document.getElementById('kpi-total-canceled-sub'),
     
     // Pipeline
     pipeUnfulfilled: document.querySelector('#step-unfulfilled .step-count'),
@@ -408,17 +412,23 @@ function formatCurrency(amount) {
 }
 
 // Render KPIs and visual metrics
-// Always calculated based on the selected Month (state.monthFilteredOrders)
 function renderDashboard() {
     // 1. Calculate general stats
+    const canceledList = state.monthFilteredOrders.filter(o => {
+        const s = o.logisticsStatus.toUpperCase().trim();
+        return s.includes('CANCELED') || s.includes('CANCELLED');
+    });
+    const canceledCount = canceledList.length;
+    const totalCanceledAmount = canceledList.reduce((sum, o) => sum + o.totalPrice, 0);
+
     const totalOrders = state.monthFilteredOrders.length;
     const totalRevenue = state.monthFilteredOrders.reduce((sum, o) => sum + o.totalPrice, 0);
     const totalRefunded = state.monthFilteredOrders.filter(o => o.returned).reduce((sum, o) => sum + o.totalPrice, 0);
-    const totalProfit = totalRevenue - totalRefunded;
+    const totalProfit = totalRevenue - totalRefunded - totalCanceledAmount;
     
     const returnCount = state.monthFilteredOrders.filter(o => o.returned).length;
     const returnRate = totalOrders > 0 ? (returnCount / totalOrders) * 100 : 0;
-    const successfulCount = totalOrders - returnCount;
+    const successfulCount = totalOrders - returnCount - canceledCount;
     
     const codOrders = state.monthFilteredOrders.filter(o => o.paymentMethod === 'COD');
     const codDenials = codOrders.filter(o => o.codDenies === 'Yes').length;
@@ -436,6 +446,11 @@ function renderDashboard() {
     
     elements.kpiReturnRateSub.textContent = `${returnCount} returned of ${totalOrders}`;
     elements.kpiDenialRateSub.textContent = `${codDenials} denials of ${codOrders.length} COD`;
+    
+    elements.kpiCanceledCount.textContent = canceledCount;
+    elements.kpiCanceledCountSub.textContent = `${canceledCount} canceled of ${totalOrders}`;
+    elements.kpiTotalCanceled.textContent = formatCurrency(totalCanceledAmount);
+    elements.kpiTotalCanceledSub.textContent = `From ${canceledCount} canceled`;
     
     // Progress bar animations
     elements.kpiReturnProgress.style.width = `${returnRate}%`;

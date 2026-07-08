@@ -219,6 +219,41 @@
                     <div class="progress-fill" id="kpi-denial-progress" style="width: 0%;"></div>
                 </div>
             </div>
+
+            <!-- Canceled Orders -->
+            <div class="kpi-card" id="card-canceled-count">
+                <div class="kpi-icon-wrapper orange">
+                    <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="8" y1="12" x2="16" y2="12"/>
+                    </svg>
+                </div>
+                <div class="kpi-content">
+                    <p class="kpi-label">Canceled Orders</p>
+                    <h3 class="kpi-value" id="kpi-canceled-count">--</h3>
+                    <p class="kpi-subtext" id="kpi-canceled-count-sub">Canceled count</p>
+                </div>
+                <div class="kpi-progress-bar orange">
+                    <div class="progress-fill" id="kpi-canceled-progress" style="width: 100%;"></div>
+                </div>
+            </div>
+
+            <!-- Total Canceled Amount -->
+            <div class="kpi-card" id="card-canceled-amount">
+                <div class="kpi-icon-wrapper red">
+                    <svg class="kpi-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 4h12M6 9h12M6 4c0 0 8 0 8 5s-8 5-8 5h4l6 7"/>
+                    </svg>
+                </div>
+                <div class="kpi-content">
+                    <p class="kpi-label">Total Canceled</p>
+                    <h3 class="kpi-value" id="kpi-total-canceled">--</h3>
+                    <p class="kpi-subtext" id="kpi-total-canceled-sub">Canceled orders value</p>
+                </div>
+                <div class="kpi-progress-bar red">
+                    <div class="progress-fill" id="kpi-canceled-amount-progress" style="width: 100%;"></div>
+                </div>
+            </div>
         </section>
 
         <!-- Fulfillment & Logistics Pipeline -->
