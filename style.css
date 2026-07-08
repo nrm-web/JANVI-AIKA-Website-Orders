@@ -1207,14 +1207,14 @@ body.dark-mode .filter-select {
 /* 1. Large Screen / TV & Desktop (> 1200px) */
 @media (min-width: 1201px) {
     .kpi-grid {
-        grid-template-columns: repeat(4, 1fr) !important;
+        grid-template-columns: repeat(5, 1fr) !important;
     }
 }
 
 /* 2. Standard Laptops / Small Desktop (1025px to 1200px) */
 @media (min-width: 1025px) and (max-width: 1200px) {
     .kpi-grid {
-        grid-template-columns: repeat(4, 1fr) !important;
+        grid-template-columns: repeat(5, 1fr) !important;
     }
     .charts-row {
         grid-template-columns: 1fr !important;
@@ -1227,7 +1227,7 @@ body.dark-mode .filter-select {
 /* 3. Tablets Landscape & Portrait (769px to 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
     .kpi-grid {
-        grid-template-columns: repeat(4, 1fr) !important;
+        grid-template-columns: repeat(5, 1fr) !important;
         gap: var(--space-3) !important;
     }
     .charts-row {
