@@ -61,7 +61,7 @@ const elements = {
     tableCount: document.getElementById('table-record-count'),
     prevPageBtn: document.getElementById('prev-page-btn'),
     nextPageBtn: document.getElementById('next-page-btn'),
-    paginationInfo: document.getElementById('pagination-info'),
+    paginationInfo: document.getElementById('pagination-numbers'),
     
     // Modal
     modal: document.getElementById('order-modal'),
@@ -857,9 +857,52 @@ function renderTable() {
     const pagWrapper = document.getElementById('pagination-wrapper');
     if (pagWrapper) {
         pagWrapper.style.display = 'flex';
-        elements.paginationInfo.textContent = `Page ${state.currentPage} of ${totalPages}`;
+        elements.paginationInfo.innerHTML = '';
+        
         elements.prevPageBtn.disabled = state.currentPage === 1;
         elements.nextPageBtn.disabled = state.currentPage === totalPages;
+        
+        // Dynamic Pagination Number Rendering
+        const startPage = Math.max(1, state.currentPage - 1);
+        const endPage = Math.min(totalPages, state.currentPage + 1);
+        
+        // Helper to append page button
+        const addPageButton = (page, text, isActive, isDisabled) => {
+            const btn = document.createElement('button');
+            btn.className = 'page-num-btn';
+            if (isActive) btn.classList.add('active');
+            if (isDisabled) btn.classList.add('disabled');
+            btn.textContent = text || page;
+            
+            if (!isDisabled && !isActive) {
+                btn.addEventListener('click', () => {
+                    state.currentPage = page;
+                    renderTable();
+                });
+            }
+            elements.paginationInfo.appendChild(btn);
+        };
+        
+        // First page
+        if (startPage > 1) {
+            addPageButton(1, '1', state.currentPage === 1, false);
+            if (startPage > 2) {
+                addPageButton(null, '...', false, true);
+            }
+        }
+        
+        // Page numbers range
+        for (let i = startPage; i <= endPage; i++) {
+            addPageButton(i, i.toString(), state.currentPage === i, false);
+        }
+        
+        // Last page
+        if (endPage < totalPages) {
+            if (endPage < totalPages - 1) {
+                addPageButton(null, '...', false, true);
+            }
+            addPageButton(totalPages, totalPages.toString(), state.currentPage === totalPages, false);
+        }
     }
     
     pageOrders.forEach(o => {
