@@ -867,12 +867,13 @@ function renderTable() {
         const endPage = Math.min(totalPages, state.currentPage + 1);
         
         // Helper to append page button
-        const addPageButton = (page, text, isActive, isDisabled) => {
+        const addPageButton = (page, text, isActive, isDisabled, titleText) => {
             const btn = document.createElement('button');
             btn.className = 'page-num-btn';
             if (isActive) btn.classList.add('active');
             if (isDisabled) btn.classList.add('disabled');
             btn.textContent = text || page;
+            if (titleText) btn.title = titleText;
             
             if (!isDisabled && !isActive) {
                 btn.addEventListener('click', () => {
@@ -887,7 +888,7 @@ function renderTable() {
         if (startPage > 1) {
             addPageButton(1, '1', state.currentPage === 1, false);
             if (startPage > 2) {
-                addPageButton(null, '...', false, true);
+                addPageButton(Math.max(1, state.currentPage - 3), '...', false, false, 'Previous pages');
             }
         }
         
@@ -899,7 +900,7 @@ function renderTable() {
         // Last page
         if (endPage < totalPages) {
             if (endPage < totalPages - 1) {
-                addPageButton(null, '...', false, true);
+                addPageButton(Math.min(totalPages, state.currentPage + 3), '...', false, false, 'Next pages');
             }
             addPageButton(totalPages, totalPages.toString(), state.currentPage === totalPages, false);
         }
