@@ -474,10 +474,10 @@ function renderDashboard() {
         
         if (status.includes('CANCELED') || status.includes('CANCELLED')) {
             pipeCounts.canceled++;
-        } else if (o.returned || status.includes('RTO')) {
-            pipeCounts.returned++;
         } else if (status === 'DELIVERED' || status === 'SELF FULFILED') {
             pipeCounts.delivered++;
+        } else if (o.returned || status.includes('RTO')) {
+            pipeCounts.returned++;
         } else if (status.includes('TRANSIT') || status.includes('PICKED UP') || status.includes('DELIVERY') || status.includes('HUB') || status.includes('SHIPPED') || status.includes('UNDELIVERED')) {
             pipeCounts.transit++;
         } else if (status.includes('PICKUP') || status.includes('READY TO SHIP')) {
