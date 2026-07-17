@@ -428,7 +428,10 @@ function renderDashboard() {
     
     const returnCount = state.monthFilteredOrders.filter(o => o.returned && !o.logisticsStatus.toUpperCase().includes('CANCELED') && !o.logisticsStatus.toUpperCase().includes('CANCELLED')).length;
     const returnRate = totalOrders > 0 ? (returnCount / totalOrders) * 100 : 0;
-    const successfulCount = totalOrders - returnCount - canceledCount;
+    const successfulCount = state.monthFilteredOrders.filter(o => {
+        const status = o.logisticsStatus.toUpperCase().trim();
+        return status === 'DELIVERED' || status === 'SELF FULFILED';
+    }).length;
     
     const codOrders = state.monthFilteredOrders.filter(o => o.paymentMethod === 'COD');
     const codDenials = codOrders.filter(o => o.codDenies === 'Yes').length;

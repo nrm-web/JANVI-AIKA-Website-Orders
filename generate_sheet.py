@@ -614,6 +614,8 @@ def process_and_create_excel():
     total_canceled_count = len(canceled_orders)
     total_canceled_amount = canceled_orders["Total Price"].sum()
     
+    successful_orders_count = len(df_consolidated[df_consolidated["Fulfillment Status"].str.upper().str.strip().isin(["DELIVERED", "SELF FULFILED"])])
+    
     total_profit = total_revenue - total_refunded - total_canceled_amount
     
     cod_orders_df = df_consolidated[df_consolidated["COD (Yes/No)"] == "Yes"]
@@ -698,7 +700,7 @@ def process_and_create_excel():
     dash_sheet["C6"].font = Font(name=font_family, size=9, bold=True, color="555555")
     dash_sheet["C6"].alignment = align_center
     dash_sheet["C6"].fill = PatternFill(start_color=color_accent, end_color=color_accent, fill_type="solid")
-    dash_sheet["C7"] = total_orders - len(return_orders) - total_canceled_count
+    dash_sheet["C7"] = successful_orders_count
     dash_sheet["C7"].font = Font(name=font_family, size=18, bold=True, color="1E8449")
     dash_sheet["C7"].alignment = align_center
     dash_sheet["C7"].number_format = '#,##0'
