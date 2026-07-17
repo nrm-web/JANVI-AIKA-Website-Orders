@@ -606,7 +606,10 @@ def process_and_create_excel():
         })
     df_monthly_summary = pd.DataFrame(monthly_data)
     
-    return_orders = df_consolidated[df_consolidated["Returned (True/False)"] == True]
+    return_orders = df_consolidated[
+        (df_consolidated["Returned (True/False)"] == True) &
+        (~df_consolidated["Fulfillment Status"].str.upper().str.strip().isin(["DELIVERED", "SELF FULFILED"]))
+    ]
     return_rate = (len(return_orders) / total_orders) if total_orders > 0 else 0
     total_refunded = return_orders["Total Price"].sum()
     

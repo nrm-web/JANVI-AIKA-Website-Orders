@@ -423,10 +423,16 @@ function renderDashboard() {
 
     const totalOrders = state.monthFilteredOrders.length;
     const totalRevenue = state.monthFilteredOrders.reduce((sum, o) => sum + o.totalPrice, 0);
-    const totalRefunded = state.monthFilteredOrders.filter(o => o.returned && !o.logisticsStatus.toUpperCase().includes('CANCELED') && !o.logisticsStatus.toUpperCase().includes('CANCELLED')).reduce((sum, o) => sum + o.totalPrice, 0);
+    const totalRefunded = state.monthFilteredOrders.filter(o => {
+        const s = o.logisticsStatus.toUpperCase().trim();
+        return o.returned && !s.includes('CANCELED') && !s.includes('CANCELLED') && s !== 'DELIVERED' && s !== 'SELF FULFILED';
+    }).reduce((sum, o) => sum + o.totalPrice, 0);
     const totalProfit = totalRevenue - totalRefunded - totalCanceledAmount;
     
-    const returnCount = state.monthFilteredOrders.filter(o => o.returned && !o.logisticsStatus.toUpperCase().includes('CANCELED') && !o.logisticsStatus.toUpperCase().includes('CANCELLED')).length;
+    const returnCount = state.monthFilteredOrders.filter(o => {
+        const s = o.logisticsStatus.toUpperCase().trim();
+        return o.returned && !s.includes('CANCELED') && !s.includes('CANCELLED') && s !== 'DELIVERED' && s !== 'SELF FULFILED';
+    }).length;
     const returnRate = totalOrders > 0 ? (returnCount / totalOrders) * 100 : 0;
     const successfulCount = state.monthFilteredOrders.filter(o => {
         const status = o.logisticsStatus.toUpperCase().trim();
