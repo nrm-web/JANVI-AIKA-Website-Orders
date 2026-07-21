@@ -54,6 +54,7 @@ const elements = {
     topFilterDate: document.getElementById('top-filter-date'),
     filterMonth: document.getElementById('filter-month'),
     filterPayment: document.getElementById('filter-payment'),
+    filterCategory: document.getElementById('filter-category'),
     filterStatus: document.getElementById('filter-status'),
     clearFiltersBtn: document.getElementById('clear-filters-btn'),
     headerClearBtn: document.getElementById('header-clear-btn'),
@@ -189,6 +190,7 @@ function setupEventListeners() {
         applyFilters();
     });
     elements.filterPayment.addEventListener('change', applyFilters);
+    elements.filterCategory.addEventListener('change', applyFilters);
     elements.filterStatus.addEventListener('change', applyFilters);
     elements.clearFiltersBtn.addEventListener('click', clearFilters);
     elements.headerClearBtn.addEventListener('click', () => {
@@ -329,7 +331,9 @@ function parseData() {
             feedbackReceived: row[15],
             awbCode: row[16],
             trackingLink: row[17],
-            logisticsStatus: logisticsStatus
+            logisticsStatus: logisticsStatus,
+            sku: row[18] || '-',
+            category: row[19] || '-'
         });
     });
     
@@ -349,6 +353,7 @@ function parseData() {
 function populateFilterOptions() {
     const months = new Set();
     const statuses = new Set();
+    const categories = new Set();
     
     state.orders.forEach(o => {
         if (o.dateOfOrder) {
@@ -361,6 +366,14 @@ function populateFilterOptions() {
             } else {
                 statuses.add(statusText);
             }
+        }
+        if (o.category) {
+            o.category.split(',').forEach(c => {
+                const clean = c.trim().toUpperCase();
+                if (clean && clean !== '-' && clean !== 'OTHER') {
+                    categories.add(clean);
+                }
+            });
         }
     });
     
@@ -388,6 +401,12 @@ function populateFilterOptions() {
             label = 'UNDELIVERED (Upto 5 Attempts)';
         }
         elements.filterStatus.innerHTML += `<option value="${s}">${label}</option>`;
+    });
+
+    // Populate Categories
+    elements.filterCategory.innerHTML = '<option value="">All Categories</option>';
+    Array.from(categories).sort().forEach(cat => {
+        elements.filterCategory.innerHTML += `<option value="${cat}">${cat}</option>`;
     });
 }
 
@@ -519,6 +538,138 @@ function renderDashboard() {
     
     // 4. Render Table
     renderTable();
+    
+    // 5. Render Category Breakdown
+    renderCategoryBreakdown();
+}
+
+// Group monthFilteredOrders by Category and render dynamic cards
+function renderCategoryBreakdown() {
+    const gridEl = document.getElementById('category-breakdown-grid');
+    if (!gridEl) return;
+    
+    const defaultCategories = [
+        "CHUDIDHAR",
+        "ANARKALI",
+        "LEHENGA",
+        "HALF SAREE LEHENGA",
+        "LONG GOWN",
+        "SHARARA",
+        "TOPS"
+    ];
+    
+    const categoryStats = {};
+    defaultCategories.forEach(cat => {
+        categoryStats[cat] = {
+            total: 0,
+            successful: 0,
+            returned: 0,
+            canceled: 0
+        };
+    });
+
+    const allStats = {
+        total: 0,
+        successful: 0,
+        returned: 0,
+        canceled: 0
+    };
+    
+    state.monthFilteredOrders.forEach(o => {
+        const cats = o.category ? o.category.split(',').map(c => c.trim()) : ['-'];
+        const status = o.logisticsStatus.toUpperCase().trim();
+        const isCanceled = status.includes('CANCELED') || status.includes('CANCELLED');
+        const isSuccessful = status === 'DELIVERED' || status === 'SELF FULFILED';
+        const isReturned = o.returned || status.includes('RTO');
+        
+        cats.forEach(cat => {
+            const cleanCat = cat === '-' || cat === '' || cat.toLowerCase() === 'nan' ? 'UNASSIGNED' : cat.toUpperCase();
+            if (!categoryStats[cleanCat]) {
+                categoryStats[cleanCat] = {
+                    total: 0,
+                    successful: 0,
+                    returned: 0,
+                    canceled: 0
+                };
+            }
+            categoryStats[cleanCat].total += 1;
+            allStats.total += 1;
+            if (isSuccessful) {
+                categoryStats[cleanCat].successful += 1;
+                allStats.successful += 1;
+            } else if (isCanceled) {
+                categoryStats[cleanCat].canceled += 1;
+                allStats.canceled += 1;
+            } else if (isReturned) {
+                categoryStats[cleanCat].returned += 1;
+                allStats.returned += 1;
+            }
+        });
+    });
+    
+    const sortedCats = Object.keys(categoryStats).sort((a, b) => categoryStats[b].total - categoryStats[a].total);
+    gridEl.innerHTML = '';
+    
+    if (sortedCats.length === 0) {
+        gridEl.innerHTML = `<div class="empty-state" style="grid-column: 1/-1;">No category data found.</div>`;
+        return;
+    }
+    
+    // 1. Render ALL card first
+    const allCard = document.createElement('div');
+    allCard.className = 'category-card all-card';
+    allCard.style.borderLeftColor = 'var(--color-primary)';
+    allCard.innerHTML = `
+        <h3>ALL</h3>
+        <div class="metrics">
+            <div class="metric-group">
+                <span class="metric-label">Total</span>
+                <span class="metric-val" style="color:var(--color-brand);">${allStats.total}</span>
+            </div>
+            <div class="metric-group">
+                <span class="metric-label">Success</span>
+                <span class="metric-val" style="color:#1e8449;">${allStats.successful}</span>
+            </div>
+            <div class="metric-group">
+                <span class="metric-label">Returned</span>
+                <span class="metric-val" style="color:#e67e22;">${allStats.returned}</span>
+            </div>
+            <div class="metric-group">
+                <span class="metric-label">Canceled</span>
+                <span class="metric-val" style="color:#a93226;">${allStats.canceled}</span>
+            </div>
+        </div>
+    `;
+    gridEl.appendChild(allCard);
+    
+    // 2. Render individual category cards
+    sortedCats.forEach(cat => {
+        const stats = categoryStats[cat];
+        const card = document.createElement('div');
+        card.className = 'category-card';
+        card.innerHTML = `
+            <h3>${cat}</h3>
+            <div class="metrics">
+                <div class="metric-group">
+                    <span class="metric-label">Total</span>
+                    <span class="metric-val" style="color:var(--color-brand);">${stats.total}</span>
+                </div>
+                <div class="metric-group">
+                    <span class="metric-label">Success</span>
+                    <span class="metric-val" style="color:#1e8449;">${stats.successful}</span>
+                </div>
+                <div class="metric-group">
+                    <span class="metric-label">Returned</span>
+                    <span class="metric-val" style="color:#e67e22;">${stats.returned}</span>
+                </div>
+                <div class="metric-group">
+                    <span class="metric-label">Canceled</span>
+                    <span class="metric-val" style="color:#a93226;">${stats.canceled}</span>
+                </div>
+            </div>
+        `;
+        gridEl.appendChild(card);
+    });
 }
 
 
@@ -949,6 +1100,8 @@ function renderTable() {
             <td>${formatDateDisplay(o.dateOfOrder)}</td>
             <td>${o.customerName}</td>
             <td class="items-col">${o.itemsOrdered}</td>
+            <td class="sku-col">${o.sku}</td>
+            <td class="category-col">${o.category}</td>
             <td>${o.city}</td>
             <td><span class="status-pill info">${o.paymentMethod}</span></td>
             <td class="price-col">${formatCurrency(o.totalPrice)}</td>
@@ -968,6 +1121,7 @@ function applyFilters() {
     const q = elements.searchInput.value.toLowerCase().trim();
     const month = elements.filterMonth.value;
     const pay = elements.filterPayment.value;
+    const cat = elements.filterCategory.value;
     const status = elements.filterStatus.value;
     const selectedDate = elements.topFilterDate.value;
     
@@ -998,6 +1152,12 @@ function applyFilters() {
         // Payment dropdown
         const matchesPayment = !pay || o.paymentMethod.toLowerCase().includes(pay.toLowerCase());
         
+        // Category dropdown
+        let matchesCategory = true;
+        if (cat) {
+            matchesCategory = o.category && o.category.toUpperCase().split(',').map(x => x.trim()).includes(cat.toUpperCase());
+        }
+        
         // Logistics Status dropdown
         let matchesStatus = false;
         if (!status) {
@@ -1008,7 +1168,7 @@ function applyFilters() {
             matchesStatus = o.logisticsStatus.toLowerCase().trim() === status.toLowerCase().trim();
         }
         
-        return matchesQuery && matchesMonth && matchesDate && matchesPayment && matchesStatus;
+        return matchesQuery && matchesMonth && matchesDate && matchesPayment && matchesStatus && matchesCategory;
     });
     
     state.currentPage = 1; // Reset to page 1 on filter
@@ -1022,6 +1182,7 @@ function clearFilters() {
     elements.topFilterDate.value = '';
     elements.filterMonth.value = '';
     elements.filterPayment.value = '';
+    elements.filterCategory.value = '';
     elements.filterStatus.value = '';
     state.filteredOrders = [...state.orders];
     state.monthFilteredOrders = [...state.orders];
@@ -1051,6 +1212,8 @@ function showOrderDetail(o) {
     document.getElementById('det-prepaid').textContent = o.prepaid || 'No';
     document.getElementById('det-cod').textContent = o.cod || 'No';
     document.getElementById('det-price').textContent = formatCurrency(o.totalPrice);
+    document.getElementById('det-sku').textContent = o.sku || '-';
+    document.getElementById('det-category').textContent = o.category || '-';
     document.getElementById('det-city').textContent = o.city || 'N/A';
     document.getElementById('det-pin').textContent = o.pinCode || 'N/A';
     

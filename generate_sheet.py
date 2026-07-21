@@ -51,7 +51,8 @@ def process_and_create_excel():
         'Shipping Zip': 'first',
         'Billing Name': 'first',
         'Billing Phone': 'first',
-        'Lineitem name': lambda x: ', '.join(x.dropna().astype(str).unique())
+        'Lineitem name': lambda x: ', '.join(x.dropna().astype(str).unique()),
+        'Lineitem sku': lambda x: ', '.join(x.dropna().astype(str))
     }).reset_index()
     
     # Group Shiprocket orders
@@ -114,6 +115,31 @@ def process_and_create_excel():
     # ----------------------------------------------------
     # SECTION 2: DERIVE COLUMNS FOR MASTER SHEET
     # ----------------------------------------------------
+    def map_sku_to_category(sku_str):
+        if not sku_str or pd.isna(sku_str) or str(sku_str).strip() in ("", "-", "nan"):
+            return "OTHER"
+        skus = [s.strip().upper() for s in str(sku_str).split(",")]
+        categories = []
+        
+        mapping = {
+            "C": "CHUDIDHAR",
+            "A": "ANARKALI",
+            "L": "LEHENGA",
+            "HSL": "HALF SAREE LEHENGA",
+            "LG": "LONG GOWN",
+            "SHA": "SHARARA",
+            "TOP": "TOPS"
+        }
+        
+        for sku in skus:
+            if not sku:
+                continue
+            prefix = sku.split("-")[0].strip()
+            cat = mapping.get(prefix, "OTHER")
+            categories.append(cat)
+                
+        return ", ".join(categories) if categories else "OTHER"
+
     consolidated = []
     
     for idx, row in merged.iterrows():
@@ -235,6 +261,12 @@ def process_and_create_excel():
             awb_code = ""
         tracking_link = f"https://shiprocket.co/tracking/{awb_code}" if awb_code else "-"
         
+        # 14. SKU & Category
+        sku = str(row['Lineitem sku']).strip() if pd.notna(row['Lineitem sku']) else "-"
+        if not sku or sku.lower() == 'nan':
+            sku = "-"
+        category = map_sku_to_category(sku)
+        
         consolidated.append({
             "Order No": order_no,
             "Customer Name": cust_name,
@@ -254,6 +286,8 @@ def process_and_create_excel():
             "Feedback Received (Yes/No)": feedback_rec,
             "AWB Code": awb_code if awb_code else "-",
             "Tracking Link": tracking_link,
+            "SKU": sku,
+            "Category": category,
             "_shopify_financial_status": fin_status if fin_status else "pending",
             "_shopify_fulfillment_status": str(row['Fulfillment Status']).strip().lower() if pd.notna(row['Fulfillment Status']) else "unfulfilled",
             "_shiprocket_status": sr_status
@@ -284,7 +318,8 @@ def process_and_create_excel():
             "Order No", "Customer Name", "Items Ordered", "Date of Order", "Total Price",
             "Payment Method", "Prepaid (Yes/No)", "COD (Yes/No)", "Returned (True/False)",
             "COD Denies (Yes/No)", "Shiprocket Comments", "City", "PIN Code", "Fulfillment Status",
-            "Feedback Link Sent (Yes/No)", "Feedback Received (Yes/No)", "AWB Code", "Tracking Link"
+            "Feedback Link Sent (Yes/No)", "Feedback Received (Yes/No)", "AWB Code", "Tracking Link",
+            "SKU", "Category"
         ]
         
         # We format Date of Order as YYYY-MM-DD
@@ -470,7 +505,7 @@ def process_and_create_excel():
                 col_name = df.columns[col_idx - 1]
                 
                 # Formats and alignments
-                if col_name in ["Order No", "Date of Order", "Payment Method", "Prepaid (Yes/No)", "COD (Yes/No)", "Returned (True/False)", "COD Denies (Yes/No)", "PIN Code", "Fulfillment Status", "Feedback Link Sent (Yes/No)", "Feedback Received (Yes/No)", "AWB Code", "Tracking Link"]:
+                if col_name in ["Order No", "Date of Order", "Payment Method", "Prepaid (Yes/No)", "COD (Yes/No)", "Returned (True/False)", "COD Denies (Yes/No)", "PIN Code", "Fulfillment Status", "Feedback Link Sent (Yes/No)", "Feedback Received (Yes/No)", "AWB Code", "Tracking Link", "SKU", "Category"]:
                     cell.alignment = align_center
                 elif col_name == "Items Ordered":
                     cell.alignment = Alignment(horizontal="left", vertical="center", wrap_text=True)

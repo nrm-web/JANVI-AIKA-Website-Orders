@@ -384,6 +384,17 @@
             </div>
         </section>
 
+        <!-- Product Category Performance -->
+        <section class="dashboard-section category-breakdown-section">
+            <div class="section-header">
+                <h2>Product Category Performance</h2>
+                <span class="badge">Sales & Volume Breakdown</span>
+            </div>
+            <div class="category-grid" id="category-breakdown-grid">
+                <!-- Dynamically populated category cards -->
+            </div>
+        </section>
+
         <!-- Search, Filters, and Orders List -->
         <section class="dashboard-section orders-section">
             <div class="section-header flex-header">
@@ -412,6 +423,10 @@
                         <option value="COD">COD</option>
                     </select>
 
+                    <select id="filter-category" class="filter-select">
+                        <option value="">All Categories</option>
+                    </select>
+
                     <select id="filter-status" class="filter-select">
                         <option value="">All Logistics Statuses</option>
                     </select>
@@ -429,6 +444,8 @@
                             <th>Date</th>
                             <th>Customer Name</th>
                             <th>Items Ordered</th>
+                            <th>SKU</th>
+                            <th>Category</th>
                             <th>City</th>
                             <th>Payment</th>
                             <th>Total Price</th>
@@ -442,7 +459,7 @@
                     </thead>
                     <tbody id="orders-tbody">
                         <tr>
-                            <td colspan="13" class="empty-state">Loading data from Google Sheet...</td>
+                            <td colspan="15" class="empty-state">Loading data from Google Sheet...</td>
                         </tr>
                     </tbody>
                 </table>
@@ -475,6 +492,8 @@
                             <div class="detail-row"><span class="detail-label">Prepaid Check:</span> <span class="detail-value" id="det-prepaid">--</span></div>
                             <div class="detail-row"><span class="detail-label">COD Check:</span> <span class="detail-value" id="det-cod">--</span></div>
                             <div class="detail-row"><span class="detail-label">Total Price:</span> <span class="detail-value" id="det-price">--</span></div>
+                            <div class="detail-row"><span class="detail-label">SKU:</span> <span class="detail-value" id="det-sku">--</span></div>
+                            <div class="detail-row"><span class="detail-label">Product Category:</span> <span class="detail-value" id="det-category">--</span></div>
                             <div class="detail-row"><span class="detail-label">City:</span> <span class="detail-value" id="det-city">--</span></div>
                             <div class="detail-row"><span class="detail-label">PIN Code:</span> <span class="detail-value" id="det-pin">--</span></div>
                         </div>
