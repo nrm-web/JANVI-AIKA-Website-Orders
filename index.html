@@ -467,6 +467,16 @@
             
             <!-- Table Pagination -->
             <div class="pagination-wrapper" id="pagination-wrapper">
+                <div class="page-size-selector">
+                    <label for="rows-per-page">Show:</label>
+                    <select id="rows-per-page" class="filter-select page-size-select">
+                        <option value="15" selected>15</option>
+                        <option value="30">30</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="all">All</option>
+                    </select>
+                </div>
                 <button class="pagination-btn" id="prev-page-btn" disabled>&larr; Previous</button>
                 <div class="pagination-numbers" id="pagination-numbers"></div>
                 <button class="pagination-btn" id="next-page-btn" disabled>Next &rarr;</button>

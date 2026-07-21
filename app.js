@@ -56,6 +56,7 @@ const elements = {
     filterPayment: document.getElementById('filter-payment'),
     filterCategory: document.getElementById('filter-category'),
     filterStatus: document.getElementById('filter-status'),
+    pageSizeSelect: document.getElementById('rows-per-page'),
     clearFiltersBtn: document.getElementById('clear-filters-btn'),
     headerClearBtn: document.getElementById('header-clear-btn'),
     ordersTbody: document.getElementById('orders-tbody'),
@@ -192,6 +193,18 @@ function setupEventListeners() {
     elements.filterPayment.addEventListener('change', applyFilters);
     elements.filterCategory.addEventListener('change', applyFilters);
     elements.filterStatus.addEventListener('change', applyFilters);
+    if (elements.pageSizeSelect) {
+        elements.pageSizeSelect.addEventListener('change', () => {
+            const val = elements.pageSizeSelect.value;
+            if (val === 'all') {
+                state.pageSize = 999999;
+            } else {
+                state.pageSize = parseInt(val, 10);
+            }
+            state.currentPage = 1;
+            renderTable();
+        });
+    }
     elements.clearFiltersBtn.addEventListener('click', clearFilters);
     elements.headerClearBtn.addEventListener('click', () => {
         elements.topFilterMonth.value = '';
