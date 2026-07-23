@@ -588,6 +588,9 @@ function renderDashboard() {
         }
     });
 
+    // 2.5 Render Mode of Payment Breakdown
+    renderPaymentModeBreakdown();
+
     // 3. Render charts
     renderCharts();
     
@@ -596,6 +599,90 @@ function renderDashboard() {
     
     // 5. Render Category Breakdown
     renderCategoryBreakdown();
+}
+
+// Render Mode of Payment breakdown (COD & Prepaid cards)
+function renderPaymentModeBreakdown() {
+    const totalMonthOrders = state.monthFilteredOrders.length;
+    
+    // COD Orders
+    const codOrders = state.monthFilteredOrders.filter(o => o.paymentMethod === 'COD' || o.cod === 'Yes');
+    const codTotal = codOrders.length;
+    const codTotalVal = codOrders.reduce((sum, o) => sum + o.totalPrice, 0);
+    const codShare = totalMonthOrders > 0 ? (codTotal / totalMonthOrders) * 100 : 0;
+    
+    const codCounts = { delivered: 0, transit: 0, pickup: 0, unfulfilled: 0, returned: 0, canceled: 0 };
+    codOrders.forEach(o => {
+        const stage = getPipelineStage(o);
+        if (codCounts.hasOwnProperty(stage)) codCounts[stage]++;
+    });
+    
+    // Prepaid Orders
+    const prepaidOrders = state.monthFilteredOrders.filter(o => o.paymentMethod === 'Prepaid' || o.prepaid === 'Yes');
+    const prepaidTotal = prepaidOrders.length;
+    const prepaidTotalVal = prepaidOrders.reduce((sum, o) => sum + o.totalPrice, 0);
+    const prepaidShare = totalMonthOrders > 0 ? (prepaidTotal / totalMonthOrders) * 100 : 0;
+    
+    const prepaidCounts = { delivered: 0, transit: 0, pickup: 0, unfulfilled: 0, returned: 0, canceled: 0 };
+    prepaidOrders.forEach(o => {
+        const stage = getPipelineStage(o);
+        if (prepaidCounts.hasOwnProperty(stage)) prepaidCounts[stage]++;
+    });
+    
+    // Calculate Pcts
+    const getPct = (cnt, tot) => tot > 0 ? ((cnt / tot) * 100).toFixed(1) : '0.0';
+    
+    // Update DOM Elements
+    const setTxt = (id, txt) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = txt;
+    };
+    const setWidth = (id, pct) => {
+        const el = document.getElementById(id);
+        if (el) el.style.width = `${pct}%`;
+    };
+    
+    // COD Card DOM values
+    setTxt('payment-cod-share', `${codShare.toFixed(1)}% of total`);
+    setTxt('payment-cod-total', codTotal);
+    setTxt('payment-cod-total-val', formatCurrency(codTotalVal));
+    setTxt('payment-cod-delivered', codCounts.delivered);
+    setTxt('payment-cod-delivered-pct', `${getPct(codCounts.delivered, codTotal)}%`);
+    setTxt('payment-cod-transit', codCounts.transit);
+    setTxt('payment-cod-transit-pct', `${getPct(codCounts.transit, codTotal)}%`);
+    setTxt('payment-cod-pickup', codCounts.pickup);
+    setTxt('payment-cod-pickup-pct', `${getPct(codCounts.pickup, codTotal)}%`);
+    setTxt('payment-cod-unfulfilled', codCounts.unfulfilled);
+    setTxt('payment-cod-unfulfilled-pct', `${getPct(codCounts.unfulfilled, codTotal)}%`);
+    setTxt('payment-cod-returned', codCounts.returned);
+    setTxt('payment-cod-returned-pct', `${getPct(codCounts.returned, codTotal)}%`);
+    setTxt('payment-cod-canceled', codCounts.canceled);
+    setTxt('payment-cod-canceled-pct', `${getPct(codCounts.canceled, codTotal)}%`);
+    
+    const codReturnRate = getPct(codCounts.returned, codTotal);
+    setTxt('payment-cod-progress-text', `${codReturnRate}%`);
+    setWidth('payment-cod-progress-bar', parseFloat(codReturnRate));
+    
+    // Prepaid Card DOM values
+    setTxt('payment-prepaid-share', `${prepaidShare.toFixed(1)}% of total`);
+    setTxt('payment-prepaid-total', prepaidTotal);
+    setTxt('payment-prepaid-total-val', formatCurrency(prepaidTotalVal));
+    setTxt('payment-prepaid-delivered', prepaidCounts.delivered);
+    setTxt('payment-prepaid-delivered-pct', `${getPct(prepaidCounts.delivered, prepaidTotal)}%`);
+    setTxt('payment-prepaid-transit', prepaidCounts.transit);
+    setTxt('payment-prepaid-transit-pct', `${getPct(prepaidCounts.transit, prepaidTotal)}%`);
+    setTxt('payment-prepaid-pickup', prepaidCounts.pickup);
+    setTxt('payment-prepaid-pickup-pct', `${getPct(prepaidCounts.pickup, prepaidTotal)}%`);
+    setTxt('payment-prepaid-unfulfilled', prepaidCounts.unfulfilled);
+    setTxt('payment-prepaid-unfulfilled-pct', `${getPct(prepaidCounts.unfulfilled, prepaidTotal)}%`);
+    setTxt('payment-prepaid-returned', prepaidCounts.returned);
+    setTxt('payment-prepaid-returned-pct', `${getPct(prepaidCounts.returned, prepaidTotal)}%`);
+    setTxt('payment-prepaid-canceled', prepaidCounts.canceled);
+    setTxt('payment-prepaid-canceled-pct', `${getPct(prepaidCounts.canceled, prepaidTotal)}%`);
+    
+    const prepaidReturnRate = getPct(prepaidCounts.returned, prepaidTotal);
+    setTxt('payment-prepaid-progress-text', `${prepaidReturnRate}%`);
+    setWidth('payment-prepaid-progress-bar', parseFloat(prepaidReturnRate));
 }
 
 // Group monthFilteredOrders by Category and render dynamic cards

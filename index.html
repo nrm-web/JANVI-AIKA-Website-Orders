@@ -380,6 +380,137 @@
             </div>
         </section>
 
+        <!-- Mode of Payment Performance -->
+        <section class="dashboard-section payment-mode-section">
+            <div class="section-header">
+                <div>
+                    <h2>Mode of Payment Performance</h2>
+                    <p class="section-subtitle">COD vs. Prepaid Volume & Denial Analysis</p>
+                </div>
+                <span class="badge">Payment Analytics</span>
+            </div>
+            
+            <div class="payment-cards-grid">
+                <!-- COD Card -->
+                <div class="payment-card cod-card">
+                    <div class="payment-card-header">
+                        <div class="payment-type">
+                            <span class="payment-icon cod-icon">💵</span>
+                            <h3>Cash on Delivery (COD)</h3>
+                        </div>
+                        <span class="payment-badge cod-badge" id="payment-cod-share">--% of total</span>
+                    </div>
+                    
+                    <div class="payment-metrics-grid">
+                        <div class="metric-box">
+                            <span class="box-label">Total</span>
+                            <span class="box-value" id="payment-cod-total">--</span>
+                            <span class="box-sub" id="payment-cod-total-val">--</span>
+                        </div>
+                        <div class="metric-box">
+                            <span class="box-label">Delivered</span>
+                            <span class="box-value text-success" id="payment-cod-delivered">--</span>
+                            <span class="box-sub" id="payment-cod-delivered-pct">--%</span>
+                        </div>
+                        <div class="metric-box">
+                            <span class="box-label">In Transit</span>
+                            <span class="box-value text-info" id="payment-cod-transit">--</span>
+                            <span class="box-sub" id="payment-cod-transit-pct">--%</span>
+                        </div>
+                        <div class="metric-box">
+                            <span class="box-label">Pickup</span>
+                            <span class="box-value text-purple" id="payment-cod-pickup">--</span>
+                            <span class="box-sub" id="payment-cod-pickup-pct">--%</span>
+                        </div>
+                        <div class="metric-box">
+                            <span class="box-label">Unfulfilled</span>
+                            <span class="box-value text-amber" id="payment-cod-unfulfilled">--</span>
+                            <span class="box-sub" id="payment-cod-unfulfilled-pct">--%</span>
+                        </div>
+                        <div class="metric-box highlight-warning">
+                            <span class="box-label">Returned</span>
+                            <span class="box-value text-warning" id="payment-cod-returned">--</span>
+                            <span class="box-sub text-warning" id="payment-cod-returned-pct">--% Rate</span>
+                        </div>
+                        <div class="metric-box highlight-deny">
+                            <span class="box-label">Canceled</span>
+                            <span class="box-value text-danger" id="payment-cod-canceled">--</span>
+                            <span class="box-sub text-danger" id="payment-cod-canceled-pct">--% Rate</span>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-progress-wrapper">
+                        <div class="progress-info">
+                            <span>Return Rate (RTO)</span>
+                            <span id="payment-cod-progress-text">--%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill cod-fill" id="payment-cod-progress-bar"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Prepaid Card -->
+                <div class="payment-card prepaid-card">
+                    <div class="payment-card-header">
+                        <div class="payment-type">
+                            <span class="payment-icon prepaid-icon">💳</span>
+                            <h3>Prepaid Orders</h3>
+                        </div>
+                        <span class="payment-badge prepaid-badge" id="payment-prepaid-share">--% of total</span>
+                    </div>
+                    
+                    <div class="payment-metrics-grid">
+                        <div class="metric-box">
+                            <span class="box-label">Total</span>
+                            <span class="box-value" id="payment-prepaid-total">--</span>
+                            <span class="box-sub" id="payment-prepaid-total-val">--</span>
+                        </div>
+                        <div class="metric-box">
+                            <span class="box-label">Delivered</span>
+                            <span class="box-value text-success" id="payment-prepaid-delivered">--</span>
+                            <span class="box-sub" id="payment-prepaid-delivered-pct">--%</span>
+                        </div>
+                        <div class="metric-box">
+                            <span class="box-label">In Transit</span>
+                            <span class="box-value text-info" id="payment-prepaid-transit">--</span>
+                            <span class="box-sub" id="payment-prepaid-transit-pct">--%</span>
+                        </div>
+                        <div class="metric-box">
+                            <span class="box-label">Pickup</span>
+                            <span class="box-value text-purple" id="payment-prepaid-pickup">--</span>
+                            <span class="box-sub" id="payment-prepaid-pickup-pct">--%</span>
+                        </div>
+                        <div class="metric-box">
+                            <span class="box-label">Unfulfilled</span>
+                            <span class="box-value text-amber" id="payment-prepaid-unfulfilled">--</span>
+                            <span class="box-sub" id="payment-prepaid-unfulfilled-pct">--%</span>
+                        </div>
+                        <div class="metric-box highlight-warning">
+                            <span class="box-label">Returned</span>
+                            <span class="box-value text-warning" id="payment-prepaid-returned">--</span>
+                            <span class="box-sub text-warning" id="payment-prepaid-returned-pct">--% Rate</span>
+                        </div>
+                        <div class="metric-box highlight-deny">
+                            <span class="box-label">Canceled</span>
+                            <span class="box-value text-danger" id="payment-prepaid-canceled">--</span>
+                            <span class="box-sub text-danger" id="payment-prepaid-canceled-pct">--% Rate</span>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-progress-wrapper">
+                        <div class="progress-info">
+                            <span>Denial / Return Rate</span>
+                            <span id="payment-prepaid-progress-text">--%</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill prepaid-fill" id="payment-prepaid-progress-bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Charts Section -->
         <section class="charts-row">
             <!-- Sales & Orders Chart -->

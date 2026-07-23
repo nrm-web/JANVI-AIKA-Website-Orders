@@ -1929,6 +1929,203 @@ body.light-mode .dp-day-btn.selected-end {
     color: var(--color-brand) !important;
 }
 
+/* Mode of Payment Cards Section */
+.payment-mode-section {
+    margin-bottom: var(--space-6);
+}
+
+.payment-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+    margin-top: var(--space-4);
+}
+
+.payment-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.payment-card.cod-card {
+    border-left: 4px solid #d35400;
+}
+
+.payment-card.prepaid-card {
+    border-left: 4px solid #1e8449;
+}
+
+.payment-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.payment-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.payment-type {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.payment-icon {
+    font-size: 20px;
+}
+
+.payment-type h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.payment-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.cod-badge {
+    background-color: rgba(211, 84, 0, 0.12);
+    color: #d35400;
+}
+
+.prepaid-badge {
+    background-color: rgba(30, 132, 73, 0.12);
+    color: #1e8449;
+}
+
+.payment-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+.metric-box {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-3);
+    background-color: var(--bg-hover);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+}
+
+.metric-box.highlight-warning {
+    background-color: rgba(211, 84, 0, 0.06);
+    border-color: rgba(211, 84, 0, 0.2);
+}
+
+.metric-box.highlight-deny {
+    background-color: rgba(192, 57, 43, 0.06);
+    border-color: rgba(192, 57, 43, 0.2);
+}
+
+.box-label {
+    font-size: 11px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.box-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.box-sub {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.text-success {
+    color: #1e8449 !important;
+}
+
+.text-info {
+    color: #2980b9 !important;
+}
+
+.text-purple {
+    color: #8e44ad !important;
+}
+
+.text-amber {
+    color: #f39c12 !important;
+}
+
+.text-warning {
+    color: #d35400 !important;
+}
+
+.text-danger {
+    color: #c0392b !important;
+}
+
+.payment-progress-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 8px;
+    background-color: var(--bg-hover);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+    border-radius: 4px;
+}
+
+.cod-fill {
+    background-color: #d35400;
+}
+
+.prepaid-fill {
+    background-color: #c0392b;
+}
+
+@media (max-width: 768px) {
+    .payment-cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 
 
