@@ -1711,12 +1711,18 @@ body.dark-mode .filter-select {
 
 @media (max-width: 1024px) {
     .category-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    .category-card {
+        grid-column: auto !important;
     }
 }
 @media (max-width: 600px) {
     .category-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+    }
+    .category-card {
+        grid-column: auto !important;
     }
 }
 
@@ -2120,9 +2126,190 @@ body.light-mode .dp-day-btn.selected-end {
     background-color: #c0392b;
 }
 
+/* Master Table Sticky Column & Header Row */
+.orders-table th {
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    background-color: var(--bg-muted);
+}
+.orders-table th:first-child {
+    position: sticky;
+    left: 0;
+    top: 0;
+    z-index: 6;
+    background-color: var(--bg-muted) !important;
+}
+.orders-table td:first-child {
+    position: sticky;
+    left: 0;
+    background-color: var(--bg-surface);
+    z-index: 5;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.orders-table tr:hover td:first-child {
+    background-color: var(--bg-surface-hover);
+}
+
+.modal-content {
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.step-icon {
+    flex-shrink: 0 !important;
+}
+
+.step-details {
+    min-width: 0;
+    word-break: break-word;
+}
+
+.header-filter-group {
+    min-width: 0;
+}
+
+.date-range-trigger-btn {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+/* Comprehensive Mobile Visual Responsiveness Overrides */
 @media (max-width: 768px) {
     .payment-cards-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
+    }
+    
+    .payment-metrics-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: var(--space-2) !important;
+    }
+
+    .donut-chart-box {
+        height: auto !important;
+        min-height: 300px;
+    }
+
+    /* Fixed Viewport-Centered Date Picker Modal Overlay */
+    .date-picker-popup {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 90vw !important;
+        max-width: 350px !important;
+        max-height: 85vh !important;
+        overflow-y: auto !important;
+        z-index: 9999 !important;
+        padding: var(--space-4) !important;
+        box-sizing: border-box !important;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
+        border-radius: var(--radius-lg) !important;
+    }
+
+    .dp-month-labels {
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        gap: 2px !important;
+    }
+
+    .dp-month-label {
+        width: 100% !important;
+        text-align: center !important;
+        font-size: 13px !important;
+    }
+
+    .dp-panes {
+        flex-direction: column !important;
+        gap: var(--space-4) !important;
+    }
+
+    .dp-day-btn {
+        height: 38px !important;
+        min-height: 38px !important;
+        font-size: 13px !important;
+    }
+}
+
+.title-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.search-clear-btn {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0 4px;
+}
+
+@media (max-width: 600px) {
+    .pagination-wrapper {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: var(--space-3) !important;
+    }
+    
+    .date-range-trigger-btn {
+        width: 100% !important;
+    }
+
+    .chart-container .section-header,
+    .daily-chart-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: var(--space-2) !important;
+    }
+    
+    #chart-month-select {
+        width: 100% !important;
+    }
+
+    .category-card .metrics {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: var(--space-3) !important;
+    }
+    
+    .category-card {
+        padding: var(--space-3) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .metric-box {
+        padding: 6px 8px !important;
+    }
+    
+    .box-label {
+        font-size: 10px !important;
+        word-break: break-word;
+    }
+
+    .box-value {
+        font-size: 16px !important;
+    }
+
+    .chart-canvas-wrapper {
+        height: 260px !important;
+    }
+
+    #daily-chart-wrapper {
+        height: 240px !important;
+        min-height: 240px !important;
+    }
+
+    #dailyTrendChart {
+        min-height: 240px !important;
     }
 }
 

@@ -35,7 +35,7 @@
                 
                 <div class="header-filter-group date-picker-relative-container">
                     <span class="header-filter-label">Date:</span>
-                    <button id="date-range-btn" class="filter-select date-range-trigger-btn" type="button" style="min-width: 220px;">
+                    <button id="date-range-btn" class="filter-select date-range-trigger-btn" type="button">
                         Select Date Range
                     </button>
                     
@@ -550,7 +550,7 @@
         <!-- Charts Section 2: Daily Sales -->
         <section class="charts-row" style="margin-top: var(--space-6); grid-template-columns: 1fr;">
             <div class="chart-container grid-3-3" style="width: 100%;">
-                <div class="section-header" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <div class="section-header daily-chart-header">
                     <h2>Daily Sales & Volume Trends</h2>
                     <div style="display: flex; align-items: center; gap: 8px;">
                         <span style="font-size: 12px; color: var(--text-secondary); font-weight: 500;">Filter Month:</span>
@@ -559,7 +559,7 @@
                         </select>
                     </div>
                 </div>
-                <div class="chart-canvas-wrapper" style="height: 320px;">
+                <div class="chart-canvas-wrapper" id="daily-chart-wrapper">
                     <canvas id="dailyTrendChart"></canvas>
                 </div>
             </div>
@@ -592,6 +592,7 @@
                             <line x1="21" y1="21" x2="16.65" y2="16.65"/>
                         </svg>
                         <input type="text" id="search-input" placeholder="Search Order No, Name, City...">
+                        <button type="button" id="search-clear-btn" class="search-clear-btn" style="display: none;">&times;</button>
                     </div>
                     
                     <select id="filter-month" class="filter-select">

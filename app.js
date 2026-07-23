@@ -75,6 +75,7 @@ const elements = {
     pageSizeSelect: document.getElementById('rows-per-page'),
     clearFiltersBtn: document.getElementById('clear-filters-btn'),
     headerClearBtn: document.getElementById('header-clear-btn'),
+    searchClearBtn: document.getElementById('search-clear-btn'),
     ordersTbody: document.getElementById('orders-tbody'),
     tableCount: document.getElementById('table-record-count'),
     prevPageBtn: document.getElementById('prev-page-btn'),
@@ -188,7 +189,21 @@ function setupEventListeners() {
         }
     });
 
-    elements.searchInput.addEventListener('input', applyFilters);
+    if (elements.searchInput) {
+        elements.searchInput.addEventListener('input', (e) => {
+            if (elements.searchClearBtn) {
+                elements.searchClearBtn.style.display = e.target.value.length > 0 ? 'block' : 'none';
+            }
+            applyFilters();
+        });
+    }
+    if (elements.searchClearBtn) {
+        elements.searchClearBtn.addEventListener('click', () => {
+            elements.searchInput.value = '';
+            elements.searchClearBtn.style.display = 'none';
+            applyFilters();
+        });
+    }
     elements.topFilterMonth.addEventListener('change', () => {
         state.dateRangeFrom = null;
         state.dateRangeTo = null;
@@ -1068,6 +1083,8 @@ function renderCharts() {
         }
     });
     
+    const donutPadding = window.innerWidth <= 768 ? { left: 15, right: 15, top: 15, bottom: 15 } : { left: 75, right: 75, top: 30, bottom: 15 };
+
     const ctxFinance = document.getElementById('financeChart').getContext('2d');
     state.charts.finance = new Chart(ctxFinance, {
         type: 'doughnut',
@@ -1084,7 +1101,7 @@ function renderCharts() {
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            layout: { padding: { left: 75, right: 75, top: 30, bottom: 15 } },
+            layout: { padding: donutPadding },
             plugins: { legend: { display: false } },
             cutout: '65%'
         }
@@ -1122,7 +1139,7 @@ function renderCharts() {
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            layout: { padding: { left: 75, right: 75, top: 30, bottom: 15 } },
+            layout: { padding: donutPadding },
             plugins: { legend: { display: false } },
             cutout: '65%'
         }
@@ -1145,11 +1162,18 @@ function renderCharts() {
     if (sortedDates.length > 30) {
         sortedDates = sortedDates.slice(-30);
     }
+    const isMobileView = window.innerWidth <= 768;
+    const monthsShort = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
     const dailyRevenues = sortedDates.map(d => dailyData[d].revenue);
     const dailyCounts = sortedDates.map(d => dailyData[d].count);
     const dailyLabels = sortedDates.map(d => {
         const parts = d.split('-');
         if (parts.length < 3) return d;
+        if (isMobileView) {
+            const mIdx = parseInt(parts[1], 10) - 1;
+            return `${parts[2]} ${monthsShort[mIdx] || parts[1]}`;
+        }
         return `${parts[2]}-${parts[1]}-${parts[0]}`;
     });
 
@@ -1209,7 +1233,11 @@ function renderCharts() {
                         grid: { display: false },
                         ticks: {
                             color: textSecondary,
-                            font: { family: 'Inter, sans-serif', size: 10, weight: '500' }
+                            font: { family: 'Inter, sans-serif', size: 10, weight: '500' },
+                            autoSkip: true,
+                            maxTicksLimit: isMobileView ? 6 : 30,
+                            maxRotation: isMobileView ? 45 : 0,
+                            minRotation: isMobileView ? 45 : 0
                         }
                     },
                     y: {
@@ -1220,7 +1248,12 @@ function renderCharts() {
                         ticks: {
                             color: textSecondary,
                             font: { family: 'Inter, sans-serif', size: 10 },
-                            callback: (value) => '₹' + value.toLocaleString()
+                            callback: (value) => {
+                                if (isMobileView && value >= 1000) {
+                                    return '₹' + (value / 1000).toFixed(0) + 'k';
+                                }
+                                return '₹' + value.toLocaleString();
+                            }
                         }
                     },
                     y1: {
