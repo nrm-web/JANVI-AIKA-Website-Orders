@@ -67,8 +67,6 @@ const elements = {
     dpRightMonthName: document.getElementById('dp-right-month-name'),
     dpLeftDays: document.getElementById('dp-left-days'),
     dpRightDays: document.getElementById('dp-right-days'),
-    dpClearBtn: document.getElementById('dp-clear-btn'),
-    dpApplyBtn: document.getElementById('dp-apply-btn'),
     filterMonth: document.getElementById('filter-month'),
     chartMonthSelect: document.getElementById('chart-month-select'),
     filterPayment: document.getElementById('filter-payment'),
@@ -1661,23 +1659,5 @@ function initDatePicker() {
         e.stopPropagation();
         state.pickerLeftMonth.setMonth(state.pickerLeftMonth.getMonth() + 1);
         renderDatePickerCalendars();
-    });
-    
-    // Clear button
-    elements.dpClearBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        state.dateRangeFrom = null;
-        state.dateRangeTo = null;
-        state.hoveredDate = null;
-        elements.dateRangeBtn.textContent = 'Select Date Range';
-        renderDatePickerCalendars();
-        applyFilters();
-        elements.datePickerPopup.style.display = 'none';
-    });
-    
-    // Apply button
-    elements.dpApplyBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        applyActiveSelectionAndClose();
     });
 }

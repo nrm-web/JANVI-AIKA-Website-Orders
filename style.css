@@ -1929,43 +1929,6 @@ body.light-mode .dp-day-btn.selected-end {
     color: var(--color-brand) !important;
 }
 
-.dp-footer {
-    display: flex;
-    justify-content: flex-end;
-    gap: var(--space-3);
-    border-top: 1px solid var(--border-color);
-    padding-top: var(--space-3);
-}
 
-.dp-footer-btn {
-    font-family: var(--font-sans);
-    font-size: 12px;
-    font-weight: 600;
-    padding: 6px 12px;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    border: none;
-    transition: all 0.2s;
-}
-
-.dp-footer-btn.clear {
-    background-color: transparent;
-    color: var(--text-secondary);
-    border: 1px solid var(--border-color);
-}
-
-.dp-footer-btn.clear:hover {
-    background-color: var(--bg-hover);
-    color: var(--text-primary);
-}
-
-.dp-footer-btn.apply {
-    background-color: var(--color-brand);
-    color: #fff;
-}
-
-.dp-footer-btn.apply:hover {
-    background-color: var(--color-brand-dark);
-}
 
 
