@@ -9,8 +9,16 @@ const state = {
     monthFilteredOrders: [],
     currentPage: 1,
     pageSize: 15,
+    dateRangeFrom: null, // format: "YYYY-MM-DD"
+    dateRangeTo: null,   // format: "YYYY-MM-DD"
+    pickerLeftMonth: (() => {
+        const today = new Date();
+        return new Date(today.getFullYear(), today.getMonth() - 1, 1);
+    })(),
+    hoveredDate: null,
     charts: {
         salesTrend: null,
+        dailyTrend: null,
         finance: null,
         delivery: null
     }
@@ -51,8 +59,18 @@ const elements = {
     // Filters & Table
     searchInput: document.getElementById('search-input'),
     topFilterMonth: document.getElementById('top-filter-month'),
-    topFilterDate: document.getElementById('top-filter-date'),
+    dateRangeBtn: document.getElementById('date-range-btn'),
+    datePickerPopup: document.getElementById('date-picker-popup'),
+    dpPrevMonth: document.getElementById('dp-prev-month'),
+    dpNextMonth: document.getElementById('dp-next-month'),
+    dpLeftMonthName: document.getElementById('dp-left-month-name'),
+    dpRightMonthName: document.getElementById('dp-right-month-name'),
+    dpLeftDays: document.getElementById('dp-left-days'),
+    dpRightDays: document.getElementById('dp-right-days'),
+    dpClearBtn: document.getElementById('dp-clear-btn'),
+    dpApplyBtn: document.getElementById('dp-apply-btn'),
     filterMonth: document.getElementById('filter-month'),
+    chartMonthSelect: document.getElementById('chart-month-select'),
     filterPayment: document.getElementById('filter-payment'),
     filterCategory: document.getElementById('filter-category'),
     filterStatus: document.getElementById('filter-status'),
@@ -173,23 +191,39 @@ function setupEventListeners() {
     });
 
     elements.searchInput.addEventListener('input', applyFilters);
-    elements.topFilterDate.addEventListener('input', () => {
-        if (elements.topFilterDate.value) {
-            elements.topFilterMonth.value = '';
-            elements.filterMonth.value = '';
-        }
-        applyFilters();
-    });
     elements.topFilterMonth.addEventListener('change', () => {
-        elements.topFilterDate.value = '';
+        state.dateRangeFrom = null;
+        state.dateRangeTo = null;
+        state.hoveredDate = null;
+        if (elements.dateRangeBtn) elements.dateRangeBtn.textContent = 'Select Date Range';
         elements.filterMonth.value = elements.topFilterMonth.value;
+        if (elements.chartMonthSelect) elements.chartMonthSelect.value = elements.topFilterMonth.value;
         applyFilters();
     });
     elements.filterMonth.addEventListener('change', () => {
-        elements.topFilterDate.value = '';
+        state.dateRangeFrom = null;
+        state.dateRangeTo = null;
+        state.hoveredDate = null;
+        if (elements.dateRangeBtn) elements.dateRangeBtn.textContent = 'Select Date Range';
         elements.topFilterMonth.value = elements.filterMonth.value;
+        if (elements.chartMonthSelect) elements.chartMonthSelect.value = elements.filterMonth.value;
         applyFilters();
     });
+    if (elements.chartMonthSelect) {
+        elements.chartMonthSelect.addEventListener('change', () => {
+            const val = elements.chartMonthSelect.value;
+            state.dateRangeFrom = null;
+            state.dateRangeTo = null;
+            state.hoveredDate = null;
+            if (elements.dateRangeBtn) elements.dateRangeBtn.textContent = 'Select Date Range';
+            elements.topFilterMonth.value = val;
+            elements.filterMonth.value = val;
+            applyFilters();
+        });
+    }
+    
+    initDatePicker();
+    
     elements.filterPayment.addEventListener('change', applyFilters);
     elements.filterCategory.addEventListener('change', applyFilters);
     elements.filterStatus.addEventListener('change', applyFilters);
@@ -209,7 +243,11 @@ function setupEventListeners() {
     elements.headerClearBtn.addEventListener('click', () => {
         elements.topFilterMonth.value = '';
         elements.filterMonth.value = '';
-        elements.topFilterDate.value = '';
+        if (elements.chartMonthSelect) elements.chartMonthSelect.value = '';
+        state.dateRangeFrom = null;
+        state.dateRangeTo = null;
+        state.hoveredDate = null;
+        if (elements.dateRangeBtn) elements.dateRangeBtn.textContent = 'Select Date Range';
         applyFilters();
     });
     
@@ -287,6 +325,29 @@ function fetchData() {
     
     // Append script tag to execute JSONP load
     document.body.appendChild(script);
+}
+
+// Classify an order into one of the 6 logistics pipeline stages
+function getPipelineStage(o) {
+    const status = (o.logisticsStatus || '').toUpperCase().trim();
+    
+    if (status.includes('CANCELED') || status.includes('CANCELLED')) {
+        return 'canceled';
+    } else if (status === 'DELIVERED' || status === 'SELF FULFILED') {
+        return 'delivered';
+    } else if (o.returned || status.includes('RTO')) {
+        return 'returned';
+    } else if (status.includes('TRANSIT') || status.includes('PICKED UP') || status.includes('DELIVERY') || status.includes('HUB') || status.includes('SHIPPED') || status.includes('UNDELIVERED')) {
+        return 'transit';
+    } else if (status.includes('PICKUP') || status.includes('READY TO SHIP')) {
+        if (status.includes('EXCEPTION')) {
+            return 'unfulfilled';
+        } else {
+            return 'pickup';
+        }
+    } else {
+        return 'unfulfilled';
+    }
 }
 
 // Convert sheet rows to structured javascript objects
@@ -393,28 +454,26 @@ function populateFilterOptions() {
     // Populate Months
     elements.filterMonth.innerHTML = '<option value="">All Months</option>';
     elements.topFilterMonth.innerHTML = '<option value="">All Months</option>';
-    // Chronological order: compile list of months and sort
+    if (elements.chartMonthSelect) {
+        elements.chartMonthSelect.innerHTML = '<option value="">All Months</option>';
+    }
+    // Chronological order (descending): compile list of months and sort
     const chronMonths = [
-        "Jun 2026", "Jul 2026", "Aug 2026", "Sep 2026", "Oct 2026", 
-        "Nov 2026", "Dec 2026", "Jan 2027", "Feb 2027", "Mar 2027"
+        "Mar 2027", "Feb 2027", "Jan 2027", "Dec 2026", "Nov 2026", 
+        "Oct 2026", "Sep 2026", "Aug 2026", "Jul 2026", "Jun 2026"
     ];
     chronMonths.forEach(m => {
         if (months.has(m)) {
             const opt = `<option value="${m}">${m}</option>`;
             elements.filterMonth.innerHTML += opt;
             elements.topFilterMonth.innerHTML += opt;
+            if (elements.chartMonthSelect) {
+                elements.chartMonthSelect.innerHTML += opt;
+            }
         }
     });
     
-    // Populate Statuses
-    elements.filterStatus.innerHTML = '<option value="">All Logistics Statuses</option>';
-    Array.from(statuses).sort().forEach(s => {
-        let label = s;
-        if (s === 'UNDELIVERED') {
-            label = 'UNDELIVERED (Upto 5 Attempts)';
-        }
-        elements.filterStatus.innerHTML += `<option value="${s}">${label}</option>`;
-    });
+    // No dynamic population of statuses dropdown, since we use the 6 consolidated pipeline options
 
     // Populate Categories
     elements.filterCategory.innerHTML = '<option value="">All Categories</option>';
@@ -508,24 +567,9 @@ function renderDashboard() {
     };
     
     state.monthFilteredOrders.forEach(o => {
-        const status = o.logisticsStatus.toUpperCase().trim();
-        
-        if (status.includes('CANCELED') || status.includes('CANCELLED')) {
-            pipeCounts.canceled++;
-        } else if (status === 'DELIVERED' || status === 'SELF FULFILED') {
-            pipeCounts.delivered++;
-        } else if (o.returned || status.includes('RTO')) {
-            pipeCounts.returned++;
-        } else if (status.includes('TRANSIT') || status.includes('PICKED UP') || status.includes('DELIVERY') || status.includes('HUB') || status.includes('SHIPPED') || status.includes('UNDELIVERED')) {
-            pipeCounts.transit++;
-        } else if (status.includes('PICKUP') || status.includes('READY TO SHIP')) {
-            if (status.includes('EXCEPTION')) {
-                pipeCounts.unfulfilled++;
-            } else {
-                pipeCounts.pickup++;
-            }
-        } else {
-            pipeCounts.unfulfilled++;
+        const stage = getPipelineStage(o);
+        if (pipeCounts.hasOwnProperty(stage)) {
+            pipeCounts[stage]++;
         }
     });
     
@@ -562,20 +606,24 @@ function renderCategoryBreakdown() {
     if (!gridEl) return;
     
     const defaultCategories = [
+        "TOPS",
         "CHUDIDHAR",
         "ANARKALI",
         "LEHENGA",
         "HALF SAREE LEHENGA",
         "LONG GOWN",
         "SHARARA",
-        "TOPS"
+        "CO-ORD SET"
     ];
     
     const categoryStats = {};
     defaultCategories.forEach(cat => {
         categoryStats[cat] = {
             total: 0,
-            successful: 0,
+            delivered: 0,
+            transit: 0,
+            pickup: 0,
+            unfulfilled: 0,
             returned: 0,
             canceled: 0
         };
@@ -583,39 +631,38 @@ function renderCategoryBreakdown() {
 
     const allStats = {
         total: 0,
-        successful: 0,
+        delivered: 0,
+        transit: 0,
+        pickup: 0,
+        unfulfilled: 0,
         returned: 0,
         canceled: 0
     };
     
     state.monthFilteredOrders.forEach(o => {
         const cats = o.category ? o.category.split(',').map(c => c.trim()) : ['-'];
-        const status = o.logisticsStatus.toUpperCase().trim();
-        const isCanceled = status.includes('CANCELED') || status.includes('CANCELLED');
-        const isSuccessful = status === 'DELIVERED' || status === 'SELF FULFILED';
-        const isReturned = o.returned || status.includes('RTO');
+        const stage = getPipelineStage(o);
         
         cats.forEach(cat => {
             const cleanCat = cat === '-' || cat === '' || cat.toLowerCase() === 'nan' ? 'UNASSIGNED' : cat.toUpperCase();
             if (!categoryStats[cleanCat]) {
                 categoryStats[cleanCat] = {
                     total: 0,
-                    successful: 0,
+                    delivered: 0,
+                    transit: 0,
+                    pickup: 0,
+                    unfulfilled: 0,
                     returned: 0,
                     canceled: 0
                 };
             }
+            
             categoryStats[cleanCat].total += 1;
             allStats.total += 1;
-            if (isSuccessful) {
-                categoryStats[cleanCat].successful += 1;
-                allStats.successful += 1;
-            } else if (isCanceled) {
-                categoryStats[cleanCat].canceled += 1;
-                allStats.canceled += 1;
-            } else if (isReturned) {
-                categoryStats[cleanCat].returned += 1;
-                allStats.returned += 1;
+            
+            if (categoryStats[cleanCat].hasOwnProperty(stage)) {
+                categoryStats[cleanCat][stage] += 1;
+                allStats[stage] += 1;
             }
         });
     });
@@ -628,56 +675,84 @@ function renderCategoryBreakdown() {
         return;
     }
     
-    // 1. Render ALL card first
-    const allCard = document.createElement('div');
-    allCard.className = 'category-card all-card';
-    allCard.style.borderLeftColor = 'var(--color-primary)';
-    allCard.innerHTML = `
-        <h3>ALL</h3>
-        <div class="metrics">
-            <div class="metric-group">
-                <span class="metric-label">Total</span>
-                <span class="metric-val" style="color:var(--color-brand);">${allStats.total}</span>
-            </div>
-            <div class="metric-group">
-                <span class="metric-label">Success</span>
-                <span class="metric-val" style="color:#1e8449;">${allStats.successful}</span>
-            </div>
-            <div class="metric-group">
-                <span class="metric-label">Returned</span>
-                <span class="metric-val" style="color:#e67e22;">${allStats.returned}</span>
-            </div>
-            <div class="metric-group">
-                <span class="metric-label">Canceled</span>
-                <span class="metric-val" style="color:#a93226;">${allStats.canceled}</span>
-            </div>
-        </div>
-    `;
-    gridEl.appendChild(allCard);
+    // Build list of all card items to render (ALL + categories)
+    const cardsToRender = [
+        { title: 'ALL', stats: allStats, isAll: true },
+        ...sortedCats.map(cat => ({ title: cat, stats: categoryStats[cat], isAll: false }))
+    ];
     
-    // 2. Render individual category cards
-    sortedCats.forEach(cat => {
-        const stats = categoryStats[cat];
+    const totalCards = cardsToRender.length;
+    
+    cardsToRender.forEach((item, index) => {
         const card = document.createElement('div');
-        card.className = 'category-card';
+        card.className = item.isAll ? 'category-card all-card' : 'category-card';
+        if (item.isAll) {
+            card.style.borderLeftColor = 'var(--color-primary)';
+        }
+        
+        // Dynamic grid-column span logic for 12-column grid layout
+        let span = 4; // Default: 3-by-3 layout for 9 cards (12 / 4 = 3 per row)
+        
+        if (totalCards <= 9) {
+            // 3 x 3 layout for 9 cards
+            span = 4;
+        } else if (totalCards === 10) {
+            // 4 + 4 + 2 layout (last 2 cards justify full width: 12 / 6 = 2)
+            if (index < 8) {
+                span = 3;
+            } else {
+                span = 6;
+            }
+        } else if (totalCards === 11) {
+            // 4 + 4 + 3 layout (last 3 cards justify full width: 12 / 4 = 3)
+            if (index < 8) {
+                span = 3;
+            } else {
+                span = 4;
+            }
+        } else {
+            // Generic fallback math for any arbitrary N cards:
+            const remainder = totalCards % 4;
+            const fullRowsCount = totalCards - remainder;
+            if (remainder > 0 && index >= fullRowsCount) {
+                span = Math.floor(12 / remainder);
+            } else {
+                span = 3;
+            }
+        }
+        
+        card.style.gridColumn = `span ${span}`;
+        
         card.innerHTML = `
-            <h3>${cat}</h3>
+            <h3>${item.title}</h3>
             <div class="metrics">
                 <div class="metric-group">
                     <span class="metric-label">Total</span>
-                    <span class="metric-val" style="color:var(--color-brand);">${stats.total}</span>
+                    <span class="metric-val" style="color:#85200c;">${item.stats.total}</span>
                 </div>
                 <div class="metric-group">
-                    <span class="metric-label">Success</span>
-                    <span class="metric-val" style="color:#1e8449;">${stats.successful}</span>
+                    <span class="metric-label">Delivered</span>
+                    <span class="metric-val" style="color:#1e8449;">${item.stats.delivered}</span>
+                </div>
+                <div class="metric-group">
+                    <span class="metric-label">In Transit</span>
+                    <span class="metric-val" style="color:#2980b9;">${item.stats.transit}</span>
+                </div>
+                <div class="metric-group">
+                    <span class="metric-label">Pickup</span>
+                    <span class="metric-val" style="color:#8e44ad;">${item.stats.pickup}</span>
+                </div>
+                <div class="metric-group">
+                    <span class="metric-label">Unfulfilled</span>
+                    <span class="metric-val" style="color:#f39c12;">${item.stats.unfulfilled}</span>
                 </div>
                 <div class="metric-group">
                     <span class="metric-label">Returned</span>
-                    <span class="metric-val" style="color:#e67e22;">${stats.returned}</span>
+                    <span class="metric-val" style="color:#d35400;">${item.stats.returned}</span>
                 </div>
                 <div class="metric-group">
                     <span class="metric-label">Canceled</span>
-                    <span class="metric-val" style="color:#a93226;">${stats.canceled}</span>
+                    <span class="metric-val" style="color:#c0392b;">${item.stats.canceled}</span>
                 </div>
             </div>
         `;
@@ -817,6 +892,7 @@ function renderDonutLegend(containerId, labels, colors) {
 function renderCharts() {
     // Destroy previous chart instances if they exist
     if (state.charts.salesTrend) state.charts.salesTrend.destroy();
+    if (state.charts.dailyTrend) state.charts.dailyTrend.destroy();
     if (state.charts.finance) state.charts.finance.destroy();
     if (state.charts.delivery) state.charts.delivery.destroy();
     
@@ -967,11 +1043,120 @@ function renderCharts() {
         }
     });
     renderDonutLegend('deliveryChartLegend', ['Delivered','In Transit','RTO','Canceled'], ['#10b981','#3b82f6','#f97316','#ef4444']);
+
+    // --- Chart 4: Daily Sales & Volume Trend (Selected Period) ---
+    const dailyData = {};
+    state.monthFilteredOrders.forEach(o => {
+        if (o.dateOfOrder) {
+            if (!dailyData[o.dateOfOrder]) {
+                dailyData[o.dateOfOrder] = { revenue: 0, count: 0 };
+            }
+            dailyData[o.dateOfOrder].revenue += o.totalPrice;
+            dailyData[o.dateOfOrder].count += 1;
+        }
+    });
+    
+    let sortedDates = Object.keys(dailyData).sort();
+    if (sortedDates.length > 30) {
+        sortedDates = sortedDates.slice(-30);
+    }
+    const dailyRevenues = sortedDates.map(d => dailyData[d].revenue);
+    const dailyCounts = sortedDates.map(d => dailyData[d].count);
+    const dailyLabels = sortedDates.map(d => {
+        const parts = d.split('-');
+        if (parts.length < 3) return d;
+        return `${parts[2]}-${parts[1]}-${parts[0]}`;
+    });
+
+    const ctxDaily = document.getElementById('dailyTrendChart');
+    if (ctxDaily) {
+        const ctxDaily2d = ctxDaily.getContext('2d');
+        state.charts.dailyTrend = new Chart(ctxDaily2d, {
+            type: 'bar',
+            data: {
+                labels: dailyLabels,
+                datasets: [
+                    {
+                        label: 'Revenue (Rs.)',
+                        data: dailyRevenues,
+                        backgroundColor: 'rgba(16, 185, 129, 0.45)',
+                        borderColor: '#10b981',
+                        borderWidth: 2,
+                        borderRadius: 6,
+                        yAxisID: 'y'
+                    },
+                    {
+                        label: 'Orders Count',
+                        data: dailyCounts,
+                        type: 'line',
+                        borderColor: brandColor,
+                        borderWidth: 3,
+                        pointBackgroundColor: brandColor,
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2,
+                        pointRadius: 4,
+                        pointHoverRadius: 6,
+                        fill: false,
+                        yAxisID: 'y1'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            color: textSecondary,
+                            font: { family: 'Inter, sans-serif', size: 11, weight: '500' }
+                        }
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                        titleFont: { family: 'Inter, sans-serif', weight: '600' },
+                        bodyFont: { family: 'Inter, sans-serif' }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: {
+                            color: textSecondary,
+                            font: { family: 'Inter, sans-serif', size: 10, weight: '500' }
+                        }
+                    },
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        grid: { color: gridColor },
+                        ticks: {
+                            color: textSecondary,
+                            font: { family: 'Inter, sans-serif', size: 10 },
+                            callback: (value) => '₹' + value.toLocaleString()
+                        }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        grid: { drawOnChartArea: false },
+                        ticks: {
+                            color: textSecondary,
+                            font: { family: 'Inter, sans-serif', size: 10 }
+                        }
+                    }
+                }
+            }
+        });
+    }
 }
 
 // Update existing charts color theme without full destroy/recreate
 function updateChartsTheme() {
-    if (!state.charts.salesTrend && !state.charts.finance && !state.charts.delivery) return;
+    if (!state.charts.salesTrend && !state.charts.dailyTrend && !state.charts.finance && !state.charts.delivery) return;
 
     const style = getComputedStyle(document.body);
     const textSecondary = style.getPropertyValue('--text-secondary').trim() || '#94a3b8';
@@ -988,6 +1173,17 @@ function updateChartsTheme() {
         state.charts.salesTrend.options.scales.yRevenue.grid.color = gridColor;
         state.charts.salesTrend.options.scales.yCount.ticks.color = brandColor;
         state.charts.salesTrend.update();
+    }
+
+    if (state.charts.dailyTrend) {
+        state.charts.dailyTrend.data.datasets[1].borderColor = brandColor;
+        state.charts.dailyTrend.data.datasets[1].pointBackgroundColor = brandColor;
+        state.charts.dailyTrend.options.plugins.legend.labels.color = textSecondary;
+        state.charts.dailyTrend.options.scales.x.ticks.color = textSecondary;
+        state.charts.dailyTrend.options.scales.y.grid.color = gridColor;
+        state.charts.dailyTrend.options.scales.y.ticks.color = textSecondary;
+        state.charts.dailyTrend.options.scales.y1.ticks.color = textSecondary;
+        state.charts.dailyTrend.update();
     }
 
     if (state.charts.finance) {
@@ -1136,13 +1332,14 @@ function applyFilters() {
     const pay = elements.filterPayment.value;
     const cat = elements.filterCategory.value;
     const status = elements.filterStatus.value;
-    const selectedDate = elements.topFilterDate.value;
     
-    // 1. Filter by month/date for dashboard stats, KPIs, and donut charts
+
+    // 1. Filter by month/date range for dashboard stats, KPIs, and donut charts
     state.monthFilteredOrders = state.orders.filter(o => {
-        const matchesMonth = !month || getMonthYearStr(o.dateOfOrder) === month;
-        const matchesDate = !selectedDate || o.dateOfOrder === selectedDate;
-        return matchesMonth && matchesDate;
+        if (state.dateRangeFrom && state.dateRangeTo) {
+            return o.dateOfOrder >= state.dateRangeFrom && o.dateOfOrder <= state.dateRangeTo;
+        }
+        return !month || getMonthYearStr(o.dateOfOrder) === month;
     });
     
     // 2. Filter by all inputs for master table rows
@@ -1156,11 +1353,13 @@ function applyFilters() {
             (o.city && o.city.toLowerCase().includes(q)) ||
             (o.pinCode && o.pinCode.toLowerCase().includes(q));
             
-        // Month dropdown
-        const matchesMonth = !month || getMonthYearStr(o.dateOfOrder) === month;
-        
-        // Date input
-        const matchesDate = !selectedDate || o.dateOfOrder === selectedDate;
+        // Date / Month range matching
+        let matchesDateRange = true;
+        if (state.dateRangeFrom && state.dateRangeTo) {
+            matchesDateRange = o.dateOfOrder >= state.dateRangeFrom && o.dateOfOrder <= state.dateRangeTo;
+        } else if (month) {
+            matchesDateRange = getMonthYearStr(o.dateOfOrder) === month;
+        }
         
         // Payment dropdown
         const matchesPayment = !pay || o.paymentMethod.toLowerCase().includes(pay.toLowerCase());
@@ -1171,17 +1370,13 @@ function applyFilters() {
             matchesCategory = o.category && o.category.toUpperCase().split(',').map(x => x.trim()).includes(cat.toUpperCase());
         }
         
-        // Logistics Status dropdown
-        let matchesStatus = false;
-        if (!status) {
-            matchesStatus = true;
-        } else if (status === 'UNDELIVERED') {
-            matchesStatus = o.logisticsStatus.toUpperCase().includes('UNDELIVERED');
-        } else {
-            matchesStatus = o.logisticsStatus.toLowerCase().trim() === status.toLowerCase().trim();
+        // Logistics Status dropdown (using the 6 simplified pipeline stages)
+        let matchesStatus = true;
+        if (status) {
+            matchesStatus = getPipelineStage(o) === status.toLowerCase();
         }
         
-        return matchesQuery && matchesMonth && matchesDate && matchesPayment && matchesStatus && matchesCategory;
+        return matchesQuery && matchesDateRange && matchesPayment && matchesStatus && matchesCategory;
     });
     
     state.currentPage = 1; // Reset to page 1 on filter
@@ -1192,8 +1387,16 @@ function applyFilters() {
 function clearFilters() {
     elements.searchInput.value = '';
     elements.topFilterMonth.value = '';
-    elements.topFilterDate.value = '';
+    state.dateRangeFrom = null;
+    state.dateRangeTo = null;
+    state.hoveredDate = null;
+    state.pickerLeftMonth = (() => {
+        const today = new Date();
+        return new Date(today.getFullYear(), today.getMonth() - 1, 1);
+    })();
+    if (elements.dateRangeBtn) elements.dateRangeBtn.textContent = 'Select Date Range';
     elements.filterMonth.value = '';
+    if (elements.chartMonthSelect) elements.chartMonthSelect.value = '';
     elements.filterPayment.value = '';
     elements.filterCategory.value = '';
     elements.filterStatus.value = '';
@@ -1203,16 +1406,15 @@ function clearFilters() {
     renderDashboard();
 }
 
-// Convert "2026-07-02" to "02 Jul 2026"
+// Convert "2026-07-02" to "02-07-2026"
 function formatDateDisplay(dateStr) {
     if (!dateStr) return '';
     const parts = dateStr.split('-');
     if (parts.length < 3) return dateStr;
-    const day = parts[2];
     const year = parts[0];
-    const monthIndex = parseInt(parts[1], 10) - 1;
-    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    return `${day} ${months[monthIndex]} ${year}`;
+    const month = parts[1];
+    const day = parts[2];
+    return `${day}-${month}-${year}`;
 }
 
 // Open and populate single order detail modal
@@ -1250,4 +1452,232 @@ function showOrderDetail(o) {
     document.getElementById('det-comments').textContent = o.shiprocketComments || '-';
     
     elements.modal.style.display = 'flex';
+}
+
+// Populate calendar pane day buttons
+function fillDaysPane(container, dateObj) {
+    container.innerHTML = '';
+    const year = dateObj.getFullYear();
+    const month = dateObj.getMonth();
+    
+    // First day of month (0 = Sunday, 6 = Saturday)
+    const firstDayIndex = new Date(year, month, 1).getDay();
+    // Total days in month
+    const totalDays = new Date(year, month + 1, 0).getDate();
+    
+    // Add empty spacer slots
+    for (let i = 0; i < firstDayIndex; i++) {
+        const spacer = document.createElement('div');
+        spacer.className = 'dp-day-btn empty';
+        container.appendChild(spacer);
+    }
+    
+    // Add day numbers
+    for (let day = 1; day <= totalDays; day++) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'dp-day-btn';
+        btn.textContent = day;
+        
+        // Build iso string for validation & comparisons
+        const dStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+        btn.dataset.date = dStr;
+        
+        // Apply class names based on state
+        updateDayBtnState(btn, dStr);
+        
+        // Listeners for selection
+        btn.addEventListener('click', () => handleDayClick(dStr));
+        btn.addEventListener('mouseenter', () => handleDayMouseEnter(dStr));
+        
+        container.appendChild(btn);
+    }
+}
+
+// Update class state for individual day button based on current From/To range
+function updateDayBtnState(btn, dStr) {
+    btn.className = 'dp-day-btn'; // Reset
+    
+    const dTime = new Date(dStr).getTime();
+    
+    // Enforce operational range: June 2026 to March 2027
+    const minTime = new Date('2026-06-01').getTime();
+    const maxTime = new Date('2027-03-31').getTime();
+    if (dTime < minTime || dTime > maxTime) {
+        btn.classList.add('disabled');
+        return;
+    }
+    
+    const fromTime = state.dateRangeFrom ? new Date(state.dateRangeFrom).getTime() : null;
+    const toTime = state.dateRangeTo ? new Date(state.dateRangeTo).getTime() : null;
+    const hoverTime = state.hoveredDate ? new Date(state.hoveredDate).getTime() : null;
+    
+    if (state.dateRangeFrom === dStr) {
+        btn.classList.add('selected-start');
+    }
+    if (state.dateRangeTo === dStr) {
+        btn.classList.add('selected-end');
+    }
+    
+    if (fromTime && toTime) {
+        if (dTime > fromTime && dTime < toTime) {
+            btn.classList.add('in-range');
+        }
+    } else if (fromTime && hoverTime && dTime > fromTime && dTime <= hoverTime) {
+        btn.classList.add('hovered-range');
+    }
+}
+
+// Helper to format, apply, and close active date selection
+function applyActiveSelectionAndClose() {
+    if (state.dateRangeFrom) {
+        if (!state.dateRangeTo) {
+            state.dateRangeTo = state.dateRangeFrom;
+        }
+        const fromFormatted = formatDateDisplay(state.dateRangeFrom);
+        const toFormatted = formatDateDisplay(state.dateRangeTo);
+        elements.dateRangeBtn.textContent = state.dateRangeFrom === state.dateRangeTo ? fromFormatted : `${fromFormatted} - ${toFormatted}`;
+        
+        // Clear Month selections
+        elements.topFilterMonth.value = '';
+        elements.filterMonth.value = '';
+        if (elements.chartMonthSelect) elements.chartMonthSelect.value = '';
+        
+        applyFilters();
+    }
+    elements.datePickerPopup.style.display = 'none';
+}
+
+// Handle clicking on a calendar day
+function handleDayClick(dStr) {
+    const dTime = new Date(dStr).getTime();
+    const minTime = new Date('2026-06-01').getTime();
+    const maxTime = new Date('2027-03-31').getTime();
+    if (dTime < minTime || dTime > maxTime) return; // ignore disabled
+    
+    if (!state.dateRangeFrom || (state.dateRangeFrom && state.dateRangeTo)) {
+        // Start new range selection
+        state.dateRangeFrom = dStr;
+        state.dateRangeTo = null;
+        state.hoveredDate = null;
+        renderDatePickerCalendars();
+    } else if (state.dateRangeFrom && !state.dateRangeTo) {
+        const fromTime = new Date(state.dateRangeFrom).getTime();
+        if (dTime < fromTime) {
+            // Clicked earlier day: set as new From date
+            state.dateRangeFrom = dStr;
+            renderDatePickerCalendars();
+        } else {
+            // Set as To date and auto-apply selection!
+            state.dateRangeTo = dStr;
+            state.hoveredDate = null;
+            applyActiveSelectionAndClose();
+        }
+    }
+}
+
+// Handle hovering over a calendar day during range selection
+function handleDayMouseEnter(dStr) {
+    if (state.dateRangeFrom && !state.dateRangeTo) {
+        const dTime = new Date(dStr).getTime();
+        const fromTime = new Date(state.dateRangeFrom).getTime();
+        if (dTime >= fromTime) {
+            state.hoveredDate = dStr;
+        } else {
+            state.hoveredDate = null;
+        }
+        // Update only styles dynamically for performance
+        const leftPaneBtns = elements.dpLeftDays.querySelectorAll('.dp-day-btn:not(.empty):not(.disabled)');
+        const rightPaneBtns = elements.dpRightDays.querySelectorAll('.dp-day-btn:not(.empty):not(.disabled)');
+        
+        [...leftPaneBtns, ...rightPaneBtns].forEach(btn => {
+            const btnDate = btn.dataset.date;
+            updateDayBtnState(btn, btnDate);
+        });
+    }
+}
+
+// Render custom dual-pane date calendars
+function renderDatePickerCalendars() {
+    const leftMonth = state.pickerLeftMonth;
+    const rightMonth = new Date(leftMonth.getFullYear(), leftMonth.getMonth() + 1, 1);
+    
+    // Set headers
+    const formatMonthYear = (d) => {
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        return `${months[d.getMonth()]} ${d.getFullYear()}`;
+    };
+    elements.dpLeftMonthName.textContent = formatMonthYear(leftMonth);
+    elements.dpRightMonthName.textContent = formatMonthYear(rightMonth);
+    
+    // Fill left pane days
+    fillDaysPane(elements.dpLeftDays, leftMonth);
+    // Fill right pane days
+    fillDaysPane(elements.dpRightDays, rightMonth);
+}
+
+// Initialize Date picker controls
+function initDatePicker() {
+    // Toggle popup visibility
+    elements.dateRangeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isShown = elements.datePickerPopup.style.display === 'flex';
+        elements.datePickerPopup.style.display = isShown ? 'none' : 'flex';
+        if (!isShown) {
+            if (state.dateRangeFrom) {
+                const selDate = new Date(state.dateRangeFrom);
+                state.pickerLeftMonth = new Date(selDate.getFullYear(), selDate.getMonth(), 1);
+            } else {
+                state.pickerLeftMonth = (() => {
+                    const today = new Date();
+                    return new Date(today.getFullYear(), today.getMonth() - 1, 1);
+                })();
+            }
+            renderDatePickerCalendars();
+        }
+    });
+    
+    // Close when clicking outside & auto-apply active selection
+    document.addEventListener('click', (e) => {
+        if (elements.datePickerPopup && elements.datePickerPopup.style.display === 'flex') {
+            const isClickInside = elements.datePickerPopup.contains(e.target) || 
+                                  (e.target.closest && e.target.closest('.date-picker-relative-container')) ||
+                                  (e.target.classList && e.target.classList.contains('dp-day-btn')) ||
+                                  (e.target.closest && e.target.closest('.dp-day-btn'));
+            if (!isClickInside) {
+                applyActiveSelectionAndClose();
+            }
+        }
+    });
+    
+    // Prev/Next month navigation
+    elements.dpPrevMonth.addEventListener('click', (e) => {
+        e.stopPropagation();
+        state.pickerLeftMonth.setMonth(state.pickerLeftMonth.getMonth() - 1);
+        renderDatePickerCalendars();
+    });
+    
+    elements.dpNextMonth.addEventListener('click', (e) => {
+        e.stopPropagation();
+        state.pickerLeftMonth.setMonth(state.pickerLeftMonth.getMonth() + 1);
+        renderDatePickerCalendars();
+    });
+    
+    // Clear button
+    elements.dpClearBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        state.dateRangeFrom = null;
+        state.dateRangeTo = null;
+        state.hoveredDate = null;
+        elements.dateRangeBtn.textContent = 'Select Date Range';
+        renderDatePickerCalendars();
+        applyFilters();
+        elements.datePickerPopup.style.display = 'none';
+    });
+    
+    // Apply button
+    elements.dpApplyBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        applyActiveSelectionAndClose();
+    });
 }

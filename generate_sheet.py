@@ -128,14 +128,20 @@ def process_and_create_excel():
             "HSL": "HALF SAREE LEHENGA",
             "LG": "LONG GOWN",
             "SHA": "SHARARA",
-            "TOP": "TOPS"
+            "TOP": "TOPS",
+            "CORD": "CO-ORD SET"
         }
         
         for sku in skus:
             if not sku:
                 continue
             prefix = sku.split("-")[0].strip()
-            cat = mapping.get(prefix, "OTHER")
+            cat = mapping.get(prefix)
+            if not cat:
+                if sku.startswith("CORD"):
+                    cat = "CO-ORD SET"
+                else:
+                    cat = "OTHER"
             categories.append(cat)
                 
         return ", ".join(categories) if categories else "OTHER"

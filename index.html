@@ -33,9 +33,46 @@
                     </select>
                 </div>
                 
-                <div class="header-filter-group">
+                <div class="header-filter-group date-picker-relative-container">
                     <span class="header-filter-label">Date:</span>
-                    <input type="date" id="top-filter-date" class="header-date-select">
+                    <button id="date-range-btn" class="filter-select date-range-trigger-btn" type="button" style="min-width: 220px;">
+                        Select Date Range
+                    </button>
+                    
+                    <!-- Custom Dual-Pane Date Picker Popup Panel -->
+                    <div class="date-picker-popup" id="date-picker-popup" style="display: none;">
+                        <div class="dp-header">
+                            <button type="button" class="dp-nav-btn" id="dp-prev-month">←</button>
+                            <div class="dp-month-labels">
+                                <span class="dp-month-label" id="dp-left-month-name">August 2026</span>
+                                <span class="dp-month-label" id="dp-right-month-name">September 2026</span>
+                            </div>
+                            <button type="button" class="dp-nav-btn" id="dp-next-month">→</button>
+                        </div>
+                        
+                        <div class="dp-panes">
+                            <!-- Left Month Pane -->
+                            <div class="dp-pane">
+                                <div class="dp-weekdays">
+                                    <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+                                </div>
+                                <div class="dp-days" id="dp-left-days"></div>
+                            </div>
+                            
+                            <!-- Right Month Pane -->
+                            <div class="dp-pane">
+                                <div class="dp-weekdays">
+                                    <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+                                </div>
+                                <div class="dp-days" id="dp-right-days"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="dp-footer">
+                            <button type="button" class="dp-footer-btn clear" id="dp-clear-btn">Clear Range</button>
+                            <button type="button" class="dp-footer-btn apply" id="dp-apply-btn">Apply</button>
+                        </div>
+                    </div>
                 </div>
                 
                 <button id="header-clear-btn" class="header-clear-btn">Clear</button>
@@ -264,29 +301,29 @@
             </div>
             
             <div class="pipeline-wrapper">
-                <!-- Step 1: Unfulfilled -->
-                <div class="pipeline-step" id="step-unfulfilled">
+                <!-- Step 1: Delivered -->
+                <div class="pipeline-step" id="step-delivered">
                     <div class="step-icon">
                         <span class="step-num">1</span>
                     </div>
                     <div class="step-details">
-                        <h4>Unfulfilled</h4>
+                        <h4>Delivered</h4>
                         <div class="step-count">--</div>
-                        <p>Processing in Shopify</p>
+                        <p>Delivered & self fulfilled</p>
                     </div>
                 </div>
                 
                 <div class="pipeline-arrow"></div>
 
-                <!-- Step 2: Returned / RTO -->
-                <div class="pipeline-step" id="step-returned">
+                <!-- Step 2: In Transit -->
+                <div class="pipeline-step" id="step-transit">
                     <div class="step-icon">
                         <span class="step-num">2</span>
                     </div>
                     <div class="step-details">
-                        <h4>Returned / RTO</h4>
+                        <h4>In Transit</h4>
                         <div class="step-count">--</div>
-                        <p>Returns & Denials</p>
+                        <p>Out for delivery / shipped</p>
                     </div>
                 </div>
 
@@ -306,29 +343,29 @@
 
                 <div class="pipeline-arrow"></div>
 
-                <!-- Step 4: In Transit -->
-                <div class="pipeline-step" id="step-transit">
+                <!-- Step 4: Unfulfilled -->
+                <div class="pipeline-step" id="step-unfulfilled">
                     <div class="step-icon">
                         <span class="step-num">4</span>
                     </div>
                     <div class="step-details">
-                        <h4>In Transit</h4>
+                        <h4>Unfulfilled</h4>
                         <div class="step-count">--</div>
-                        <p>Out for delivery / shipped</p>
+                        <p>Processing in Shopify</p>
                     </div>
                 </div>
 
                 <div class="pipeline-arrow"></div>
 
-                <!-- Step 5: Delivered -->
-                <div class="pipeline-step" id="step-delivered">
+                <!-- Step 5: Returned / RTO -->
+                <div class="pipeline-step" id="step-returned">
                     <div class="step-icon">
                         <span class="step-num">5</span>
                     </div>
                     <div class="step-details">
-                        <h4>Delivered</h4>
+                        <h4>Returned / RTO</h4>
                         <div class="step-count">--</div>
-                        <p>Delivered & self fulfilled</p>
+                        <p>Returns & Denials</p>
                     </div>
                 </div>
 
@@ -384,6 +421,24 @@
             </div>
         </section>
 
+        <!-- Charts Section 2: Daily Sales -->
+        <section class="charts-row" style="margin-top: var(--space-6); grid-template-columns: 1fr;">
+            <div class="chart-container grid-3-3" style="width: 100%;">
+                <div class="section-header" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                    <h2>Daily Sales & Volume Trends</h2>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 12px; color: var(--text-secondary); font-weight: 500;">Filter Month:</span>
+                        <select id="chart-month-select" class="filter-select" style="width: auto; min-width: 140px; padding: 4px 8px; font-size: 12px;">
+                            <option value="">All Months</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="chart-canvas-wrapper" style="height: 320px;">
+                    <canvas id="dailyTrendChart"></canvas>
+                </div>
+            </div>
+        </section>
+
         <!-- Product Category Performance -->
         <section class="dashboard-section category-breakdown-section">
             <div class="section-header">
@@ -429,6 +484,12 @@
 
                     <select id="filter-status" class="filter-select">
                         <option value="">All Logistics Statuses</option>
+                        <option value="delivered">Delivered</option>
+                        <option value="transit">In Transit</option>
+                        <option value="pickup">Pickup Scheduled</option>
+                        <option value="unfulfilled">Unfulfilled</option>
+                        <option value="returned">Returned</option>
+                        <option value="canceled">Canceled</option>
                     </select>
                     
                     <button id="clear-filters-btn" class="btn btn-secondary">Clear</button>
