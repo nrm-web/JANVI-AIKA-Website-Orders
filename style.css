@@ -719,7 +719,7 @@ body.dark-mode .moon-icon { display: none; }
 }
 
 .chart-canvas-wrapper {
-    height: 280px;
+    height: 350px;
     position: relative;
     width: 100%;
 }
@@ -727,7 +727,7 @@ body.dark-mode .moon-icon { display: none; }
 .donut-charts-wrapper {
     display: flex;
     gap: var(--space-4);
-    height: 300px;
+    height: 350px;
 }
 
 .donut-chart-box {
@@ -1290,7 +1290,7 @@ body.dark-mode .filter-select {
         grid-template-columns: repeat(5, 1fr) !important;
     }
     .charts-row {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: 3fr 2fr !important;
     }
     .donut-charts-wrapper {
         flex-direction: row !important;
@@ -1304,7 +1304,7 @@ body.dark-mode .filter-select {
         gap: var(--space-3) !important;
     }
     .charts-row {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: 3fr 2fr !important;
     }
     .donut-charts-wrapper {
         flex-direction: row !important;
@@ -2253,6 +2253,29 @@ body.light-mode .dp-day-btn.selected-end {
     padding: 0 4px;
 }
 
+.chart-scroll-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-top: var(--space-4);
+}
+
+@media (max-width: 768px) {
+    .daily-sales-section .flex-header {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: var(--space-3) !important;
+    }
+
+    .daily-sales-section .filter-controls {
+        width: 100% !important;
+    }
+
+    .daily-sales-section #chart-month-select {
+        width: 100% !important;
+    }
+}
+
 @media (max-width: 600px) {
     .pagination-wrapper {
         flex-wrap: wrap !important;
@@ -2261,17 +2284,6 @@ body.light-mode .dp-day-btn.selected-end {
     }
     
     .date-range-trigger-btn {
-        width: 100% !important;
-    }
-
-    .chart-container .section-header,
-    .daily-chart-header {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: var(--space-2) !important;
-    }
-    
-    #chart-month-select {
         width: 100% !important;
     }
 

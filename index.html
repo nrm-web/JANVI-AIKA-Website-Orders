@@ -547,18 +547,25 @@
             </div>
         </section>
 
-        <!-- Charts Section 2: Daily Sales -->
-        <section class="charts-row" style="margin-top: var(--space-6); grid-template-columns: 1fr;">
-            <div class="chart-container grid-3-3" style="width: 100%;">
-                <div class="section-header daily-chart-header">
+        <!-- Daily Sales & Volume Trends Section -->
+        <section class="dashboard-section daily-sales-section">
+            <div class="section-header flex-header">
+                <div class="section-title-group">
                     <h2>Daily Sales & Volume Trends</h2>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <span style="font-size: 12px; color: var(--text-secondary); font-weight: 500;">Filter Month:</span>
-                        <select id="chart-month-select" class="filter-select" style="width: auto; min-width: 140px; padding: 4px 8px; font-size: 12px;">
+                    <p class="section-subtitle">Daily revenue and order count breakdown</p>
+                </div>
+                
+                <div class="filter-controls">
+                    <div class="header-filter-group">
+                        <span class="header-filter-label">Filter Month:</span>
+                        <select id="chart-month-select" class="filter-select">
                             <option value="">All Months</option>
                         </select>
                     </div>
                 </div>
+            </div>
+            
+            <div class="chart-scroll-wrapper">
                 <div class="chart-canvas-wrapper" id="daily-chart-wrapper">
                     <canvas id="dailyTrendChart"></canvas>
                 </div>

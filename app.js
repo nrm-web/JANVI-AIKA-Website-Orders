@@ -1062,13 +1062,22 @@ function renderCharts() {
                     type: 'linear',
                     position: 'left',
                     grid: { color: gridColor },
-                    ticks: { color: '#10b981', font: { family: 'Inter' }, callback: val => '₹' + val.toLocaleString() }
+                    ticks: {
+                        color: '#10b981',
+                        font: { family: 'Inter' },
+                        maxTicksLimit: 6,
+                        callback: val => val >= 1000 ? '₹' + (val / 1000).toFixed(0) + 'k' : '₹' + val
+                    }
                 },
                 yCount: {
                     type: 'linear',
                     position: 'right',
                     grid: { drawOnChartArea: false },
-                    ticks: { color: brandColor, font: { family: 'Inter' }, stepSize: 5 }
+                    ticks: {
+                        color: brandColor,
+                        font: { family: 'Inter' },
+                        maxTicksLimit: 6
+                    }
                 }
             }
         }
@@ -1170,11 +1179,8 @@ function renderCharts() {
     const dailyLabels = sortedDates.map(d => {
         const parts = d.split('-');
         if (parts.length < 3) return d;
-        if (isMobileView) {
-            const mIdx = parseInt(parts[1], 10) - 1;
-            return `${parts[2]} ${monthsShort[mIdx] || parts[1]}`;
-        }
-        return `${parts[2]}-${parts[1]}-${parts[0]}`;
+        const mIdx = parseInt(parts[1], 10) - 1;
+        return `${parts[2]} ${monthsShort[mIdx] || parts[1]}`;
     });
 
     const ctxDaily = document.getElementById('dailyTrendChart');
@@ -1225,7 +1231,17 @@ function renderCharts() {
                         mode: 'index',
                         intersect: false,
                         titleFont: { family: 'Inter, sans-serif', weight: '600' },
-                        bodyFont: { family: 'Inter, sans-serif' }
+                        bodyFont: { family: 'Inter, sans-serif' },
+                        callbacks: {
+                            title: function(context) {
+                                if (!context || !context.length) return '';
+                                const idx = context[0].dataIndex;
+                                const rawDate = sortedDates[idx];
+                                if (!rawDate) return '';
+                                const parts = rawDate.split('-');
+                                return parts.length === 3 ? `Date: ${parts[2]}-${parts[1]}-${parts[0]}` : `Date: ${rawDate}`;
+                            }
+                        }
                     }
                 },
                 scales: {
@@ -1234,10 +1250,10 @@ function renderCharts() {
                         ticks: {
                             color: textSecondary,
                             font: { family: 'Inter, sans-serif', size: 10, weight: '500' },
-                            autoSkip: true,
-                            maxTicksLimit: isMobileView ? 6 : 30,
-                            maxRotation: isMobileView ? 45 : 0,
-                            minRotation: isMobileView ? 45 : 0
+                            autoSkip: isMobileView ? true : false,
+                            maxTicksLimit: isMobileView ? 6 : 31,
+                            maxRotation: 45,
+                            minRotation: 45
                         }
                     },
                     y: {
@@ -1248,12 +1264,8 @@ function renderCharts() {
                         ticks: {
                             color: textSecondary,
                             font: { family: 'Inter, sans-serif', size: 10 },
-                            callback: (value) => {
-                                if (isMobileView && value >= 1000) {
-                                    return '₹' + (value / 1000).toFixed(0) + 'k';
-                                }
-                                return '₹' + value.toLocaleString();
-                            }
+                            maxTicksLimit: 6,
+                            callback: (value) => value >= 1000 ? '₹' + (value / 1000).toFixed(0) + 'k' : '₹' + value
                         }
                     },
                     y1: {
@@ -1263,7 +1275,8 @@ function renderCharts() {
                         grid: { drawOnChartArea: false },
                         ticks: {
                             color: textSecondary,
-                            font: { family: 'Inter, sans-serif', size: 10 }
+                            font: { family: 'Inter, sans-serif', size: 10 },
+                            maxTicksLimit: 6
                         }
                     }
                 }
