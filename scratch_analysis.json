@@ -1,0 +1,89 @@
+{
+  "total_orders": 173,
+  "total_revenue": 311688.0,
+  "summary": [
+    {
+      "Payment_Category": "COD",
+      "Order_Count": 52,
+      "Total_Revenue": 89768.0,
+      "Avg_Order_Value": 1726.31,
+      "Total_Refunded": 0.0,
+      "Order_Share_%": 30.06,
+      "Revenue_Share_%": 28.8
+    },
+    {
+      "Payment_Category": "Partial COD",
+      "Order_Count": 11,
+      "Total_Revenue": 20280.0,
+      "Avg_Order_Value": 1843.64,
+      "Total_Refunded": 0.0,
+      "Order_Share_%": 6.36,
+      "Revenue_Share_%": 6.51
+    },
+    {
+      "Payment_Category": "Prepaid",
+      "Order_Count": 110,
+      "Total_Revenue": 201640.0,
+      "Avg_Order_Value": 1833.09,
+      "Total_Refunded": 11392.0,
+      "Order_Share_%": 63.58,
+      "Revenue_Share_%": 64.69
+    }
+  ],
+  "status_by_cat": {
+    "Canceled": {
+      "COD": 5,
+      "Partial COD": 0,
+      "Prepaid": 2,
+      "All": 7
+    },
+    "Delivered": {
+      "COD": 32,
+      "Partial COD": 3,
+      "Prepaid": 90,
+      "All": 125
+    },
+    "In Transit / Processing": {
+      "COD": 1,
+      "Partial COD": 4,
+      "Prepaid": 9,
+      "All": 14
+    },
+    "New / Unfulfilled": {
+      "COD": 0,
+      "Partial COD": 2,
+      "Prepaid": 3,
+      "All": 5
+    },
+    "PICKED UP": {
+      "COD": 0,
+      "Partial COD": 1,
+      "Prepaid": 0,
+      "All": 1
+    },
+    "REACHED DESTINATION HUB": {
+      "COD": 0,
+      "Partial COD": 1,
+      "Prepaid": 2,
+      "All": 3
+    },
+    "RTO / Returned": {
+      "COD": 13,
+      "Partial COD": 0,
+      "Prepaid": 3,
+      "All": 16
+    },
+    "SELF FULFILED": {
+      "COD": 1,
+      "Partial COD": 0,
+      "Prepaid": 1,
+      "All": 2
+    },
+    "All": {
+      "COD": 52,
+      "Partial COD": 11,
+      "Prepaid": 110,
+      "All": 173
+    }
+  }
+}

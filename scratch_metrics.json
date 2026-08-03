@@ -1,0 +1,131 @@
+{
+  "COD": {
+    "total_orders": 52,
+    "gross_revenue": 89768.0,
+    "aov": 1726.3076923076924,
+    "refunded_amount": 0.0,
+    "delivered_count": 32,
+    "delivered_revenue": 48604.0,
+    "rto_count": 13,
+    "rto_revenue": 18518.0,
+    "canceled_count": 5,
+    "canceled_revenue": 17390.0,
+    "in_transit_count": 1,
+    "in_transit_revenue": 3112.0,
+    "new_count": 0,
+    "new_revenue": 0.0,
+    "top_cities": {
+      "Chennai": 8,
+      "Coimbatore": 3,
+      "Bengaluru": 3,
+      "Karaikudi": 2,
+      "Secunderabad": 2
+    },
+    "top_states": {
+      "Tamil Nadu": 30,
+      "Telangana": 8,
+      "Karnataka": 6,
+      "Andhra Pradesh": 4,
+      "Puducherry": 1
+    },
+    "status_counts": {
+      "DELIVERED": 32,
+      "RTO DELIVERED": 13,
+      "CANCELED": 5,
+      "SELF FULFILED": 1,
+      "IN TRANSIT": 1
+    },
+    "financial_status_counts": {
+      "paid": 33,
+      "pending": 14,
+      "voided": 5
+    }
+  },
+  "Partial COD": {
+    "total_orders": 11,
+    "gross_revenue": 20280.0,
+    "aov": 1843.6363636363637,
+    "refunded_amount": 0.0,
+    "delivered_count": 3,
+    "delivered_revenue": 5160.0,
+    "rto_count": 0,
+    "rto_revenue": 0.0,
+    "canceled_count": 0,
+    "canceled_revenue": 0.0,
+    "in_transit_count": 6,
+    "in_transit_revenue": 8640.0,
+    "new_count": 2,
+    "new_revenue": 6480.0,
+    "top_cities": {
+      "Coimbatore": 2,
+      "Bandlaguda Jagir": 1,
+      "Hyderabad": 1,
+      "Mumbai Subueban": 1,
+      "Palakkad": 1
+    },
+    "top_states": {
+      "Telangana": 4,
+      "Tamil Nadu": 3,
+      "Maharashtra": 3,
+      "Kerala": 1
+    },
+    "status_counts": {
+      "DELIVERED": 3,
+      "IN TRANSIT-EN-ROUTE": 2,
+      "NEW ORDER": 2,
+      "IN TRANSIT": 1,
+      "REACHED DESTINATION HUB": 1,
+      "PICKED UP": 1,
+      "SHIPPED": 1
+    },
+    "financial_status_counts": {
+      "partially_paid": 10,
+      "paid": 1
+    }
+  },
+  "Prepaid": {
+    "total_orders": 110,
+    "gross_revenue": 201640.0,
+    "aov": 1833.090909090909,
+    "refunded_amount": 11392.0,
+    "delivered_count": 92,
+    "delivered_revenue": 155454.0,
+    "rto_count": 0,
+    "rto_revenue": 0.0,
+    "canceled_count": 2,
+    "canceled_revenue": 6224.0,
+    "in_transit_count": 11,
+    "in_transit_revenue": 25910.0,
+    "new_count": 3,
+    "new_revenue": 9370.0,
+    "top_cities": {
+      "Chennai": 17,
+      "Hyderabad": 9,
+      "Kanchipuram": 6,
+      "Coimbatore": 4,
+      "Salem": 3
+    },
+    "top_states": {
+      "Tamil Nadu": 58,
+      "Andhra Pradesh": 15,
+      "Telangana": 13,
+      "Karnataka": 11,
+      "Kerala": 5
+    },
+    "status_counts": {
+      "DELIVERED": 92,
+      "IN TRANSIT": 4,
+      "IN TRANSIT-AT DESTINATION HUB": 4,
+      "NEW ORDER": 3,
+      "CANCELED": 2,
+      "REACHED DESTINATION HUB": 2,
+      "SELF FULFILED": 1,
+      "UNDELIVERED-2nd Attempt": 1,
+      "SHIPPED": 1
+    },
+    "financial_status_counts": {
+      "paid": 105,
+      "refunded": 5
+    }
+  }
+}
