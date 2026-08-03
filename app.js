@@ -629,7 +629,7 @@ function renderDashboard() {
     const codOrders = state.monthFilteredOrders.filter(o => (o.paymentMethod || '').toUpperCase().includes('COD'));
     const deniedList = state.monthFilteredOrders.filter(o => {
         const s = (o.logisticsStatus || '').toUpperCase().trim();
-        return (s.includes('RTO') || s.includes('DENIED') || o.codDenies === 'Yes') && !s.includes('CANCELED') && !s.includes('CANCELLED');
+        return (s.includes('RTO') || s.includes('DENIED')) && !s.includes('CANCELED') && !s.includes('CANCELLED');
     });
     const allDenials = deniedList.length;
     const totalDeniedAmount = deniedList.reduce((sum, o) => sum + o.totalPrice, 0);
