@@ -385,8 +385,24 @@ def generate_4see_magic_excel():
         ws11_camp = wb.create_sheet("11_Meta_Ads_Campaign_Details")
         write_df_clean(ws11_camp, df_campaigns)
 
+    # ----------------------------------------------------
+    # 10. DAILY SALES & VOLUME TRENDS (SHEET 12)
+    # ----------------------------------------------------
+    df_master['Date_Clean'] = pd.to_datetime(df_master['Date'], errors='coerce').dt.strftime('%Y-%m-%d')
+    df_daily = df_master.groupby('Date_Clean').agg({
+        'Order No': 'count',
+        'Total Price': 'sum'
+    }).reset_index().rename(columns={
+        'Date_Clean': 'Date',
+        'Order No': 'Daily_Order_Volume',
+        'Total Price': 'Daily_Gross_Revenue_INR'
+    })
+    df_daily = df_daily.sort_values(by='Date', ascending=True)
+    ws12_daily = wb.create_sheet("12_Daily_Sales_Trends")
+    write_df_clean(ws12_daily, df_daily)
+
     wb.save(output_path)
-    print(f"Successfully generated clean 4see Magic Dashboard Master Excel with Meta Ads Sheets: {output_path}")
+    print(f"Successfully generated clean 4see Magic Dashboard Master Excel with Daily Sales Trends: {output_path}")
 
 if __name__ == "__main__":
     generate_4see_magic_excel()
