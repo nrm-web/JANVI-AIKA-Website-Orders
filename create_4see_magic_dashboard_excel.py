@@ -127,12 +127,44 @@ def generate_4see_magic_excel():
                     max_len = max(max_len, len(str(cell.value)))
             sheet.column_dimensions[col_letter].width = max(max_len + 4, 15)
 
+    # 0. All 16 Cards Full Details & Subtexts Sheet (For 4see Ingestion)
+    df_all_cards = pd.DataFrame([
+        {"Card_ID": "CARD-01", "Card_Title": "Total Orders", "Primary_Value": total_orders, "Display_Value": "196", "Subtext_Line_1": "Active Shopify Orders", "Subtext_Line_2": "196 total store orders", "Full_Card_Text": f"Total Orders: {total_orders} | Subtext: Active Shopify Orders"},
+        {"Card_ID": "CARD-02", "Card_Title": "Total Revenue", "Primary_Value": total_revenue, "Display_Value": f"₹{total_revenue:,.2f}", "Subtext_Line_1": f"From {total_orders} active orders", "Subtext_Line_2": "Gross total sales", "Full_Card_Text": f"Total Revenue: ₹{total_revenue:,.2f} | Subtext: From {total_orders} active orders"},
+        {"Card_ID": "CARD-03", "Card_Title": "Net Revenue", "Primary_Value": net_revenue_val, "Display_Value": f"₹{net_revenue_val:,.2f}", "Subtext_Line_1": f"{net_orders_count} net orders (86.2% of total: {successful_count} delivered + {in_progress_count} in progress)", "Subtext_Line_2": "Excludes RTO & Canceled", "Full_Card_Text": f"Net Revenue: ₹{net_revenue_val:,.2f} | Subtext: {net_orders_count} net orders ({successful_count} delivered + {in_progress_count} in progress)"},
+        {"Card_ID": "CARD-04", "Card_Title": "Average Order Value (AOV)", "Primary_Value": aov_val, "Display_Value": f"~ ₹{aov_val:,.2f}", "Subtext_Line_1": f"Net revenue / {successful_count} successful", "Subtext_Line_2": f"Net AOV across {successful_count} delivered", "Full_Card_Text": f"Average Order Value: ~ ₹{aov_val:,.2f} | Subtext: Net revenue / {successful_count} successful"},
+        
+        {"Card_ID": "CARD-05", "Card_Title": "COD Net Revenue", "Primary_Value": cod_net_revenue, "Display_Value": f"₹{cod_net_revenue:,.2f}", "Subtext_Line_1": f"From {cod_delivered_count} delivered COD orders", "Subtext_Line_2": "Net delivered COD revenue", "Full_Card_Text": f"COD Net Revenue: ₹{cod_net_revenue:,.2f} | Subtext: From {cod_delivered_count} delivered COD orders"},
+        {"Card_ID": "CARD-06", "Card_Title": "Avg COD Order Value", "Primary_Value": cod_aov, "Display_Value": f"~ ₹{cod_aov:,.2f}", "Subtext_Line_1": f"COD net revenue / {cod_delivered_count} successful", "Subtext_Line_2": f"Average value of {cod_delivered_count} delivered COD orders", "Full_Card_Text": f"Avg COD Order Value: ~ ₹{cod_aov:,.2f} | Subtext: COD net revenue / {cod_delivered_count} successful"},
+        {"Card_ID": "CARD-07", "Card_Title": "Prepaid Net Revenue", "Primary_Value": prepaid_net_revenue, "Display_Value": f"₹{prepaid_net_revenue:,.2f}", "Subtext_Line_1": f"From {prepaid_delivered_count} delivered Prepaid orders", "Subtext_Line_2": "Net delivered prepaid revenue", "Full_Card_Text": f"Prepaid Net Revenue: ₹{prepaid_net_revenue:,.2f} | Subtext: From {prepaid_delivered_count} delivered Prepaid orders"},
+        {"Card_ID": "CARD-08", "Card_Title": "Avg Prepaid Order Value", "Primary_Value": prepaid_aov, "Display_Value": f"~ ₹{prepaid_aov:,.2f}", "Subtext_Line_1": f"Prepaid net revenue / {prepaid_delivered_count} successful", "Subtext_Line_2": f"Average value of {prepaid_delivered_count} delivered Prepaid orders", "Full_Card_Text": f"Avg Prepaid Order Value: ~ ₹{prepaid_aov:,.2f} | Subtext: Prepaid net revenue / {prepaid_delivered_count} successful"},
+        
+        {"Card_ID": "CARD-09", "Card_Title": "Successful Orders", "Primary_Value": successful_count, "Display_Value": f"{successful_count}", "Subtext_Line_1": f"{successful_count} delivered of {total_orders} total orders", "Subtext_Line_2": f"Count {successful_count} | Successful Revenue ₹{successful_val:,.2f} | Successful Rate {(successful_count/total_orders)*100:.1f}%", "Full_Card_Text": f"Successful Orders: {successful_count} | Revenue: ₹{successful_val:,.2f} | Rate: {(successful_count/total_orders)*100:.1f}% | Subtext: {successful_count} delivered of {total_orders} total orders"},
+        {"Card_ID": "CARD-10", "Card_Title": "Denied Orders (Doorstep RTO)", "Primary_Value": denied_count, "Display_Value": f"{denied_count}", "Subtext_Line_1": f"{denied_count} denied of {total_orders} total orders (19.7% of 76 COD)", "Subtext_Line_2": f"Count {denied_count} | Total Amount ₹{denied_val:,.2f} | Denied Rate {(denied_count/total_orders)*100:.1f}%", "Full_Card_Text": f"Denied Orders: {denied_count} | Amount: ₹{denied_val:,.2f} | Rate: {(denied_count/total_orders)*100:.1f}% | Subtext: {denied_count} doorstep delivery refusals"},
+        {"Card_ID": "CARD-11", "Card_Title": "Returned Orders", "Primary_Value": returned_count, "Display_Value": f"{returned_count}", "Subtext_Line_1": f"{returned_count} customer post-delivery returns of {successful_count} delivered", "Subtext_Line_2": f"Count {returned_count} | Total Refunded ₹{returned_val:,.2f} | Return Rate {(returned_count/successful_count)*100:.1f}%", "Full_Card_Text": f"Returned Orders: {returned_count} | Refunded: ₹{returned_val:,.2f} | Rate: {(returned_count/successful_count)*100:.1f}% | Subtext: {returned_count} customer post-delivery returns"},
+        {"Card_ID": "CARD-12", "Card_Title": "Canceled Orders", "Primary_Value": canceled_count, "Display_Value": f"{canceled_count}", "Subtext_Line_1": f"{canceled_count} canceled of {total_orders} total orders", "Subtext_Line_2": f"Count {canceled_count} | Total Amount ₹{canceled_val:,.2f} | Canceled Rate {(canceled_count/total_orders)*100:.1f}%", "Full_Card_Text": f"Canceled Orders: {canceled_count} | Amount: ₹{canceled_val:,.2f} | Rate: {(canceled_count/total_orders)*100:.1f}% | Subtext: {canceled_count} canceled of {total_orders} total orders"},
+        
+        {"Card_ID": "CARD-13", "Card_Title": "Total In-Progress Pipeline", "Primary_Value": in_progress_count, "Display_Value": f"{in_progress_count}", "Subtext_Line_1": f"{in_progress_count} orders awaiting delivery of {total_orders}", "Subtext_Line_2": f"Count {in_progress_count} | Total Amount ₹{in_progress_val:,.2f} | Active Rate {(in_progress_count/total_orders)*100:.1f}%", "Full_Card_Text": f"Total In-Progress: {in_progress_count} | Amount: ₹{in_progress_val:,.2f} | Rate: {(in_progress_count/total_orders)*100:.1f}% | Subtext: {in_progress_count} orders awaiting delivery"},
+        {"Card_ID": "CARD-14", "Card_Title": "In Transit", "Primary_Value": len(in_transit_df), "Display_Value": f"{len(in_transit_df)}", "Subtext_Line_1": f"{len(in_transit_df)} orders on the way of {total_orders}", "Subtext_Line_2": f"Count {len(in_transit_df)} | Total Amount ₹{float(in_transit_df['Total Price'].sum()):,.2f} | Transit Rate {(len(in_transit_df)/total_orders)*100:.1f}%", "Full_Card_Text": f"In Transit: {len(in_transit_df)} | Amount: ₹{float(in_transit_df['Total Price'].sum()):,.2f} | Subtext: {len(in_transit_df)} orders on the way"},
+        {"Card_ID": "CARD-15", "Card_Title": "Pickup Scheduled", "Primary_Value": len(pickup_df), "Display_Value": f"{len(pickup_df)}", "Subtext_Line_1": f"{len(pickup_df)} orders ready for pickup of {total_orders}", "Subtext_Line_2": f"Count {len(pickup_df)} | Total Amount ₹{float(pickup_df['Total Price'].sum()):,.2f} | Pickup Rate {(len(pickup_df)/total_orders)*100:.1f}%", "Full_Card_Text": f"Pickup Scheduled: {len(pickup_df)} | Amount: ₹{float(pickup_df['Total Price'].sum()):,.2f} | Subtext: {len(pickup_df)} orders ready for pickup"},
+        {"Card_ID": "CARD-16", "Card_Title": "Unfulfilled", "Primary_Value": len(unfulfilled_df), "Display_Value": f"{len(unfulfilled_df)}", "Subtext_Line_1": f"{len(unfulfilled_df)} orders pending shipment of {total_orders}", "Subtext_Line_2": f"Count {len(unfulfilled_df)} | Total Amount ₹{float(unfulfilled_df['Total Price'].sum()):,.2f} | Unfulfilled Rate {(len(unfulfilled_df)/total_orders)*100:.1f}%", "Full_Card_Text": f"Unfulfilled: {len(unfulfilled_df)} | Amount: ₹{float(unfulfilled_df['Total Price'].sum()):,.2f} | Subtext: {len(unfulfilled_df)} orders pending shipment"},
+        
+        {"Card_ID": "CARD-17", "Card_Title": "Total Meta Ad Spend", "Primary_Value": 226394.41, "Display_Value": "₹2,26,394.41", "Subtext_Line_1": "Total Meta Ads spend (Apr 01 - Aug 04)", "Subtext_Line_2": "Includes Advantage+, Reels, Insta & WA Ads", "Full_Card_Text": "Total Meta Ad Spend: ₹2,26,394.41 | Subtext: Total Meta Ads spend (Apr 01 - Aug 04)"},
+        {"Card_ID": "CARD-18", "Card_Title": "Total Meta Impressions", "Primary_Value": 13862586, "Display_Value": "13.86M", "Subtext_Line_1": "13.86M ad impressions served across Meta", "Subtext_Line_2": "13,862,586 total impressions", "Full_Card_Text": "Total Meta Impressions: 13.86M | Subtext: 13.86M ad impressions served"},
+        {"Card_ID": "CARD-19", "Card_Title": "Total Meta Reach", "Primary_Value": 13156590, "Display_Value": "13.15M", "Subtext_Line_1": "13.15M unique users reached across Meta", "Subtext_Line_2": "13,156,590 total unique reach", "Full_Card_Text": "Total Meta Reach: 13.15M | Subtext: 13.15M unique users reached"},
+        {"Card_ID": "CARD-20", "Card_Title": "Cost Per Purchase (CPA)", "Primary_Value": 1155.07, "Display_Value": "₹1,155.07", "Subtext_Line_1": "Ad spend / 196 pixel purchase conversions", "Subtext_Line_2": "Average cost to acquire 1 purchase", "Full_Card_Text": "Cost Per Purchase (CPA): ₹1,155.07 | Subtext: Ad spend / 196 pixel purchase conversions"},
+        {"Card_ID": "CARD-21", "Card_Title": "Gross ROAS", "Primary_Value": 1.72, "Display_Value": "1.72x", "Subtext_Line_1": "Gross Sales (₹3,89,789) / Ad Spend (₹2,26,394)", "Subtext_Line_2": "1.72x Gross Return on Ad Spend", "Full_Card_Text": "Gross ROAS: 1.72x | Subtext: Gross Sales (₹3,89,789) / Ad Spend (₹2,26,394)"},
+        {"Card_ID": "CARD-22", "Card_Title": "Net ROAS", "Primary_Value": 1.48, "Display_Value": "1.48x", "Subtext_Line_1": "Net Sales (₹3,34,273) / Ad Spend (₹2,26,394)", "Subtext_Line_2": "1.48x Net Return on Ad Spend", "Full_Card_Text": "Net ROAS: 1.48x | Subtext: Net Sales (₹3,34,273) / Ad Spend (₹2,26,394)"}
+    ])
+    ws0 = wb.create_sheet("00_Card_Details_With_Subtext")
+    write_df_clean(ws0, df_all_cards)
+
     # 1. Executive KPIs Sheet
     df_exec = pd.DataFrame([
-        {"KPI_ID": "KPI-01", "Metric_Title": "Total Orders", "Primary_Value": total_orders, "Unit": "Orders", "Subtext": "Active Shopify Orders", "Progress_Pct": 1.0, "Theme_Color": "Blue"},
-        {"KPI_ID": "KPI-02", "Metric_Title": "Total Revenue", "Primary_Value": total_revenue, "Unit": "INR ₹", "Subtext": f"From {total_orders} active orders", "Progress_Pct": 1.0, "Theme_Color": "Green"},
-        {"KPI_ID": "KPI-03", "Metric_Title": "Net Revenue", "Primary_Value": net_revenue_val, "Unit": "INR ₹", "Subtext": f"{net_orders_count} net orders ({successful_count} delivered + {in_progress_count} in progress)", "Progress_Pct": 1.0, "Theme_Color": "Green"},
-        {"KPI_ID": "KPI-04", "Metric_Title": "Average Order Value (AOV)", "Primary_Value": aov_val, "Unit": "INR ₹", "Subtext": f"Net revenue / {successful_count} successful", "Progress_Pct": 1.0, "Theme_Color": "Blue"}
+        {"KPI_ID": "KPI-01", "Metric_Title": "Total Orders", "Primary_Value": total_orders, "Unit": "Orders", "Subtext": "Active Shopify Orders", "Full_Card_Display": f"Total Orders: {total_orders} (Active Shopify Orders)", "Progress_Pct": 1.0, "Theme_Color": "Blue"},
+        {"KPI_ID": "KPI-02", "Metric_Title": "Total Revenue", "Primary_Value": total_revenue, "Unit": "INR ₹", "Subtext": f"From {total_orders} active orders", "Full_Card_Display": f"Total Revenue: ₹{total_revenue:,.2f} (From {total_orders} active orders)", "Progress_Pct": 1.0, "Theme_Color": "Green"},
+        {"KPI_ID": "KPI-03", "Metric_Title": "Net Revenue", "Primary_Value": net_revenue_val, "Unit": "INR ₹", "Subtext": f"{net_orders_count} net orders ({successful_count} delivered + {in_progress_count} in progress)", "Full_Card_Display": f"Net Revenue: ₹{net_revenue_val:,.2f} ({net_orders_count} net orders)", "Progress_Pct": 1.0, "Theme_Color": "Green"},
+        {"KPI_ID": "KPI-04", "Metric_Title": "Average Order Value (AOV)", "Primary_Value": aov_val, "Unit": "INR ₹", "Subtext": f"Net revenue / {successful_count} successful", "Full_Card_Display": f"AOV: ₹{aov_val:,.2f} (Net revenue / {successful_count} successful)", "Progress_Pct": 1.0, "Theme_Color": "Blue"}
     ])
     ws1 = wb.create_sheet("01_Executive_KPIs")
     write_df_clean(ws1, df_exec)
@@ -163,10 +195,10 @@ def generate_4see_magic_excel():
 
     # 4. In-Progress Logistics Pipeline Sheet
     df_pipeline = pd.DataFrame([
-        {"Pipeline_Stage": "Total In-Progress", "Order_Count": in_progress_count, "Total_Amount_INR": in_progress_val, "Active_Rate_Pct": in_progress_count/total_orders if total_orders > 0 else 0.0, "Theme_Color": "Blue"},
-        {"Pipeline_Stage": "In Transit", "Order_Count": len(in_transit_df), "Total_Amount_INR": float(in_transit_df['Total Price'].sum()), "Active_Rate_Pct": len(in_transit_df)/total_orders if total_orders > 0 else 0.0, "Theme_Color": "Blue"},
-        {"Pipeline_Stage": "Pickup Scheduled", "Order_Count": len(pickup_df), "Total_Amount_INR": float(pickup_df['Total Price'].sum()), "Active_Rate_Pct": len(pickup_df)/total_orders if total_orders > 0 else 0.0, "Theme_Color": "Purple"},
-        {"Pipeline_Stage": "Unfulfilled", "Order_Count": len(unfulfilled_df), "Total_Amount_INR": float(unfulfilled_df['Total Price'].sum()), "Active_Rate_Pct": len(unfulfilled_df)/total_orders if total_orders > 0 else 0.0, "Theme_Color": "Amber"}
+        {"Pipeline_Stage": "Total In-Progress", "Order_Count": in_progress_count, "Total_Amount_INR": in_progress_val, "Active_Rate_Pct": in_progress_count/total_orders if total_orders > 0 else 0.0, "Subtext": f"{in_progress_count} orders awaiting delivery of {total_orders}", "Theme_Color": "Blue"},
+        {"Pipeline_Stage": "In Transit", "Order_Count": len(in_transit_df), "Total_Amount_INR": float(in_transit_df['Total Price'].sum()), "Active_Rate_Pct": len(in_transit_df)/total_orders if total_orders > 0 else 0.0, "Subtext": f"{len(in_transit_df)} orders on the way of {total_orders}", "Theme_Color": "Blue"},
+        {"Pipeline_Stage": "Pickup Scheduled", "Order_Count": len(pickup_df), "Total_Amount_INR": float(pickup_df['Total Price'].sum()), "Active_Rate_Pct": len(pickup_df)/total_orders if total_orders > 0 else 0.0, "Subtext": f"{len(pickup_df)} orders ready for pickup of {total_orders}", "Theme_Color": "Purple"},
+        {"Pipeline_Stage": "Unfulfilled", "Order_Count": len(unfulfilled_df), "Total_Amount_INR": float(unfulfilled_df['Total Price'].sum()), "Active_Rate_Pct": len(unfulfilled_df)/total_orders if total_orders > 0 else 0.0, "Subtext": f"{len(unfulfilled_df)} orders pending shipment of {total_orders}", "Theme_Color": "Amber"}
     ])
     ws4 = wb.create_sheet("04_In_Progress_Pipeline")
     write_df_clean(ws4, df_pipeline)
@@ -263,8 +295,96 @@ def generate_4see_magic_excel():
     ws8 = wb.create_sheet("Master_Orders_Dataset")
     write_df_clean(ws8, df_master_clean)
 
+    # ----------------------------------------------------
+    # 9. META ADS METRICS & BREAKDOWNS (SHEETS 08, 09, 10, 11)
+    # ----------------------------------------------------
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    meta_csv = os.path.join(base_dir, "Meta ads data", "1344583273364693---Janvi-Aika-Campaigns-1-Apr-2026-4-Aug-2026.csv")
+    if os.path.exists(meta_csv):
+        df_meta = pd.read_csv(meta_csv)
+        df_meta['Amount spent (INR)'] = pd.to_numeric(df_meta['Amount spent (INR)'], errors='coerce').fillna(0)
+        df_meta['Impressions'] = pd.to_numeric(df_meta['Impressions'], errors='coerce').fillna(0)
+        df_meta['Reach'] = pd.to_numeric(df_meta['Reach'], errors='coerce').fillna(0)
+        
+        meta_spend = float(df_meta['Amount spent (INR)'].sum())
+        meta_impressions = int(df_meta['Impressions'].sum())
+        meta_reach = int(df_meta['Reach'].sum())
+        
+        meta_purchases_df = df_meta[df_meta['Result indicator'] == 'actions:offsite_conversion.fb_pixel_purchase'].copy()
+        meta_purchases = int(pd.to_numeric(meta_purchases_df['Results'], errors='coerce').fillna(0).sum())
+        
+        cpa = meta_spend / meta_purchases if meta_purchases > 0 else 0.0
+        gross_roas = total_revenue / meta_spend if meta_spend > 0 else 0.0
+        net_roas = net_revenue_val / meta_spend if meta_spend > 0 else 0.0
+
+        # Sheet 08: Meta Ads KPIs
+        df_meta_kpis = pd.DataFrame([
+            {"KPI_ID": "META-01", "Metric_Title": "Total Meta Ad Spend", "Primary_Value": meta_spend, "Unit": "INR ₹", "Subtext": f"Total Meta Ads spend (Apr 01 - Aug 04)", "Theme_Color": "Blue"},
+            {"KPI_ID": "META-02", "Metric_Title": "Total Meta Impressions", "Primary_Value": meta_impressions, "Unit": "Views", "Subtext": f"{meta_impressions/1e6:.2f}M ad impressions served", "Theme_Color": "Blue"},
+            {"KPI_ID": "META-03", "Metric_Title": "Total Meta Reach", "Primary_Value": meta_reach, "Unit": "Users", "Subtext": f"{meta_reach/1e6:.2f}M unique users reached", "Theme_Color": "Blue"},
+            {"KPI_ID": "META-04", "Metric_Title": "Cost Per Purchase (CPA)", "Primary_Value": cpa, "Unit": "INR ₹", "Subtext": f"Ad spend / {meta_purchases} pixel purchase conversions", "Theme_Color": "Orange"},
+            {"KPI_ID": "META-05", "Metric_Title": "Gross ROAS", "Primary_Value": gross_roas, "Unit": "Ratio", "Subtext": f"Gross sales (₹{total_revenue:,.0f}) / Ad spend (₹{meta_spend:,.0f})", "Theme_Color": "Green"},
+            {"KPI_ID": "META-06", "Metric_Title": "Net ROAS", "Primary_Value": net_roas, "Unit": "Ratio", "Subtext": f"Net sales (₹{net_revenue_val:,.0f}) / Ad spend (₹{meta_spend:,.0f})", "Theme_Color": "Green"}
+        ])
+        ws8_meta = wb.create_sheet("08_Meta_Ads_KPIs")
+        write_df_clean(ws8_meta, df_meta_kpis)
+
+        # Mapping functions
+        def map_category(c_name):
+            c = str(c_name).upper()
+            if 'ANARKALI' in c and 'HALF' in c:
+                return 'ANARKALI & HALF SAREE'
+            elif 'ANARKALI' in c:
+                return 'ANARKALI'
+            elif 'LEHENGA' in c or 'GOWN' in c:
+                return 'LEHENGA & LONG GOWNS'
+            elif 'CHUDIDHAAR' in c or 'CHUDIDHAR' in c:
+                return 'CHUDIDHAR'
+            elif 'HOT' in c or 'RETARGETING' in c:
+                return 'RETARGETING & AUDIENCE'
+            elif 'REELS' in c or 'ENGAGEMENT' in c or 'VIDEO' in c or 'POST' in c:
+                return 'REELS & BRAND ENGAGEMENT'
+            else:
+                return 'GENERAL SHOPPING CAMPAIGNS'
+
+        def map_ad_source(c_name):
+            c = str(c_name).upper()
+            if 'WHATSAPP' in c:
+                return 'WHATSAPP ADS'
+            elif 'INSTA' in c or 'REELS' in c or 'POST' in c:
+                return 'INSTAGRAM ADS'
+            elif 'FB' in c or 'FACEBOOK' in c:
+                return 'FACEBOOK ADS'
+            elif 'RETARGETING' in c or 'HOT' in c:
+                return 'RETARGETING ADS'
+            else:
+                return 'META ADVANTAGE+ / SHOPPING'
+
+        df_meta['Category_Tag'] = df_meta['Campaign name'].apply(map_category)
+        df_meta['Ad_Source_Tag'] = df_meta['Campaign name'].apply(map_ad_source)
+
+        # Sheet 09: Category-Wise Meta Performance
+        df_meta_cat = df_meta.groupby('Category_Tag').agg({'Amount spent (INR)':'sum', 'Impressions':'sum', 'Reach':'sum'}).reset_index()
+        df_meta_cat['Spend_Share_Pct'] = df_meta_cat['Amount spent (INR)'] / meta_spend if meta_spend > 0 else 0.0
+        df_meta_cat = df_meta_cat.sort_values(by='Amount spent (INR)', ascending=False)
+        ws9_cat = wb.create_sheet("09_Meta_Ads_Category_Perf")
+        write_df_clean(ws9_cat, df_meta_cat)
+
+        # Sheet 10: Ad Source Channel Breakdown
+        df_meta_src = df_meta.groupby('Ad_Source_Tag').agg({'Amount spent (INR)':'sum', 'Impressions':'sum', 'Reach':'sum'}).reset_index()
+        df_meta_src['Channel_Share_Pct'] = df_meta_src['Amount spent (INR)'] / meta_spend if meta_spend > 0 else 0.0
+        df_meta_src = df_meta_src.sort_values(by='Amount spent (INR)', ascending=False)
+        ws10_src = wb.create_sheet("10_Meta_Ads_Source_Breakdown")
+        write_df_clean(ws10_src, df_meta_src)
+
+        # Sheet 11: Individual Campaign Performance
+        df_campaigns = df_meta.groupby('Campaign name').agg({'Amount spent (INR)':'sum', 'Impressions':'sum', 'Reach':'sum', 'Category_Tag':'first', 'Ad_Source_Tag':'first'}).reset_index()
+        df_campaigns = df_campaigns.sort_values(by='Amount spent (INR)', ascending=False)
+        ws11_camp = wb.create_sheet("11_Meta_Ads_Campaign_Details")
+        write_df_clean(ws11_camp, df_campaigns)
+
     wb.save(output_path)
-    print(f"Successfully generated clean 4see Magic Dashboard Master Excel: {output_path}")
+    print(f"Successfully generated clean 4see Magic Dashboard Master Excel with Meta Ads Sheets: {output_path}")
 
 if __name__ == "__main__":
     generate_4see_magic_excel()
