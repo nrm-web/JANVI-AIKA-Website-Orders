@@ -258,111 +258,13 @@ def generate_4see_magic_excel():
     ws7 = wb.create_sheet("07_Monthly_Sales_Trends")
     write_df_clean(ws7, df_monthly)
 
-    # 8. Meta Ads Performance KPIs Sheet
-    meta_dir = "Meta ads data"
-    df_ads_daywise = pd.DataFrame()
-    df_ads_camp = pd.DataFrame()
-    total_spend = 0.0
-    total_impressions = 0
-    total_reach = 0
-    
-    if os.path.exists(meta_dir):
-        meta_files = [os.path.join(meta_dir, f) for f in os.listdir(meta_dir) if f.endswith('.csv')]
-        if meta_files:
-            try:
-                ads_df = pd.concat([pd.read_csv(f) for f in meta_files], ignore_index=True)
-                ads_df['Date_Str'] = pd.to_datetime(ads_df['Reporting starts'], errors='coerce').dt.strftime('%Y-%m-%d')
-                ads_df['Spend'] = pd.to_numeric(ads_df['Amount spent (INR)'], errors='coerce').fillna(0)
-                ads_df['Impressions'] = pd.to_numeric(ads_df['Impressions'], errors='coerce').fillna(0)
-                ads_df['Reach'] = pd.to_numeric(ads_df['Reach'], errors='coerce').fillna(0)
-                ads_df['Results'] = pd.to_numeric(ads_df['Results'], errors='coerce').fillna(0)
-                
-                ads_store = ads_df[(ads_df['Date_Str'] >= '2026-06-01') & (ads_df['Date_Str'] <= '2026-08-04')].copy()
-                total_spend = float(ads_store['Spend'].sum())
-                total_impressions = int(ads_store['Impressions'].sum())
-                total_reach = int(ads_store['Reach'].sum())
-                
-                # Daily ads & store orders
-                df_master_dates = df_master.copy()
-                df_master_dates['Date_Str'] = pd.to_datetime(df_master_dates['Date of Order'], errors='coerce').dt.strftime('%Y-%m-%d')
-                
-                ord_daily = df_master_dates.groupby('Date_Str').agg(
-                    Orders_Count=('Order No', 'count'),
-                    Sales_Revenue=('Total Price', 'sum')
-                ).reset_index()
-                
-                ads_daily = ads_store.groupby('Date_Str').agg({'Spend': 'sum', 'Impressions': 'sum', 'Reach': 'sum'}).reset_index()
-                
-                m_daily = pd.merge(ads_daily, ord_daily, on='Date_Str', how='outer').fillna(0).sort_values('Date_Str', ascending=False)
-                m_daily = m_daily[(m_daily['Date_Str'] >= '2026-06-01') & (m_daily['Date_Str'] <= '2026-08-04')].copy()
-                
-                day_rows = []
-                for _, r in m_daily.iterrows():
-                    spend = float(r['Spend'])
-                    rev = float(r['Sales_Revenue'])
-                    cnt = int(r['Orders_Count'])
-                    day_rows.append({
-                        "Date": r['Date_Str'],
-                        "Ad_Spend_INR": spend,
-                        "Orders_Count": cnt,
-                        "Sales_Revenue_INR": rev,
-                        "Blended_ROAS": round(rev / spend, 2) if spend > 0 else 0.0,
-                        "CPA_INR": round(spend / cnt, 2) if cnt > 0 else 0.0,
-                        "Impressions": int(r['Impressions']),
-                        "Reach": int(r['Reach'])
-                    })
-                df_ads_daywise = pd.DataFrame(day_rows)
-                
-                # Campaign performance
-                c_grp = ads_store.groupby('Campaign name').agg({
-                    'Spend': 'sum', 'Impressions': 'sum', 'Reach': 'sum', 'Results': 'sum'
-                }).reset_index().sort_values(by='Spend', ascending=False)
-                
-                c_rows = []
-                for _, r in c_grp.iterrows():
-                    spend = float(r['Spend'])
-                    res = float(r['Results'])
-                    c_rows.append({
-                        "Campaign_Name": r['Campaign name'],
-                        "Total_Spend_INR": spend,
-                        "Impressions": int(r['Impressions']),
-                        "Reach": int(r['Reach']),
-                        "Meta_Results": res,
-                        "Cost_Per_Result_INR": round(spend / res, 2) if res > 0 else 0.0
-                    })
-                df_ads_camp = pd.DataFrame(c_rows)
-            except Exception as ex_m:
-                print(f"Warning in Meta Ads Excel build: {ex_m}")
-                
-    blended_roas = round(total_revenue / total_spend, 2) if total_spend > 0 else 0.0
-    net_roas = round(net_revenue_val / total_spend, 2) if total_spend > 0 else 0.0
-    blended_cpa = round(total_spend / total_orders, 2) if total_orders > 0 else 0.0
-    
-    df_ads_kpi = pd.DataFrame([
-        {"KPI_ID": "ADS-01", "Metric_Title": "Total Meta Ad Spend", "Primary_Value": total_spend, "Unit": "INR ₹", "Subtext": "June 1 - August 4, 2026", "Theme_Color": "Purple"},
-        {"KPI_ID": "ADS-02", "Metric_Title": "Blended Store ROAS", "Primary_Value": blended_roas, "Unit": "x", "Subtext": f"Gross Revenue ₹{total_revenue:,.2f} / Spend ₹{total_spend:,.2f}", "Theme_Color": "Green"},
-        {"KPI_ID": "ADS-03", "Metric_Title": "Blended Net ROAS", "Primary_Value": net_roas, "Unit": "x", "Subtext": f"Net Revenue ₹{net_revenue_val:,.2f} / Spend ₹{total_spend:,.2f}", "Theme_Color": "Green"},
-        {"KPI_ID": "ADS-04", "Metric_Title": "Blended Cost Per Acquisition (CPA)", "Primary_Value": blended_cpa, "Unit": "INR ₹", "Subtext": f"Ad Spend ₹{total_spend:,.2f} / {total_orders} Orders", "Theme_Color": "Orange"},
-        {"KPI_ID": "ADS-05", "Metric_Title": "Total Audience Reach", "Primary_Value": total_reach, "Unit": "Users", "Subtext": f"Across {total_impressions:,} Total Impressions", "Theme_Color": "Blue"}
-    ])
-    ws8 = wb.create_sheet("08_Meta_Ads_KPIs")
-    write_df_clean(ws8, df_ads_kpi)
-
-    if not df_ads_daywise.empty:
-        ws9 = wb.create_sheet("09_Meta_Ads_Daywise")
-        write_df_clean(ws9, df_ads_daywise)
-        
-    if not df_ads_camp.empty:
-        ws10 = wb.create_sheet("10_Meta_Ads_Campaigns")
-        write_df_clean(ws10, df_ads_camp)
-
-    # 11. Master Orders Dataset Sheet
+    # 8. Master Orders Dataset Sheet
     df_master_clean = df_master.drop(columns=['Date_Obj', 'Month_Year'])
-    ws11 = wb.create_sheet("Master_Orders_Dataset")
-    write_df_clean(ws11, df_master_clean)
+    ws8 = wb.create_sheet("Master_Orders_Dataset")
+    write_df_clean(ws8, df_master_clean)
 
     wb.save(output_path)
-    print(f"Successfully generated clean 4see Magic Dashboard Master Excel with Meta Ads: {output_path}")
+    print(f"Successfully generated clean 4see Magic Dashboard Master Excel: {output_path}")
 
 if __name__ == "__main__":
     generate_4see_magic_excel()

@@ -444,64 +444,9 @@ def process_and_create_excel():
         for _, row in df_master.iterrows():
             grid.append(list(row))
             
-        # ----------------------------------------------------
-        # PROCESS META ADS DATA IF PRESENT
-        # ----------------------------------------------------
-        meta_daily_grid = [["Date", "Ad_Spend_INR", "Orders_Count", "Sales_Revenue_INR", "Blended_ROAS", "CPA_INR", "Impressions", "Reach"]]
-        meta_camp_grid = [["Campaign_Name", "Total_Spend_INR", "Impressions", "Reach", "Meta_Results", "Cost_Per_Result_INR"]]
-        
-        meta_dir = "Meta ads data"
-        if os.path.exists(meta_dir):
-            meta_files = [os.path.join(meta_dir, f) for f in os.listdir(meta_dir) if f.endswith('.csv')]
-            if meta_files:
-                try:
-                    ads_df = pd.concat([pd.read_csv(f) for f in meta_files], ignore_index=True)
-                    ads_df['Date_Str'] = pd.to_datetime(ads_df['Reporting starts'], errors='coerce').dt.strftime('%Y-%m-%d')
-                    ads_df['Spend'] = pd.to_numeric(ads_df['Amount spent (INR)'], errors='coerce').fillna(0)
-                    ads_df['Impressions'] = pd.to_numeric(ads_df['Impressions'], errors='coerce').fillna(0)
-                    ads_df['Reach'] = pd.to_numeric(ads_df['Reach'], errors='coerce').fillna(0)
-                    ads_df['Results'] = pd.to_numeric(ads_df['Results'], errors='coerce').fillna(0)
-                    
-                    ads_store = ads_df[(ads_df['Date_Str'] >= '2026-06-01') & (ads_df['Date_Str'] <= '2026-08-04')].copy()
-                    
-                    # Group daily sales
-                    ord_daily = df_master.groupby('Date of Order').agg(
-                        Orders_Count=('Order No', 'count'),
-                        Sales_Revenue=('Total Price', 'sum')
-                    ).reset_index().rename(columns={'Date of Order': 'Date_Str'})
-                    
-                    # Group daily ads
-                    ads_daily = ads_store.groupby('Date_Str').agg({'Spend': 'sum', 'Impressions': 'sum', 'Reach': 'sum'}).reset_index()
-                    
-                    m_daily = pd.merge(ads_daily, ord_daily, on='Date_Str', how='outer').fillna(0).sort_values('Date_Str', ascending=False)
-                    m_daily = m_daily[(m_daily['Date_Str'] >= '2026-06-01') & (m_daily['Date_Str'] <= '2026-08-04')].copy()
-                    
-                    for _, r in m_daily.iterrows():
-                        spend = float(r['Spend'])
-                        rev = float(r['Sales_Revenue'])
-                        cnt = int(r['Orders_Count'])
-                        roas = round(rev / spend, 2) if spend > 0 else 0.0
-                        cpa = round(spend / cnt, 2) if cnt > 0 else 0.0
-                        meta_daily_grid.append([r['Date_Str'], spend, cnt, rev, roas, cpa, int(r['Impressions']), int(r['Reach'])])
-                        
-                    # Group campaigns
-                    c_grp = ads_store.groupby('Campaign name').agg({
-                        'Spend': 'sum', 'Impressions': 'sum', 'Reach': 'sum', 'Results': 'sum'
-                    }).reset_index().sort_values(by='Spend', ascending=False)
-                    
-                    for _, r in c_grp.iterrows():
-                        spend = float(r['Spend'])
-                        res = float(r['Results'])
-                        cpr = round(spend / res, 2) if res > 0 else 0.0
-                        meta_camp_grid.append([r['Campaign name'], spend, int(r['Impressions']), int(r['Reach']), res, cpr])
-                except Exception as ex_ads:
-                    print(f"Warning: Could not process Meta Ads CSV: {ex_ads}")
-
         payload = {
             "sheets": {
-                "Master Sheet": grid,
-                "Meta Ads Daily": meta_daily_grid,
-                "Meta Ads Campaigns": meta_camp_grid
+                "Master Sheet": grid
             }
         }
         
