@@ -839,6 +839,66 @@ function renderDashboard() {
     
     // 5. Render Category Breakdown
     renderCategoryBreakdown();
+    
+    // 6. Render Meta Ads Section
+    renderMetaAdsSection();
+}
+
+function renderMetaAdsSection() {
+    const dailyTbody = document.getElementById('meta-ads-daily-tbody');
+    const campTbody = document.getElementById('meta-ads-campaigns-tbody');
+    
+    if (!dailyTbody || !campTbody || !state.rawSheets) return;
+    
+    // Render Daywise Table
+    const dailySheet = state.rawSheets['Meta Ads Daily'];
+    if (dailySheet && dailySheet.length > 1) {
+        const rows = dailySheet.slice(1);
+        dailyTbody.innerHTML = rows.map(r => {
+            const date = r[0];
+            const spend = parseFloat(r[1]) || 0;
+            const cnt = parseInt(r[2]) || 0;
+            const rev = parseFloat(r[3]) || 0;
+            const roas = parseFloat(r[4]) || 0;
+            const cpa = parseFloat(r[5]) || 0;
+            
+            const roasClass = roas >= 2.0 ? 'color: #047857; font-weight: 700;' : (roas > 0 ? 'color: #b45309;' : 'color: #94a3b8;');
+            
+            return `<tr>
+                <td><strong>${date}</strong></td>
+                <td>₹${spend.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                <td>${cnt}</td>
+                <td>₹${rev.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                <td style="${roasClass}">${roas.toFixed(2)}x</td>
+                <td>₹${cpa.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+            </tr>`;
+        }).join('');
+    } else {
+        dailyTbody.innerHTML = `<tr><td colspan="6" class="empty-state">No daily ads data available.</td></tr>`;
+    }
+    
+    // Render Campaigns Table
+    const campSheet = state.rawSheets['Meta Ads Campaigns'];
+    if (campSheet && campSheet.length > 1) {
+        const rows = campSheet.slice(1);
+        campTbody.innerHTML = rows.map(r => {
+            const name = r[0];
+            const spend = parseFloat(r[1]) || 0;
+            const imp = parseInt(r[2]) || 0;
+            const res = parseFloat(r[4]) || 0;
+            const cpr = parseFloat(r[5]) || 0;
+            
+            return `<tr>
+                <td title="${name}"><strong>${name}</strong></td>
+                <td>₹${spend.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+                <td>${imp.toLocaleString()}</td>
+                <td>${res.toLocaleString()}</td>
+                <td>₹${cpr.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
+            </tr>`;
+        }).join('');
+    } else {
+        campTbody.innerHTML = `<tr><td colspan="5" class="empty-state">No campaign data available.</td></tr>`;
+    }
 }
 
 // Render Mode of Payment breakdown (COD & Prepaid cards)
