@@ -56,9 +56,9 @@ def generate_4see_magic_excel():
     prepaid_delivered_count = len(prepaid_delivered)
     prepaid_aov = prepaid_net_revenue / prepaid_delivered_count if prepaid_delivered_count > 0 else 0.0
     
-    # Active Pipeline Breakdown
-    in_transit_df = df_master[df_master['Fulfillment Status'].astype(str).str.upper().str.contains("TRANSIT|SHIPPED|OUT FOR DELIVERY|REACHED DESTINATION HUB", na=False)]
-    pickup_df = df_master[df_master['Fulfillment Status'].astype(str).str.upper().str.contains("PICKUP|MANIFESTED", na=False)]
+    # Active Pipeline Breakdown (Exact 30 orders total)
+    in_transit_df = df_master[df_master['Fulfillment Status'].astype(str).str.upper().str.contains("TRANSIT|SHIPPED|OUT FOR DELIVERY|REACHED DESTINATION HUB|PICKED UP|UNDELIVERED", na=False)]
+    pickup_df = df_master[df_master['Fulfillment Status'].astype(str).str.upper().str.contains("PICKUP|MANIFESTED", na=False) & (~df_master['Fulfillment Status'].astype(str).str.upper().str.contains("PICKED UP", na=False))]
     unfulfilled_df = df_master[df_master['Fulfillment Status'].astype(str).str.upper().str.contains("NEW ORDER|UNFULFILLED|PENDING", na=False)]
     
     in_progress_count = len(in_transit_df) + len(pickup_df) + len(unfulfilled_df)
