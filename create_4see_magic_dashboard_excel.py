@@ -388,7 +388,7 @@ def generate_4see_magic_excel():
     # ----------------------------------------------------
     # 10. DAILY SALES & VOLUME TRENDS (SHEET 12)
     # ----------------------------------------------------
-    df_master['Date_Clean'] = pd.to_datetime(df_master['Date'], errors='coerce').dt.strftime('%Y-%m-%d')
+    df_master['Date_Clean'] = pd.to_datetime(df_master['Date of Order'], errors='coerce').dt.strftime('%Y-%m-%d')
     df_daily = df_master.groupby('Date_Clean').agg({
         'Order No': 'count',
         'Total Price': 'sum'
