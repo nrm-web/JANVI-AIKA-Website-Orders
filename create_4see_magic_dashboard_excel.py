@@ -329,7 +329,7 @@ def generate_4see_magic_excel():
 
     meta_cpa = meta_spend / meta_purchases if meta_purchases > 0 else 0.0
 
-    # 2. Parse Google Ads
+    # 2. Parse Google Ads (Deduplicate campaign rows to prevent double counting summary rows)
     df_g_raw = pd.DataFrame()
     g_spend, g_impressions, g_clicks, g_conversions, g_conv_value = 0.0, 0, 0, 0, 0.0
     if os.path.exists(g_dir):
@@ -338,22 +338,34 @@ def generate_4see_magic_excel():
         for gf in g_files:
             try:
                 df_g_single = pd.read_csv(gf, skiprows=2)
-                df_g_single = df_g_single[pd.to_datetime(df_g_single['Day'], errors='coerce').notna()].copy()
-                g_dfs.append(df_g_single)
+                df_g_single['Day_Parsed'] = pd.to_datetime(df_g_single['Day'], errors='coerce')
+                valid_df = df_g_single[df_g_single['Day_Parsed'].notna()].copy()
+                c_df = valid_df[valid_df['Campaign'].astype(str).str.strip() != '--'].copy()
+                g_dfs.append(c_df)
             except Exception as e:
                 pass
         if g_dfs:
             df_g_raw = pd.concat(g_dfs, ignore_index=True)
+            df_g_raw['Date'] = pd.to_datetime(df_g_raw['Day'], errors='coerce').dt.strftime('%Y-%m-%d')
             for col in ['Cost', 'Conversions', 'Conv. value', 'Impr.', 'Clicks']:
                 if col in df_g_raw.columns:
                     df_g_raw[col] = df_g_raw[col].astype(str).str.replace(',', '').str.replace('--', '0').str.replace('INR', '').str.strip()
                     df_g_raw[col] = pd.to_numeric(df_g_raw[col], errors='coerce').fillna(0)
             
-            g_spend = float(df_g_raw['Cost'].sum())
-            g_impressions = int(df_g_raw['Impr.'].sum())
-            g_clicks = int(df_g_raw['Clicks'].sum())
-            g_conversions = int(df_g_raw['Conversions'].sum())
-            g_conv_value = float(df_g_raw['Conv. value'].sum())
+            # Deduplicate by Date and Campaign across files
+            df_g_dedup = df_g_raw.groupby(['Date', 'Campaign']).agg({
+                'Cost': 'max',
+                'Conversions': 'max',
+                'Conv. value': 'max',
+                'Impr.': 'max',
+                'Clicks': 'max'
+            }).reset_index()
+
+            g_spend = float(df_g_dedup['Cost'].sum())
+            g_impressions = int(df_g_dedup['Impr.'].sum())
+            g_clicks = int(df_g_dedup['Clicks'].sum())
+            g_conversions = int(df_g_dedup['Conversions'].sum())
+            g_conv_value = float(df_g_dedup['Conv. value'].sum())
 
     g_cpa = g_spend / g_conversions if g_conversions > 0 else 0.0
 
@@ -455,8 +467,7 @@ def generate_4see_magic_excel():
     # Google Daily
     df_g_daily = pd.DataFrame(columns=['Date', 'Google_Ad_Spend_INR', 'Google_Impressions', 'Google_Clicks', 'Google_Orders', 'Google_Conv_Value_INR'])
     if not df_g_raw.empty:
-        df_g_raw['Date'] = pd.to_datetime(df_g_raw['Day'], errors='coerce').dt.strftime('%Y-%m-%d')
-        df_g_daily = df_g_raw.groupby('Date').agg({
+        df_g_daily = df_g_dedup.groupby('Date').agg({
             'Cost': 'sum',
             'Impr.': 'sum',
             'Clicks': 'sum',
