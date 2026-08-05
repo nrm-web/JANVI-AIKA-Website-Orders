@@ -400,8 +400,8 @@ def generate_4see_magic_excel():
     # ----------------------------------------------------
     # 11. DAILY META ADS SPEND DETAILS (SHEET 13)
     # ----------------------------------------------------
-    if os.path.exists(meta_file):
-        df_meta_raw = pd.read_csv(meta_file)
+    if os.path.exists(meta_csv):
+        df_meta_raw = pd.read_csv(meta_csv)
         df_meta_raw['Date'] = pd.to_datetime(df_meta_raw['Reporting starts'], errors='coerce').dt.strftime('%Y-%m-%d')
         df_meta_raw['Amount spent (INR)'] = pd.to_numeric(df_meta_raw['Amount spent (INR)'], errors='coerce').fillna(0)
         df_meta_raw['Impressions'] = pd.to_numeric(df_meta_raw['Impressions'], errors='coerce').fillna(0)
