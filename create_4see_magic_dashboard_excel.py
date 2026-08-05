@@ -29,7 +29,7 @@ def generate_4see_magic_excel():
     canceled_count = len(canceled_df)
     canceled_val = float(canceled_df['Total Price'].sum())
     
-    denied_df = df_master[((df_master['Fulfillment Status'].astype(str).str.upper().str.contains("RTO|DENIED", na=False)) | (df_master['COD Denies (Yes/No)'] == "Yes")) & (~df_master['Fulfillment Status'].astype(str).str.upper().str.contains("CANCELED|CANCELLED", na=False))]
+    denied_df = df_master[((df_master['Fulfillment Status'].astype(str).str.upper().str.contains("RTO|DENIED|REACHED BACK|SELLER_CITY", na=False)) | (df_master['COD Denies (Yes/No)'] == "Yes")) & (~df_master['Fulfillment Status'].astype(str).str.upper().str.contains("CANCELED|CANCELLED", na=False))]
     denied_count = len(denied_df)
     denied_val = float(denied_df['Total Price'].sum())
     
