@@ -532,13 +532,14 @@ def generate_4see_magic_excel():
             'Impressions': 'sum',
             'Reach': 'sum'
         }).reset_index().rename(columns={
+            'Date_Str': 'Date',
             'Ad_Orders': 'Ads_Driven_Orders',
             'Reach': 'Ads_Unique_Customers_Reached',
             'Impressions': 'Ads_Impressions'
         })
         df_ads_day['Ads_CPA_INR'] = np.where(df_ads_day['Ads_Driven_Orders'] > 0, df_ads_day['Ad_Spend_INR'] / df_ads_day['Ads_Driven_Orders'], 0)
         df_ads_day['Ads_Orders_Per_Day'] = df_ads_day['Ads_Driven_Orders']
-        df_ads_day = df_ads_day.sort_values(by='Date_Str', ascending=True)
+        df_ads_day = df_ads_day.sort_values(by='Date', ascending=True)
 
         ws17 = wb.create_sheet("17_Meta_Ads_Day_Acquisition")
         write_df_clean(ws17, df_ads_day)
