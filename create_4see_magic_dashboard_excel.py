@@ -426,8 +426,88 @@ def generate_4see_magic_excel():
         ws13_meta_daily = wb.create_sheet("13_Daily_Meta_Ads_Spend")
         write_df_clean(ws13_meta_daily, df_daily_meta)
 
+    # ----------------------------------------------------
+    # 12. CUSTOMER & ORDER ACQUISITION ANALYTICS (SHEETS 14, 15, 16)
+    # ----------------------------------------------------
+    df_master['Date_Obj'] = pd.to_datetime(df_master['Date of Order'], errors='coerce')
+    df_master['Date_Str'] = df_master['Date_Obj'].dt.strftime('%Y-%m-%d')
+    df_master['Year_Week'] = df_master['Date_Obj'].dt.strftime('%Y-W%V')
+    df_master['Year_Month'] = df_master['Date_Obj'].dt.strftime('%Y-%m')
+
+    # Prep Meta Ads daily spend & conversions
+    if os.path.exists(meta_csv):
+        df_m_raw = pd.read_csv(meta_csv)
+        df_m_raw['Date_Str'] = pd.to_datetime(df_m_raw['Reporting starts'], errors='coerce').dt.strftime('%Y-%m-%d')
+        df_m_raw['Ad_Spend_INR'] = pd.to_numeric(df_m_raw['Amount spent (INR)'], errors='coerce').fillna(0)
+        p_mask = df_m_raw['Result indicator'] == 'actions:offsite_conversion.fb_pixel_purchase'
+        df_m_raw['Ad_Pixel_Conversions'] = 0
+        df_m_raw.loc[p_mask, 'Ad_Pixel_Conversions'] = pd.to_numeric(df_m_raw.loc[p_mask, 'Results'], errors='coerce').fillna(0)
+        
+        df_m_daily = df_m_raw.groupby('Date_Str').agg({'Ad_Spend_INR': 'sum', 'Ad_Pixel_Conversions': 'sum'}).reset_index()
+    else:
+        df_m_daily = pd.DataFrame(columns=['Date_Str', 'Ad_Spend_INR', 'Ad_Pixel_Conversions'])
+
+    # SHEET 14: DAY-WISE ACQUISITION
+    daily_acq = df_master.groupby('Date_Str').agg({
+        'Order No': 'count',
+        'Customer Name': 'nunique',
+        'Total Price': 'sum'
+    }).reset_index().rename(columns={
+        'Order No': 'Daily_Orders',
+        'Customer Name': 'Daily_Unique_Customers',
+        'Total Price': 'Daily_Gross_Revenue_INR'
+    })
+    
+    df_acq_day = pd.merge(daily_acq, df_m_daily, on='Date_Str', how='outer').fillna(0)
+    df_acq_day = df_acq_day[df_acq_day['Date_Str'] > '2026-03-31'].sort_values(by='Date_Str', ascending=True)
+    
+    df_acq_day['CPA_Ad_Conversions_INR'] = np.where(df_acq_day['Ad_Pixel_Conversions'] > 0, df_acq_day['Ad_Spend_INR'] / df_acq_day['Ad_Pixel_Conversions'], 0)
+    df_acq_day['CPA_Total_Orders_INR'] = np.where(df_acq_day['Daily_Orders'] > 0, df_acq_day['Ad_Spend_INR'] / df_acq_day['Daily_Orders'], 0)
+    
+    ws14 = wb.create_sheet("14_Acquisition_Day_Wise")
+    write_df_clean(ws14, df_acq_day)
+
+    # SHEET 15: WEEK-WISE ACQUISITION
+    df_acq_day['Date_Obj'] = pd.to_datetime(df_acq_day['Date_Str'])
+    df_acq_day['Year_Week'] = df_acq_day['Date_Obj'].dt.strftime('%Y-W%V')
+
+    weekly_acq = df_acq_day.groupby('Year_Week').agg({
+        'Date_Str': ['min', 'max', 'count'],
+        'Daily_Orders': 'sum',
+        'Daily_Unique_Customers': 'sum',
+        'Daily_Gross_Revenue_INR': 'sum',
+        'Ad_Spend_INR': 'sum',
+        'Ad_Pixel_Conversions': 'sum'
+    }).reset_index()
+    
+    weekly_acq.columns = ['Year_Week', 'Week_Start_Date', 'Week_End_Date', 'Active_Days_In_Week', 'Weekly_Orders', 'Weekly_Unique_Customers', 'Weekly_Gross_Revenue_INR', 'Weekly_Ad_Spend_INR', 'Weekly_Pixel_Conversions']
+    weekly_acq['Weekly_CPA_Per_Order_INR'] = np.where(weekly_acq['Weekly_Orders'] > 0, weekly_acq['Weekly_Ad_Spend_INR'] / weekly_acq['Weekly_Orders'], 0)
+    weekly_acq['Avg_Orders_Per_Day'] = weekly_acq['Weekly_Orders'] / weekly_acq['Active_Days_In_Week']
+    
+    ws15 = wb.create_sheet("15_Acquisition_Week_Wise")
+    write_df_clean(ws15, weekly_acq)
+
+    # SHEET 16: MONTH-WISE ACQUISITION
+    df_acq_day['Year_Month'] = df_acq_day['Date_Obj'].dt.strftime('%Y-%m')
+    
+    monthly_acq = df_acq_day.groupby('Year_Month').agg({
+        'Date_Str': 'count',
+        'Daily_Orders': 'sum',
+        'Daily_Unique_Customers': 'sum',
+        'Daily_Gross_Revenue_INR': 'sum',
+        'Ad_Spend_INR': 'sum',
+        'Ad_Pixel_Conversions': 'sum'
+    }).reset_index()
+    
+    monthly_acq.columns = ['Year_Month', 'Active_Days_In_Month', 'Monthly_Orders', 'Monthly_Unique_Customers', 'Monthly_Gross_Revenue_INR', 'Monthly_Ad_Spend_INR', 'Monthly_Pixel_Conversions']
+    monthly_acq['Monthly_CPA_Per_Order_INR'] = np.where(monthly_acq['Monthly_Orders'] > 0, monthly_acq['Monthly_Ad_Spend_INR'] / monthly_acq['Monthly_Orders'], 0)
+    monthly_acq['Avg_Orders_Per_Day'] = monthly_acq['Monthly_Orders'] / monthly_acq['Active_Days_In_Month']
+    
+    ws16 = wb.create_sheet("16_Acquisition_Month_Wise")
+    write_df_clean(ws16, monthly_acq)
+
     wb.save(output_path)
-    print(f"Successfully generated clean 4see Magic Dashboard Master Excel with Daily Sales Trends & Daily Meta Ads Spend: {output_path}")
+    print(f"Successfully generated clean 4see Magic Dashboard Master Excel with Acquisition Analytics: {output_path}")
 
 if __name__ == "__main__":
     generate_4see_magic_excel()
