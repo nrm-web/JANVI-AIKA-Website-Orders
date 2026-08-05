@@ -397,12 +397,37 @@ def generate_4see_magic_excel():
         'Order No': 'Daily_Order_Volume',
         'Total Price': 'Daily_Gross_Revenue_INR'
     })
-    df_daily = df_daily.sort_values(by='Date', ascending=True)
-    ws12_daily = wb.create_sheet("12_Daily_Sales_Trends")
-    write_df_clean(ws12_daily, df_daily)
+    # ----------------------------------------------------
+    # 11. DAILY META ADS SPEND DETAILS (SHEET 13)
+    # ----------------------------------------------------
+    if os.path.exists(meta_file):
+        df_meta_raw = pd.read_csv(meta_file)
+        df_meta_raw['Date'] = pd.to_datetime(df_meta_raw['Reporting starts'], errors='coerce').dt.strftime('%Y-%m-%d')
+        df_meta_raw['Amount spent (INR)'] = pd.to_numeric(df_meta_raw['Amount spent (INR)'], errors='coerce').fillna(0)
+        df_meta_raw['Impressions'] = pd.to_numeric(df_meta_raw['Impressions'], errors='coerce').fillna(0)
+        df_meta_raw['Reach'] = pd.to_numeric(df_meta_raw['Reach'], errors='coerce').fillna(0)
+
+        purchase_mask = df_meta_raw['Result indicator'] == 'actions:offsite_conversion.fb_pixel_purchase'
+        df_meta_raw['Daily_Purchases'] = 0
+        df_meta_raw.loc[purchase_mask, 'Daily_Purchases'] = pd.to_numeric(df_meta_raw.loc[purchase_mask, 'Results'], errors='coerce').fillna(0)
+
+        df_daily_meta = df_meta_raw.groupby('Date').agg({
+            'Amount spent (INR)': 'sum',
+            'Impressions': 'sum',
+            'Reach': 'sum',
+            'Daily_Purchases': 'sum'
+        }).reset_index().rename(columns={
+            'Amount spent (INR)': 'Daily_Meta_Ad_Spend_INR',
+            'Impressions': 'Daily_Impressions',
+            'Reach': 'Daily_Reach',
+            'Daily_Purchases': 'Daily_Pixel_Purchases'
+        })
+        df_daily_meta = df_daily_meta.sort_values(by='Date', ascending=True)
+        ws13_meta_daily = wb.create_sheet("13_Daily_Meta_Ads_Spend")
+        write_df_clean(ws13_meta_daily, df_daily_meta)
 
     wb.save(output_path)
-    print(f"Successfully generated clean 4see Magic Dashboard Master Excel with Daily Sales Trends: {output_path}")
+    print(f"Successfully generated clean 4see Magic Dashboard Master Excel with Daily Sales Trends & Daily Meta Ads Spend: {output_path}")
 
 if __name__ == "__main__":
     generate_4see_magic_excel()
