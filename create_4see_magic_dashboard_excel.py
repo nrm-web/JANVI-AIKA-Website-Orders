@@ -545,11 +545,11 @@ def generate_4see_magic_excel():
         write_df_clean(ws17, df_ads_day)
 
         # SHEET 18: PURE ADS WEEK-WISE
-        df_ads_day['Date_Obj'] = pd.to_datetime(df_ads_day['Date_Str'])
+        df_ads_day['Date_Obj'] = pd.to_datetime(df_ads_day['Date'])
         df_ads_day['Year_Week'] = df_ads_day['Date_Obj'].dt.strftime('%Y-W%V')
 
         df_ads_week = df_ads_day.groupby('Year_Week').agg({
-            'Date_Str': ['min', 'max', 'count'],
+            'Date': ['min', 'max', 'count'],
             'Ad_Spend_INR': 'sum',
             'Ads_Driven_Orders': 'sum',
             'Ads_Unique_Customers_Reached': 'sum',
@@ -568,7 +568,7 @@ def generate_4see_magic_excel():
         df_ads_day['Year_Month'] = df_ads_day['Date_Obj'].dt.strftime('%Y-%m')
 
         df_ads_month = df_ads_day.groupby('Year_Month').agg({
-            'Date_Str': 'count',
+            'Date': 'count',
             'Ad_Spend_INR': 'sum',
             'Ads_Driven_Orders': 'sum',
             'Ads_Unique_Customers_Reached': 'sum',
