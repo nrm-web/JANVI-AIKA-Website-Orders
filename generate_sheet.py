@@ -756,8 +756,8 @@ def process_and_create_excel():
     canceled_count = len(canceled_df)
     canceled_amount = canceled_df["Total Price"].sum()
     
-    # Denied Orders (15 RTO Delivered & RTO In Transit orders)
-    denied_mask = (df_consolidated["Fulfillment Status"].str.upper().str.contains("RTO|DENIED", na=False)) & (~df_consolidated["Fulfillment Status"].str.upper().str.contains("CANCELED|CANCELLED", na=False))
+    # Denied Orders (15 RTO Delivered, RTO In Transit, & Reached Back Seller City orders)
+    denied_mask = (df_consolidated["Fulfillment Status"].str.upper().str.contains("RTO|DENIED|REACHED BACK", na=False)) & (~df_consolidated["Fulfillment Status"].str.upper().str.contains("CANCELED|CANCELLED", na=False))
     denied_df = df_consolidated[denied_mask]
     denied_count = len(denied_df)
     denied_amount = denied_df["Total Price"].sum()

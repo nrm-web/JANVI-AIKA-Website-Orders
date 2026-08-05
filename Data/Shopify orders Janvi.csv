@@ -943,7 +943,7 @@ fbclid: PAZXh0bgNhZW0BMABhZGlkAas1awYu6CpzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAa
 razorpay_payment_id: pay_TLJShAfwgVIMEg, pay_TLJUnl2ZRbOusQ",,Razorpay,#1280.1,0.00,Janvi Aika,3471.00,,,,16838525518195,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,CGST 9%,279.92,SGST 9%,279.92,,,,,,,+918095575575,,,Karnataka,Karnataka,#1280.1,,,#1280.1
 #1280,66c9624ac370cfbaf3b6796e@blitzscale.co,,,,,,,,,,,,,,2026-08-03 18:58:33 +0530,1,Grape Leaf Glam - 3XL,1390.00,"",TOP-GL-GR-3XL,true,true,pending,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+918095575575,,,,,,,,
 #1280,66c9624ac370cfbaf3b6796e@blitzscale.co,,,,,,,,,,,,,,2026-08-03 18:58:33 +0530,1,Rosewood Bloom Top - 3XL,1390.00,"",TOP-RB-MR-3XL,true,true,pending,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+918095575575,,,,,,,,
-#1281,singhmohancs@gmail.com,partially_paid,2026-08-04 07:51:00 +0530,unfulfilled,,no,INR,4692.00,0.00,715.73,4692.00,Flat 500,500.00,FREE SHIPPING,2026-08-04 07:50:57 +0530,1,Violet Vogue - L,2490.00,,C-VV-WN-L,true,true,pending,Mohan Chaudhary,"E5-801 Pacific Golf Estate Dehradun, Uttarakhand",E5-801 Pacific Golf Estate Dehradun,Uttarakhand,,Dehradun,'248013,UK,IN,+919041259803,Mohan Chaudhary,"E5-801 Pacific Golf Estate Dehradun, Uttarakhand",E5-801 Pacific Golf Estate Dehradun,Uttarakhand,,Dehradun,'248013,UK,IN,+919041259803,,"Paid via: Razorpay Magic Checkout
+#1281,singhmohancs@gmail.com,partially_paid,2026-08-04 07:51:00 +0530,fulfilled,2026-08-04 13:57:15 +0530,no,INR,4692.00,0.00,715.73,4692.00,Flat 500,500.00,FREE SHIPPING,2026-08-04 07:50:57 +0530,1,Violet Vogue - L,2490.00,,C-VV-WN-L,true,true,fulfilled,Mohan Chaudhary,"E5-801 Pacific Golf Estate Dehradun, Uttarakhand",E5-801 Pacific Golf Estate Dehradun,Uttarakhand,,Dehradun,'248013,UK,IN,+919041259803,Mohan Chaudhary,"E5-801 Pacific Golf Estate Dehradun, Uttarakhand",E5-801 Pacific Golf Estate Dehradun,Uttarakhand,,Dehradun,'248013,UK,IN,+919041259803,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TLWdBLSsNAWE09
 Device_details_IP: 49.43.171.173
 cart_token: hWNFFV9CxidSxoTPzkrjIOGa?key=8611c99afe76f4833a747b18b7813c74
@@ -958,8 +958,8 @@ utm_medium: cpc
 utm_campaign: Others
 gclid: Cj0KCQjw-MDTBhCgARIsAKAkdlRWbazZI-E_bXbTWMbHOmUXHn5Ky4qalcKmqv4lXXc-U3193dyRKCIaAoUCEALw_wcB
 razorpay_payment_id: pay_TLWeMhrUVrV7W5, pay_TLWeiIor42SACW",,Razorpay,#1281.1,0.00,Janvi Aika,4493.00,,,,16839508525427,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,IGST 18%,715.73,,,,,,,,,+919041259803,,,Uttarakhand,Uttarakhand,#1281.1,,,#1281.1
-#1281,singhmohancs@gmail.com,,,,,,,,,,,,,,2026-08-04 07:50:57 +0530,1,Mayura Emerald Silk Touch Chudidhar Set - L,2702.00,"",C-KT9043-L,true,true,pending,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+919041259803,,,,,,,,
-#1282,nsriswathi15@gmail.com,paid,2026-08-04 10:01:27 +0530,unfulfilled,,no,INR,5270.00,0.00,803.90,5270.00,Flat 500,500.00,Standard Shipping,2026-08-04 10:01:24 +0530,1,Amber Glow - 2XL,2490.00,,C-AG-MG-2XL,true,true,pending,Swathi K,Flat no.201,Flat no.201,,,Visakhapatnam,'530045,AP,IN,+918019862708,Swathi K,Flat no.201,Flat no.201,,,Visakhapatnam,'530045,AP,IN,+918019862708,,"Paid via: Razorpay Magic Checkout
+#1281,singhmohancs@gmail.com,,,,,,,,,,,,,,2026-08-04 07:50:57 +0530,1,Mayura Emerald Silk Touch Chudidhar Set - L,2702.00,"",C-KT9043-L,true,true,fulfilled,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+919041259803,,,,,,,,
+#1282,nsriswathi15@gmail.com,paid,2026-08-04 10:01:27 +0530,fulfilled,2026-08-04 14:13:27 +0530,no,INR,5270.00,0.00,803.90,5270.00,Flat 500,500.00,Standard Shipping,2026-08-04 10:01:24 +0530,1,Amber Glow - 2XL,2490.00,,C-AG-MG-2XL,true,true,fulfilled,Swathi K,Flat no.201,Flat no.201,,,Visakhapatnam,'530045,AP,IN,+918019862708,Swathi K,Flat no.201,Flat no.201,,,Visakhapatnam,'530045,AP,IN,+918019862708,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TLYqfGg1kyo0QR
 Device_details_IP: 35.154.22.73
 cart_token: hWNElbcQa139BzVblNG14U9k?key=97c171759fd568ff121b41229861df22
@@ -976,5 +976,22 @@ utm_content: 120246488782010298
 utm_term: 120246488782000298
 fbclid: PAZXh0bgNhZW0BMABhZGlkAas1awXT9upzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAaeQ2XbGQ3aLfkB21NsxlTXZpse3Ki7mB-m-WCX05-GaDDWlsbi4ukrBN-Ov_A_aem_1HVcF2d9pyOlfREhgzYu9A
 razorpay_payment_id: pay_TLYrJg1uZTHPtF",,Razorpay,#1282.1,0.00,Janvi Aika,0.00,,,,16839655358835,"Magic, upi",Low,399890841601,0.00,IGST 18%,803.90,,,,,,,,,+918019862708,,,Andhra Pradesh,Andhra Pradesh,#1282.1,,,#1282.1
-#1282,nsriswathi15@gmail.com,,,,,,,,,,,,,,2026-08-04 10:01:24 +0530,1,Mauve Bandhani Elegance - 2XL,1890.00,"",C-MB-PU-2XL,true,true,pending,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+918019862708,,,,,,,,
-#1282,nsriswathi15@gmail.com,,,,,,,,,,,,,,2026-08-04 10:01:24 +0530,1,Wine Blossom Top - 3XL,1390.00,"",TOP-WB-PU-3XL,true,true,pending,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+918019862708,,,,,,,,
+#1282,nsriswathi15@gmail.com,,,,,,,,,,,,,,2026-08-04 10:01:24 +0530,1,Mauve Bandhani Elegance - 2XL,1890.00,"",C-MB-PU-2XL,true,true,fulfilled,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+918019862708,,,,,,,,
+#1282,nsriswathi15@gmail.com,,,,,,,,,,,,,,2026-08-04 10:01:24 +0530,1,Wine Blossom Top - 3XL,1390.00,"",TOP-WB-PU-3XL,true,true,fulfilled,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+918019862708,,,,,,,,
+#1284,,partially_paid,2026-08-04 22:28:27 +0530,unfulfilled,,no,INR,2190.00,0.00,334.06,2190.00,Flat 300,300.00,FREE SHIPPING,2026-08-04 22:28:27 +0530,1,Emerald Enchant - M,2490.00,,C-EE-BG-M,true,true,pending,Shankrayya Swami,"Near municipality opposite sandeep agro agency sindhanur, Raichur roda sandeep agro agency",Near municipality opposite sandeep agro agency sindhanur,Raichur roda sandeep agro agency,,Raichur,'584128,KA,IN,+916361430696,Shankrayya Swami,"Near municipality opposite sandeep agro agency sindhanur, Raichur roda sandeep agro agency",Near municipality opposite sandeep agro agency sindhanur,Raichur roda sandeep agro agency,,Raichur,'584128,KA,IN,+916361430696,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_TLlXXS0yChooPQ
+Device_details_IP: 35.154.143.15
+cart_token: hWNFGXelMPvQHlDGNazuZYPc?key=cbe4c56b43cb40fe0b0a8335e043a655
+payment_method: upi
+wvi: 1
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid||utm_id:120246975099520298||utm_term:120246975099510298||utm_campaign:120246975099520298
+rzp_3p_utm_ts: 1785861771065
+rzp_device_id: 1.ad7dc1d8fdd762aab9d6521b10af28ac02e108cc.1785847103430.40811476
+rzp_pixel_id: TLlKsNtOZi8cCS
+utm_source: facebook
+utm_medium: paid
+utm_campaign: 120246975099520298
+utm_content: Facebook_UA
+utm_term: 120246975099510298
+fbclid: PAaWdyZATe9dhleHRuA2FlbQEwAGFkaWQBqzVrBkUIOnNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABp7E_ZuWy4viDj6ca57Dfr7kcdI3iCDcykjn25FAaA56xDNnBvVa0RDpW5juE_aem_utfAgN8gasSoN_07BuXA1A
+razorpay_payment_id: pay_TLlZ95XIE5mp3H, pay_TLlbdBFCj8FeFG",,Razorpay,#1284.1,0.00,Janvi Aika,1991.00,,,,16840372552051,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,CGST 9%,167.03,SGST 9%,167.03,,,,,,,+916361430696,,,Karnataka,Karnataka,#1284.1,,,#1284.1
