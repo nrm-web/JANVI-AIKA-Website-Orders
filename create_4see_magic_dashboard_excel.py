@@ -507,8 +507,83 @@ def generate_4see_magic_excel():
     ws16 = wb.create_sheet("16_Acquisition_Month_Wise")
     write_df_clean(ws16, monthly_acq)
 
+    # ----------------------------------------------------
+    # 13. PURE META ADS ACQUISITION ANALYTICS (SHEETS 17, 18, 19)
+    # ----------------------------------------------------
+    if os.path.exists(meta_csv):
+        df_meta_pure = pd.read_csv(meta_csv)
+        df_meta_pure['Date_Obj'] = pd.to_datetime(df_meta_pure['Reporting starts'], errors='coerce')
+        df_meta_pure['Date_Str'] = df_meta_pure['Date_Obj'].dt.strftime('%Y-%m-%d')
+        df_meta_pure['Year_Week'] = df_meta_pure['Date_Obj'].dt.strftime('%Y-W%V')
+        df_meta_pure['Year_Month'] = df_meta_pure['Date_Obj'].dt.strftime('%Y-%m')
+
+        df_meta_pure['Ad_Spend_INR'] = pd.to_numeric(df_meta_pure['Amount spent (INR)'], errors='coerce').fillna(0)
+        df_meta_pure['Impressions'] = pd.to_numeric(df_meta_pure['Impressions'], errors='coerce').fillna(0)
+        df_meta_pure['Reach'] = pd.to_numeric(df_meta_pure['Reach'], errors='coerce').fillna(0)
+
+        p_mask_pure = df_meta_pure['Result indicator'] == 'actions:offsite_conversion.fb_pixel_purchase'
+        df_meta_pure['Ad_Orders'] = 0
+        df_meta_pure.loc[p_mask_pure, 'Ad_Orders'] = pd.to_numeric(df_meta_pure.loc[p_mask_pure, 'Results'], errors='coerce').fillna(0)
+
+        # SHEET 17: PURE ADS DAY-WISE
+        df_ads_day = df_meta_pure.groupby('Date_Str').agg({
+            'Ad_Spend_INR': 'sum',
+            'Ad_Orders': 'sum',
+            'Impressions': 'sum',
+            'Reach': 'sum'
+        }).reset_index().rename(columns={
+            'Ad_Orders': 'Ads_Driven_Orders',
+            'Reach': 'Ads_Unique_Customers_Reached',
+            'Impressions': 'Ads_Impressions'
+        })
+        df_ads_day['Ads_CPA_INR'] = np.where(df_ads_day['Ads_Driven_Orders'] > 0, df_ads_day['Ad_Spend_INR'] / df_ads_day['Ads_Driven_Orders'], 0)
+        df_ads_day['Ads_Orders_Per_Day'] = df_ads_day['Ads_Driven_Orders']
+        df_ads_day = df_ads_day.sort_values(by='Date_Str', ascending=True)
+
+        ws17 = wb.create_sheet("17_Meta_Ads_Day_Acquisition")
+        write_df_clean(ws17, df_ads_day)
+
+        # SHEET 18: PURE ADS WEEK-WISE
+        df_ads_day['Date_Obj'] = pd.to_datetime(df_ads_day['Date_Str'])
+        df_ads_day['Year_Week'] = df_ads_day['Date_Obj'].dt.strftime('%Y-W%V')
+
+        df_ads_week = df_ads_day.groupby('Year_Week').agg({
+            'Date_Str': ['min', 'max', 'count'],
+            'Ad_Spend_INR': 'sum',
+            'Ads_Driven_Orders': 'sum',
+            'Ads_Unique_Customers_Reached': 'sum',
+            'Ads_Impressions': 'sum'
+        }).reset_index()
+
+        df_ads_week.columns = ['Year_Week', 'Week_Start_Date', 'Week_End_Date', 'Active_Days_In_Week', 'Weekly_Ad_Spend_INR', 'Weekly_Ads_Driven_Orders', 'Weekly_Ads_Unique_Customers_Reached', 'Weekly_Ads_Impressions']
+        df_ads_week['Weekly_Ads_CPA_INR'] = np.where(df_ads_week['Weekly_Ads_Driven_Orders'] > 0, df_ads_week['Weekly_Ad_Spend_INR'] / df_ads_week['Weekly_Ads_Driven_Orders'], 0)
+        df_ads_week['Weekly_Ads_Orders_Per_Day'] = df_ads_week['Weekly_Ads_Driven_Orders'] / df_ads_week['Active_Days_In_Week']
+        df_ads_week = df_ads_week.sort_values(by='Year_Week', ascending=True)
+
+        ws18 = wb.create_sheet("18_Meta_Ads_Week_Acquisition")
+        write_df_clean(ws18, df_ads_week)
+
+        # SHEET 19: PURE ADS MONTH-WISE
+        df_ads_day['Year_Month'] = df_ads_day['Date_Obj'].dt.strftime('%Y-%m')
+
+        df_ads_month = df_ads_day.groupby('Year_Month').agg({
+            'Date_Str': 'count',
+            'Ad_Spend_INR': 'sum',
+            'Ads_Driven_Orders': 'sum',
+            'Ads_Unique_Customers_Reached': 'sum',
+            'Ads_Impressions': 'sum'
+        }).reset_index()
+
+        df_ads_month.columns = ['Year_Month', 'Active_Days_In_Month', 'Monthly_Ad_Spend_INR', 'Monthly_Ads_Driven_Orders', 'Monthly_Ads_Unique_Customers_Reached', 'Monthly_Ads_Impressions']
+        df_ads_month['Monthly_Ads_CPA_INR'] = np.where(df_ads_month['Monthly_Ads_Driven_Orders'] > 0, df_ads_month['Monthly_Ad_Spend_INR'] / df_ads_month['Monthly_Ads_Driven_Orders'], 0)
+        df_ads_month['Monthly_Ads_Orders_Per_Day'] = df_ads_month['Monthly_Ads_Driven_Orders'] / df_ads_month['Active_Days_In_Month']
+        df_ads_month = df_ads_month.sort_values(by='Year_Month', ascending=True)
+
+        ws19 = wb.create_sheet("19_Meta_Ads_Month_Acquisition")
+        write_df_clean(ws19, df_ads_month)
+
     wb.save(output_path)
-    print(f"Successfully generated clean 4see Magic Dashboard Master Excel with Acquisition Analytics: {output_path}")
+    print(f"Successfully generated clean 4see Magic Dashboard Master Excel with Pure Meta Ads Acquisition Analytics: {output_path}")
 
 if __name__ == "__main__":
     generate_4see_magic_excel()
