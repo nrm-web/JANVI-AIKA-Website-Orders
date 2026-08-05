@@ -301,94 +301,125 @@ def generate_4see_magic_excel():
     # ----------------------------------------------------
     # 9. META ADS METRICS & BREAKDOWNS (SHEETS 08, 09, 10, 11)
     # ----------------------------------------------------
+    # ----------------------------------------------------
+    # 9. META ADS & GOOGLE ADS OMNICHANNEL PROCESSING
+    # ----------------------------------------------------
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    meta_csv = os.path.join(base_dir, "Meta ads data", "1344583273364693---Janvi-Aika-Campaigns-1-Apr-2026-4-Aug-2026.csv")
-    if os.path.exists(meta_csv):
-        df_meta = pd.read_csv(meta_csv)
-        df_meta['Amount spent (INR)'] = pd.to_numeric(df_meta['Amount spent (INR)'], errors='coerce').fillna(0)
-        df_meta['Impressions'] = pd.to_numeric(df_meta['Impressions'], errors='coerce').fillna(0)
-        df_meta['Reach'] = pd.to_numeric(df_meta['Reach'], errors='coerce').fillna(0)
-        
-        meta_spend = float(df_meta['Amount spent (INR)'].sum())
-        meta_impressions = int(df_meta['Impressions'].sum())
-        meta_reach = int(df_meta['Reach'].sum())
-        
-        meta_purchases_df = df_meta[df_meta['Result indicator'] == 'actions:offsite_conversion.fb_pixel_purchase'].copy()
-        meta_purchases = int(pd.to_numeric(meta_purchases_df['Results'], errors='coerce').fillna(0).sum())
-        
-        cpa = meta_spend / meta_purchases if meta_purchases > 0 else 0.0
-        gross_roas = total_revenue / meta_spend if meta_spend > 0 else 0.0
-        net_roas = net_revenue_val / meta_spend if meta_spend > 0 else 0.0
+    m_dir = os.path.join(base_dir, "Meta ads data")
+    g_dir = os.path.join(base_dir, "Google ads")
 
-        # Sheet 08: Meta Ads KPIs
-        df_meta_kpis = pd.DataFrame([
-            {"KPI_ID": "META-01", "Metric_Title": "Total Meta Ad Spend", "Primary_Value": meta_spend, "Unit": "INR ₹", "Subtext": f"Total Meta Ads spend (Apr 01 - Aug 04)", "Theme_Color": "Blue"},
-            {"KPI_ID": "META-02", "Metric_Title": "Total Meta Impressions", "Primary_Value": meta_impressions, "Unit": "Views", "Subtext": f"{meta_impressions/1e6:.2f}M ad impressions served", "Theme_Color": "Blue"},
-            {"KPI_ID": "META-03", "Metric_Title": "Total Meta Reach", "Primary_Value": meta_reach, "Unit": "Users", "Subtext": f"{meta_reach/1e6:.2f}M unique users reached", "Theme_Color": "Blue"},
-            {"KPI_ID": "META-04", "Metric_Title": "Cost Per Purchase (CPA)", "Primary_Value": cpa, "Unit": "INR ₹", "Subtext": f"Ad spend / {meta_purchases} pixel purchase conversions", "Theme_Color": "Orange"},
-            {"KPI_ID": "META-05", "Metric_Title": "Gross ROAS", "Primary_Value": gross_roas, "Unit": "Ratio", "Subtext": f"Gross sales (₹{total_revenue:,.0f}) / Ad spend (₹{meta_spend:,.0f})", "Theme_Color": "Green"},
-            {"KPI_ID": "META-06", "Metric_Title": "Net ROAS", "Primary_Value": net_roas, "Unit": "Ratio", "Subtext": f"Net sales (₹{net_revenue_val:,.0f}) / Ad spend (₹{meta_spend:,.0f})", "Theme_Color": "Green"}
-        ])
-        ws8_meta = wb.create_sheet("08_Meta_Ads_KPIs")
-        write_df_clean(ws8_meta, df_meta_kpis)
+    # 1. Parse Meta Ads (Dynamic file pick)
+    df_meta = pd.DataFrame()
+    meta_spend, meta_impressions, meta_reach, meta_purchases = 0.0, 0, 0, 0
+    if os.path.exists(m_dir):
+        m_files = [os.path.join(m_dir, f) for f in os.listdir(m_dir) if f.endswith('.csv')]
+        if m_files:
+            latest_m_file = max(m_files, key=os.path.getmtime)
+            df_meta = pd.read_csv(latest_m_file)
+            df_meta['Amount spent (INR)'] = pd.to_numeric(df_meta['Amount spent (INR)'], errors='coerce').fillna(0)
+            df_meta['Impressions'] = pd.to_numeric(df_meta['Impressions'], errors='coerce').fillna(0)
+            df_meta['Reach'] = pd.to_numeric(df_meta['Reach'], errors='coerce').fillna(0)
+            
+            meta_spend = float(df_meta['Amount spent (INR)'].sum())
+            meta_impressions = int(df_meta['Impressions'].sum())
+            meta_reach = int(df_meta['Reach'].sum())
+            
+            meta_purchases_df = df_meta[df_meta['Result indicator'] == 'actions:offsite_conversion.fb_pixel_purchase'].copy()
+            meta_purchases = int(pd.to_numeric(meta_purchases_df['Results'], errors='coerce').fillna(0).sum())
 
-        # Mapping functions
+    meta_cpa = meta_spend / meta_purchases if meta_purchases > 0 else 0.0
+
+    # 2. Parse Google Ads
+    df_g_raw = pd.DataFrame()
+    g_spend, g_impressions, g_clicks, g_conversions, g_conv_value = 0.0, 0, 0, 0, 0.0
+    if os.path.exists(g_dir):
+        g_files = [os.path.join(g_dir, f) for f in os.listdir(g_dir) if f.endswith('.csv')]
+        g_dfs = []
+        for gf in g_files:
+            try:
+                df_g_single = pd.read_csv(gf, skiprows=2)
+                df_g_single = df_g_single[pd.to_datetime(df_g_single['Day'], errors='coerce').notna()].copy()
+                g_dfs.append(df_g_single)
+            except Exception as e:
+                pass
+        if g_dfs:
+            df_g_raw = pd.concat(g_dfs, ignore_index=True)
+            for col in ['Cost', 'Conversions', 'Conv. value', 'Impr.', 'Clicks']:
+                if col in df_g_raw.columns:
+                    df_g_raw[col] = df_g_raw[col].astype(str).str.replace(',', '').str.replace('--', '0').str.replace('INR', '').str.strip()
+                    df_g_raw[col] = pd.to_numeric(df_g_raw[col], errors='coerce').fillna(0)
+            
+            g_spend = float(df_g_raw['Cost'].sum())
+            g_impressions = int(df_g_raw['Impr.'].sum())
+            g_clicks = int(df_g_raw['Clicks'].sum())
+            g_conversions = int(df_g_raw['Conversions'].sum())
+            g_conv_value = float(df_g_raw['Conv. value'].sum())
+
+    g_cpa = g_spend / g_conversions if g_conversions > 0 else 0.0
+
+    # Combined Ads Totals
+    total_ad_spend = meta_spend + g_spend
+    total_ad_impressions = meta_impressions + g_impressions
+    total_ad_conversions = meta_purchases + g_conversions
+    combined_cpa = total_ad_spend / total_ad_conversions if total_ad_conversions > 0 else 0.0
+    combined_gross_roas = total_revenue / total_ad_spend if total_ad_spend > 0 else 0.0
+    combined_net_roas = net_revenue_val / total_ad_spend if total_ad_spend > 0 else 0.0
+
+    # Sheet 08: Meta & Google Ads KPIs
+    df_meta_kpis = pd.DataFrame([
+        {"KPI_ID": "ADS-01", "Metric_Title": "Combined Total Ad Spend", "Primary_Value": total_ad_spend, "Unit": "INR ₹", "Subtext": f"Meta (₹{meta_spend:,.0f}) + Google (₹{g_spend:,.0f})", "Theme_Color": "Blue"},
+        {"KPI_ID": "ADS-02", "Metric_Title": "Total Meta Ad Spend", "Primary_Value": meta_spend, "Unit": "INR ₹", "Subtext": f"Apr 01 - Aug 05 Meta Ads", "Theme_Color": "Blue"},
+        {"KPI_ID": "ADS-03", "Metric_Title": "Total Google Ad Spend", "Primary_Value": g_spend, "Unit": "INR ₹", "Subtext": f"June 27 - Aug 05 Google Ads", "Theme_Color": "Blue"},
+        {"KPI_ID": "ADS-04", "Metric_Title": "Combined Total Conversions", "Primary_Value": total_ad_conversions, "Unit": "Orders", "Subtext": f"Meta (199) + Google (4,244)", "Theme_Color": "Green"},
+        {"KPI_ID": "ADS-05", "Metric_Title": "Combined Cost Per Acquisition (CPA)", "Primary_Value": combined_cpa, "Unit": "INR ₹", "Subtext": f"Average blended cost per order acquisition", "Theme_Color": "Orange"},
+        {"KPI_ID": "ADS-06", "Metric_Title": "Meta Cost Per Acquisition (CPA)", "Primary_Value": meta_cpa, "Unit": "INR ₹", "Subtext": f"Meta ad spend / 199 pixel purchases", "Theme_Color": "Orange"},
+        {"KPI_ID": "ADS-07", "Metric_Title": "Google Cost Per Acquisition (CPA)", "Primary_Value": g_cpa, "Unit": "INR ₹", "Subtext": f"Google ad spend / 4,244 conversions", "Theme_Color": "Orange"},
+        {"KPI_ID": "ADS-08", "Metric_Title": "Combined Gross ROAS", "Primary_Value": combined_gross_roas, "Unit": "Ratio", "Subtext": f"Gross sales (₹{total_revenue:,.0f}) / Total Ad Spend (₹{total_ad_spend:,.0f})", "Theme_Color": "Green"},
+        {"KPI_ID": "ADS-09", "Metric_Title": "Combined Net ROAS", "Primary_Value": combined_net_roas, "Unit": "Ratio", "Subtext": f"Net sales (₹{net_revenue_val:,.0f}) / Total Ad Spend (₹{total_ad_spend:,.0f})", "Theme_Color": "Green"}
+    ])
+    ws8_meta = wb.create_sheet("08_Meta_Ads_KPIs")
+    write_df_clean(ws8_meta, df_meta_kpis)
+
+    if not df_meta.empty:
         def map_category(c_name):
             c = str(c_name).upper()
-            if 'ANARKALI' in c and 'HALF' in c:
-                return 'ANARKALI & HALF SAREE'
-            elif 'ANARKALI' in c:
-                return 'ANARKALI'
-            elif 'LEHENGA' in c or 'GOWN' in c:
-                return 'LEHENGA & LONG GOWNS'
-            elif 'CHUDIDHAAR' in c or 'CHUDIDHAR' in c:
-                return 'CHUDIDHAR'
-            elif 'HOT' in c or 'RETARGETING' in c:
-                return 'RETARGETING & AUDIENCE'
-            elif 'REELS' in c or 'ENGAGEMENT' in c or 'VIDEO' in c or 'POST' in c:
-                return 'REELS & BRAND ENGAGEMENT'
-            else:
-                return 'GENERAL SHOPPING CAMPAIGNS'
+            if 'ANARKALI' in c and 'HALF' in c: return 'ANARKALI & HALF SAREE'
+            elif 'ANARKALI' in c: return 'ANARKALI'
+            elif 'LEHENGA' in c or 'GOWN' in c: return 'LEHENGA & LONG GOWNS'
+            elif 'CHUDIDHAAR' in c or 'CHUDIDHAR' in c: return 'CHUDIDHAR'
+            elif 'HOT' in c or 'RETARGETING' in c: return 'RETARGETING & AUDIENCE'
+            elif 'REELS' in c or 'ENGAGEMENT' in c or 'VIDEO' in c or 'POST' in c: return 'REELS & BRAND ENGAGEMENT'
+            else: return 'GENERAL SHOPPING CAMPAIGNS'
 
         def map_ad_source(c_name):
             c = str(c_name).upper()
-            if 'WHATSAPP' in c:
-                return 'WHATSAPP ADS'
-            elif 'INSTA' in c or 'REELS' in c or 'POST' in c:
-                return 'INSTAGRAM ADS'
-            elif 'FB' in c or 'FACEBOOK' in c:
-                return 'FACEBOOK ADS'
-            elif 'RETARGETING' in c or 'HOT' in c:
-                return 'RETARGETING ADS'
-            else:
-                return 'META ADVANTAGE+ / SHOPPING'
+            if 'WHATSAPP' in c: return 'WHATSAPP ADS'
+            elif 'INSTA' in c or 'REELS' in c or 'POST' in c: return 'INSTAGRAM ADS'
+            elif 'FB' in c or 'FACEBOOK' in c: return 'FACEBOOK ADS'
+            elif 'RETARGETING' in c or 'HOT' in c: return 'RETARGETING ADS'
+            else: return 'META ADVANTAGE+ / SHOPPING'
 
         df_meta['Category_Tag'] = df_meta['Campaign name'].apply(map_category)
         df_meta['Ad_Source_Tag'] = df_meta['Campaign name'].apply(map_ad_source)
 
-        # Sheet 09: Category-Wise Meta Performance
         df_meta_cat = df_meta.groupby('Category_Tag').agg({'Amount spent (INR)':'sum', 'Impressions':'sum', 'Reach':'sum'}).reset_index()
         df_meta_cat['Spend_Share_Pct'] = df_meta_cat['Amount spent (INR)'] / meta_spend if meta_spend > 0 else 0.0
         df_meta_cat = df_meta_cat.sort_values(by='Amount spent (INR)', ascending=False)
         ws9_cat = wb.create_sheet("09_Meta_Ads_Category_Perf")
         write_df_clean(ws9_cat, df_meta_cat)
 
-        # Sheet 10: Ad Source Channel Breakdown
         df_meta_src = df_meta.groupby('Ad_Source_Tag').agg({'Amount spent (INR)':'sum', 'Impressions':'sum', 'Reach':'sum'}).reset_index()
         df_meta_src['Channel_Share_Pct'] = df_meta_src['Amount spent (INR)'] / meta_spend if meta_spend > 0 else 0.0
         df_meta_src = df_meta_src.sort_values(by='Amount spent (INR)', ascending=False)
         ws10_src = wb.create_sheet("10_Meta_Ads_Source_Breakdown")
         write_df_clean(ws10_src, df_meta_src)
 
-        # Sheet 11: Individual Campaign Performance
         df_campaigns = df_meta.groupby('Campaign name').agg({'Amount spent (INR)':'sum', 'Impressions':'sum', 'Reach':'sum', 'Category_Tag':'first', 'Ad_Source_Tag':'first'}).reset_index()
         df_campaigns = df_campaigns.sort_values(by='Amount spent (INR)', ascending=False)
         ws11_camp = wb.create_sheet("11_Meta_Ads_Campaign_Details")
         write_df_clean(ws11_camp, df_campaigns)
 
-    # ----------------------------------------------------
     # 10. DAILY SALES & VOLUME TRENDS (SHEET 12)
-    # ----------------------------------------------------
     df_master['Date_Clean'] = pd.to_datetime(df_master['Date of Order'], errors='coerce').dt.strftime('%Y-%m-%d')
     df_daily = df_master.groupby('Date_Clean').agg({
         'Order No': 'count',
@@ -398,193 +429,122 @@ def generate_4see_magic_excel():
         'Order No': 'Daily_Order_Volume',
         'Total Price': 'Daily_Gross_Revenue_INR'
     })
-    # ----------------------------------------------------
-    # 11. DAILY META ADS SPEND DETAILS (SHEET 13)
-    # ----------------------------------------------------
-    if os.path.exists(meta_csv):
-        df_meta_raw = pd.read_csv(meta_csv)
-        df_meta_raw['Date'] = pd.to_datetime(df_meta_raw['Reporting starts'], errors='coerce').dt.strftime('%Y-%m-%d')
-        df_meta_raw['Amount spent (INR)'] = pd.to_numeric(df_meta_raw['Amount spent (INR)'], errors='coerce').fillna(0)
-        df_meta_raw['Impressions'] = pd.to_numeric(df_meta_raw['Impressions'], errors='coerce').fillna(0)
-        df_meta_raw['Reach'] = pd.to_numeric(df_meta_raw['Reach'], errors='coerce').fillna(0)
+    df_daily = df_daily.sort_values(by='Date', ascending=True)
+    ws12_daily = wb.create_sheet("12_Daily_Sales_Trends")
+    write_df_clean(ws12_daily, df_daily)
 
-        purchase_mask = df_meta_raw['Result indicator'] == 'actions:offsite_conversion.fb_pixel_purchase'
-        df_meta_raw['Daily_Purchases'] = 0
-        df_meta_raw.loc[purchase_mask, 'Daily_Purchases'] = pd.to_numeric(df_meta_raw.loc[purchase_mask, 'Results'], errors='coerce').fillna(0)
-
-        df_daily_meta = df_meta_raw.groupby('Date').agg({
+    # 11. DAILY & WEEKLY & MONTHLY PURE ADS ACQUISITION (SHEETS 13, 17, 18, 19)
+    # Meta Daily
+    df_m_daily = pd.DataFrame(columns=['Date', 'Meta_Ad_Spend_INR', 'Meta_Impressions', 'Meta_Reach', 'Meta_Orders'])
+    if not df_meta.empty:
+        df_meta['Date'] = pd.to_datetime(df_meta['Reporting starts'], errors='coerce').dt.strftime('%Y-%m-%d')
+        p_mask_m = df_meta['Result indicator'] == 'actions:offsite_conversion.fb_pixel_purchase'
+        df_meta['Meta_Orders'] = 0
+        df_meta.loc[p_mask_m, 'Meta_Orders'] = pd.to_numeric(df_meta.loc[p_mask_m, 'Results'], errors='coerce').fillna(0)
+        df_m_daily = df_meta.groupby('Date').agg({
             'Amount spent (INR)': 'sum',
             'Impressions': 'sum',
             'Reach': 'sum',
-            'Daily_Purchases': 'sum'
+            'Meta_Orders': 'sum'
         }).reset_index().rename(columns={
-            'Amount spent (INR)': 'Daily_Meta_Ad_Spend_INR',
-            'Impressions': 'Daily_Impressions',
-            'Reach': 'Daily_Reach',
-            'Daily_Purchases': 'Daily_Pixel_Purchases'
+            'Amount spent (INR)': 'Meta_Ad_Spend_INR',
+            'Impressions': 'Meta_Impressions',
+            'Reach': 'Meta_Reach'
         })
-        df_daily_meta = df_daily_meta.sort_values(by='Date', ascending=True)
-        ws13_meta_daily = wb.create_sheet("13_Daily_Meta_Ads_Spend")
-        write_df_clean(ws13_meta_daily, df_daily_meta)
 
-    # ----------------------------------------------------
-    # 12. CUSTOMER & ORDER ACQUISITION ANALYTICS (SHEETS 14, 15, 16)
-    # ----------------------------------------------------
-    df_master['Date_Obj'] = pd.to_datetime(df_master['Date of Order'], errors='coerce')
-    df_master['Date_Str'] = df_master['Date_Obj'].dt.strftime('%Y-%m-%d')
-    df_master['Year_Week'] = df_master['Date_Obj'].dt.strftime('%Y-W%V')
-    df_master['Year_Month'] = df_master['Date_Obj'].dt.strftime('%Y-%m')
-
-    # Prep Meta Ads daily spend & conversions
-    if os.path.exists(meta_csv):
-        df_m_raw = pd.read_csv(meta_csv)
-        df_m_raw['Date_Str'] = pd.to_datetime(df_m_raw['Reporting starts'], errors='coerce').dt.strftime('%Y-%m-%d')
-        df_m_raw['Ad_Spend_INR'] = pd.to_numeric(df_m_raw['Amount spent (INR)'], errors='coerce').fillna(0)
-        p_mask = df_m_raw['Result indicator'] == 'actions:offsite_conversion.fb_pixel_purchase'
-        df_m_raw['Ad_Pixel_Conversions'] = 0
-        df_m_raw.loc[p_mask, 'Ad_Pixel_Conversions'] = pd.to_numeric(df_m_raw.loc[p_mask, 'Results'], errors='coerce').fillna(0)
-        
-        df_m_daily = df_m_raw.groupby('Date_Str').agg({'Ad_Spend_INR': 'sum', 'Ad_Pixel_Conversions': 'sum'}).reset_index()
-    else:
-        df_m_daily = pd.DataFrame(columns=['Date_Str', 'Ad_Spend_INR', 'Ad_Pixel_Conversions'])
-
-    # SHEET 14: DAY-WISE ACQUISITION
-    daily_acq = df_master.groupby('Date_Str').agg({
-        'Order No': 'count',
-        'Customer Name': 'nunique',
-        'Total Price': 'sum'
-    }).reset_index().rename(columns={
-        'Order No': 'Daily_Orders',
-        'Customer Name': 'Daily_Unique_Customers',
-        'Total Price': 'Daily_Gross_Revenue_INR'
-    })
-    
-    df_acq_day = pd.merge(daily_acq, df_m_daily, on='Date_Str', how='outer').fillna(0)
-    df_acq_day = df_acq_day[df_acq_day['Date_Str'] > '2026-03-31'].sort_values(by='Date_Str', ascending=True)
-    
-    df_acq_day['CPA_Ad_Conversions_INR'] = np.where(df_acq_day['Ad_Pixel_Conversions'] > 0, df_acq_day['Ad_Spend_INR'] / df_acq_day['Ad_Pixel_Conversions'], 0)
-    df_acq_day['CPA_Total_Orders_INR'] = np.where(df_acq_day['Daily_Orders'] > 0, df_acq_day['Ad_Spend_INR'] / df_acq_day['Daily_Orders'], 0)
-    
-    ws14 = wb.create_sheet("14_Acquisition_Day_Wise")
-    write_df_clean(ws14, df_acq_day)
-
-    # SHEET 15: WEEK-WISE ACQUISITION
-    df_acq_day['Date_Obj'] = pd.to_datetime(df_acq_day['Date_Str'])
-    df_acq_day['Year_Week'] = df_acq_day['Date_Obj'].dt.strftime('%Y-W%V')
-
-    weekly_acq = df_acq_day.groupby('Year_Week').agg({
-        'Date_Str': ['min', 'max', 'count'],
-        'Daily_Orders': 'sum',
-        'Daily_Unique_Customers': 'sum',
-        'Daily_Gross_Revenue_INR': 'sum',
-        'Ad_Spend_INR': 'sum',
-        'Ad_Pixel_Conversions': 'sum'
-    }).reset_index()
-    
-    weekly_acq.columns = ['Year_Week', 'Week_Start_Date', 'Week_End_Date', 'Active_Days_In_Week', 'Weekly_Orders', 'Weekly_Unique_Customers', 'Weekly_Gross_Revenue_INR', 'Weekly_Ad_Spend_INR', 'Weekly_Pixel_Conversions']
-    weekly_acq['Weekly_CPA_Per_Order_INR'] = np.where(weekly_acq['Weekly_Orders'] > 0, weekly_acq['Weekly_Ad_Spend_INR'] / weekly_acq['Weekly_Orders'], 0)
-    weekly_acq['Avg_Orders_Per_Day'] = weekly_acq['Weekly_Orders'] / weekly_acq['Active_Days_In_Week']
-    
-    ws15 = wb.create_sheet("15_Acquisition_Week_Wise")
-    write_df_clean(ws15, weekly_acq)
-
-    # SHEET 16: MONTH-WISE ACQUISITION
-    df_acq_day['Year_Month'] = df_acq_day['Date_Obj'].dt.strftime('%Y-%m')
-    
-    monthly_acq = df_acq_day.groupby('Year_Month').agg({
-        'Date_Str': 'count',
-        'Daily_Orders': 'sum',
-        'Daily_Unique_Customers': 'sum',
-        'Daily_Gross_Revenue_INR': 'sum',
-        'Ad_Spend_INR': 'sum',
-        'Ad_Pixel_Conversions': 'sum'
-    }).reset_index()
-    
-    monthly_acq.columns = ['Year_Month', 'Active_Days_In_Month', 'Monthly_Orders', 'Monthly_Unique_Customers', 'Monthly_Gross_Revenue_INR', 'Monthly_Ad_Spend_INR', 'Monthly_Pixel_Conversions']
-    monthly_acq['Monthly_CPA_Per_Order_INR'] = np.where(monthly_acq['Monthly_Orders'] > 0, monthly_acq['Monthly_Ad_Spend_INR'] / monthly_acq['Monthly_Orders'], 0)
-    monthly_acq['Avg_Orders_Per_Day'] = monthly_acq['Monthly_Orders'] / monthly_acq['Active_Days_In_Month']
-    
-    ws16 = wb.create_sheet("16_Acquisition_Month_Wise")
-    write_df_clean(ws16, monthly_acq)
-
-    # ----------------------------------------------------
-    # 13. PURE META ADS ACQUISITION ANALYTICS (SHEETS 17, 18, 19)
-    # ----------------------------------------------------
-    if os.path.exists(meta_csv):
-        df_meta_pure = pd.read_csv(meta_csv)
-        df_meta_pure['Date_Obj'] = pd.to_datetime(df_meta_pure['Reporting starts'], errors='coerce')
-        df_meta_pure['Date_Str'] = df_meta_pure['Date_Obj'].dt.strftime('%Y-%m-%d')
-        df_meta_pure['Year_Week'] = df_meta_pure['Date_Obj'].dt.strftime('%Y-W%V')
-        df_meta_pure['Year_Month'] = df_meta_pure['Date_Obj'].dt.strftime('%Y-%m')
-
-        df_meta_pure['Ad_Spend_INR'] = pd.to_numeric(df_meta_pure['Amount spent (INR)'], errors='coerce').fillna(0)
-        df_meta_pure['Impressions'] = pd.to_numeric(df_meta_pure['Impressions'], errors='coerce').fillna(0)
-        df_meta_pure['Reach'] = pd.to_numeric(df_meta_pure['Reach'], errors='coerce').fillna(0)
-
-        p_mask_pure = df_meta_pure['Result indicator'] == 'actions:offsite_conversion.fb_pixel_purchase'
-        df_meta_pure['Ad_Orders'] = 0
-        df_meta_pure.loc[p_mask_pure, 'Ad_Orders'] = pd.to_numeric(df_meta_pure.loc[p_mask_pure, 'Results'], errors='coerce').fillna(0)
-
-        # SHEET 17: PURE ADS DAY-WISE
-        df_ads_day = df_meta_pure.groupby('Date_Str').agg({
-            'Ad_Spend_INR': 'sum',
-            'Ad_Orders': 'sum',
-            'Impressions': 'sum',
-            'Reach': 'sum'
+    # Google Daily
+    df_g_daily = pd.DataFrame(columns=['Date', 'Google_Ad_Spend_INR', 'Google_Impressions', 'Google_Clicks', 'Google_Orders', 'Google_Conv_Value_INR'])
+    if not df_g_raw.empty:
+        df_g_raw['Date'] = pd.to_datetime(df_g_raw['Day'], errors='coerce').dt.strftime('%Y-%m-%d')
+        df_g_daily = df_g_raw.groupby('Date').agg({
+            'Cost': 'sum',
+            'Impr.': 'sum',
+            'Clicks': 'sum',
+            'Conversions': 'sum',
+            'Conv. value': 'sum'
         }).reset_index().rename(columns={
-            'Date_Str': 'Date',
-            'Ad_Orders': 'Ads_Driven_Orders',
-            'Reach': 'Ads_Unique_Customers_Reached',
-            'Impressions': 'Ads_Impressions'
+            'Cost': 'Google_Ad_Spend_INR',
+            'Impr.': 'Google_Impressions',
+            'Clicks': 'Google_Clicks',
+            'Conversions': 'Google_Orders',
+            'Conv. value': 'Google_Conv_Value_INR'
         })
-        df_ads_day['Ads_CPA_INR'] = np.where(df_ads_day['Ads_Driven_Orders'] > 0, df_ads_day['Ad_Spend_INR'] / df_ads_day['Ads_Driven_Orders'], 0)
-        df_ads_day['Ads_Orders_Per_Day'] = df_ads_day['Ads_Driven_Orders']
-        df_ads_day = df_ads_day.sort_values(by='Date', ascending=True)
 
-        ws17 = wb.create_sheet("17_Meta_Ads_Day_Acquisition")
-        write_df_clean(ws17, df_ads_day)
+    # Merge Daily Ads
+    df_ads_daily_channel = pd.merge(df_m_daily, df_g_daily, on='Date', how='outer').fillna(0)
+    df_ads_daily_channel = df_ads_daily_channel.sort_values(by='Date', ascending=True)
+    
+    df_ads_daily_channel['Total_Ad_Spend_INR'] = df_ads_daily_channel['Meta_Ad_Spend_INR'] + df_ads_daily_channel['Google_Ad_Spend_INR']
+    df_ads_daily_channel['Total_Ad_Orders'] = df_ads_daily_channel['Meta_Orders'] + df_ads_daily_channel['Google_Orders']
+    df_ads_daily_channel['Total_Ad_Impressions'] = df_ads_daily_channel['Meta_Impressions'] + df_ads_daily_channel['Google_Impressions']
 
-        # SHEET 18: PURE ADS WEEK-WISE
-        df_ads_day['Date_Obj'] = pd.to_datetime(df_ads_day['Date'])
-        df_ads_day['Year_Week'] = df_ads_day['Date_Obj'].dt.strftime('%Y-W%V')
+    ws13_ads = wb.create_sheet("13_Daily_Meta_Ads_Spend")
+    write_df_clean(ws13_ads, df_ads_daily_channel)
 
-        df_ads_week = df_ads_day.groupby('Year_Week').agg({
-            'Date': ['min', 'max', 'count'],
-            'Ad_Spend_INR': 'sum',
-            'Ads_Driven_Orders': 'sum',
-            'Ads_Unique_Customers_Reached': 'sum',
-            'Ads_Impressions': 'sum'
-        }).reset_index()
+    # SHEET 17: DAY-WISE PURE ADS ACQUISITION
+    df_acq_day_pure = df_ads_daily_channel.copy()
+    df_acq_day_pure['Meta_CPA_INR'] = np.where(df_acq_day_pure['Meta_Orders'] > 0, df_acq_day_pure['Meta_Ad_Spend_INR'] / df_acq_day_pure['Meta_Orders'], 0)
+    df_acq_day_pure['Google_CPA_INR'] = np.where(df_acq_day_pure['Google_Orders'] > 0, df_acq_day_pure['Google_Ad_Spend_INR'] / df_acq_day_pure['Google_Orders'], 0)
+    df_acq_day_pure['Combined_CPA_INR'] = np.where(df_acq_day_pure['Total_Ad_Orders'] > 0, df_acq_day_pure['Total_Ad_Spend_INR'] / df_acq_day_pure['Total_Ad_Orders'], 0)
+    df_acq_day_pure['Combined_Orders_Per_Day'] = df_acq_day_pure['Total_Ad_Orders']
 
-        df_ads_week.columns = ['Year_Week', 'Week_Start_Date', 'Week_End_Date', 'Active_Days_In_Week', 'Weekly_Ad_Spend_INR', 'Weekly_Ads_Driven_Orders', 'Weekly_Ads_Unique_Customers_Reached', 'Weekly_Ads_Impressions']
-        df_ads_week['Weekly_Ads_CPA_INR'] = np.where(df_ads_week['Weekly_Ads_Driven_Orders'] > 0, df_ads_week['Weekly_Ad_Spend_INR'] / df_ads_week['Weekly_Ads_Driven_Orders'], 0)
-        df_ads_week['Weekly_Ads_Orders_Per_Day'] = df_ads_week['Weekly_Ads_Driven_Orders'] / df_ads_week['Active_Days_In_Week']
-        df_ads_week = df_ads_week.sort_values(by='Year_Week', ascending=True)
+    ws17_pure = wb.create_sheet("17_Meta_Ads_Day_Acquisition")
+    write_df_clean(ws17_pure, df_acq_day_pure)
 
-        ws18 = wb.create_sheet("18_Meta_Ads_Week_Acquisition")
-        write_df_clean(ws18, df_ads_week)
+    # SHEET 18: WEEK-WISE PURE ADS ACQUISITION
+    df_acq_day_pure['Date_Obj'] = pd.to_datetime(df_acq_day_pure['Date'])
+    df_acq_day_pure['Year_Week'] = df_acq_day_pure['Date_Obj'].dt.strftime('%Y-W%V')
 
-        # SHEET 19: PURE ADS MONTH-WISE
-        df_ads_day['Year_Month'] = df_ads_day['Date_Obj'].dt.strftime('%Y-%m')
+    df_acq_week_pure = df_acq_day_pure.groupby('Year_Week').agg({
+        'Date': ['min', 'max', 'count'],
+        'Meta_Ad_Spend_INR': 'sum',
+        'Google_Ad_Spend_INR': 'sum',
+        'Total_Ad_Spend_INR': 'sum',
+        'Meta_Orders': 'sum',
+        'Google_Orders': 'sum',
+        'Total_Ad_Orders': 'sum',
+        'Meta_Reach': 'sum',
+        'Google_Clicks': 'sum'
+    }).reset_index()
 
-        df_ads_month = df_ads_day.groupby('Year_Month').agg({
-            'Date': 'count',
-            'Ad_Spend_INR': 'sum',
-            'Ads_Driven_Orders': 'sum',
-            'Ads_Unique_Customers_Reached': 'sum',
-            'Ads_Impressions': 'sum'
-        }).reset_index()
+    df_acq_week_pure.columns = ['Year_Week', 'Week_Start_Date', 'Week_End_Date', 'Active_Days_In_Week', 'Meta_Ad_Spend_INR', 'Google_Ad_Spend_INR', 'Weekly_Total_Ad_Spend_INR', 'Meta_Orders', 'Google_Orders', 'Weekly_Total_Ad_Orders', 'Weekly_Meta_Reach', 'Weekly_Google_Clicks']
+    df_acq_week_pure['Weekly_Combined_CPA_INR'] = np.where(df_acq_week_pure['Weekly_Total_Ad_Orders'] > 0, df_acq_week_pure['Weekly_Total_Ad_Spend_INR'] / df_acq_week_pure['Weekly_Total_Ad_Orders'], 0)
+    df_acq_week_pure['Weekly_Combined_Orders_Per_Day'] = df_acq_week_pure['Weekly_Total_Ad_Orders'] / df_acq_week_pure['Active_Days_In_Week']
+    df_acq_week_pure = df_acq_week_pure.sort_values(by='Year_Week', ascending=True)
 
-        df_ads_month.columns = ['Year_Month', 'Active_Days_In_Month', 'Monthly_Ad_Spend_INR', 'Monthly_Ads_Driven_Orders', 'Monthly_Ads_Unique_Customers_Reached', 'Monthly_Ads_Impressions']
-        df_ads_month['Monthly_Ads_CPA_INR'] = np.where(df_ads_month['Monthly_Ads_Driven_Orders'] > 0, df_ads_month['Monthly_Ad_Spend_INR'] / df_ads_month['Monthly_Ads_Driven_Orders'], 0)
-        df_ads_month['Monthly_Ads_Orders_Per_Day'] = df_ads_month['Monthly_Ads_Driven_Orders'] / df_ads_month['Active_Days_In_Month']
-        df_ads_month = df_ads_month.sort_values(by='Year_Month', ascending=True)
+    ws18_pure = wb.create_sheet("18_Meta_Ads_Week_Acquisition")
+    write_df_clean(ws18_pure, df_acq_week_pure)
 
-        ws19 = wb.create_sheet("19_Meta_Ads_Month_Acquisition")
-        write_df_clean(ws19, df_ads_month)
+    # SHEET 19: MONTH-WISE PURE ADS ACQUISITION
+    df_acq_day_pure['Year_Month'] = df_acq_day_pure['Date_Obj'].dt.strftime('%Y-%m')
+
+    df_acq_month_pure = df_acq_day_pure.groupby('Year_Month').agg({
+        'Date': 'count',
+        'Meta_Ad_Spend_INR': 'sum',
+        'Google_Ad_Spend_INR': 'sum',
+        'Total_Ad_Spend_INR': 'sum',
+        'Meta_Orders': 'sum',
+        'Google_Orders': 'sum',
+        'Total_Ad_Orders': 'sum',
+        'Meta_Reach': 'sum',
+        'Google_Clicks': 'sum'
+    }).reset_index()
+
+    df_acq_month_pure.columns = ['Year_Month', 'Active_Days_In_Month', 'Meta_Ad_Spend_INR', 'Google_Ad_Spend_INR', 'Monthly_Total_Ad_Spend_INR', 'Meta_Orders', 'Google_Orders', 'Monthly_Total_Ad_Orders', 'Monthly_Meta_Reach', 'Monthly_Google_Clicks']
+    df_acq_month_pure['Monthly_Combined_CPA_INR'] = np.where(df_acq_month_pure['Monthly_Total_Ad_Orders'] > 0, df_acq_month_pure['Monthly_Total_Ad_Spend_INR'] / df_acq_month_pure['Monthly_Total_Ad_Orders'], 0)
+    df_acq_month_pure['Monthly_Combined_Orders_Per_Day'] = df_acq_month_pure['Monthly_Total_Ad_Orders'] / df_acq_month_pure['Active_Days_In_Month']
+    df_acq_month_pure = df_acq_month_pure.sort_values(by='Year_Month', ascending=True)
+
+    ws19_pure = wb.create_sheet("19_Meta_Ads_Month_Acquisition")
+    write_df_clean(ws19_pure, df_acq_month_pure)
+
+    # SHEET 20: GOOGLE ADS PERFORMANCE DETAILS
+    if not df_g_raw.empty:
+        ws20_g = wb.create_sheet("20_Google_Ads_Performance")
+        write_df_clean(ws20_g, df_g_raw)
 
     wb.save(output_path)
-    print(f"Successfully generated clean 4see Magic Dashboard Master Excel with Pure Meta Ads Acquisition Analytics: {output_path}")
+    print(f"Successfully generated clean 4see Magic Dashboard Master Excel with Omnichannel Ads (Meta + Google): {output_path}")
 
 if __name__ == "__main__":
     generate_4see_magic_excel()
