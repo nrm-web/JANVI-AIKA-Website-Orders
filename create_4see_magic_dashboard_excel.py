@@ -564,8 +564,15 @@ def generate_4see_magic_excel():
         ws20_g = wb.create_sheet("20_Google_Ads_Performance")
         write_df_clean(ws20_g, df_g_raw)
 
-    wb.save(output_path)
-    print(f"Successfully generated clean 4see Magic Dashboard Master Excel with Omnichannel Ads (Meta + Google): {output_path}")
+    try:
+        wb.save(output_path)
+        print(f"Successfully generated clean 4see Magic Dashboard Master Excel with Omnichannel Ads (Meta + Google): {output_path}")
+    except Exception as e:
+        print(f"Primary file locked ({e}), saving to Janvi_4see_Magic_Dashboard_Master_v2.xlsx")
+    
+    v2_path = "Janvi_4see_Magic_Dashboard_Master_v2.xlsx"
+    wb.save(v2_path)
+    print(f"Successfully saved clean v2 file: {v2_path}")
 
 if __name__ == "__main__":
     generate_4see_magic_excel()
