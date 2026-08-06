@@ -14,7 +14,7 @@ if %ERRORLEVEL% EQU 0 (
 )
 echo.
 echo Syncing updates to GitHub for Vercel web app...
-git add data.js Janvi_Consolidated_Orders_2026_2027.xlsx Janvi_4see_Magic_Dashboard_Master.xlsx
+git add data.js Janvi_Consolidated_Orders_2026_2027.xlsx Janvi_4see_Magic_Dashboard_Master.xlsx Janvi_4see_Magic_Dashboard_Master_Clean.xlsx
 git commit -m "Auto-update consolidated order data and 4see Magic Dashboard Master file"
 if %ERRORLEVEL% EQU 0 (
     echo Pushing latest dataset to Vercel...
@@ -25,7 +25,7 @@ if %ERRORLEVEL% EQU 0 (
 echo.
 echo ===================================================
 echo   Update completed successfully!
-echo   Excel file generated: Janvi_4see_Magic_Dashboard_Master.xlsx
+echo   Excel file generated: Janvi_4see_Magic_Dashboard_Master_Clean.xlsx
 echo ===================================================
 echo.
 pause
