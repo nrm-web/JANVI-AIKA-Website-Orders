@@ -176,12 +176,12 @@ def generate_4see_magic_excel():
     prepaid_total_df = df_master[df_master['Prepaid (Yes/No)'] == 'Yes']
     
     df_pay_kpi = pd.DataFrame([
-        {"KPI_ID": "PAY-00", "Metric_Title": f"Total Prepaid Orders (121 online prepaid orders)", "Primary_Value": len(prepaid_total_df), "Payment_Type": "Prepaid", "Subtext": f"121 total prepaid orders (₹{prepaid_total_df['Total Price'].sum():,.2f})", "Theme_Color": "Green"},
-        {"KPI_ID": "PAY-01", "Metric_Title": "Full COD Orders", "Primary_Value": f"{len(full_cod_total)} (Pre-July 24 100% Cash on Delivery)", "Numeric_Value": len(full_cod_total), "Payment_Type": "Full COD", "Subtext": f"52 full COD orders (₹{full_cod_total['Total Price'].sum():,.2f})", "Theme_Color": "Orange"},
-        {"KPI_ID": "PAY-02", "Metric_Title": "Partial COD Orders", "Primary_Value": f"{len(partial_cod_total)} (July 24+ Razorpay Advance Paid)", "Numeric_Value": len(partial_cod_total), "Payment_Type": "Partial COD", "Subtext": f"23 Razorpay Partial COD orders (₹{partial_cod_total['Total Price'].sum():,.2f})", "Theme_Color": "Orange"},
-        {"KPI_ID": "PAY-03", "Metric_Title": "COD Net Revenue", "Primary_Value": f"₹{cod_net_revenue:,.2f} (From {cod_delivered_count} delivered COD orders)", "Numeric_Value": cod_net_revenue, "Payment_Type": "COD", "Subtext": f"From {cod_delivered_count} delivered COD orders", "Theme_Color": "Orange"},
-        {"KPI_ID": "PAY-04", "Metric_Title": "Prepaid Net Revenue", "Primary_Value": f"₹{prepaid_net_revenue:,.2f} (From {prepaid_delivered_count} delivered Prepaid orders)", "Numeric_Value": prepaid_net_revenue, "Payment_Type": "Prepaid", "Subtext": f"From {prepaid_delivered_count} delivered Prepaid orders", "Theme_Color": "Green"},
-        {"KPI_ID": "PAY-05", "Metric_Title": "Avg Prepaid Order Value", "Primary_Value": f"₹{prepaid_aov:,.2f} (Prepaid net / {prepaid_delivered_count} successful)", "Numeric_Value": prepaid_aov, "Payment_Type": "Prepaid", "Subtext": f"Prepaid net revenue / {prepaid_delivered_count} successful", "Theme_Color": "Green"}
+        {"KPI_ID": "PAY-00", "Metric_Title": "Total Prepaid Orders", "Primary_Value": len(prepaid_total_df), "Numeric_Value": len(prepaid_total_df), "Payment_Type": "Prepaid", "Subtext": f"121 total prepaid orders (₹{prepaid_total_df['Total Price'].sum():,.2f})", "Theme_Color": "Green"},
+        {"KPI_ID": "PAY-01", "Metric_Title": "Full COD Orders", "Primary_Value": len(full_cod_total), "Numeric_Value": len(full_cod_total), "Payment_Type": "Full COD", "Subtext": f"52 full COD orders (₹{full_cod_total['Total Price'].sum():,.2f})", "Theme_Color": "Orange"},
+        {"KPI_ID": "PAY-02", "Metric_Title": "Partial COD Orders", "Primary_Value": len(partial_cod_total), "Numeric_Value": len(partial_cod_total), "Payment_Type": "Partial COD", "Subtext": f"24 Razorpay Partial COD orders (₹{partial_cod_total['Total Price'].sum():,.2f})", "Theme_Color": "Orange"},
+        {"KPI_ID": "PAY-03", "Metric_Title": "COD Net Revenue", "Primary_Value": cod_net_revenue, "Numeric_Value": cod_net_revenue, "Payment_Type": "COD", "Subtext": f"From {cod_delivered_count} delivered COD orders", "Theme_Color": "Orange"},
+        {"KPI_ID": "PAY-04", "Metric_Title": "Prepaid Net Revenue", "Primary_Value": prepaid_net_revenue, "Numeric_Value": prepaid_net_revenue, "Payment_Type": "Prepaid", "Subtext": f"From {prepaid_delivered_count} delivered Prepaid orders", "Theme_Color": "Green"},
+        {"KPI_ID": "PAY-05", "Metric_Title": "Avg Prepaid Order Value", "Primary_Value": prepaid_aov, "Numeric_Value": prepaid_aov, "Payment_Type": "Prepaid", "Subtext": f"Prepaid net revenue / {prepaid_delivered_count} successful", "Theme_Color": "Green"}
     ])
     ws2 = wb.create_sheet("02_Payment_KPIs")
     write_df_clean(ws2, df_pay_kpi)
