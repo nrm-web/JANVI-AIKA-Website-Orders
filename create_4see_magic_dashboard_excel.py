@@ -114,14 +114,16 @@ def generate_4see_magic_excel():
                 
                 # Format numbers / currency / percentage
                 col_name_str = df_data.columns[col_idx-1]
+                row_metric = str(r.get('Metric_Title', '') or r.get('Card_Title', '') or r.get('Lifecycle_Stage', ''))
+                
                 if isinstance(val, (int, float)):
                     if any(kw in col_name_str for kw in ["Rate", "Pct", "Share"]):
                         cell.number_format = '0.00%'
                         cell.alignment = Alignment(horizontal="right", vertical="center")
-                    elif any(kw in col_name_str for kw in ["Count", "Orders", "Volume", "Units"]) or (isinstance(val, int) and val < 1000 and not any(kw in col_name_str for kw in ["Price", "Revenue", "Amount", "AOV", "Spend", "CPA"])):
+                    elif any(kw in row_metric for kw in ["Orders", "Count", "Volume", "Units"]) or any(kw in col_name_str for kw in ["Count", "Orders", "Volume", "Units"]):
                         cell.number_format = '#,##0'
                         cell.alignment = Alignment(horizontal="center", vertical="center")
-                    elif any(kw in col_name_str for kw in ["Price", "Revenue", "Amount", "Value", "AOV", "Spend", "CPA"]):
+                    elif any(kw in col_name_str for kw in ["Price", "Revenue", "Amount", "AOV", "Spend", "CPA"]) or any(kw in row_metric for kw in ["Revenue", "Price", "Amount", "AOV", "Spend", "CPA"]):
                         cell.number_format = '₹#,##0.00'
                         cell.alignment = Alignment(horizontal="right", vertical="center")
                     else:
