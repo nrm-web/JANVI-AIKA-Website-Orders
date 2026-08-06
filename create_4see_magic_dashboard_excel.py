@@ -224,10 +224,10 @@ def generate_4see_magic_excel():
         cnt = len(cat_df)
         share = rev / total_revenue if total_revenue > 0 else 0.0
         
-        deliv = len(cat_df[cat_df['Fulfillment Status'].astype(str).str.upper().str.strip().isin(["DELIVERED", "SELF FULFILED", "FULFILLED"])])
-        trans = len(cat_df[cat_df['Fulfillment Status'].astype(str).str.upper().str.contains("TRANSIT|SHIPPED", na=False)])
-        unful = len(cat_df[cat_df['Fulfillment Status'].astype(str).str.upper().str.contains("NEW ORDER|UNFULFILLED", na=False)])
-        deni = len(cat_df[(cat_df['COD Denies (Yes/No)'] == "Yes") | (cat_df['Fulfillment Status'].astype(str).str.upper().str.contains("DENIED|RTO", na=False))])
+        deliv = len(cat_df[cat_df['Fulfillment Status'].astype(str).str.upper().str.strip().isin(["DELIVERED", "SELF FULFILED", "FULFILLED"]) & (cat_df['Returned (True/False)'] == False) & (cat_df['COD Denies (Yes/No)'] == "No") & (~cat_df['Fulfillment Status'].astype(str).str.upper().str.contains("CANCELED|CANCELLED", na=False))])
+        trans = len(cat_df[cat_df['Fulfillment Status'].astype(str).str.upper().str.contains("TRANSIT|SHIPPED|HUB|OUT FOR DELIVERY|UNDELIVERED", na=False) & (~cat_df['Fulfillment Status'].astype(str).str.upper().str.contains("CANCELED|CANCELLED|RTO|DENIED|REACHED BACK", na=False)) & (cat_df['COD Denies (Yes/No)'] == "No") & (cat_df['Returned (True/False)'] == False)])
+        unful = len(cat_df[cat_df['Fulfillment Status'].astype(str).str.upper().str.contains("NEW ORDER|UNFULFILLED", na=False) & (~cat_df['Fulfillment Status'].astype(str).str.upper().str.contains("CANCELED|CANCELLED", na=False))])
+        deni = len(cat_df[((cat_df['COD Denies (Yes/No)'] == "Yes") | (cat_df['Fulfillment Status'].astype(str).str.upper().str.contains("DENIED|RTO|REACHED BACK", na=False))) & (~cat_df['Fulfillment Status'].astype(str).str.upper().str.contains("CANCELED|CANCELLED", na=False))])
         retu = len(cat_df[cat_df['Returned (True/False)'] == True])
         canc = len(cat_df[cat_df['Fulfillment Status'].astype(str).str.upper().str.contains("CANCELED|CANCELLED", na=False)])
         
