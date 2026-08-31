@@ -71,7 +71,7 @@ def sync_sheets():
     print("Reading local Excel workbook (extracting values, merges, and layout)...")
     wb = openpyxl.load_workbook(file_name, data_only=False)
     
-    payload = {"sheets": {}}
+    payload = {"sheets": {}, "deleteSheets": ["Category Summary"]}
     
     for sheet_name in wb.sheetnames:
         sheet = wb[sheet_name]
