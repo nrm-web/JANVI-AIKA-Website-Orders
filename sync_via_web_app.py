@@ -71,7 +71,17 @@ def sync_sheets():
     print("Reading local Excel workbook (extracting values, merges, and layout)...")
     wb = openpyxl.load_workbook(file_name, data_only=False)
     
-    payload = {"sheets": {}, "deleteSheets": ["Category Summary"]}
+    payload = {"sheets": {}}
+    
+    # Also overwrite Category Summary tab with blank empty grid to clear all #ERROR! text in Google Sheets
+    payload["sheets"]["Category Summary"] = {
+        "grid": [
+            [{"value": "Note: This tab has been removed.", "bg": "#FFFFFF", "color": "#888888", "bold": False, "align": "left", "num_format": "@", "wrap": False}]
+        ],
+        "merges": [],
+        "widths": {"1": 35},
+        "heights": {"1": 25}
+    }
     
     for sheet_name in wb.sheetnames:
         sheet = wb[sheet_name]
