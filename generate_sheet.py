@@ -404,6 +404,36 @@ def process_and_create_excel():
         })
         
     df_consolidated = pd.DataFrame(consolidated)
+    df_consolidated['order_id_clean'] = df_consolidated['Order No'].astype(str).str.extract(r'(\d+)').fillna(-1).astype(int)
+
+    # ----------------------------------------------------
+    # SECTION 2.5: INCREMENTAL HISTORICAL MASTER MERGE
+    # ----------------------------------------------------
+    hist_file = "historical_master_data.js"
+    if os.path.exists(hist_file):
+        try:
+            with open(hist_file, "r", encoding="utf-8") as hf:
+                h_content = hf.read()
+            h_json_str = h_content.replace("window.DASHBOARD_DATA = ", "").strip().rstrip(";")
+            h_data = json.loads(h_json_str)
+            h_sheet = h_data["sheets"]["Master Sheet"]
+            h_headers = h_sheet[0]
+            h_rows = h_sheet[1:]
+
+            df_hist = pd.DataFrame(h_rows, columns=h_headers)
+            df_hist['order_id_clean'] = df_hist['Order No'].astype(str).str.extract(r'(\d+)').fillna(-1).astype(int)
+            df_hist = df_hist[df_hist['order_id_clean'] != -1]
+
+            # Keep historical orders that are not in the raw incoming CSV
+            existing_ids = set(df_consolidated['order_id_clean'].unique())
+            df_hist_unique = df_hist[~df_hist['order_id_clean'].isin(existing_ids)]
+
+            if len(df_hist_unique) > 0:
+                print(f"Incremental Merge Engine: Preserved {len(df_hist_unique)} historical orders and merged with {len(df_consolidated)} incoming CSV orders.")
+                df_consolidated = pd.concat([df_hist_unique, df_consolidated], ignore_index=True)
+                df_consolidated = df_consolidated.sort_values(by='order_id_clean', ascending=False).reset_index(drop=True)
+        except Exception as e:
+            print(f"Warning: Could not merge historical master data: {e}")
     
     # ----------------------------------------------------
     # SECTION 3: DATE RANGE FILTERING
