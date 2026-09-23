@@ -76,8 +76,21 @@ def process_and_create_excel():
         'Customer Mobile': 'first'
     }).reset_index()
     
-    # Left join to only include orders present in Shopify, importing Shiprocket status only
-    merged = pd.merge(s_grouped, sr_grouped, on='order_id_clean', how='left')
+    # Full Outer join to include all orders present in either Shopify or Shiprocket
+    merged = pd.merge(s_grouped, sr_grouped, on='order_id_clean', how='outer')
+    
+    # Fill missing Shopify fields from Shiprocket fields if order is present in Shiprocket only
+    merged['Name'] = merged['Name'].fillna('#' + merged['order_id_clean'].astype(str))
+    merged['Created at'] = merged['Created at'].fillna(merged['Channel Created At'])
+    merged['Total'] = merged['Total'].fillna(merged['Order Total'])
+    merged['Payment Method'] = merged['Payment Method_x'].fillna(merged['Payment Method_y']).fillna('Prepaid')
+    merged['Financial Status'] = merged['Financial Status'].fillna('paid')
+    merged['Fulfillment Status'] = merged['Fulfillment Status'].fillna(merged['Status'])
+    merged['Shipping City'] = merged['Shipping City'].fillna(merged['Address City']).fillna('Unknown')
+    merged['Shipping Zip'] = merged['Shipping Zip'].fillna(merged['Address Pincode']).fillna('')
+    merged['Billing Name'] = merged['Billing Name'].fillna(merged['Customer Name']).fillna('Customer')
+    merged['Lineitem name'] = merged['Lineitem name'].fillna(merged['Product Name']).fillna('Garment Item')
+    merged['Lineitem sku'] = merged['Lineitem sku'].fillna('-')
     print(f"Total unique consolidated orders: {len(merged)}")
     
     # ----------------------------------------------------
