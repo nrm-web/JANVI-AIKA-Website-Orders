@@ -31,9 +31,10 @@ def process_and_create_excel():
     s['order_id_clean'] = s['Name'].astype(str).str.extract(r'(\d+)').astype(float).fillna(-1).astype(int)
     sr['order_id_clean'] = sr['Order ID'].astype(str).str.extract(r'(\d+)').astype(float).fillna(-1).astype(int)
     
-    # Filter out orders that failed ID extraction
-    s = s[s['order_id_clean'] != -1]
-    sr = sr[sr['order_id_clean'] != -1]
+    # Filter out orders that failed ID extraction & test draft orders (#1585, #1584, #1428)
+    test_orders = ['#1585', '#1584', '#1428']
+    s = s[(s['order_id_clean'] != -1) & (~s['Name'].astype(str).str.strip().isin(test_orders))]
+    sr = sr[(sr['order_id_clean'] != -1) & (~sr['Order ID'].astype(str).str.strip().isin(test_orders))]
     
     print(f"Shopify unique orders: {s['order_id_clean'].nunique()}")
     print(f"Shiprocket unique orders: {sr['order_id_clean'].nunique()}")
@@ -417,6 +418,7 @@ def process_and_create_excel():
         })
         
     df_consolidated = pd.DataFrame(consolidated)
+    df_consolidated = df_consolidated[~df_consolidated['Order No'].astype(str).str.strip().isin(['#1585', '#1584', '#1428'])]
     df_consolidated['order_id_clean'] = df_consolidated['Order No'].astype(str).str.extract(r'(\d+)').fillna(-1).astype(int)
 
     # ----------------------------------------------------
@@ -435,7 +437,7 @@ def process_and_create_excel():
 
             df_hist = pd.DataFrame(h_rows, columns=h_headers)
             df_hist['order_id_clean'] = df_hist['Order No'].astype(str).str.extract(r'(\d+)').fillna(-1).astype(int)
-            df_hist = df_hist[df_hist['order_id_clean'] != -1]
+            df_hist = df_hist[(df_hist['order_id_clean'] != -1) & (~df_hist['Order No'].astype(str).str.strip().isin(test_orders))]
 
             # Keep historical orders that are not in the raw incoming CSV
             existing_ids = set(df_consolidated['order_id_clean'].unique())
