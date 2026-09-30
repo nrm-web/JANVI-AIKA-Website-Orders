@@ -822,7 +822,7 @@ def process_and_create_excel():
     
     # Successful Orders (108 delivered orders)
     successful_mask = (df_consolidated["Fulfillment Status"].str.upper().str.strip().isin(["DELIVERED", "SELF FULFILED"])) | (df_consolidated["Fulfillment Status"].str.upper().str.strip() == "FULFILLED")
-    successful_mask = successful_mask & (~df_consolidated["Returned (True/False)"] == True) & (~denied_mask) & (~df_consolidated["Fulfillment Status"].str.upper().str.contains("CANCELED|CANCELLED", na=False))
+    successful_mask = successful_mask & (df_consolidated["Returned (True/False)"].astype(str).str.upper() != "TRUE") & (~denied_mask) & (~df_consolidated["Fulfillment Status"].str.upper().str.contains("CANCELED|CANCELLED", na=False))
     successful_df = df_consolidated[successful_mask]
     successful_count = len(successful_df)
     aov = (net_revenue_val / successful_count) if successful_count > 0 else 0
