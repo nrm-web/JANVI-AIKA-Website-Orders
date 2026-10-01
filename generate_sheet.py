@@ -32,7 +32,7 @@ def process_and_create_excel():
     sr['order_id_clean'] = sr['Order ID'].astype(str).str.extract(r'(\d+)').astype(float).fillna(-1).astype(int)
     
     # Filter out orders that failed ID extraction & test draft orders (#1585, #1584, #1428)
-    test_orders = ['#1585', '#1584', '#1428']
+    test_orders = ['#1585', '#1584', '#1428', '#1683']
     s = s[(s['order_id_clean'] != -1) & (~s['Name'].astype(str).str.strip().isin(test_orders))]
     sr = sr[(sr['order_id_clean'] != -1) & (~sr['Order ID'].astype(str).str.strip().isin(test_orders))]
     
@@ -418,7 +418,7 @@ def process_and_create_excel():
         })
         
     df_consolidated = pd.DataFrame(consolidated)
-    df_consolidated = df_consolidated[~df_consolidated['Order No'].astype(str).str.strip().isin(['#1585', '#1584', '#1428'])]
+    df_consolidated = df_consolidated[~df_consolidated['Order No'].astype(str).str.strip().isin(['#1585', '#1584', '#1428', '#1683'])]
     df_consolidated['order_id_clean'] = df_consolidated['Order No'].astype(str).str.extract(r'(\d+)').fillna(-1).astype(int)
 
     # ----------------------------------------------------
