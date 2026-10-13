@@ -1,220 +1,4 @@
 Name,Email,Financial Status,Paid at,Fulfillment Status,Fulfilled at,Accepts Marketing,Currency,Subtotal,Shipping,Taxes,Total,Discount Code,Discount Amount,Shipping Method,Created at,Lineitem quantity,Lineitem name,Lineitem price,Lineitem compare at price,Lineitem sku,Lineitem requires shipping,Lineitem taxable,Lineitem fulfillment status,Billing Name,Billing Street,Billing Address1,Billing Address2,Billing Company,Billing City,Billing Zip,Billing Province,Billing Country,Billing Phone,Shipping Name,Shipping Street,Shipping Address1,Shipping Address2,Shipping Company,Shipping City,Shipping Zip,Shipping Province,Shipping Country,Shipping Phone,Notes,Note Attributes,Cancelled at,Payment Method,Payment Reference,Refunded Amount,Vendor,Outstanding Balance,Employee,Location,Device ID,Id,Tags,Risk Level,Source,Lineitem discount,Tax 1 Name,Tax 1 Value,Tax 2 Name,Tax 2 Value,Tax 3 Name,Tax 3 Value,Tax 4 Name,Tax 4 Value,Tax 5 Name,Tax 5 Value,Phone,Receipt Number,Duties,Billing Province Name,Shipping Province Name,Payment ID,Payment Terms Name,Next Payment Due At,Payment References
-#1586,,partially_paid,2026-09-18 09:51:46 +0530,fulfilled,2026-09-18 16:35:54 +0530,no,INR,1450.00,0.00,221.19,1450.00,"",0.00,FREE SHIPPING,2026-09-18 09:51:45 +0530,1,Petal Poise - M,1450.00,,CORD-PP-DP-M,true,true,fulfilled,Pratik patel,"Happiness corner, Davad chokdi davad",Happiness corner,Davad chokdi davad,,Sabarkantha,'383225,GJ,IN,+919974285206,Pratik patel,"Happiness corner, Davad chokdi davad",Happiness corner,Davad chokdi davad,,Sabarkantha,'383225,GJ,IN,+919974285206,,"Paid via: Razorpay Magic Checkout
-razorpay_order_id: order_TdMjG46z2QPqCb
-Device_details_IP: 35.154.143.15
-cart_token: hWNGxdM4Rp0w5aZhF9aA4ZVs?key=58dce23cab0faa6c51e089db23ee2cc2
-payment_method: upi
-_wht_user_attributes: {""wht_session_id"":""r3Mxoezhxfnxuufgii-KU"",""wht_user_id"":""oyqE0m_me8EKCjhhBIzDj""}
-rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
-rzp_3p_utm_ts: 1789705188871
-rzp_device_id: 1.df56d31a180f742c0ef0e4e0f99af21499d6e589.1789705188870.01368667
-rzp_pixel_id: TdMihpBuoCXvbV
-utm_source: facebook
-utm_medium: paid_social
-utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
-utm_content: Facebook_UA
-utm_term: 120249247882780298
-fbclid: PAaWdyZAUZmzFwZG9mAmV4dG4DYWVtATAAYWRpZAGrNhU2Fe7ac3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGnw4rmEcAp2FIxwwjrghh2qxsmxMcVDx6kxeu1bIXFL4b2Z5zORySwZrx5Wd4_aem_k-A_XkBt6VP-ezy-t9bjxg
-razorpay_payment_id: pay_TdMk4eACYtfAoe, pay_TdMkjEMrNI0sbZ",,Razorpay,#1586.1,0.00,Janvi Aika,1251.00,,,,16925145727347,"Magic, razorpay_partial_cod, RTO Delivered via Shiprocket, RTO Initiated via Shiprocket, upi",Low,399890841601,0.00,IGST 18%,221.19,,,,,,,,,+919974285206,,,Gujarat,Gujarat,#1586.1,,,#1586.1
-#1587,patel.binta.09@gmail.com,paid,2026-09-18 10:54:33 +0530,fulfilled,2026-09-18 16:38:14 +0530,no,INR,1690.00,0.00,257.80,1690.00,Flat 300,300.00,FREE SHIPPING,2026-09-18 10:54:32 +0530,1,Orchid Bay - S,1990.00,,C-OB-LGC-S,true,true,fulfilled,Binta Patel,"B/52, Navjeen society, Near VD township dahej bypass road Nandelav Bharuch, Bharuch 392015","B/52, Navjeen society, Near VD township dahej bypass road Nandelav Bharuch",Bharuch 392015,,Surat,'395005,GJ,IN,+919727315777,Binta Patel,"B/52, Navjeen society, Near VD township dahej bypass road Nandelav Bharuch, Bharuch 392015","B/52, Navjeen society, Near VD township dahej bypass road Nandelav Bharuch",Bharuch 392015,,Surat,'395005,GJ,IN,+919727315777,,"Paid via: Razorpay Magic Checkout
-razorpay_order_id: order_TdNl8tyRS8zMVV
-Device_details_IP: 35.154.22.73
-cart_token: hWNGwKBHgADBRcXqMgoCFsm4?key=d7dbd9825a8044daeb99e443a9d68205
-payment_method: upi
-_wht_user_attributes: {""wht_session_id"":""rWnBSlKwU01gjdqdAyMA0"",""wht_user_id"":""BEx8bC-SH3VPKpyblhmso""}
-rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
-rzp_3p_utm_ts: 1789708813476
-rzp_device_id: 1.c85e3be78114488494bab7c9f261debe603db7a2.1789657123386.78848327
-rzp_pixel_id: TdNkWFQinIWxb1
-utm_source: facebook
-utm_medium: paid
-utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
-utm_content: Facebook_UA
-utm_term: 120249247882780298
-fbclid: IwcGRvZgVleHRuA2FlbQEwAGFkaWQBqzYVNhXu2nNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHp_shxsFCE3OLD1fgNMPfCIPOZzyzHb5IXXCKETEFMmap23jryRyDKs-7HDr_aem_91udvDQDxUQiTC3nq2AORA
-razorpay_payment_id: pay_TdNoOxZYGlU1zN",,Razorpay,#1587.1,0.00,Janvi Aika,0.00,,,,16925233348979,"Magic, upi",Low,399890841601,0.00,IGST 18%,257.80,,,,,,,,,+919727315777,,,Gujarat,Gujarat,#1587.1,,,#1587.1
-#1588,vmr1603@gmail.com,paid,2026-09-18 12:14:06 +0530,fulfilled,2026-09-19 11:24:26 +0530,no,INR,3480.00,0.00,530.85,3480.00,Flat 300,300.00,FREE SHIPPING,2026-09-18 12:14:05 +0530,1,Rajasi Haldi Bloom Anarkali Dress - L,3780.00,,A-SUM1084-L,true,true,fulfilled,Vidya raut,"602, 6th Floor, Tejal Bhuvan CHSL, NP Thakkar Road, Vile Parle East, Near Rajpuria Baug Hall","602, 6th Floor, Tejal Bhuvan CHSL, NP Thakkar Road, Vile Parle East, Near Rajpuria Baug Hall",,,Mumbai Subueban,'400057,MH,IN,+919820543347,Vidya raut,"602, 6th Floor, Tejal Bhuvan CHSL, NP Thakkar Road, Vile Parle East, Near Rajpuria Baug Hall","602, 6th Floor, Tejal Bhuvan CHSL, NP Thakkar Road, Vile Parle East, Near Rajpuria Baug Hall",,,Mumbai Subueban,'400057,MH,IN,+919820543347,,"Paid via: Razorpay Magic Checkout
-razorpay_order_id: order_TdP8wLGxWbt5yJ
-Device_details_IP: 35.154.22.73
-cart_token: hWNGxchCsLZcuq9ekQLgTUvc?key=2b2a50232b4ed26f9f0c75763224e8db
-payment_method: upi
-_wht_user_attributes: {""wht_session_id"":""DhzFJ_HFbSlRUWoFXdTE1"",""wht_user_id"":""w-1X67aLH1jsKpEvWipR6""}
-rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:add_to_cart_retargeting_ad||utm_id:120248403168660298||utm_term:120248403168670298
-rzp_3p_utm_ts: 1789713678285
-rzp_device_id: 1.dec82d4fbfc2149860511820501a5fa1fb993f45.1789704797635.20450779
-rzp_pixel_id: TdOnDX4znUgLCd
-utm_source: facebook
-utm_medium: paid_social
-utm_campaign: add_to_cart_retargeting_ad
-utm_content: Facebook_UA
-utm_term: 120248403168670298
-fbclid: PAaWdyZAUZt6pwZG9mAmV4dG4DYWVtATAAYWRpZAGrNYE1kmY6c3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGn8t-t_GJs7hm8Fa9cr9b4h5YO4Fz2FHCzXdR0mTs7tdzzkjd6q5zIyUaUS-4_aem_NLTGwZOFG2RR9_5Lalm9hA
-razorpay_payment_id: pay_TdP9waICCO8acm",,Razorpay,#1588.1,0.00,Janvi Aika,0.00,,,,16925366550899,"Magic, upi",Low,399890841601,0.00,IGST 18%,530.85,,,,,,,,,+919820543347,,,Maharashtra,Maharashtra,#1588.1,,,#1588.1
-#1589,pavitra0524@gmail.com,paid,2026-09-18 21:02:44 +0530,fulfilled,2026-09-20 11:36:51 +0530,yes,INR,1690.00,0.00,257.80,1690.00,"",300.00,FREE SHIPPING,2026-09-18 21:02:44 +0530,1,Swarna Raga - M,1990.00,2189.00,C-SR-DY-M,true,true,fulfilled,pavitra N,"#268, krishna nagara, yaraganahalli, Suresh gowda nilaya, opposite chandru stores","#268, krishna nagara, yaraganahalli","Suresh gowda nilaya, opposite chandru stores",,Mysuru,'570023,KA,IN,+918904905253,pavitra N,"#268, krishna nagara, yaraganahalli, Suresh gowda nilaya, opposite chandru stores","#268, krishna nagara, yaraganahalli","Suresh gowda nilaya, opposite chandru stores",,Mysuru,'570023,KA,IN,+918904905253,,"",,"01 Cards, UPI, NB, Wallets by Razorpay",rhGLhVkDzisr6qYHyyUl6shGw,0.00,Janvi Aika,0.00,,,,16925846077811,"",Low,web,0.00,CGST 9%,128.90,SGST 9%,128.90,,,,,,,,,,Karnataka,Karnataka,rhGLhVkDzisr6qYHyyUl6shGw,,,rhGLhVkDzisr6qYHyyUl6shGw
-#1590,rkkambariya@gmail.com,paid,2026-09-19 09:52:46 +0530,fulfilled,2026-09-20 11:57:44 +0530,no,INR,1690.00,0.00,257.80,1690.00,Flat 300,300.00,FREE SHIPPING,2026-09-19 09:52:45 +0530,1,Zariya - XL,1990.00,,CORD-ZA-OL-XL,true,true,fulfilled,Rk Kambariya,"LCB office near paradise fuvara circle, Vadiya road",LCB office near paradise fuvara circle,Vadiya road,,Porbandar,'360575,GJ,IN,+919537268777,Rk Kambariya,"LCB office near paradise fuvara circle, Vadiya road",LCB office near paradise fuvara circle,Vadiya road,,Porbandar,'360575,GJ,IN,+919537268777,,"Paid via: Razorpay Magic Checkout
-razorpay_order_id: order_TdlIIpV3eR4w8l
-Device_details_IP: 35.154.217.40
-cart_token: hWNGpb6Y0Glks1bHhDI5z7fI?key=10e97243d1b5ea165e0a5bc100492a59
-payment_method: upi
-_wht_user_attributes: {""wht_session_id"":""GLgYZ9S6Oh9YGYOzVq7_y"",""wht_user_id"":""zw3YrJUHou1r04XSB-YIx""}
-rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
-rzp_3p_utm_ts: 1789791722434
-rzp_device_id: 1.84850a76b75b6326e6a66c2df8d7fb3e85a6abea.1789410164150.48196325
-rzp_pixel_id: TdlIB7AyKs6x8w
-utm_source: facebook
-utm_medium: paid_social
-utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
-utm_content: Facebook_UA
-utm_term: 120249247882780298
-fbclid: IwcGRvZgVleHRuA2FlbQEwAGFkaWQBqzZPGOo7unNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHm9KZGHvsCQ-SH_Bcj6n5aYlhKWFvFNhQckGuJ5mKC2tHtiRnX9pteqV_VEG_aem_pAgrPRwWt5KR_DvVtqDi4w
-razorpay_payment_id: pay_TdlITlexnNiw4s",,Razorpay,#1590.1,0.00,Janvi Aika,0.00,,,,16926713610611,"Magic, upi",Low,399890841601,0.00,IGST 18%,257.80,,,,,,,,,+919537268777,,,Gujarat,Gujarat,#1590.1,,,#1590.1
-#1591,,paid,2026-09-19 11:14:46 +0530,fulfilled,2026-09-20 15:13:49 +0530,no,INR,2480.00,0.00,378.31,2480.00,Flat 300,300.00,FREE SHIPPING,2026-09-19 11:14:46 +0530,1,Cocoa Elegance Top - XXL,1390.00,,TOP-CE-LCB-XXL,true,true,fulfilled,Jayashree Kenia,"B404, Adelphi CHS, Shastri nagar Road 1, near Lokhandwala circle, Andheri West","B404, Adelphi CHS, Shastri nagar Road 1, near Lokhandwala circle, Andheri West",,,Mumbai,'400053,MH,IN,+919167330979,Jayashree Kenia,"B404, Adelphi CHS, Shastri nagar Road 1, near Lokhandwala circle, Andheri West","B404, Adelphi CHS, Shastri nagar Road 1, near Lokhandwala circle, Andheri West",,,Mumbai,'400053,MH,IN,+919167330979,,"Paid via: Razorpay Magic Checkout
-razorpay_order_id: order_TdmfzbqGzbiWFS
-Device_details_IP: 35.154.143.15
-cart_token: hWNGvmsA4ZOUI98H5sEgUgtQ?key=77412691303bc483db3a6504416ddb22
-payment_method: card
-_wht_user_attributes: {""wht_session_id"":""IEpLJ6uw5eBSGDNzjJhUb"",""wht_user_id"":""RCm33sqI4TkNfyPhMt-9O""}
-rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:add_to_cart_retargeting_ad||utm_id:120248403168660298||utm_term:120248403168670298
-rzp_3p_utm_ts: 1789796326665
-rzp_device_id: 1.bf907a17ff555e56963c5d4e2eebefee715d32ce.1789637401373.30744942
-rzp_pixel_id: TdmbEpxfX6OIji
-utm_source: facebook
-utm_medium: paid_social
-utm_campaign: add_to_cart_retargeting_ad
-utm_content: Facebook_UA
-utm_term: 120248403168670298
-fbclid: PAcGRvZgJmZGlkFlDrp7N_mwrCn_S6qE6H5BezsRjjEsRleHRuA2FlbQEwAGFkaWQBqzVrCsX8enNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpyR_iG6-fLoidszLb1tet5WYiGZBhRW_w3jcYR_aKZcPxF4Nnqd84qX27V8b_aem_viHntPCgdp8Jxk_rCqo6Xg
-razorpay_payment_id: pay_Tdmgy7suneHB4v",,Razorpay,#1591.1,0.00,Janvi Aika,0.00,,,,16926787404147,"card, Magic",Low,399890841601,0.00,IGST 18%,378.31,,,,,,,,,+919167330979,,,Maharashtra,Maharashtra,#1591.1,,,#1591.1
-#1591,,,,,,,,,,,,,,,2026-09-19 11:14:46 +0530,1,Wine Elegance Top - XXL,1390.00,"",TOP-WE-WN-XXL,true,true,fulfilled,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+919167330979,,,,,,,,
-#1592,drsantoshkrps@gmail.com,paid,2026-09-29 22:39:19 +0530,fulfilled,2026-09-20 18:11:32 +0530,no,INR,1940.00,0.00,295.93,1940.00,Flat 300,300.00,FREE SHIPPING,2026-09-19 14:21:12 +0530,1,Ebony Flame Sharara Set - XL,2240.00,,SHA-EF-BWB-XL,true,true,fulfilled,Dr santosh kumar,"purushottam palace apartment, flat no -402, Road number F/1, New Patliputra Colony, Patliputra Colony","purushottam palace apartment, flat no -402","Road number F/1, New Patliputra Colony, Patliputra Colony",,Patna,'800013,BR,IN,+916202642279,Dr santosh kumar,"purushottam palace apartment, flat no -402, Road number F/1, New Patliputra Colony, Patliputra Colony","purushottam palace apartment, flat no -402","Road number F/1, New Patliputra Colony, Patliputra Colony",,Patna,'800013,BR,IN,+916202642279,,"Paid via: Razorpay Magic Checkout
-razorpay_order_id: order_TdprCKNYUkik5j
-Device_details_IP: 35.154.217.40
-cart_token: hWNH00nVyjiZHm3LkKHBooHU?key=916d47d098449d46b09972fdec2a6106
-payment_method: upi
-_wvi: 1
-rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
-rzp_3p_utm_ts: 1789807781755
-rzp_device_id: 1.80a20d6a62bcbe573ff717e6a8ae3d66c4e951d8.1789792492931.46692965
-rzp_pixel_id: TdpebOhZD6axlO
-_wht_user_attributes: {""wht_session_id"":""Nz0XR7K9mL17jdYSC48Fq"",""wht_user_id"":""Cvybn8dwVnCKsHTexO8YO""}
-utm_source: facebook
-utm_medium: paid
-utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
-utm_content: Facebook_UA
-utm_term: 120249247882780298
-fbclid: IwcGRvZgVleHRuA2FlbQEwAGFkaWQBqzZPGUJt2nNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHlqRlQwdLEzgniHLnTGjG1pId5gRD_gt8axFpEMTBEXqBJ2rEdA_ZrmP1Q6y_aem_D_TV0o4nU_-aq3RUPF1s1w
-razorpay_payment_id: pay_TdprcwQz4FkfH6, pay_TdpsU7Rkvuz7PT",,Razorpay + manual,#1592.2,0.00,Janvi Aika,0.00,,,,16926926537075,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,IGST 18%,295.93,,,,,,,,,+916202642279,,,Bihar,Bihar,#1592.1 + #1592.2,,,#1592.1 + #1592.2
-#1593,,paid,2026-09-19 14:50:43 +0530,fulfilled,2026-09-21 14:36:07 +0530,no,INR,3290.00,0.00,501.86,3290.00,Flat 300,300.00,FREE SHIPPING,2026-09-19 14:50:42 +0530,1,Mosaic Meadow - 2XL,3590.00,,C-MM-SC-2XL,true,true,fulfilled,Chirag Patil,"padmanabh swami mandir road tembhode palghar, in front of patahuram general store",padmanabh swami mandir road tembhode palghar,in front of patahuram general store,,palghar,'401404,MH,IN,+918805540248,Chirag Patil,"padmanabh swami mandir road tembhode palghar, in front of patahuram general store",padmanabh swami mandir road tembhode palghar,in front of patahuram general store,,palghar,'401404,MH,IN,+918805540248,,"Paid via: Razorpay Magic Checkout
-razorpay_order_id: order_TdqJoQF1Y6OKkC
-Device_details_IP: 35.154.22.73
-cart_token: hWNH0TMSF2i9HRHlO3T5prM4?key=8fb39aa7e6d39d29c5979c8f56dc8bb6
-payment_method: card
-_wht_user_attributes: {""wht_session_id"":""2a6cDC5Rz3AFUC4rEXWkb"",""wht_user_id"":""0Dv2mVbmff_3lOiXlTtTM""}
-utm_source: facebook
-utm_medium: paid_social
-utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
-utm_content: Facebook_UA
-utm_term: 120249247882780298
-razorpay_payment_id: pay_TdqNAch8CtYqSp",,Razorpay,#1593.1,0.00,Janvi Aika,0.00,,,,16926947737971,"card, Magic",Low,399890841601,0.00,IGST 18%,501.86,,,,,,,,,+918805540248,,,Maharashtra,Maharashtra,#1593.1,,,#1593.1
-#1594,,partially_refunded,2026-09-29 22:39:19 +0530,fulfilled,2026-09-21 14:19:17 +0530,no,INR,3540.00,0.00,540.00,3540.00,Flat 300,300.00,FREE SHIPPING,2026-09-19 15:33:21 +0530,1,Luxey Soft Rose - M,1350.00,,CORD-LSR-LP-M,true,true,fulfilled,Lata bisani,"506, manbhum sumukha, indian airlines colony, patigadda, begumpet, 506 manbhum sumukha , 5 th floor, indian airlines colony, patigadda, begumpet hyderabad 500016","506, manbhum sumukha, indian airlines colony, patigadda, begumpet","506 manbhum sumukha , 5 th floor, indian airlines colony, patigadda, begumpet hyderabad 500016",,Hyderabad,'500016,TS,IN,+918469897700,Lata bisani,"506, manbhum sumukha, indian airlines colony, patigadda, begumpet, 506 manbhum sumukha , 5 th floor, indian airlines colony, patigadda, begumpet hyderabad 500016","506, manbhum sumukha, indian airlines colony, patigadda, begumpet","506 manbhum sumukha , 5 th floor, indian airlines colony, patigadda, begumpet hyderabad 500016",,Hyderabad,'500016,TS,IN,+918469897700,,"Paid via: Razorpay Magic Checkout
-razorpay_order_id: order_Tdr4AzoqgMPdyJ
-Device_details_IP: 35.154.217.40
-cart_token: hWNH07R89kcDgnN0QirnuD8m?key=8ee05b370650d84e7c13f005f97ac1b1
-payment_method: upi
-rzp_device_id: 1.4104d13d518fc1f2fd0979601e4cef2676b9524a.1789796423799.18844864
-rzp_pixel_id: TdqrWlAlDygtd5
-_wht_user_attributes: {""wht_session_id"":""Qe03LWL6ZG8lEipGL2ZCr"",""wht_user_id"":""91G5VbvH-b1bPfPVnqHhj""}
-rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
-rzp_3p_utm_ts: 1789811361167
-utm_source: facebook
-utm_medium: paid_social
-utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
-utm_content: Facebook_UA
-utm_term: 120249247882780298
-fbclid: PAcGRvZgJmZGlkFlDr5mWySilauneBYymlG4kVl0Mb7LxleHRuA2FlbQEwAGFkaWQBqzZPGOo7unNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABp465uJquFB0SxosHNt5WsqlqLmc310hF_WcAjM9-Z3N56vKMIm2rk5YFgOMU_aem_c5985oH_q-0eWl94iGJKfg
-razorpay_payment_id: pay_Tdr5ap9iP8j73U, pay_Tdr6gZeMV115Wu",,Razorpay + manual,#1594.2,2295.47,Janvi Aika,0.00,,,,16926977425779,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,IGST 18%,540.00,,,,,,,,,+918469897700,,,Telangana,Telangana,#1594.1 + #1594.2,,,#1594.1 + #1594.2 + #1594.3 + #1594.4
-#1594,,,,,,,,,,,,,,,2026-09-19 15:33:21 +0530,1,Pastel Paradise - M,2490.00,"",C-PP-HWPK-M,true,true,fulfilled,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+918469897700,,,,,,,,
-#1595,,paid,2026-10-08 22:34:38 +0530,fulfilled,2026-09-21 14:22:20 +0530,no,INR,1190.00,0.00,181.53,1190.00,"",0.00,FREE SHIPPING,2026-09-19 18:12:48 +0530,1,Mystic shine - S,1190.00,,TOP-MS-DC-S,true,true,fulfilled,Dantla balajee,"APEPDCL, CURRENT OFFICE, BODDIPALLI, Narsipatnam","APEPDCL, CURRENT OFFICE, BODDIPALLI",Narsipatnam,,Visakhapatnam,'531116,AP,IN,+919949783969,Dantla balajee,"APEPDCL, CURRENT OFFICE, BODDIPALLI, Narsipatnam","APEPDCL, CURRENT OFFICE, BODDIPALLI",Narsipatnam,,Visakhapatnam,'531116,AP,IN,+919949783969,,"Paid via: Razorpay Magic Checkout
-razorpay_order_id: order_TdtljrRn56DieQ
-Device_details_IP: 35.154.217.40
-cart_token: hWNH0nqssMEpjGjTcA0oGHm0?key=29e05eaf0d7bd3aecc049b6b3c91ba6a
-payment_method: upi
-rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
-rzp_3p_utm_ts: 1789821539756
-rzp_device_id: 1.5eb812ebcedf680f7b31966b3152a7bd292ebeab.1789821539755.65903094
-rzp_pixel_id: Tdtl82gBX61m3y
-utm_source: facebook
-utm_medium: paid_social
-utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
-utm_content: Facebook_UA
-utm_term: 120249247882780298
-fbclid: PAdGRzdgUbYAlpZ3JkBRtf-XBkb2YCZXh0bgNhZW0BMABhZGlkAas2TxjqO7pzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAaez1O7XkCDFVvgvx7mdE4xOYDNseyOKO148Pj6E1nBM_Z2GKQx8xH3N3SBpSQ_aem_AtBpi0LGYN-r809fSnffHQ
-razorpay_payment_id: pay_TdtoVH5dgCE4En, pay_Tdtp79bfr2FGOa",,Razorpay + manual,#1595.2,0.00,Janvi Aika,0.00,,,,16927097749875,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,IGST 18%,181.53,,,,,,,,,+919949783969,,,Andhra Pradesh,Andhra Pradesh,#1595.1 + #1595.2,,,#1595.1 + #1595.2
-#1596,sundaramr20@gmail.com,paid,2026-09-19 19:03:03 +0530,fulfilled,2026-09-20 18:27:43 +0530,no,INR,1590.00,0.00,242.54,1590.00,Flat 300,300.00,Standard Shipping,2026-09-19 19:03:02 +0530,1,Ruby Floral Symphony - XL,1890.00,,C-RF-RWP-XL,true,true,fulfilled,Ramaswamy Sundaram,"K block no 34, 15th Street, Anna Nagar East, Chennai","K block no 34, 15th Street, Anna Nagar East, Chennai",,,Chennai,'600102,TN,IN,+919840174040,Ramaswamy Sundaram,"K block no 34, 15th Street, Anna Nagar East, Chennai","K block no 34, 15th Street, Anna Nagar East, Chennai",,,Chennai,'600102,TN,IN,+919840174040,,"Paid via: Razorpay Magic Checkout
-razorpay_order_id: order_TdueDuBb1VtNOP
-Device_details_IP: 35.154.143.15
-cart_token: hWNGk7hOBUy269VUt012K98G?key=e6ebb2818fc070f0ef9142dde18cc89f
-payment_method: upi
-_wvi: 1
-rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:hot_campaign_ad_for_website_visitors||utm_id:120246975099520298||utm_term:120246975099510298
-rzp_3p_utm_ts: 1789824649887
-rzp_device_id: 1.01918e4357123a3d7384ca1c10a6d5192e6c3a4a.1789209192415.53840699
-rzp_pixel_id: TduRxlVZSKIdaJ
-_wht_user_attributes: {""wht_session_id"":""1t-FeKZm9rUD9LdorrJIk"",""wht_user_id"":""1BC4R4B3zLrdfnwO7PaNG""}
-utm_source: facebook
-utm_medium: paid_social
-utm_campaign: hot_campaign_ad_for_website_visitors
-utm_content: Facebook_UA
-utm_term: 120246975099510298
-fbclid: IwcGRvZgVleHRuA2FlbQEwAGFkaWQBqzXM2GgUmnNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHl0XyFr453DhL3LFTrxdianp1lQGKiLidfn2QnNOZBGu3J10hVfjmO5TYFO9_aem_W5OyLzlBRl40o44y8CT8mw
-razorpay_payment_id: pay_TdufIpweAV2jK9",,Razorpay,#1596.1,0.00,Janvi Aika,0.00,,,,16927147819379,"Magic, upi",Low,399890841601,0.00,IGST 18%,242.54,,,,,,,,,+919840174040,,,Tamil Nadu,Tamil Nadu,#1596.1,,,#1596.1
-#1597,drpgpatel@hotmail.com,paid,2026-09-19 19:07:41 +0530,fulfilled,2026-09-20 15:37:58 +0530,no,INR,1390.00,0.00,212.03,1390.00,"",0.00,FREE SHIPPING,2026-09-19 19:07:41 +0530,1,Forest Aura Top - M,1390.00,,TOP-FA-BG-M,true,true,fulfilled,Dr Pravin Patel,"Sanjivani children hospital opp taluka panchayat, Kirti chember",Sanjivani children hospital opp taluka panchayat,Kirti chember,,BANASKANTHA,'385001,GJ,IN,+919824050189,Dr Pravin Patel,"Sanjivani children hospital opp taluka panchayat, Kirti chember",Sanjivani children hospital opp taluka panchayat,Kirti chember,,BANASKANTHA,'385001,GJ,IN,+919824050189,,"Paid via: Razorpay Magic Checkout
-razorpay_order_id: order_TdugEOHCsk3OQV
-Device_details_IP: 35.154.217.40
-cart_token: hWNH0tC9MVOuF3uzOxDAobTw?key=049a20915a49398ff89e461a6370abb5
-payment_method: upi
-_wht_user_attributes: {""wht_session_id"":""PiBPkKkNp8xrNsB7HVorR"",""wht_user_id"":""Lbz9zgxsiJ6JzN0gxqH0l""}
-utm_source: facebook
-utm_medium: paid_social
-utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
-utm_content: Facebook_UA
-utm_term: 120249247882780298
-fbclid: IwcGRvZgVmZGlkFlDru8iNXhi0snZuCeeQH9NgMHx9HPNleHRuA2FlbQEwAGFkaWQBqzZPGOo7unNydGMGYXBwX2lkCjY2Mjg1NjgzNzkAAR7Svdr9eZ8zpccRpSXCk8yOtvDQWKvypwRmeH5iHGHhd_ah0OiQrJk_RbgluA_aem_W3b4uspmZwHl4uaXyENX9g
-razorpay_payment_id: pay_Tdujz2VCWyJ5Po",,Razorpay,#1597.1,0.00,Janvi Aika,0.00,,,,16927153586547,"Magic, upi",Low,399890841601,0.00,IGST 18%,212.03,,,,,,,,,+919824050189,,,Gujarat,Gujarat,#1597.1,,,#1597.1
-#1598,,paid,2026-09-29 22:39:19 +0530,fulfilled,2026-09-20 18:42:56 +0530,no,INR,1390.00,0.00,212.03,1390.00,"",0.00,FREE SHIPPING,2026-09-19 23:04:33 +0530,1,Dahlia Dusk - XL,1390.00,,TOP-DD-OR-XL,true,true,fulfilled,Madhavi B,"House no; 5-2-61, royal plaza, near bhavya shwroom","House no; 5-2-61, royal plaza",near bhavya shwroom,,Visakhapatnam,'531116,AP,IN,+919490430347,Madhavi B,"House no; 5-2-61, royal plaza, near bhavya shwroom","House no; 5-2-61, royal plaza",near bhavya shwroom,,Visakhapatnam,'531116,AP,IN,+919490430347,,"Paid via: Razorpay Magic Checkout
-razorpay_order_id: order_TdyloFpGYnu7ai
-Device_details_IP: 35.154.217.40
-cart_token: hWNGwK9YIQ9fwRLMSxhOpJh6?key=44ddfdf23883019170bd3defc1cfbeaa
-payment_method: upi
-_wht_user_attributes: {""wht_session_id"":""MdZHy53pR9ydHj7xTLTO3"",""wht_user_id"":""lD77Bq1C1ApgpQqr86C3O""}
-rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
-rzp_3p_utm_ts: 1789839175082
-rzp_device_id: 1.b98d87169353a2f6c9a0aeb1289bf342e7400f7d.1789657107506.83716961
-rzp_pixel_id: TdylbmwyDQzCQ2
-utm_source: facebook
-utm_medium: paid_social
-utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
-utm_content: Facebook_UA
-utm_term: 120249247882780298
-fbclid: IwcGRvZgFleHRuA2FlbQEwAGFkaWQBqzZPGOo7unNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHmsqtWNmo-3BTNHH4viPms7SRcr-Mv5dUHiDjbRlvv7EgBqQF90Ng7TfllPD_aem_9S6wCiOiE1KcLWvM9YT3sQ
-razorpay_payment_id: pay_TdymO8x6CbJmWE, pay_TdynIpeob7kVRW",,Razorpay + manual,#1598.2,0.00,Janvi Aika,0.00,,,,16927469601139,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,IGST 18%,212.03,,,,,,,,,+919490430347,,,Andhra Pradesh,Andhra Pradesh,#1598.1 + #1598.2,,,#1598.1 + #1598.2
-#1599,savithamasilamani@gmail.com,paid,2026-09-20 00:01:40 +0530,fulfilled,2026-09-20 15:43:21 +0530,no,INR,1390.00,0.00,212.03,1390.00,"",0.00,FREE SHIPPING,2026-09-20 00:01:40 +0530,1,Copper Bloom Top - M,1390.00,,TOP-CB-OR-M,true,true,fulfilled,Savitha M,2B 207 Newry Shanmita Bharathiyar Street Pallikaranai,2B 207 Newry Shanmita Bharathiyar Street Pallikaranai,,,Kancheepuram,'600100,TN,IN,+917373020440,Savitha M,2B 207 Newry Shanmita Bharathiyar Street Pallikaranai,2B 207 Newry Shanmita Bharathiyar Street Pallikaranai,,,Kancheepuram,'600100,TN,IN,+917373020440,,"Paid via: Razorpay Magic Checkout
-razorpay_order_id: order_TdzjyNRU4Rhmjw
-Device_details_IP: 35.154.217.40
-cart_token: hWNH1LqDtI0AhrEPudglhobk?key=fe57f64e111ae3dd32f1941c6690dc34
-payment_method: upi
-_wht_user_attributes: {""wht_session_id"":""sINeJyQZwzGeo2lNsobdY"",""wht_user_id"":""GVuwqra7HetCcCs-bDB7x""}
-rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:hot_campaign_ad_for_website_visitors||utm_id:120246975099520298||utm_term:120246975099510298
-rzp_3p_utm_ts: 1789841896717
-rzp_device_id: 1.f276be199bc35d68af35b75cc076a8b946f6973e.1789841771068.15680108
-rzp_pixel_id: TdzVJR0V60d4Tw
-utm_source: facebook
-utm_medium: paid_social
-utm_campaign: hot_campaign_ad_for_website_visitors
-utm_content: Facebook_UA
-utm_term: 120246975099510298
-fbclid: IwcGRvZgVleHRuA2FlbQEwAGFkaWQBqzXM2GgUmnNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHhPTN36OcMKWtsDZFdmRAzib0LAJf2p-VXzhOSWVo5OYBIX8PUco1-ElL_Rt_aem_4f0b_IMvp0eCaiRFTZFZng
-razorpay_payment_id: pay_Tdzl54XsoDFzIf",,Razorpay,#1599.1,0.00,Janvi Aika,0.00,,,,16927546179955,"Magic, upi",Low,399890841601,0.00,IGST 18%,212.03,,,,,,,,,+917373020440,,,Tamil Nadu,Tamil Nadu,#1599.1,,,#1599.1
 #1600,65c4469eade0aadb544f25ce@blitzscale.co,paid,2026-09-20 06:42:01 +0530,fulfilled,2026-09-20 15:47:41 +0530,no,INR,1450.00,0.00,221.19,1450.00,"",0.00,FREE SHIPPING,2026-09-20 06:42:00 +0530,1,Skyloom - M,1450.00,,CORD-SL-LB-M,true,true,fulfilled,Siji Varghese,"Keerthanam, Green field villas, Kumarapuram P. O., Pallikkara","Keerthanam, Green field villas, Kumarapuram P. O.",Pallikkara,,Ernakulam,'683565,KL,IN,+919446028910,Siji Varghese,"Keerthanam, Green field villas, Kumarapuram P. O., Pallikkara","Keerthanam, Green field villas, Kumarapuram P. O.",Pallikkara,,Ernakulam,'683565,KL,IN,+919446028910,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_Te6MLjeV62OFAG
 Device_details_IP: 35.154.22.73
@@ -1549,7 +1333,7 @@ razorpay_payment_id: pay_Ti8SRXZKMfvllw",,Razorpay,#1682.1,0.00,Janvi Aika,0.00,
 #1684,drpgpatel@hotmail.com,paid,2026-09-30 20:15:45 +0530,fulfilled,2026-10-01 12:26:56 +0530,yes,INR,1390.00,0.00,212.03,1390.00,"",0.00,"",2026-09-30 20:15:45 +0530,1,Forest Aura Top - L,1390.00,1529.00,TOP-FA-BG-L,true,true,fulfilled,Dr Pravin Patel,"Sanjivani children hospital opp taluka panchayat, Kirti chember",Sanjivani children hospital opp taluka panchayat,Kirti chember,,BANASKANTHA,'385001,GJ,IN,+919824050189,Dr Pravin Patel,"Sanjivani children hospital opp taluka panchayat, Kirti chember",Sanjivani children hospital opp taluka panchayat,Kirti chember,,BANASKANTHA,'385001,GJ,IN,+919824050189,,"",,manual,rZmSelQSAKU68vhrIf4WYGz8r,0.00,Janvi Aika,0.00,Kalpana S,,,18915930472819,"",Low,shopify_draft_order,0.00,IGST 18%,212.03,,,,,,,,,+919824050189,,,Gujarat,Gujarat,rZmSelQSAKU68vhrIf4WYGz8r,,,rZmSelQSAKU68vhrIf4WYGz8r
 #1685,tanusreedutta@gmail.com,paid,2026-09-30 20:18:40 +0530,fulfilled,2026-10-01 12:36:40 +0530,yes,INR,1450.00,0.00,221.19,1450.00,"",0.00,"",2026-09-30 20:18:40 +0530,1,Petal Poise - XL,1450.00,1650.00,CORD-PP-DP-XL,true,true,fulfilled,Tanushree .,"D 104, Vimal Shyam Vihar, Argora Kathal More Road, Beside Ispat, Residency","D 104, Vimal Shyam Vihar, Argora Kathal More Road, Beside Ispat",Residency,,Ranchi,'834004,JH,IN,+919939135277,Tanushree .,"D 104, Vimal Shyam Vihar, Argora Kathal More Road, Beside Ispat, Residency","D 104, Vimal Shyam Vihar, Argora Kathal More Road, Beside Ispat",Residency,,Ranchi,'834004,JH,IN,+919939135277,,"",,manual,rhVWOA9VtIWq7ELgaUG6GssJk,0.00,Janvi Aika,0.00,Kalpana S,,,18915935158643,"",Low,shopify_draft_order,0.00,IGST 18%,221.19,,,,,,,,,+919939135277,,,Jharkhand,Jharkhand,rhVWOA9VtIWq7ELgaUG6GssJk,,,rhVWOA9VtIWq7ELgaUG6GssJk
 #1686,shahul916.sh@gmail.com,paid,2026-09-30 20:21:11 +0530,fulfilled,2026-10-01 12:42:17 +0530,yes,INR,1350.00,0.00,205.93,1350.00,"",0.00,"",2026-09-30 20:21:11 +0530,1,Luxey Soft Rose - L,1350.00,1550.00,CORD-LSR-LP-L,true,true,fulfilled,SHAHUL HAMEED P,"PALAKKAL HOUSE, CHERUPALLIKKAL, KARAKUNNU",PALAKKAL HOUSE,"CHERUPALLIKKAL, KARAKUNNU",,Malappuram,'676123,KL,IN,+919446672089,SHAHUL HAMEED P,"PALAKKAL HOUSE, CHERUPALLIKKAL, KARAKUNNU",PALAKKAL HOUSE,"CHERUPALLIKKAL, KARAKUNNU",,Malappuram,'676123,KL,IN,+919446672089,,"",,manual,rKuTZ5iMduJGE25PE6hlvlPIy,0.00,Janvi Aika,0.00,Kalpana S,,,18915938369907,"",Low,shopify_draft_order,0.00,IGST 18%,205.93,,,,,,,,,+919446672089,,,Kerala,Kerala,rKuTZ5iMduJGE25PE6hlvlPIy,,,rKuTZ5iMduJGE25PE6hlvlPIy
-#1687,ruturajatodaria.ra@gmail.com,partially_paid,2026-09-30 20:53:11 +0530,fulfilled,2026-10-01 12:46:59 +0530,no,INR,1350.00,0.00,205.93,1350.00,"",0.00,FREE SHIPPING,2026-09-30 20:53:11 +0530,1,Majesty Nirvi - XS,1350.00,,CORD-MN-WN-XS,true,true,fulfilled,Ruturajsinh Atodaria,Uco bank ankleshwar branch nayrika plaza building opposite sabji market ongc hansot road ankleshwar Ankleshwar,Uco bank ankleshwar branch nayrika plaza building opposite sabji market ongc hansot road ankleshwar Ankleshwar,,,BHARUCH,'393001,GJ,IN,+919725531812,Ruturajsinh Atodaria,Uco bank ankleshwar branch nayrika plaza building opposite sabji market ongc hansot road ankleshwar Ankleshwar,Uco bank ankleshwar branch nayrika plaza building opposite sabji market ongc hansot road ankleshwar Ankleshwar,,,BHARUCH,'393001,GJ,IN,+919725531812,,"Paid via: Razorpay Magic Checkout
+#1687,ruturajatodaria.ra@gmail.com,paid,2026-10-12 22:41:50 +0530,fulfilled,2026-10-01 12:46:59 +0530,no,INR,1350.00,0.00,205.93,1350.00,"",0.00,FREE SHIPPING,2026-09-30 20:53:11 +0530,1,Majesty Nirvi - XS,1350.00,,CORD-MN-WN-XS,true,true,fulfilled,Ruturajsinh Atodaria,Uco bank ankleshwar branch nayrika plaza building opposite sabji market ongc hansot road ankleshwar Ankleshwar,Uco bank ankleshwar branch nayrika plaza building opposite sabji market ongc hansot road ankleshwar Ankleshwar,,,BHARUCH,'393001,GJ,IN,+919725531812,Ruturajsinh Atodaria,Uco bank ankleshwar branch nayrika plaza building opposite sabji market ongc hansot road ankleshwar Ankleshwar,Uco bank ankleshwar branch nayrika plaza building opposite sabji market ongc hansot road ankleshwar Ankleshwar,,,BHARUCH,'393001,GJ,IN,+919725531812,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TiILYh8V3ymcJR
 Device_details_IP: 35.154.217.40
 cart_token: hWNHQwiPkwrJxwoJNGXn6mSy?key=1d12493520413a740e89dc850f787c06
@@ -1565,7 +1349,7 @@ utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
 utm_content: Facebook_UA
 utm_term: 120249247882780298
 fbclid: IwZXh0bgNhZW0BMABwZG9mBWFkaWQBqzZPGUJt2nNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHif0y-oQYeZBYchfeA4_u6K7Ul4cM2FcVWFzfBPksV3b53X2ZuvKkD4cQ8ms_aem_yK8lOC0ek5eBQbCr_6r6IA
-razorpay_payment_id: pay_TiIPlk8s1iJ3Uh, pay_TiIQr8saMALU7s",,Razorpay,#1687.1,0.00,Janvi Aika,1151.00,,,,18915978838387,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,IGST 18%,205.93,,,,,,,,,+919725531812,,,Gujarat,Gujarat,#1687.1,,,#1687.1
+razorpay_payment_id: pay_TiIPlk8s1iJ3Uh, pay_TiIQr8saMALU7s",,Razorpay + manual,#1687.2,0.00,Janvi Aika,0.00,,,,18915978838387,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,IGST 18%,205.93,,,,,,,,,+919725531812,,,Gujarat,Gujarat,#1687.1 + #1687.2,,,#1687.1 + #1687.2
 #1688,,paid,2026-10-01 17:00:22 +0530,fulfilled,2026-10-02 13:22:42 +0530,no,INR,1350.00,0.00,205.93,1350.00,"",0.00,"",2026-10-01 17:00:21 +0530,1,Luxey Soft Rose - L,1350.00,1550.00,CORD-LSR-LP-L,true,true,fulfilled,Lata bisani,"506, manbhum sumukha, indian airlines colony, patigadda, begumpet, 506 manbhum sumukha , 5 th floor, indian airlines colony, patigadda, begumpet hyderabad 500016","506, manbhum sumukha, indian airlines colony, patigadda, begumpet","506 manbhum sumukha , 5 th floor, indian airlines colony, patigadda, begumpet hyderabad 500016",,Hyderabad,'500016,TS,IN,+918469897700,Lata bisani,"506, manbhum sumukha, indian airlines colony, patigadda, begumpet, 506 manbhum sumukha , 5 th floor, indian airlines colony, patigadda, begumpet hyderabad 500016","506, manbhum sumukha, indian airlines colony, patigadda, begumpet","506 manbhum sumukha , 5 th floor, indian airlines colony, patigadda, begumpet hyderabad 500016",,Hyderabad,'500016,TS,IN,+918469897700,,"",,manual,rUV352xtnQGOPeZd6RRPZUywF,0.00,Janvi Aika,0.00,Kalpana S,,,18917317017971,"",Low,shopify_draft_order,0.00,IGST 18%,205.93,,,,,,,,,+918469897700,,,Telangana,Telangana,rUV352xtnQGOPeZd6RRPZUywF,,,rUV352xtnQGOPeZd6RRPZUywF
 #1689,singhamrendra858@gmail.com,paid,2026-10-02 08:51:26 +0530,fulfilled,2026-10-02 13:32:06 +0530,no,INR,2280.00,0.00,347.80,2280.00,Flat 300,300.00,FREE SHIPPING,2026-10-02 08:51:25 +0530,1,Azure Bloom Top - S,1390.00,,TOP-AB-RB-S,true,true,fulfilled,Amrendra Singh,"Head Postoffice, 2nd Floor, Near BSNL Exchange","Head Postoffice, 2nd Floor",Near BSNL Exchange,,Palamau,'822101,JH,IN,+918340626622,Amrendra Singh,"Head Postoffice, 2nd Floor, Near BSNL Exchange","Head Postoffice, 2nd Floor",Near BSNL Exchange,,Palamau,'822101,JH,IN,+918340626622,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_Tit7cadF06uTET
@@ -1602,7 +1386,7 @@ utm_campaign: add_to_cart_retargeting_ad
 utm_content: Facebook_UA
 utm_term: 120248403168670298
 fbclid: IwZXh0bgNhZW0BMABwZG9mBWFkaWQBqzVrDFPIanNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHoVwPxl0KIyUSz0ONufwct9_mZuTGDoqP8VCgB0-d8nTMjHuXtZH5jyU_sJR_aem_4hKit0A1DXYO1We1BUwM4g
-razorpay_payment_id: pay_TiuJaP2UW80bt4, pay_TiuKgEbwIXYjtl",,Razorpay,#1690.1,0.00,Janvi Aika,3281.00,,,,18918768836979,"Magic, razorpay_partial_cod, RTO Initiated via Shiprocket, upi",Low,399890841601,0.00,IGST 18%,530.85,,,,,,,,,+919502658563,,,Telangana,Telangana,#1690.1,,,#1690.1
+razorpay_payment_id: pay_TiuJaP2UW80bt4, pay_TiuKgEbwIXYjtl",,Razorpay,#1690.1,0.00,Janvi Aika,3281.00,,,,18918768836979,"Magic, razorpay_partial_cod, RTO Delivered via Shiprocket, RTO Initiated via Shiprocket, upi",Low,399890841601,0.00,IGST 18%,530.85,,,,,,,,,+919502658563,,,Telangana,Telangana,#1690.1,,,#1690.1
 #1691,devendraparkhad@gmail.com,paid,2026-10-02 10:29:45 +0530,fulfilled,2026-10-02 13:37:06 +0530,no,INR,1390.00,0.00,212.03,1390.00,"",0.00,FREE SHIPPING,2026-10-02 10:29:45 +0530,1,Wine Elegance Top - M,1390.00,,TOP-WE-WN-M,true,true,fulfilled,Devendra Parkhad,"B 10,plot no.90,dream heritage society,CDC, chinchwad,near Atal bihari national garden","B 10,plot no.90,dream heritage society,CDC","chinchwad,near Atal bihari national garden",,Pune,'411019,MH,IN,+919881746391,Devendra Parkhad,"B 10,plot no.90,dream heritage society,CDC, chinchwad,near Atal bihari national garden","B 10,plot no.90,dream heritage society,CDC","chinchwad,near Atal bihari national garden",,Pune,'411019,MH,IN,+919881746391,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TiursiHuzeyUuI
 Device_details_IP: 35.154.143.15
@@ -1754,7 +1538,7 @@ utm_content: Facebook_UA
 utm_term: 120249247882780298
 fbclid: IwZXh0bgNhZW0BMABwZG9mBWFkaWQBqzZPGOo7unNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHi8Wr2QRBBEvy4TiZf7a3h8atzWA6TzhmLjHMzZW8P9-IV_UDybBDn1-ljaH_aem_X6efTd1rUNz5DD6li-ZQtw
 razorpay_payment_id: pay_Tj86k1jKvV5Rut",,Razorpay,#1701.1,0.00,Janvi Aika,0.00,,,,18919644823923,"card, Magic",Low,399890841601,0.00,IGST 18%,212.03,,,,,,,,,+919940054943,,,Tamil Nadu,Tamil Nadu,#1701.1,,,#1701.1
-#1702,kinitawandra.er@gmail.com,partially_paid,2026-10-03 06:10:29 +0530,fulfilled,2026-10-03 12:23:05 +0530,no,INR,1350.00,0.00,205.93,1350.00,"",0.00,FREE SHIPPING,2026-10-03 06:10:28 +0530,1,Misty Sky - 2XL,1350.00,,CORD-MS-LB-2XL,true,true,fulfilled,Kinita wandra,"L-69, Kashi Smruti Aaradhanapark Society, Meghanibaug Road Opp. C U Shah Swimming Pool","L-69, Kashi Smruti Aaradhanapark Society, Meghanibaug Road Opp. C U Shah Swimming Pool",,,Surendranagar,'363001,GJ,IN,+919825079744,Kinita wandra,"L-69, Kashi Smruti Aaradhanapark Society, Meghanibaug Road Opp. C U Shah Swimming Pool","L-69, Kashi Smruti Aaradhanapark Society, Meghanibaug Road Opp. C U Shah Swimming Pool",,,Surendranagar,'363001,GJ,IN,+919825079744,,"Paid via: Razorpay Magic Checkout
+#1702,kinitawandra.er@gmail.com,paid,2026-10-12 22:41:50 +0530,fulfilled,2026-10-03 12:23:05 +0530,no,INR,1350.00,0.00,205.93,1350.00,"",0.00,FREE SHIPPING,2026-10-03 06:10:28 +0530,1,Misty Sky - 2XL,1350.00,,CORD-MS-LB-2XL,true,true,fulfilled,Kinita wandra,"L-69, Kashi Smruti Aaradhanapark Society, Meghanibaug Road Opp. C U Shah Swimming Pool","L-69, Kashi Smruti Aaradhanapark Society, Meghanibaug Road Opp. C U Shah Swimming Pool",,,Surendranagar,'363001,GJ,IN,+919825079744,Kinita wandra,"L-69, Kashi Smruti Aaradhanapark Society, Meghanibaug Road Opp. C U Shah Swimming Pool","L-69, Kashi Smruti Aaradhanapark Society, Meghanibaug Road Opp. C U Shah Swimming Pool",,,Surendranagar,'363001,GJ,IN,+919825079744,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TjExzOUlPBWCGN
 Device_details_IP: 35.154.143.15
 cart_token: hWNFzh6aJ4IaP5DdLzeCGwfk?key=e1acc7eb32c649cc5ae2b5f54608401e
@@ -1771,7 +1555,7 @@ utm_campaign: hot_campaign_ad_for_website_visitors
 utm_content: Facebook_UA
 utm_term: 120246975099510298
 fbclid: PAZXh0bgNhZW0BMABwZG9mAmZkaWQWUPl_2ZgySJKrbCDcj_1Jgj3cIYRNuWFkaWQBqzXM2GgUmnNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABp_XjwSvHMD-B6zZJxwWAKtWHQbS5tovW5rX9G5zKLdQvZLbfGBIYBl4GqaTj_aem_lIU_wH2r6jO4LQ0ymFWSWw
-razorpay_payment_id: pay_TjEzEgDKAev238, pay_TjEznWJAztP4aA",,Razorpay,#1702.1,0.00,Janvi Aika,1151.00,,,,18920171307379,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,IGST 18%,205.93,,,,,,,,,+919825079744,,,Gujarat,Gujarat,#1702.1,,,#1702.1
+razorpay_payment_id: pay_TjEzEgDKAev238, pay_TjEznWJAztP4aA",,Razorpay + manual,#1702.2,0.00,Janvi Aika,0.00,,,,18920171307379,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,IGST 18%,205.93,,,,,,,,,+919825079744,,,Gujarat,Gujarat,#1702.1 + #1702.2,,,#1702.1 + #1702.2
 #1703,dharmachowdary@gmail.com,paid,2026-10-03 09:54:15 +0530,fulfilled,2026-10-09 12:39:25 +0530,yes,INR,1390.00,0.00,212.03,1390.00,"",0.00,"",2026-10-03 09:54:15 +0530,1,Rose Charm Top - M,1390.00,1529.00,TOP-RC-BP-M,true,true,fulfilled,Dharma ch,"Lakshmi Narasimha Swamy nagar, Manikonda",Lakshmi Narasimha Swamy nagar,Manikonda,,Hyderabad,'500089,TS,IN,+919742363999,Dharma ch,"Lakshmi Narasimha Swamy nagar, Manikonda",Lakshmi Narasimha Swamy nagar,Manikonda,,Hyderabad,'500089,TS,IN,+919742363999,,"",,manual,rjPcPrrUQGVvKay0IQhOGNh2O,0.00,Janvi Aika,0.00,Kalpana S,,,18920432533875,"",Low,shopify_draft_order,0.00,IGST 18%,212.03,,,,,,,,,+919742363999,,,Telangana,Telangana,rjPcPrrUQGVvKay0IQhOGNh2O,,,rjPcPrrUQGVvKay0IQhOGNh2O
 #1704,anandlrajgopal@gmail.com,partially_paid,2026-10-03 10:16:27 +0530,fulfilled,2026-10-03 16:28:19 +0530,no,INR,5090.00,0.00,776.44,5090.00,Flat 500,500.00,FREE SHIPPING,2026-10-03 10:16:27 +0530,1,Vennila Radiance - L,5590.00,,HSL-VR-GWS-L,true,true,fulfilled,Anandakumar s r,"NO # 6 Anugondanhalli sri baneshwara Swamy Temple, Hosakote taluk Bangalore Rural",NO # 6 Anugondanhalli sri baneshwara Swamy Temple,Hosakote taluk Bangalore Rural,,Bengaluru,'560067,KA,IN,+919845365050,Anandakumar s r,"NO # 6 Anugondanhalli sri baneshwara Swamy Temple, Hosakote taluk Bangalore Rural",NO # 6 Anugondanhalli sri baneshwara Swamy Temple,Hosakote taluk Bangalore Rural,,Bengaluru,'560067,KA,IN,+919845365050,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TjJ9toqp5qIOKN
@@ -1940,7 +1724,7 @@ utm_content: Facebook_UA
 utm_term: 120246975099510298
 fbclid: IwZXh0bgNhZW0BMABwZG9mBWFkaWQBqzXM2GgUmnNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHtEkeno2eMPhDN55lnMVoN_zAs3mJleIVq7DK2BnPRWS6eBtgvdoZuOUNahB_aem_6o0OZZ0jUrFofXLd3ZRQYQ
 razorpay_payment_id: pay_TjiQ85XojXE0kj",,Razorpay,#1713.1,0.00,Janvi Aika,0.00,,,,18922097901939,"Magic, upi",Low,399890841601,0.00,IGST 18%,439.32,,,,,,,,,+919894935383,,,Tamil Nadu,Tamil Nadu,#1713.1,,,#1713.1
-#1714,,partially_paid,2026-10-04 12:17:19 +0530,fulfilled,2026-10-04 17:44:44 +0530,no,INR,1390.00,0.00,212.03,1390.00,"",0.00,FREE SHIPPING,2026-10-04 12:17:18 +0530,1,Wine Elegance Top - S,1390.00,,TOP-WE-WN-S,true,true,fulfilled,Dantla balajee,"APEPDCL, CURRENT OFFICE, BODDIPALLI, Narsipatnam","APEPDCL, CURRENT OFFICE, BODDIPALLI",Narsipatnam,,Visakhapatnam,'531116,AP,IN,+919949783969,Dantla balajee,"APEPDCL, CURRENT OFFICE, BODDIPALLI, Narsipatnam","APEPDCL, CURRENT OFFICE, BODDIPALLI",Narsipatnam,,Visakhapatnam,'531116,AP,IN,+919949783969,,"Paid via: Razorpay Magic Checkout
+#1714,,paid,2026-10-12 22:41:50 +0530,fulfilled,2026-10-04 17:44:44 +0530,no,INR,1390.00,0.00,212.03,1390.00,"",0.00,FREE SHIPPING,2026-10-04 12:17:18 +0530,1,Wine Elegance Top - S,1390.00,,TOP-WE-WN-S,true,true,fulfilled,Dantla balajee,"APEPDCL, CURRENT OFFICE, BODDIPALLI, Narsipatnam","APEPDCL, CURRENT OFFICE, BODDIPALLI",Narsipatnam,,Visakhapatnam,'531116,AP,IN,+919949783969,Dantla balajee,"APEPDCL, CURRENT OFFICE, BODDIPALLI, Narsipatnam","APEPDCL, CURRENT OFFICE, BODDIPALLI",Narsipatnam,,Visakhapatnam,'531116,AP,IN,+919949783969,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TjjkHUX1BOydQV
 Device_details_IP: 35.154.143.15
 cart_token: hWNH77Yv8GkWS1weWmSLIaXs?key=6201f9574b9e4e7dd2a33f8659d662fa
@@ -1957,7 +1741,7 @@ utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
 utm_content: Facebook_UA
 utm_term: 120249247882780298
 fbclid: PAZXh0bgNhZW0BMABwZG9mAmFkaWQBqzZPGOo7unNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABpznl7Rc2fgK2IU-dtwULkWzNgrmDPHU3y2ZQ6nvdHigpdH4vKCmMd77O5rd__aem_Ec5kpPove0n52B_pGS7zXg
-razorpay_payment_id: pay_TjjlTBSh93za39, pay_TjjmPFFA3GB6fH",,Razorpay,#1714.1,0.00,Janvi Aika,1191.00,,,,18922155311475,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,IGST 18%,212.03,,,,,,,,,+919949783969,,,Andhra Pradesh,Andhra Pradesh,#1714.1,,,#1714.1
+razorpay_payment_id: pay_TjjlTBSh93za39, pay_TjjmPFFA3GB6fH",,Razorpay + manual,#1714.2,0.00,Janvi Aika,0.00,,,,18922155311475,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,IGST 18%,212.03,,,,,,,,,+919949783969,,,Andhra Pradesh,Andhra Pradesh,#1714.1 + #1714.2,,,#1714.1 + #1714.2
 #1715,omanavisvanathan@gmail.com,paid,2026-10-04 12:43:41 +0530,fulfilled,2026-10-05 11:41:43 +0530,no,INR,2480.00,0.00,378.31,2480.00,Flat 300,300.00,FREE SHIPPING,2026-10-04 12:43:41 +0530,1,Gilded Azure - XL,1390.00,,TOP-GA-RB-XL,true,true,fulfilled,Omana Visvanathan,Vattathattayil akg Godown Road edappally po EGRA G 18,Vattathattayil akg Godown Road edappally po EGRA G 18,,,Ernakulam,'682024,KL,IN,+918111813780,Omana Visvanathan,Vattathattayil akg Godown Road edappally po EGRA G 18,Vattathattayil akg Godown Road edappally po EGRA G 18,,,Ernakulam,'682024,KL,IN,+918111813780,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TjkD8KAozoBGo9
 Device_details_IP: 35.154.22.73
@@ -1976,7 +1760,7 @@ utm_term: 120249247882780298
 fbclid: IwZXh0bgNhZW0BMABwZG9mBWFkaWQBqzZPGOo7unNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHjqdPGreaTVBJjxaw-zWTOCdWovNv3zlQN2VCaCUJIOWiRilA6-TcEKfKRfy_aem_JBjjsJDemkK0BaRaWmKCqw
 razorpay_payment_id: pay_TjkDQbSh9zQuzG",,Razorpay,#1715.1,0.00,Janvi Aika,0.00,,,,18922176184691,"Magic, upi",Low,399890841601,0.00,IGST 18%,378.31,,,,,,,,,+918111813780,,,Kerala,Kerala,#1715.1,,,#1715.1
 #1715,omanavisvanathan@gmail.com,,,,,,,,,,,,,,2026-10-04 12:43:41 +0530,1,Stardust Flora - XL,1390.00,"",TOP-SF-BK-XL,true,true,fulfilled,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+918111813780,,,,,,,,
-#1716,yashumbabu@gmail.com,paid,2026-10-04 15:08:24 +0530,fulfilled,2026-10-04 18:18:08 +0530,no,INR,1640.00,0.00,250.16,1640.00,Flat 300,300.00,FREE SHIPPING,2026-10-04 15:08:23 +0530,1,Little Luxe - L,1940.00,,C-LL-LPR-L,true,true,fulfilled,Pramod B,"No 639 YB ASSOCIATES 3rd floor, 4th Main, MES Rd, Muthyala Nagar, Gokula Extension, Mathikere",No 639 YB ASSOCIATES 3rd floor,"4th Main, MES Rd, Muthyala Nagar, Gokula Extension, Mathikere",,Bengaluru,'560054,KA,IN,+919972759708,Pramod B,"No 639 YB ASSOCIATES 3rd floor, 4th Main, MES Rd, Muthyala Nagar, Gokula Extension, Mathikere",No 639 YB ASSOCIATES 3rd floor,"4th Main, MES Rd, Muthyala Nagar, Gokula Extension, Mathikere",,Bengaluru,'560054,KA,IN,+919972759708,,"Paid via: Razorpay Magic Checkout
+#1716,yashumbabu@gmail.com,refunded,2026-10-04 15:08:24 +0530,fulfilled,2026-10-04 18:18:08 +0530,no,INR,1640.00,0.00,250.16,1640.00,Flat 300,300.00,FREE SHIPPING,2026-10-04 15:08:23 +0530,1,Little Luxe - L,1940.00,,C-LL-LPR-L,true,true,fulfilled,Pramod B,"No 639 YB ASSOCIATES 3rd floor, 4th Main, MES Rd, Muthyala Nagar, Gokula Extension, Mathikere",No 639 YB ASSOCIATES 3rd floor,"4th Main, MES Rd, Muthyala Nagar, Gokula Extension, Mathikere",,Bengaluru,'560054,KA,IN,+919972759708,Pramod B,"No 639 YB ASSOCIATES 3rd floor, 4th Main, MES Rd, Muthyala Nagar, Gokula Extension, Mathikere",No 639 YB ASSOCIATES 3rd floor,"4th Main, MES Rd, Muthyala Nagar, Gokula Extension, Mathikere",,Bengaluru,'560054,KA,IN,+919972759708,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TjmatDuwtkkm6J
 Device_details_IP: 35.154.22.73
 cart_token: hWNHZnYdQoNQap4YqD3DgxNc?key=079c50c0d8a4b7f71f17e2fa02ab4efb
@@ -1990,7 +1774,7 @@ utm_source: google
 utm_medium: cpc
 utm_campaign: Others
 gclid: Cj0KCQjw8ofWBhCHARIsANBj4LuaLBLJwBdNqz29TEJPWtyK1A_lOaT4yufTfg67km9NZdTU8b2Pf2QaAryUEALw_wcB
-razorpay_payment_id: pay_TjmgYYGSveheCZ",,Razorpay,#1716.1,0.00,Janvi Aika,0.00,,,,18922279436659,"card, Magic",Low,399890841601,0.00,CGST 9%,125.08,SGST 9%,125.08,,,,,,,+919972759708,,,Karnataka,Karnataka,#1716.1,,,#1716.1
+razorpay_payment_id: pay_TjmgYYGSveheCZ",,Razorpay,#1716.1,1640.00,Janvi Aika,0.00,,,,18922279436659,"card, Magic",Low,399890841601,0.00,CGST 9%,125.08,SGST 9%,125.08,,,,,,,+919972759708,,,Karnataka,Karnataka,#1716.1,,,#1716.1 + #1716.2
 #1717,yadavjitendra352@gmail.com,partially_paid,2026-10-04 15:45:12 +0530,fulfilled,2026-10-04 18:08:46 +0530,no,INR,1690.00,0.00,257.80,1690.00,Flat 300,300.00,FREE SHIPPING,2026-10-04 15:45:11 +0530,1,Noir Glitz - M,1990.00,,C-NG-BKG-M,true,true,fulfilled,Jitendra Yadav,"Uttar Pradesh gramin Bank safderganj, Tikari uparhar safderganj",Uttar Pradesh gramin Bank safderganj,Tikari uparhar safderganj,,Prayagraj,'212208,UP,IN,+919580932031,Jitendra Yadav,"Uttar Pradesh gramin Bank safderganj, Tikari uparhar safderganj",Uttar Pradesh gramin Bank safderganj,Tikari uparhar safderganj,,Prayagraj,'212208,UP,IN,+919580932031,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TjnGcLxoz1TwKX
 Device_details_IP: 35.154.217.40
@@ -2008,7 +1792,7 @@ utm_content: Facebook_UA
 utm_term: 120248403168670298
 fbclid: PAZXh0bgNhZW0BMABwZG9mAmFkaWQBqzVrCsX8enNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABp1lIEGKULylfIVzNP3u6j4meHbz6iGXD3M7I6HQfLjb1nGaHd-jrx0SpnPWU_aem_qS2mRAR4KBJI15Cfp03o-w
 razorpay_payment_id: pay_TjnJQMOedhCe3j, pay_TjnK07N3uJM1IR",,Razorpay,#1717.1,0.00,Janvi Aika,1491.00,,,,18922307256691,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,IGST 18%,257.80,,,,,,,,,+919580932031,,,Uttar Pradesh,Uttar Pradesh,#1717.1,,,#1717.1
-#1718,swatibangera.123@gmail.com,partially_paid,2026-10-04 17:26:24 +0530,fulfilled,2026-10-04 18:31:24 +0530,no,INR,1390.00,0.00,212.04,1390.00,"",0.00,FREE SHIPPING,2026-10-04 17:26:23 +0530,1,Golden Charm Top - S,1390.00,,TOP-GC-YL-S,true,true,fulfilled,Swathi B,"#1014, 2nd floor, Amar complex, Opp virayya enclave, Arasinkunte","#1014, 2nd floor, Amar complex, Opp virayya enclave, Arasinkunte",,,Bangalore Rural,'562123,KA,IN,+918904004356,Swathi B,"#1014, 2nd floor, Amar complex, Opp virayya enclave, Arasinkunte","#1014, 2nd floor, Amar complex, Opp virayya enclave, Arasinkunte",,,Bangalore Rural,'562123,KA,IN,+918904004356,,"Paid via: Razorpay Magic Checkout
+#1718,swatibangera.123@gmail.com,paid,2026-10-12 22:41:50 +0530,fulfilled,2026-10-04 18:31:24 +0530,no,INR,1390.00,0.00,212.04,1390.00,"",0.00,FREE SHIPPING,2026-10-04 17:26:23 +0530,1,Golden Charm Top - S,1390.00,,TOP-GC-YL-S,true,true,fulfilled,Swathi B,"#1014, 2nd floor, Amar complex, Opp virayya enclave, Arasinkunte","#1014, 2nd floor, Amar complex, Opp virayya enclave, Arasinkunte",,,Bangalore Rural,'562123,KA,IN,+918904004356,Swathi B,"#1014, 2nd floor, Amar complex, Opp virayya enclave, Arasinkunte","#1014, 2nd floor, Amar complex, Opp virayya enclave, Arasinkunte",,,Bangalore Rural,'562123,KA,IN,+918904004356,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_Tjozw7DNR4NSmk
 Device_details_IP: 35.154.143.15
 cart_token: hWNHZz8OqdUtqj9a368JbS6O?key=e104aeec5cef5e6fd6f3da55171d147c
@@ -2024,7 +1808,7 @@ utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
 utm_content: Facebook_UA
 utm_term: 120249247882780298
 fbclid: IwY2xjawUvFzdleHRuA2FlbQEwAHBkb2YEYWRpZAGrNk8Y6ju6c3J0YwZhcHBfaWQPNDA5OTYyNjIzMDg1NjA5AAEeYSWZ78q1F2pjwpokWbf2S-g3QnLbnggBq3pK5SVQOP3KgHskxnCx2gt53Uc_aem_tI7gWD-KLLWwc2Z_cULmxA
-razorpay_payment_id: pay_Tjp2DdeA9dn99r, pay_Tjp2uNUqd3CnSn",,Razorpay,#1718.1,0.00,Janvi Aika,1191.00,,,,18922381607283,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,CGST 9%,106.02,SGST 9%,106.02,,,,,,,+918904004356,,,Karnataka,Karnataka,#1718.1,,,#1718.1
+razorpay_payment_id: pay_Tjp2DdeA9dn99r, pay_Tjp2uNUqd3CnSn",,Razorpay + manual,#1718.2,0.00,Janvi Aika,0.00,,,,18922381607283,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,CGST 9%,106.02,SGST 9%,106.02,,,,,,,+918904004356,,,Karnataka,Karnataka,#1718.1 + #1718.2,,,#1718.1 + #1718.2
 #1719,,paid,2026-10-04 18:32:15 +0530,fulfilled,2026-10-05 12:07:06 +0530,no,INR,1590.00,0.00,242.54,1590.00,Flat 300,300.00,FREE SHIPPING,2026-10-04 18:32:14 +0530,1,Midnight Meadow - M,1890.00,,C-MM-BWP-M,true,true,fulfilled,SAPARNA BHAKTA,"Flat 15D, Shrobona, Greenfield Heights, Block DJ, Action Area 1, New Town, Action Area 1, New Town","Flat 15D, Shrobona, Greenfield Heights, Block DJ, Action Area 1, New Town","Action Area 1, New Town",,North 24 Parganas,'700156,WB,IN,+918582842448,SAPARNA BHAKTA,"Flat 15D, Shrobona, Greenfield Heights, Block DJ, Action Area 1, New Town, Action Area 1, New Town","Flat 15D, Shrobona, Greenfield Heights, Block DJ, Action Area 1, New Town","Action Area 1, New Town",,North 24 Parganas,'700156,WB,IN,+918582842448,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_Tjq854FNGM98Z7
 Device_details_IP: 35.154.217.40
@@ -2812,7 +2596,7 @@ utm_content: Facebook_UA
 utm_term: 120248403168670298
 fbclid: PAZXh0bgNhZW0BMABwZG9mAmFkaWQBqzad-8NeCnNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABp_d7BNKjG2w1bFDeZCiWNtFRKeeK0d1VzrBYiYE_eW6NRPJbP-metSw_GFkm_aem_a7lvlCqe7-GcDGp9FZ76bQ
 razorpay_payment_id: pay_TmTh1Wmv6xji5V",,Razorpay,#1766.1,0.00,Janvi Aika,0.00,,,,18933734769011,"Magic, upi",Low,399890841601,0.00,IGST 18%,212.03,,,,,,,,,+919985842047,,,Telangana,Telangana,#1766.1,,,#1766.1
-#1767,,partially_paid,2026-10-11 10:32:50 +0530,unfulfilled,,no,INR,6528.00,0.00,995.80,6528.00,15%OFF,1152.00,FREE SHIPPING,2026-10-11 10:32:50 +0530,1,Alessa Floral Beadwork Kurta Set - M,1980.00,,C-AFB-HW-M,true,true,pending,Devarakonda Varma,"Anantapuramu District Supraj Nilayam Thilak Nagar, Guntakal-gooty Road",Anantapuramu District Supraj Nilayam Thilak Nagar,Guntakal-gooty Road,,Ananthapur,'515801,AP,IN,+917780729391,Devarakonda Varma,"Anantapuramu District Supraj Nilayam Thilak Nagar, Guntakal-gooty Road",Anantapuramu District Supraj Nilayam Thilak Nagar,Guntakal-gooty Road,,Ananthapur,'515801,AP,IN,+917780729391,,"Paid via: Razorpay Magic Checkout
+#1767,,partially_paid,2026-10-11 10:32:50 +0530,fulfilled,2026-10-12 17:17:37 +0530,no,INR,6528.00,0.00,995.80,6528.00,15%OFF,1152.00,FREE SHIPPING,2026-10-11 10:32:50 +0530,1,Alessa Floral Beadwork Kurta Set - M,1980.00,,C-AFB-HW-M,true,true,fulfilled,Devarakonda Varma,"Anantapuramu District Supraj Nilayam Thilak Nagar, Guntakal-gooty Road",Anantapuramu District Supraj Nilayam Thilak Nagar,Guntakal-gooty Road,,Ananthapur,'515801,AP,IN,+917780729391,Devarakonda Varma,"Anantapuramu District Supraj Nilayam Thilak Nagar, Guntakal-gooty Road",Anantapuramu District Supraj Nilayam Thilak Nagar,Guntakal-gooty Road,,Ananthapur,'515801,AP,IN,+917780729391,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TmTiHoqyl8pqFs
 Device_details_IP: 35.154.22.73
 cart_token: hWNHpo64vQQ4GU304cT5hiEO?key=360e39f75537812eab2ce8a9fa7a385d
@@ -2829,10 +2613,10 @@ utm_content: Facebook_UA
 utm_term: 120248403168670298
 fbclid: IwZXh0bgNhZW0BMABwZG9mA2FkaWQBqzad-8NeCnNydGMGYXBwX2lkDzI3NTI1NDY5MjU5ODI3OQABHupR5fFIgXsaDTSfx4QGh7WkvaOqtTDzUIi2_aimi3fy6W1nT1yhXRWaTeWK_aem_XCRkPJvDEMPWhikooRsEJQ
 razorpay_payment_id: pay_TmTjH75MTkFgbs, pay_TmTjtKRjmeyGNQ",,Razorpay,#1767.1,0.00,Janvi Aika,6329.00,,,,18933737488755,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,IGST 18%,995.80,,,,,,,,,+917780729391,,,Andhra Pradesh,Andhra Pradesh,#1767.1,,,#1767.1
-#1767,,,,,,,,,,,,,,,2026-10-11 10:32:50 +0530,1,Ash Elegance Veda - M,1350.00,"",CORD-AEV-GR-M,true,true,pending,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+917780729391,,,,,,,,
-#1767,,,,,,,,,,,,,,,2026-10-11 10:32:50 +0530,1,Maroon Muse - M,1450.00,"",CORD-MM-LM-M,true,true,pending,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+917780729391,,,,,,,,
-#1767,,,,,,,,,,,,,,,2026-10-11 10:32:50 +0530,1,Wine Aura - M,1450.00,"",CORD-WA-WN-M,true,true,pending,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+917780729391,,,,,,,,
-#1767,,,,,,,,,,,,,,,2026-10-11 10:32:50 +0530,1,Petal Poise - M,1450.00,"",CORD-PP-DP-M,true,true,pending,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+917780729391,,,,,,,,
+#1767,,,,,,,,,,,,,,,2026-10-11 10:32:50 +0530,1,Ash Elegance Veda - M,1350.00,"",CORD-AEV-GR-M,true,true,fulfilled,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+917780729391,,,,,,,,
+#1767,,,,,,,,,,,,,,,2026-10-11 10:32:50 +0530,1,Maroon Muse - M,1450.00,"",CORD-MM-LM-M,true,true,fulfilled,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+917780729391,,,,,,,,
+#1767,,,,,,,,,,,,,,,2026-10-11 10:32:50 +0530,1,Wine Aura - M,1450.00,"",CORD-WA-WN-M,true,true,fulfilled,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+917780729391,,,,,,,,
+#1767,,,,,,,,,,,,,,,2026-10-11 10:32:50 +0530,1,Petal Poise - M,1450.00,"",CORD-PP-DP-M,true,true,fulfilled,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+917780729391,,,,,,,,
 #1768,638f4f13788425d409c2ee41@blitzscale.co,paid,2026-10-11 11:18:13 +0530,fulfilled,2026-10-11 13:34:29 +0530,no,INR,2780.00,0.00,424.07,2780.00,"",0.00,FREE SHIPPING,2026-10-11 11:18:13 +0530,1,Peach Elegance Top - L,1390.00,,TOP-PE-BP-L,true,true,fulfilled,Sailaja b,"G2, Maruthi heights, Beside Indane gas, Mangamuroad, Sailaja.B, G2, maruthi heights, beside Indane Gas, Mangamur road, ongole","G2, Maruthi heights, Beside Indane gas, Mangamuroad","Sailaja.B, G2, maruthi heights, beside Indane Gas, Mangamur road, ongole",,Prakasam,'523002,AP,IN,+919866729405,Sailaja b,"G2, Maruthi heights, Beside Indane gas, Mangamuroad, Sailaja.B, G2, maruthi heights, beside Indane Gas, Mangamur road, ongole","G2, Maruthi heights, Beside Indane gas, Mangamuroad","Sailaja.B, G2, maruthi heights, beside Indane Gas, Mangamur road, ongole",,Prakasam,'523002,AP,IN,+919866729405,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TmUScJOqJnHiD5
 Device_details_IP: 35.154.217.40
@@ -2851,7 +2635,7 @@ utm_term: 120249247882780298
 fbclid: IwZXh0bgNhZW0BMABwZG9mAWFkaWQBqzaW_JOqinNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHnS96TdqnJkLclGv61R6TQSRsdjA0v_GD1mv2z4dqvorGfM6hmptL195eP56_aem_r7jL7vFxddILdGuyb0muDA
 razorpay_payment_id: pay_TmUVIp9HiNgmSg",,Razorpay,#1768.1,0.00,Janvi Aika,0.00,,,,18933779333491,"Magic, upi",Low,399890841601,0.00,IGST 18%,424.07,,,,,,,,,+919866729405,,,Andhra Pradesh,Andhra Pradesh,#1768.1,,,#1768.1
 #1768,638f4f13788425d409c2ee41@blitzscale.co,,,,,,,,,,,,,,2026-10-11 11:18:13 +0530,1,Wine Elegance Top - L,1390.00,"",TOP-WE-WN-L,true,true,fulfilled,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+919866729405,,,,,,,,
-#1769,,partially_paid,2026-10-11 11:40:18 +0530,unfulfilled,,no,INR,1350.00,0.00,205.93,1350.00,"",0.00,FREE SHIPPING,2026-10-11 11:40:18 +0530,1,Greeny Twinkle - L,1350.00,,CORD-GT-DG-L,true,true,pending,Akanksha Yadav,flat no.T2-1D Rudra Buddha Enclave Ashapur Varanasi,flat no.T2-1D Rudra Buddha Enclave Ashapur Varanasi,,,VARANASI,'221007,UP,IN,+918874967474,Akanksha Yadav,flat no.T2-1D Rudra Buddha Enclave Ashapur Varanasi,flat no.T2-1D Rudra Buddha Enclave Ashapur Varanasi,,,VARANASI,'221007,UP,IN,+918874967474,,"Paid via: Razorpay Magic Checkout
+#1769,,partially_paid,2026-10-11 11:40:18 +0530,fulfilled,2026-10-12 12:11:45 +0530,no,INR,1350.00,0.00,205.93,1350.00,"",0.00,FREE SHIPPING,2026-10-11 11:40:18 +0530,1,Greeny Twinkle - L,1350.00,,CORD-GT-DG-L,true,true,fulfilled,Akanksha Yadav,flat no.T2-1D Rudra Buddha Enclave Ashapur Varanasi,flat no.T2-1D Rudra Buddha Enclave Ashapur Varanasi,,,VARANASI,'221007,UP,IN,+918874967474,Akanksha Yadav,flat no.T2-1D Rudra Buddha Enclave Ashapur Varanasi,flat no.T2-1D Rudra Buddha Enclave Ashapur Varanasi,,,VARANASI,'221007,UP,IN,+918874967474,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TmUsEa0WKj0V0h
 Device_details_IP: 35.154.143.15
 cart_token: hWNHpvaOP7eHHTrD865uv19w?key=2fae81fac9e8b3194b2aa170a53ed07f
@@ -2868,7 +2652,7 @@ utm_content: Facebook_UA
 utm_term: 120249247882780298
 fbclid: IwZXh0bgNhZW0BMABwZG9mAWZkaWQWUQFic-FL6jL4rCQVBWYZuxpDEavubWFkaWQBqzaW_JOqinNydGMGYXBwX2lkCjY2Mjg1NjgzNzkAAR6FvmywmXFBxU4vFP_ZM0SE38UqCB2Dd9liZ4oELnIXJT6g1c_dDd1krbw-Jg_aem_cesle6776nIjgCnALkTVDQ
 razorpay_payment_id: pay_TmUsZffhyfDD3q, pay_TmUt9aH50qzXE9",,Razorpay,#1769.1,0.00,Janvi Aika,1151.00,,,,18933798502771,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,IGST 18%,205.93,,,,,,,,,+918874967474,,,Uttar Pradesh,Uttar Pradesh,#1769.1,,,#1769.1
-#1770,mini_jayarajan@yahoo.co.in,paid,2026-10-11 12:47:49 +0530,unfulfilled,,no,INR,1390.00,0.00,212.03,1390.00,"",0.00,FREE SHIPPING,2026-10-11 12:47:48 +0530,1,Copper Bloom Top - XXL,1390.00,,TOP-CB-OR-XXL,true,true,pending,Mini Jayarajan,"F-110, first floor, F-block Dilshad Colony, Police booth","F-110, first floor, F-block Dilshad Colony",Police booth,,SHAHDARA,'110095,DL,IN,+919810273605,Mini Jayarajan,"F-110, first floor, F-block Dilshad Colony, Police booth","F-110, first floor, F-block Dilshad Colony",Police booth,,SHAHDARA,'110095,DL,IN,+919810273605,,"Paid via: Razorpay Magic Checkout
+#1770,mini_jayarajan@yahoo.co.in,paid,2026-10-11 12:47:49 +0530,fulfilled,2026-10-12 11:46:49 +0530,no,INR,1390.00,0.00,212.03,1390.00,"",0.00,FREE SHIPPING,2026-10-11 12:47:48 +0530,1,Copper Bloom Top - XXL,1390.00,,TOP-CB-OR-XXL,true,true,fulfilled,Mini Jayarajan,"F-110, first floor, F-block Dilshad Colony, Police booth","F-110, first floor, F-block Dilshad Colony",Police booth,,SHAHDARA,'110095,DL,IN,+919810273605,Mini Jayarajan,"F-110, first floor, F-block Dilshad Colony, Police booth","F-110, first floor, F-block Dilshad Colony",Police booth,,SHAHDARA,'110095,DL,IN,+919810273605,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TmW1XJPyLbABi1
 Device_details_IP: 35.154.143.15
 cart_token: hWNGkZ4SneXQtfR2hi1j2kLM?key=a4b6b54e899e0105db1234c8ca03b115
@@ -2885,7 +2669,7 @@ utm_content: Facebook_UA
 utm_term: 120249247882780298
 fbclid: IwZXh0bgNhZW0BMABwZG9mBWFkaWQBqzZPGOo7unNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHlf2QSdyK-K9zkEtIGqer2mbJUwqlr3HbqOILXhXx_Byo3DaFG-dUH68ApVB_aem_3SE6ocClTjG5XTZJrjOu-A
 razorpay_payment_id: pay_TmW1vQssxqXURy",,Razorpay,#1770.1,0.00,Janvi Aika,0.00,,,,18933876162931,"Magic, upi",Low,399890841601,0.00,IGST 18%,212.03,,,,,,,,,+919810273605,,,Delhi,Delhi,#1770.1,,,#1770.1
-#1771,lpconstructions13@gmail.com,partially_paid,2026-10-11 13:26:55 +0530,unfulfilled,,no,INR,1390.00,0.00,212.03,1390.00,"",0.00,FREE SHIPPING,2026-10-11 13:26:55 +0530,1,Peach Elegance Top - M,1390.00,,TOP-PE-BP-M,true,true,pending,Laxmi prasanna,"8-134, Weavers colony near Market NAKKAPALLI post visakha District Andhra Pradesh",8-134,Weavers colony near Market NAKKAPALLI post visakha District Andhra Pradesh,,Visakhapatnam,'531081,AP,IN,+918309837434,Laxmi prasanna,"8-134, Weavers colony near Market NAKKAPALLI post visakha District Andhra Pradesh",8-134,Weavers colony near Market NAKKAPALLI post visakha District Andhra Pradesh,,Visakhapatnam,'531081,AP,IN,+918309837434,,"Paid via: Razorpay Magic Checkout
+#1771,lpconstructions13@gmail.com,partially_paid,2026-10-11 13:26:55 +0530,fulfilled,2026-10-12 13:01:50 +0530,no,INR,1390.00,0.00,212.03,1390.00,"",0.00,FREE SHIPPING,2026-10-11 13:26:55 +0530,1,Peach Elegance Top - M,1390.00,,TOP-PE-BP-M,true,true,fulfilled,Laxmi prasanna,"8-134, Weavers colony near Market NAKKAPALLI post visakha District Andhra Pradesh",8-134,Weavers colony near Market NAKKAPALLI post visakha District Andhra Pradesh,,Visakhapatnam,'531081,AP,IN,+918309837434,Laxmi prasanna,"8-134, Weavers colony near Market NAKKAPALLI post visakha District Andhra Pradesh",8-134,Weavers colony near Market NAKKAPALLI post visakha District Andhra Pradesh,,Visakhapatnam,'531081,AP,IN,+918309837434,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TmWd9xoERx809E
 Device_details_IP: 35.154.22.73
 cart_token: hWNHq5ehfO40DsWTBLWZLtvI?key=f774b2cd2fdace64f6c0b5fb2703bb32
@@ -2902,7 +2686,7 @@ utm_content: Facebook_UA
 utm_term: 120249247882780298
 fbclid: IwYW9zYgU4HrlleHRuA2FlbQEwAHBkb2YFYWRpZAGrNk8Y6ju6c3J0YwZhcHBfaWQMMzUwNjg1NTMxNzI4AAEeUGuEkh0DPbRI6gR_o7Z0CHUcwKqFrJqmIXlIgQRQBAF8yW9r00V4OZjQJi4_aem_gYTKFcx36nVDv8BbM_1-bw
 razorpay_payment_id: pay_TmWhAUOJbKNers, pay_TmWhmwK1VOAUJl",,Razorpay,#1771.1,0.00,Janvi Aika,1191.00,,,,18933988065651,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,IGST 18%,212.03,,,,,,,,,+918309837434,,,Andhra Pradesh,Andhra Pradesh,#1771.1,,,#1771.1
-#1772,,paid,2026-10-11 15:15:31 +0530,unfulfilled,,no,INR,1350.00,0.00,205.93,1350.00,"",0.00,FREE SHIPPING,2026-10-11 15:15:31 +0530,1,Ash Elegance Veda - L,1350.00,,CORD-AEV-GR-L,true,true,pending,Eswarareddy Tharimela,"Tarimela, Nearwatartank",Tarimela,Nearwatartank,,ANANTAPUR,'515611,AP,IN,+919493157516,Eswarareddy Tharimela,"Tarimela, Nearwatartank",Tarimela,Nearwatartank,,ANANTAPUR,'515611,AP,IN,+919493157516,,"Paid via: Razorpay Magic Checkout
+#1772,,paid,2026-10-11 15:15:31 +0530,fulfilled,2026-10-12 12:19:16 +0530,no,INR,1350.00,0.00,205.93,1350.00,"",0.00,FREE SHIPPING,2026-10-11 15:15:31 +0530,1,Ash Elegance Veda - L,1350.00,,CORD-AEV-GR-L,true,true,fulfilled,Eswarareddy Tharimela,"Tarimela, Nearwatartank",Tarimela,Nearwatartank,,ANANTAPUR,'515611,AP,IN,+919493157516,Eswarareddy Tharimela,"Tarimela, Nearwatartank",Tarimela,Nearwatartank,,ANANTAPUR,'515611,AP,IN,+919493157516,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TmYXdZ5Oq6QxEA
 Device_details_IP: 35.154.22.73
 cart_token: hWNHqHrYgO6TjmBkwwKegfHI?key=cadcb456e6abe6cf2ce91bdc8d53dc6c
@@ -2919,7 +2703,7 @@ utm_content: Facebook_UA
 utm_term: 120249247882780298
 fbclid: IwZXh0bgNhZW0BMABwZG9mBWFkaWQBqzaW_JOqinNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHqF_r4grhRt2QnM4LoAelTMeYo5OgJLZhYeHxE5p081E9Sny6RlkUXhHN52B_aem_1-4IpWvQyT9azRkr1Y7Mjg
 razorpay_payment_id: pay_TmYXx5Ax0KqHiM",,Razorpay,#1772.1,0.00,Janvi Aika,0.00,,,,18934189359475,"Magic, upi",Low,399890841601,0.00,IGST 18%,205.93,,,,,,,,,+919493157516,,,Andhra Pradesh,Andhra Pradesh,#1772.1,,,#1772.1
-#1773,lakvignesh18@gmail.com,paid,2026-10-11 16:15:23 +0530,unfulfilled,,no,INR,2580.00,0.00,393.56,2580.00,"",0.00,FREE SHIPPING,2026-10-11 16:15:22 +0530,1,Kalyani aika - XL,1190.00,,TOP-KA-SP-XL,true,true,pending,Muthuu Lakshmi,"31 Selvijar 1st street, Sivankoil street",31 Selvijar 1st street,Sivankoil street,,Thoothukudi,'628002,TN,IN,+919245594583,Muthuu Lakshmi,"31 Selvijar 1st street, Sivankoil street",31 Selvijar 1st street,Sivankoil street,,Thoothukudi,'628002,TN,IN,+919245594583,,"Paid via: Razorpay Magic Checkout
+#1773,lakvignesh18@gmail.com,paid,2026-10-11 16:15:23 +0530,fulfilled,2026-10-12 12:43:30 +0530,no,INR,2580.00,0.00,393.56,2580.00,"",0.00,FREE SHIPPING,2026-10-11 16:15:22 +0530,1,Kalyani aika - XL,1190.00,,TOP-KA-SP-XL,true,true,fulfilled,Muthuu Lakshmi,"31 Selvijar 1st street, Sivankoil street",31 Selvijar 1st street,Sivankoil street,,Thoothukudi,'628002,TN,IN,+919245594583,Muthuu Lakshmi,"31 Selvijar 1st street, Sivankoil street",31 Selvijar 1st street,Sivankoil street,,Thoothukudi,'628002,TN,IN,+919245594583,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TmZYuTYi6OdneR
 Device_details_IP: 35.154.143.15
 cart_token: hWNHqOFhcEGwrOzxPYUJXmmy?key=808c964d39b50a246b3482d21f2207ec
@@ -2936,8 +2720,8 @@ utm_content: Facebook_UA
 utm_term: 120248403168670298
 fbclid: PAYW9leAU4R7lleHRuA2FlbQEwAHBkb2YCYWRpZAGrNp37w14Kc3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGnpAhhjK0CH5g4YaknGYsMTTAK3efdFVpvy6FxumUce0Y_wCle33KQiU_BX8U_aem_royDluAKrnRSz99IZyveUQ
 razorpay_payment_id: pay_TmZZ9ywq46MO3z",,Razorpay,#1773.1,0.00,Janvi Aika,0.00,,,,18934237561203,"Magic, upi",Low,399890841601,0.00,IGST 18%,393.56,,,,,,,,,+919245594583,,,Tamil Nadu,Tamil Nadu,#1773.1,,,#1773.1
-#1773,lakvignesh18@gmail.com,,,,,,,,,,,,,,2026-10-11 16:15:22 +0530,1,Rose Charm Top - L,1390.00,"",TOP-RC-BP-L,true,true,pending,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+919245594583,,,,,,,,
-#1774,kanukoju1978@gmail.com,partially_paid,2026-10-11 16:53:35 +0530,unfulfilled,,no,INR,1390.00,0.00,212.03,1390.00,"",0.00,FREE SHIPPING,2026-10-11 16:53:34 +0530,1,Mustard Bloom Top - XXL,1390.00,,TOP-MB-MY-XXL,true,true,pending,Kanukoju Mahendar,"10-110,111 Telkapally village and mandal,, Nagarkurnool district","10-110,111 Telkapally village and mandal,",Nagarkurnool district,,Mahabub Nagar,'509385,TS,IN,+918500944800,Kanukoju Mahendar,"10-110,111 Telkapally village and mandal,, Nagarkurnool district","10-110,111 Telkapally village and mandal,",Nagarkurnool district,,Mahabub Nagar,'509385,TS,IN,+918500944800,,"Paid via: Razorpay Magic Checkout
+#1773,lakvignesh18@gmail.com,,,,,,,,,,,,,,2026-10-11 16:15:22 +0530,1,Rose Charm Top - L,1390.00,"",TOP-RC-BP-L,true,true,fulfilled,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+919245594583,,,,,,,,
+#1774,kanukoju1978@gmail.com,partially_paid,2026-10-11 16:53:35 +0530,fulfilled,2026-10-12 12:26:07 +0530,no,INR,1390.00,0.00,212.03,1390.00,"",0.00,FREE SHIPPING,2026-10-11 16:53:34 +0530,1,Mustard Bloom Top - XXL,1390.00,,TOP-MB-MY-XXL,true,true,fulfilled,Kanukoju Mahendar,"10-110,111 Telkapally village and mandal,, Nagarkurnool district","10-110,111 Telkapally village and mandal,",Nagarkurnool district,,Mahabub Nagar,'509385,TS,IN,+918500944800,Kanukoju Mahendar,"10-110,111 Telkapally village and mandal,, Nagarkurnool district","10-110,111 Telkapally village and mandal,",Nagarkurnool district,,Mahabub Nagar,'509385,TS,IN,+918500944800,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TmaBZOJRbZs1zN
 Device_details_IP: 35.154.22.73
 cart_token: hWNGbC1isMhfhnuLBPHmiwei?key=f0a68185f157141db9c8cb6e4ef9e0f7
@@ -2955,7 +2739,7 @@ utm_content: Facebook_UA
 utm_term: 120249247882780298
 fbclid: IwZXh0bgNhZW0BMABwZG9mBWFkaWQBqzaW_JOqinNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHl_WWtllK2gjoL4FAO-F0en25WfteGwPDFnfOzDR0gBqAblE7K18B_e9Tzjc_aem_1Hlo3_EtQjXBmwsE5ZhYXQ
 razorpay_payment_id: pay_TmaCuv8FHydSeS, pay_TmaE5QAjvmMGxf",,Razorpay,#1774.1,0.00,Janvi Aika,1191.00,,,,18934268002675,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,IGST 18%,212.03,,,,,,,,,+918500944800,,,Telangana,Telangana,#1774.1,,,#1774.1
-#1775,,partially_paid,2026-10-11 17:13:21 +0530,unfulfilled,,no,INR,3380.00,0.00,515.59,3380.00,"",0.00,FREE SHIPPING,2026-10-11 17:13:20 +0530,1,Blue Haze - M,3380.00,,A-BH-TB-M,true,true,pending,Dantla balajee,"APEPDCL, CURRENT OFFICE, BODDIPALLI, Narsipatnam","APEPDCL, CURRENT OFFICE, BODDIPALLI",Narsipatnam,,Visakhapatnam,'531116,AP,IN,+919949783969,Dantla balajee,"APEPDCL, CURRENT OFFICE, BODDIPALLI, Narsipatnam","APEPDCL, CURRENT OFFICE, BODDIPALLI",Narsipatnam,,Visakhapatnam,'531116,AP,IN,+919949783969,,"Paid via: Razorpay Magic Checkout
+#1775,,partially_paid,2026-10-11 17:13:21 +0530,fulfilled,2026-10-12 12:47:04 +0530,no,INR,3380.00,0.00,515.59,3380.00,"",0.00,FREE SHIPPING,2026-10-11 17:13:20 +0530,1,Blue Haze - M,3380.00,,A-BH-TB-M,true,true,fulfilled,Dantla balajee,"APEPDCL, CURRENT OFFICE, BODDIPALLI, Narsipatnam","APEPDCL, CURRENT OFFICE, BODDIPALLI",Narsipatnam,,Visakhapatnam,'531116,AP,IN,+919949783969,Dantla balajee,"APEPDCL, CURRENT OFFICE, BODDIPALLI, Narsipatnam","APEPDCL, CURRENT OFFICE, BODDIPALLI",Narsipatnam,,Visakhapatnam,'531116,AP,IN,+919949783969,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TmaVgLDfBnJAvW
 Device_details_IP: 35.154.22.73
 cart_token: hWNHnRrZ8VVIW9Cfbh0qM3wS?key=8812405c2aa8684a5c5c3d1590059fd1
@@ -2972,7 +2756,7 @@ utm_content: 120246975099530298
 utm_term: 120246975099510298
 fbclid: PAZXh0bgNhZW0BMABwZG9mAmFkaWQBqzXM2JW0SnNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABpxjpanhA5upsBqaPas89-Kn-FCssenUqZ6_4iH_j0cN2-8KfNI0tB5cM552f_aem_4ZMKFQ-fZ1EienVqOyX5uA
 razorpay_payment_id: pay_TmaXns0yj8LK2I, pay_TmaYxdAMk8KVqe",,Razorpay,#1775.1,0.00,Janvi Aika,3181.00,,,,18934284878195,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,IGST 18%,515.59,,,,,,,,,+919949783969,,,Andhra Pradesh,Andhra Pradesh,#1775.1,,,#1775.1
-#1776,sonikaju15@gmail.com,paid,2026-10-11 17:16:03 +0530,unfulfilled,,no,INR,1350.00,0.00,205.93,1350.00,"",0.00,FREE SHIPPING,2026-10-11 17:16:03 +0530,1,Lagoon Luxe - M,1350.00,,CORD-LL-LG-M,true,true,pending,Kajal Soni,"H.No.-61/91, pratap nagar, Sector 6, Pratap Nagar","H.No.-61/91, pratap nagar","Sector 6, Pratap Nagar",,Jaipur,'302033,RJ,IN,+916388819543,Kajal Soni,"H.No.-61/91, pratap nagar, Sector 6, Pratap Nagar","H.No.-61/91, pratap nagar","Sector 6, Pratap Nagar",,Jaipur,'302033,RJ,IN,+916388819543,,"Paid via: Razorpay Magic Checkout
+#1776,sonikaju15@gmail.com,paid,2026-10-11 17:16:03 +0530,fulfilled,2026-10-12 13:09:42 +0530,no,INR,1350.00,0.00,205.93,1350.00,"",0.00,FREE SHIPPING,2026-10-11 17:16:03 +0530,1,Lagoon Luxe - M,1350.00,,CORD-LL-LG-M,true,true,fulfilled,Kajal Soni,"H.No.-61/91, pratap nagar, Sector 6, Pratap Nagar","H.No.-61/91, pratap nagar","Sector 6, Pratap Nagar",,Jaipur,'302033,RJ,IN,+916388819543,Kajal Soni,"H.No.-61/91, pratap nagar, Sector 6, Pratap Nagar","H.No.-61/91, pratap nagar","Sector 6, Pratap Nagar",,Jaipur,'302033,RJ,IN,+916388819543,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TmaarmYwsMC93y
 Device_details_IP: 35.154.22.73
 cart_token: hWNHqULIFkkL90EFHwWTaxgy?key=d819d8686396410f6a7e90c0c2f83f86
@@ -2982,7 +2766,7 @@ utm_source: shopify
 utm_medium: Organic
 utm_campaign: Organic
 razorpay_payment_id: pay_TmabL2cp1V6vCe",,Razorpay,#1776.1,0.00,Janvi Aika,0.00,,,,18934287696243,"Magic, upi",Low,399890841601,0.00,IGST 18%,205.93,,,,,,,,,+916388819543,,,Rajasthan,Rajasthan,#1776.1,,,#1776.1
-#1777,,paid,2026-10-11 19:29:41 +0530,unfulfilled,,no,INR,1350.00,0.00,205.93,1350.00,"",0.00,FREE SHIPPING,2026-10-11 19:29:40 +0530,1,Ash Elegance Veda - M,1350.00,,CORD-AEV-GR-M,true,true,pending,Binit Mishra,B 1/ 153 Ganga Math Assi ghat,B 1/ 153 Ganga Math Assi ghat,,,Varanasi,'221005,UP,IN,+919452247010,Binit Mishra,B 1/ 153 Ganga Math Assi ghat,B 1/ 153 Ganga Math Assi ghat,,,Varanasi,'221005,UP,IN,+919452247010,,"Paid via: Razorpay Magic Checkout
+#1777,,paid,2026-10-11 19:29:41 +0530,fulfilled,2026-10-12 11:58:51 +0530,no,INR,1350.00,0.00,205.93,1350.00,"",0.00,FREE SHIPPING,2026-10-11 19:29:40 +0530,1,Ash Elegance Veda - M,1350.00,,CORD-AEV-GR-M,true,true,fulfilled,Binit Mishra,B 1/ 153 Ganga Math Assi ghat,B 1/ 153 Ganga Math Assi ghat,,,Varanasi,'221005,UP,IN,+919452247010,Binit Mishra,B 1/ 153 Ganga Math Assi ghat,B 1/ 153 Ganga Math Assi ghat,,,Varanasi,'221005,UP,IN,+919452247010,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TmcmG7JX91Gmb0
 Device_details_IP: 35.154.217.40
 cart_token: hWNHqh7Cdbsmr8BG5n9H9RPY?key=184672e7a55c6d967e48a164da28bdcf
@@ -2995,7 +2779,7 @@ utm_content: Facebook_UA
 utm_term: 120249247882780298
 fbclid: IwZXh0bgNhZW0BMABwZG9mBWZkaWQWUQGkXSK8JYhM4cmJrgXRoGa_6ACnj2FkaWQBqzZPGUJt2nNydGMGYXBwX2lkCjY2Mjg1NjgzNzkAAR67SMnhMuRRNyZUgeS4O5Cw-PYUbniiPRZpiRnWRZ0aY9_L43Nw3JrEKdjfOA_aem_Cce2AyYRCPZpESn4gbN5eg
 razorpay_payment_id: pay_Tmcs5vNuF4BLt4",,Razorpay,#1777.1,0.00,Janvi Aika,0.00,,,,18934427877747,"card, Magic",Low,399890841601,0.00,IGST 18%,205.93,,,,,,,,,+919452247010,,,Uttar Pradesh,Uttar Pradesh,#1777.1,,,#1777.1
-#1778,paru2548@gmail.com,paid,2026-10-11 19:40:46 +0530,unfulfilled,,no,INR,1190.00,0.00,181.53,1190.00,"",0.00,FREE SHIPPING,2026-10-11 19:40:46 +0530,1,Kalyani aika - 2XL,1190.00,,TOP-KA-SP-2XL,true,true,pending,Parvathy Ayyappan,"Sreedevi Vilasom, Angadical, Chengannur",Sreedevi Vilasom,"Angadical, Chengannur",,Alappuzha,'689123,KL,IN,+919400453977,Parvathy Ayyappan,"Sreedevi Vilasom, Angadical, Chengannur",Sreedevi Vilasom,"Angadical, Chengannur",,Alappuzha,'689123,KL,IN,+919400453977,,"Paid via: Razorpay Magic Checkout
+#1778,paru2548@gmail.com,paid,2026-10-11 19:40:46 +0530,fulfilled,2026-10-12 13:13:23 +0530,no,INR,1190.00,0.00,181.53,1190.00,"",0.00,FREE SHIPPING,2026-10-11 19:40:46 +0530,1,Kalyani aika - 2XL,1190.00,,TOP-KA-SP-2XL,true,true,fulfilled,Parvathy Ayyappan,"Sreedevi Vilasom, Angadical, Chengannur",Sreedevi Vilasom,"Angadical, Chengannur",,Alappuzha,'689123,KL,IN,+919400453977,Parvathy Ayyappan,"Sreedevi Vilasom, Angadical, Chengannur",Sreedevi Vilasom,"Angadical, Chengannur",,Alappuzha,'689123,KL,IN,+919400453977,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TmcsXyf1XvXjbl
 Device_details_IP: 35.154.143.15
 cart_token: hWNG94bOWWOrnCp9TdfJL35Q?key=cd9f019bc70914039827f327a1bad6a1
@@ -3012,7 +2796,7 @@ utm_content: Facebook_UA
 utm_term: 120246975099510298
 fbclid: PAZXh0bgNhZW0BMABwZG9mAmFkaWQBqzad9e3WSnNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABp1hu5gP9FF2j6Mj1YG3dQ6wnOq8a54tyjMkeuvkE06YeC_AFmDOFF82A1uJi_aem_CC1DS1arDr10fmyI17-LDg
 razorpay_payment_id: pay_Tmd3eXHR7E9jmT",,Razorpay,#1778.1,0.00,Janvi Aika,0.00,,,,18934440755571,"Magic, upi",Low,399890841601,0.00,IGST 18%,181.53,,,,,,,,,+919400453977,,,Kerala,Kerala,#1778.1,,,#1778.1
-#1779,padmaja96.mummaneni@gmail.com,paid,2026-10-11 19:54:18 +0530,unfulfilled,,no,INR,1890.00,0.00,288.31,1890.00,"",0.00,FREE SHIPPING,2026-10-11 19:54:17 +0530,1,Ruby Floral Symphony - XL,1890.00,,C-RF-RWP-XL,true,true,pending,Padmaja mummaneni,"sambasiva nivas, beside bright space shagun. 3rd floor ,spring valley,kondapur,hyderabad","sambasiva nivas, beside bright space shagun. 3rd floor ,spring valley,kondapur,hyderabad",,,Hyderabad,'500050,TS,IN,+918008784814,Padmaja mummaneni,"sambasiva nivas, beside bright space shagun. 3rd floor ,spring valley,kondapur,hyderabad","sambasiva nivas, beside bright space shagun. 3rd floor ,spring valley,kondapur,hyderabad",,,Hyderabad,'500050,TS,IN,+918008784814,,"Paid via: Razorpay Magic Checkout
+#1779,padmaja96.mummaneni@gmail.com,paid,2026-10-11 19:54:18 +0530,fulfilled,2026-10-12 13:16:53 +0530,no,INR,1890.00,0.00,288.31,1890.00,"",0.00,FREE SHIPPING,2026-10-11 19:54:17 +0530,1,Ruby Floral Symphony - XL,1890.00,,C-RF-RWP-XL,true,true,fulfilled,Padmaja mummaneni,"sambasiva nivas, beside bright space shagun. 3rd floor ,spring valley,kondapur,hyderabad","sambasiva nivas, beside bright space shagun. 3rd floor ,spring valley,kondapur,hyderabad",,,Hyderabad,'500050,TS,IN,+918008784814,Padmaja mummaneni,"sambasiva nivas, beside bright space shagun. 3rd floor ,spring valley,kondapur,hyderabad","sambasiva nivas, beside bright space shagun. 3rd floor ,spring valley,kondapur,hyderabad",,,Hyderabad,'500050,TS,IN,+918008784814,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TmdHu8XRCmZbui
 Device_details_IP: 35.154.143.15
 cart_token: hWNHqkA1WlyYu7NzSBJDJFXo?key=f3b6330daf4e32177866a38ebb43a1a3
@@ -3029,7 +2813,7 @@ utm_content: Facebook_UA
 utm_term: 120249247882780298
 fbclid: PAYW9leAU4eopleHRuA2FlbQEwAHBkb2YCYWRpZAGrNpb8k6qKc3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGnT2nlwURyWvGNOKz-p8bhUJOQ0ys_VcDL7w61c0Wl6UU77Q9481UhXhrfytc_aem_V5Uim12-nwXYhcywKqgISA
 razorpay_payment_id: pay_TmdIdxH94DlDSz",,Razorpay,#1779.1,0.00,Janvi Aika,0.00,,,,18934456090995,"Magic, upi",Low,399890841601,0.00,IGST 18%,288.31,,,,,,,,,+918008784814,,,Telangana,Telangana,#1779.1,,,#1779.1
-#1780,,paid,2026-10-11 21:04:29 +0530,unfulfilled,,no,INR,1190.00,0.00,181.53,1190.00,"",0.00,FREE SHIPPING,2026-10-11 21:04:29 +0530,1,Marielle - L,1190.00,,TOPS-MA-DG-L,true,true,pending,Vennila nadar,"C 102,calypso, Amit Bloomfield near navale bridge","C 102,calypso, Amit Bloomfield near navale bridge",,,PUNE,'411046,MH,IN,+919730985507,Vennila nadar,"C 102,calypso, Amit Bloomfield near navale bridge","C 102,calypso, Amit Bloomfield near navale bridge",,,PUNE,'411046,MH,IN,+919730985507,,"Paid via: Razorpay Magic Checkout
+#1780,,paid,2026-10-11 21:04:29 +0530,fulfilled,2026-10-12 13:20:20 +0530,no,INR,1190.00,0.00,181.53,1190.00,"",0.00,FREE SHIPPING,2026-10-11 21:04:29 +0530,1,Marielle - L,1190.00,,TOPS-MA-DG-L,true,true,fulfilled,Vennila nadar,"C 102,calypso, Amit Bloomfield near navale bridge","C 102,calypso, Amit Bloomfield near navale bridge",,,PUNE,'411046,MH,IN,+919730985507,Vennila nadar,"C 102,calypso, Amit Bloomfield near navale bridge","C 102,calypso, Amit Bloomfield near navale bridge",,,PUNE,'411046,MH,IN,+919730985507,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TmeTxFtly0ynz5
 Device_details_IP: 35.154.22.73
 cart_token: hWNHqrXMeTRTIwv0HTCH8VpU?key=96cac09e671f705303eb0b07f5d5f26a
@@ -3040,7 +2824,7 @@ rzp_3p_utm_ts: 1791732741238
 rzp_device_id: 1.30370c9fff32289557427270f96680bef33bbc07.1791732741238.67151801
 rzp_pixel_id: TmeSu2FcfIOa7N
 razorpay_payment_id: pay_TmeUeJxuuEJaMd",,Razorpay,#1780.1,0.00,Janvi Aika,0.00,,,,18934583624051,"Magic, upi",Low,399890841601,0.00,IGST 18%,181.53,,,,,,,,,+919730985507,,,Maharashtra,Maharashtra,#1780.1,,,#1780.1
-#1781,merbel@gmail.com,partially_paid,2026-10-11 21:39:20 +0530,unfulfilled,,no,INR,1390.00,0.00,212.04,1390.00,"",0.00,FREE SHIPPING,2026-10-11 21:39:20 +0530,1,Gilded Azure - XL,1390.00,,TOP-GA-RB-XL,true,true,pending,Meera Shanteshwar,"Dr.Veena Shanteshwar, Mantralaya, 1st cross, Saptapur",Dr.Veena Shanteshwar,"Mantralaya, 1st cross, Saptapur",,Dharwad,'580001,KA,IN,+919945168284,Meera Shanteshwar,"Dr.Veena Shanteshwar, Mantralaya, 1st cross, Saptapur",Dr.Veena Shanteshwar,"Mantralaya, 1st cross, Saptapur",,Dharwad,'580001,KA,IN,+919945168284,,"Paid via: Razorpay Magic Checkout
+#1781,merbel@gmail.com,partially_paid,2026-10-11 21:39:20 +0530,fulfilled,2026-10-12 13:23:47 +0530,no,INR,1390.00,0.00,212.04,1390.00,"",0.00,FREE SHIPPING,2026-10-11 21:39:20 +0530,1,Gilded Azure - XL,1390.00,,TOP-GA-RB-XL,true,true,fulfilled,Meera Shanteshwar,"Dr.Veena Shanteshwar, Mantralaya, 1st cross, Saptapur",Dr.Veena Shanteshwar,"Mantralaya, 1st cross, Saptapur",,Dharwad,'580001,KA,IN,+919945168284,Meera Shanteshwar,"Dr.Veena Shanteshwar, Mantralaya, 1st cross, Saptapur",Dr.Veena Shanteshwar,"Mantralaya, 1st cross, Saptapur",,Dharwad,'580001,KA,IN,+919945168284,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_Tmf2qNDnacdDPM
 Device_details_IP: 35.154.22.73
 cart_token: hWNHquvPdl5DtPzYF90Yp0Ro?key=0c63f4bffe38ccf19080b6e57419a148
@@ -3056,7 +2840,7 @@ utm_content: Facebook_UA
 utm_term: 120249247882780298
 fbclid: IwZXh0bgNhZW0BMABwZG9mAWFkaWQBqzZPGUJt2nNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHqMoBzy8C_J4E5P70fhrxDsvhX4z2Ya8gsSbhPlbmrMO556qw2YwOwvGiB88_aem_mbvmuBUquzwo2kQRm1rx9w
 razorpay_payment_id: pay_Tmf5OSILAnhzz4, pay_Tmf5wM5KDpLakn",,Razorpay,#1781.1,0.00,Janvi Aika,1191.00,,,,18934661284211,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,CGST 9%,106.02,SGST 9%,106.02,,,,,,,+919945168284,,,Karnataka,Karnataka,#1781.1,,,#1781.1
-#1782,Amitrohra@jetwaybroadband.com,paid,2026-10-11 22:16:53 +0530,unfulfilled,,no,INR,1990.00,0.00,303.56,1990.00,"",0.00,FREE SHIPPING,2026-10-11 22:16:52 +0530,1,Orchid Bay - XL,1990.00,,C-OB-LGC-XL,true,true,pending,Amit Rohra,"Jetway broadband indianpvt ltd shop no 1- A kailash commercial complex, Shiv mandir road ambernath east",Jetway broadband indianpvt ltd shop no 1- A kailash commercial complex,Shiv mandir road ambernath east,,Thane,'421501,MH,IN,+919172220512,Amit Rohra,"Jetway broadband indianpvt ltd shop no 1- A kailash commercial complex, Shiv mandir road ambernath east",Jetway broadband indianpvt ltd shop no 1- A kailash commercial complex,Shiv mandir road ambernath east,,Thane,'421501,MH,IN,+919172220512,,"Paid via: Razorpay Magic Checkout
+#1782,Amitrohra@jetwaybroadband.com,paid,2026-10-11 22:16:53 +0530,fulfilled,2026-10-12 13:34:27 +0530,no,INR,1990.00,0.00,303.56,1990.00,"",0.00,FREE SHIPPING,2026-10-11 22:16:52 +0530,1,Orchid Bay - XL,1990.00,,C-OB-LGC-XL,true,true,fulfilled,Amit Rohra,"Jetway broadband indianpvt ltd shop no 1- A kailash commercial complex, Shiv mandir road ambernath east",Jetway broadband indianpvt ltd shop no 1- A kailash commercial complex,Shiv mandir road ambernath east,,Thane,'421501,MH,IN,+919172220512,Amit Rohra,"Jetway broadband indianpvt ltd shop no 1- A kailash commercial complex, Shiv mandir road ambernath east",Jetway broadband indianpvt ltd shop no 1- A kailash commercial complex,Shiv mandir road ambernath east,,Thane,'421501,MH,IN,+919172220512,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TmfiYFmDtO0ZWX
 Device_details_IP: 35.154.22.73
 cart_token: hWNH7C3RZsCkyk395CCfa1Ei?key=a14175356ec0ae96b483460d8575c93e
@@ -3070,7 +2854,7 @@ utm_source: instagram
 utm_medium: Organic
 utm_campaign: Organic
 razorpay_payment_id: pay_TmfilSrtKaNMEc",,Razorpay,#1782.1,0.00,Janvi Aika,0.00,,,,18934734520691,"card, Magic",Low,399890841601,0.00,IGST 18%,303.56,,,,,,,,,+919172220512,,,Maharashtra,Maharashtra,#1782.1,,,#1782.1
-#1783,mbunkar320@gmail.com,paid,2026-10-12 06:50:53 +0530,unfulfilled,,no,INR,1350.00,0.00,205.93,1350.00,"",0.00,FREE SHIPPING,2026-10-12 06:50:53 +0530,1,Ash Elegance Veda - XS,1350.00,,CORD-AEV-GR-XS,true,true,pending,Sunita .,"S-81'ARDH Sainik canteen prem nagar road Nangal purohitan Rajawas jaipur, Balaji marriage garden",S-81'ARDH Sainik canteen prem nagar road Nangal purohitan Rajawas jaipur,Balaji marriage garden,,Jaipur,'302032,RJ,IN,+918949707236,Sunita .,"S-81'ARDH Sainik canteen prem nagar road Nangal purohitan Rajawas jaipur, Balaji marriage garden",S-81'ARDH Sainik canteen prem nagar road Nangal purohitan Rajawas jaipur,Balaji marriage garden,,Jaipur,'302032,RJ,IN,+918949707236,,"Paid via: Razorpay Magic Checkout
+#1783,mbunkar320@gmail.com,paid,2026-10-12 06:50:53 +0530,fulfilled,2026-10-12 13:48:35 +0530,no,INR,1350.00,0.00,205.93,1350.00,"",0.00,FREE SHIPPING,2026-10-12 06:50:53 +0530,1,Ash Elegance Veda - XS,1350.00,,CORD-AEV-GR-XS,true,true,fulfilled,Sunita .,"S-81'ARDH Sainik canteen prem nagar road Nangal purohitan Rajawas jaipur, Balaji marriage garden",S-81'ARDH Sainik canteen prem nagar road Nangal purohitan Rajawas jaipur,Balaji marriage garden,,Jaipur,'302032,RJ,IN,+918949707236,Sunita .,"S-81'ARDH Sainik canteen prem nagar road Nangal purohitan Rajawas jaipur, Balaji marriage garden",S-81'ARDH Sainik canteen prem nagar road Nangal purohitan Rajawas jaipur,Balaji marriage garden,,Jaipur,'302032,RJ,IN,+918949707236,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_TmoQrCuiic8HN1
 Device_details_IP: 35.154.143.15
 cart_token: hWNHrocluvpiY9rgyK1hur5g?key=178cd000b90c79708681c465edc62257
@@ -3083,3 +2867,220 @@ utm_content: Facebook_UA
 utm_term: 120249247882780298
 fbclid: IwZXh0bgNhZW0BMABwZG9mBWFkaWQBqzaW_JOqinNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHgiS1lCEqj83W2p9Wv8r0e6OdYbYjq6iOEsHCACBvEU2RYzNbDtRr6Pq7Efd_aem_23nKEFWr-LD-ckRby8xIWA
 razorpay_payment_id: pay_TmoTvRxtLE5aOk",,Razorpay,#1783.1,0.00,Janvi Aika,0.00,,,,18935551754611,"card, Magic",Low,399890841601,0.00,IGST 18%,205.93,,,,,,,,,+918949707236,,,Rajasthan,Rajasthan,#1783.1,,,#1783.1
+#1785,,paid,2026-10-12 11:15:58 +0530,fulfilled,2026-10-12 13:55:32 +0530,no,INR,2580.00,0.00,393.56,2580.00,"",0.00,FREE SHIPPING,2026-10-12 11:15:58 +0530,1,Lime Regalia Top - L,1390.00,,TOP-LR-LG-L,true,true,fulfilled,Pooja Balaji,"Jains Sukriti Mogappair West Ambattur Industrial Estate, Jains sukriti, Block 4, 3rd floor, door no.TC",Jains Sukriti Mogappair West Ambattur Industrial Estate,"Jains sukriti, Block 4, 3rd floor, door no.TC",,Tiruvallur,'600037,TN,IN,+917358795988,Pooja Balaji,"Jains Sukriti Mogappair West Ambattur Industrial Estate, Jains sukriti, Block 4, 3rd floor, door no.TC",Jains Sukriti Mogappair West Ambattur Industrial Estate,"Jains sukriti, Block 4, 3rd floor, door no.TC",,Tiruvallur,'600037,TN,IN,+917358795988,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_TmszTBFMtgu69j
+Device_details_IP: 35.154.22.73
+cart_token: hWNHqzeDxviiITnv2bE2VjyW?key=6a29b2dfa9fe23cbb02553ad1d4d3a6a
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""d7OGLis-27n_0DJ4eX2GR"",""wht_user_id"":""OXVW6-jLbY3WH7OFhIx-4""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
+rzp_3p_utm_ts: 1791783443718
+rzp_device_id: 1.674c4e5179318fecca01de25dbca2abb2709a2a6.1791783283654.46284747
+rzp_pixel_id: TmsojKs4W0YPJw
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: PAZXh0bgNhZW0BMABwZG9mAmZkaWQWUQLa4l2vbuiRPwmNssZifDbYFZWiX2FkaWQBqzZPGUJt2nNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABpzo-uD993xSn_Gx5HF482vTC73f5T9y6YaRevFI71vtnAvvVZ3Wt6rfIqvX8_aem_EPqosReP2Yg7XFlqQfOCGA
+razorpay_payment_id: pay_TmszwPNc9tuUwx",,Razorpay,#1785.1,0.00,Janvi Aika,0.00,,,,18935860199795,"Magic, upi",Low,399890841601,0.00,IGST 18%,393.56,,,,,,,,,+917358795988,,,Tamil Nadu,Tamil Nadu,#1785.1,,,#1785.1
+#1785,,,,,,,,,,,,,,,2026-10-12 11:15:58 +0530,1,Marielle - L,1190.00,"",TOPS-MA-DG-L,true,true,fulfilled,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+917358795988,,,,,,,,
+#1787,rahul2731@rediffmail.com,paid,2026-10-12 12:41:08 +0530,fulfilled,2026-10-12 13:58:47 +0530,no,INR,1350.00,0.00,205.93,1350.00,"",0.00,FREE SHIPPING,2026-10-12 12:41:07 +0530,1,Ash Elegance Veda - L,1350.00,,CORD-AEV-GR-L,true,true,fulfilled,Rahul Chaudhary,"Psychotropics India Limited plot no. 12 &12A, IP-2, Phase-1, Salempur, Mehdood-2 Haridwar","Psychotropics India Limited plot no. 12 &12A, IP-2, Phase-1, Salempur, Mehdood-2 Haridwar",,,Haridwar,'249403,UK,IN,+917351977284,Rahul Chaudhary,"Psychotropics India Limited plot no. 12 &12A, IP-2, Phase-1, Salempur, Mehdood-2 Haridwar","Psychotropics India Limited plot no. 12 &12A, IP-2, Phase-1, Salempur, Mehdood-2 Haridwar",,,Haridwar,'249403,UK,IN,+917351977284,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_TmuRRRRrtTlxvm
+Device_details_IP: 35.154.22.73
+cart_token: hWNHoAf0nHs2D8U6MkrUqtT2?key=2766e3e4f362fc6ff4bfc4ac7bbd1fe7
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""tZNav3HBuygp0LrZJTx2S"",""wht_user_id"":""LdV0uOkEWSVrr2700KMqS""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad
+rzp_3p_utm_ts: 1791788667424
+rzp_device_id: 1.0ed5c0eea4af5ebdce26c69ca217f8ed873cda08.1791633908857.18760653
+rzp_pixel_id: TmuDNnwCqO9uzO
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+fbclid: IwZXh0bgNhZW0BMABwZG9mBWFkaWQBqzZPGUJt2nNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHgBqd1J4RMZ6RZ9nRoi5vs81gk02YMs0NMqyYRPkngWxl6n2UVqmkppJUw7z_aem_KiO4VsDbL6WaOdUtvgP68g
+razorpay_payment_id: pay_TmuRkFBgweTNad",,Razorpay,#1787.1,0.00,Janvi Aika,0.00,,,,18935927112051,"Magic, upi",Low,399890841601,0.00,IGST 18%,205.93,,,,,,,,,+917351977284,,,Uttarakhand,Uttarakhand,#1787.1,,,#1787.1
+#1788,rekhahebri@gmail.com,paid,2026-10-12 13:02:35 +0530,fulfilled,2026-10-12 17:25:38 +0530,no,INR,1390.00,0.00,212.04,1390.00,"",0.00,FREE SHIPPING,2026-10-12 13:02:35 +0530,1,Teal Zaria Top - M,1390.00,,TOP-TZ-RB-M,true,true,fulfilled,Rekha Guruprasada,"#95, 95/1, 3 rd Floor, Srimaatha residency(Ramdev medical ), 4th Cross, TG layout, Ittamadu, Banashankari 3rd Stage, BENGALURU, KARNATAKA, 560085,, Pro- Constructions","#95, 95/1, 3 rd Floor, Srimaatha residency(Ramdev medical ), 4th Cross, TG layout, Ittamadu, Banashankari 3rd Stage, BENGALURU, KARNATAKA, 560085,",Pro- Constructions,,Bengaluru,'560085,KA,IN,+918880384383,Rekha Guruprasada,"#95, 95/1, 3 rd Floor, Srimaatha residency(Ramdev medical ), 4th Cross, TG layout, Ittamadu, Banashankari 3rd Stage, BENGALURU, KARNATAKA, 560085,, Pro- Constructions","#95, 95/1, 3 rd Floor, Srimaatha residency(Ramdev medical ), 4th Cross, TG layout, Ittamadu, Banashankari 3rd Stage, BENGALURU, KARNATAKA, 560085,",Pro- Constructions,,Bengaluru,'560085,KA,IN,+918880384383,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_TmuoXyV6HuubUn
+Device_details_IP: 35.154.22.73
+cart_token: hWNHhiBBRbqQ594BNRcME1ps?key=8ff5f029fc235a06a8be3b5670473fb6
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""OSVuJAVC-14cRCTOswA5o"",""wht_user_id"":""IZyHbGA2H0QOoh461g0eW""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:navrathti-add-to-cart-ad||utm_id:120248403168660298||utm_term:120248403168670298
+rzp_3p_utm_ts: 1791790210407
+rzp_device_id: 1.91bf8a0249295efb638c8d8e6e7e3a8319364afb.1791396775049.26884869
+rzp_pixel_id: TmulSSm5LMSChB
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: navrathti-add-to-cart-ad
+utm_content: Facebook_UA
+utm_term: 120248403168670298
+fbclid: PAYW9leAU5a9BleHRuA2FlbQEwAHBkb2YCYWRpZAGrNp37w14Kc3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGn6Xqkqf-Z2tyYO2VuWngQ7IJfl4sxYmftK6Dj2IBQ8dpFVXU1vJhy5TmjVWg_aem_mrDNQO-8_SGxD9t9Gag8nA
+razorpay_payment_id: pay_TmuohSlUHIVbb2",,Razorpay,#1788.1,0.00,Janvi Aika,0.00,,,,18935979016563,"Magic, upi",Low,399890841601,0.00,CGST 9%,106.02,SGST 9%,106.02,,,,,,,+918880384383,,,Karnataka,Karnataka,#1788.1,,,#1788.1
+#1789,yogitathakare@30gmail.com,paid,2026-10-12 14:57:22 +0530,fulfilled,2026-10-12 17:27:02 +0530,no,INR,1390.00,0.00,212.03,1390.00,"",0.00,FREE SHIPPING,2026-10-12 14:57:22 +0530,1,Geometric Glam - XXL,1390.00,,TOP-GG-RD-XXL,true,true,fulfilled,Yogita Thakare,"Nilesh thakare Bhagwati villa Swami Vivekananda society behind Aher gardan walhekarwadi chinchwad pune 411033, Aher gardan walhekarwadi chinchwad",Nilesh thakare Bhagwati villa Swami Vivekananda society behind Aher gardan walhekarwadi chinchwad pune 411033,Aher gardan walhekarwadi chinchwad,,pune,'411033,MH,IN,+918408812777,Yogita Thakare,"Nilesh thakare Bhagwati villa Swami Vivekananda society behind Aher gardan walhekarwadi chinchwad pune 411033, Aher gardan walhekarwadi chinchwad",Nilesh thakare Bhagwati villa Swami Vivekananda society behind Aher gardan walhekarwadi chinchwad pune 411033,Aher gardan walhekarwadi chinchwad,,pune,'411033,MH,IN,+918408812777,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_TmwlHzv1tkpUxp
+Device_details_IP: 35.154.143.15
+cart_token: hWNHscGAGvisAkbPGcWfkM8S?key=161be7539005c3dc06cd37e6ae42cf2a
+payment_method: upi
+rzp_device_id: 1.ec271a7979ba151d34150a9ab22da13e9cb71b78.1791797121534.00061585
+rzp_pixel_id: TmwkM0g7LU6pof
+_wht_user_attributes: {""wht_session_id"":""KDAMNjWLGnsrrnclUJrFw"",""wht_user_id"":""zTEiWdDQ7XBXJqBXCllt5""}
+rzp_3p_utm: utm_source:(direct)||utm_medium:(none)
+rzp_3p_utm_ts: 1791797121534
+razorpay_payment_id: pay_Tmwls14fRXl1BB",,Razorpay,#1789.1,0.00,Janvi Aika,0.00,,,,18936223334771,"Magic, upi",Low,399890841601,0.00,IGST 18%,212.03,,,,,,,,,+918408812777,,,Maharashtra,Maharashtra,#1789.1,,,#1789.1
+#1790,pamichoday@gmail.com,paid,2026-10-12 16:20:36 +0530,fulfilled,2026-10-12 17:49:54 +0530,no,INR,1350.00,0.00,205.93,1350.00,"",0.00,FREE SHIPPING,2026-10-12 16:20:35 +0530,1,Greeny Twinkle - 2XL,1350.00,,CORD-GT-DG-2XL,true,true,fulfilled,Pramila Choday,"2-27-16, Gokul Street, Srinagar colony, Kakinada","2-27-16, Gokul Street, Srinagar colony, Kakinada",,,East Godavari,'533003,AP,IN,+919885244044,Pramila Choday,"2-27-16, Gokul Street, Srinagar colony, Kakinada","2-27-16, Gokul Street, Srinagar colony, Kakinada",,,East Godavari,'533003,AP,IN,+919885244044,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_TmyA7didMC9ZBx
+Device_details_IP: 35.154.22.73
+cart_token: hWNHskhUDqSipeoAxAxjhLq0?key=623e26ebd837d12b9aa466123d695e22
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""xit9SL3a4IOp_hRTjazI6"",""wht_user_id"":""KSkPsQQcKPwmpvSD_IxUB""}
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: PAaWdyZAU5mj1leHRuA2FlbQEwAHBkb2YCYWRpZAGrNk8Y6ju6c3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGnpj0ga5smHCwCYYQUXblx2bJI8E4GuSh_5R21lrnW03uGsXWyYbVfzGBPOpk_aem_rzp5_-3CRWXWmJqla_kqvA
+razorpay_payment_id: pay_TmyBKmgJF2MiN1",,Razorpay,#1790.1,0.00,Janvi Aika,0.00,,,,18936289755507,"Magic, upi",Low,399890841601,0.00,IGST 18%,205.93,,,,,,,,,+919885244044,,,Andhra Pradesh,Andhra Pradesh,#1790.1,,,#1790.1
+#1791,,partially_paid,2026-10-12 18:57:13 +0530,unfulfilled,,no,INR,1580.00,0.00,241.02,1580.00,"",0.00,FREE SHIPPING,2026-10-12 18:57:12 +0530,1,Ruhani Peacock Heritage Kurta Set - XL,1580.00,,C-RPH-LAV-XL,true,true,pending,Senthil Kumar,"15,, Subramanya swamy Kovil Street","15,",Subramanya swamy Kovil Street,,Virudhunagar,'626123,TN,IN,+919843042296,Senthil Kumar,"15,, Subramanya swamy Kovil Street","15,",Subramanya swamy Kovil Street,,Virudhunagar,'626123,TN,IN,+919843042296,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_Tn0qp2YeJkTQCK
+Device_details_IP: 35.154.217.40
+cart_token: hWNHt0Hhe7tmJWlgMJhEbAuq?key=c8defcac250d7ba87a04ae86c72f5761
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""PT_eNyY-oSs4sl1FpQv1N"",""wht_user_id"":""AjYUa2RdqL4HiFZ5gvhx_""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:navratri-buy3-get-15-off-ad||utm_id:120246482908220298||utm_term:120249247882780298
+rzp_3p_utm_ts: 1791811523431
+rzp_device_id: 1.c98e471eea211f967e68f871f67b96c15be588eb.1791811323519.34871306
+rzp_pixel_id: Tn0mO60jrMQEty
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: navratri-buy3-get-15-off-ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: IwZXh0bgNhZW0BMABwZG9mBWFkaWQBqzaW_JOqinNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHqTAxb2vWl01ANkJut9uHz8GeMkcT9r-GEY2ce00g1bd6ZE4ylUP5FQr8sTc_aem_6VqXaPiuO9pCWwtyk-lHBA
+razorpay_payment_id: pay_Tn0r8gjAXdHxXO, pay_Tn0rnmugG6gRXT",,Razorpay,#1791.1,0.00,Janvi Aika,1381.00,,,,18936486134131,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,IGST 18%,241.02,,,,,,,,,+919843042296,,,Tamil Nadu,Tamil Nadu,#1791.1,,,#1791.1
+#1792,ingsugan_ibc_ppm@yahoo.co.in,paid,2026-10-12 22:58:39 +0530,unfulfilled,,no,INR,1390.00,0.00,212.03,1390.00,"",0.00,FREE SHIPPING,2026-10-12 22:58:39 +0530,1,Blush Chic Top - M,1390.00,,TOP-BC-BP-M,true,true,pending,Shikha Ingarsal,"H.No.135 Block SD, Towers Apartment A Block",H.No.135 Block SD,Towers Apartment A Block,,Pitampura,'110034,DL,IN,+919999150447,Shikha Ingarsal,"H.No.135 Block SD, Towers Apartment A Block",H.No.135 Block SD,Towers Apartment A Block,,Pitampura,'110034,DL,IN,+919999150447,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_Tn4u0OhpEjutbl
+Device_details_IP: 35.154.143.15
+cart_token: hWNGkLKjNWrbFNgRcTBBI4Si?key=a1de6f4af6cfac69599cdb277f723864
+payment_method: upi
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:navratri-buy3-get-15-off-ad||utm_id:120246482908220298||utm_term:120249247882780298
+rzp_3p_utm_ts: 1791825257011
+rzp_device_id: 1.6f6133553404911fcae8f828b0a9d182b53707e9.1789217267757.47196223
+rzp_pixel_id: Tn4XYdzDKgAuNO
+_wht_user_attributes: {""wht_session_id"":""ZCOLNq_AMWQEeuLqJo_wf"",""wht_user_id"":""cP3XylWvt0UBsjny4Wnxr""}
+_wvi: 1
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: navratri-buy3-get-15-off-ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: IwZXh0bgNhZW0BMABwZG9mBWFkaWQBqzaW_JOqinNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHmopoPadD7DVrZ12aauT8daVKdgbWzQHRVbpYajJs6RDaanJQNQyoJllTVKJ_aem_xjYoa6tleKdqRYmpCq688g
+razorpay_payment_id: pay_Tn4ugSL53omhjY",,Razorpay,#1792.1,0.00,Janvi Aika,0.00,,,,18936881480051,"Magic, upi",Low,399890841601,0.00,IGST 18%,212.03,,,,,,,,,+919999150447,,,Delhi,Delhi,#1792.1,,,#1792.1
+#1793,,paid,2026-10-13 05:38:55 +0530,unfulfilled,,no,INR,1990.00,0.00,303.56,1990.00,"",0.00,FREE SHIPPING,2026-10-13 05:38:54 +0530,1,Virel Nova - M,1990.00,,C-VN-CE-M,true,true,pending,Ravi Ranjan,"CANARA BANK, NETAJI MARKET, SUBHASH CHOWK, FORBESGANJ, ARARIA, CANARA BANK","CANARA BANK, NETAJI MARKET, SUBHASH CHOWK, FORBESGANJ, ARARIA",CANARA BANK,,Araria,'854318,BR,IN,+917700882288,Ravi Ranjan,"CANARA BANK, NETAJI MARKET, SUBHASH CHOWK, FORBESGANJ, ARARIA, CANARA BANK","CANARA BANK, NETAJI MARKET, SUBHASH CHOWK, FORBESGANJ, ARARIA",CANARA BANK,,Araria,'854318,BR,IN,+917700882288,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_TnBmqHpFzYHKgY
+Device_details_IP: 35.154.217.40
+cart_token: hWNHu3gsBUUD0sm5Xzy22AIm?key=70aaaecbdb286791c0e087fc830343f0
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""oKnwo5_mgnnZmIu-TP4d6"",""wht_user_id"":""1fNLUcBP69j0Yz-jSvMU6""}
+razorpay_payment_id: pay_TnBnCogMhhJfty",,Razorpay,#1793.1,0.00,Janvi Aika,0.00,,,,18937660014963,"Magic, upi",Low,399890841601,0.00,IGST 18%,303.56,,,,,,,,,+917700882288,,,Bihar,Bihar,#1793.1,,,#1793.1
+#1794,2019.luv@gmail.com,paid,2026-10-13 07:07:36 +0530,unfulfilled,,no,INR,1580.00,0.00,241.02,1580.00,"",0.00,FREE SHIPPING,2026-10-13 07:07:35 +0530,1,Thara Peacock Arch Kurta Set - 3XL,1580.00,,C-TPA-CRM-3XL,true,true,pending,Rajiv Rastogi,"A-901,Hamilton Heights, Sector-37.Faridabad-121003, Espire Towers, Sector-37 Faridabad-121003","A-901,Hamilton Heights, Sector-37.Faridabad-121003","Espire Towers, Sector-37 Faridabad-121003",,Faridabad,'121003,HR,IN,+917011098811,Rajiv Rastogi,"A-901,Hamilton Heights, Sector-37.Faridabad-121003, Espire Towers, Sector-37 Faridabad-121003","A-901,Hamilton Heights, Sector-37.Faridabad-121003","Espire Towers, Sector-37 Faridabad-121003",,Faridabad,'121003,HR,IN,+917011098811,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_TnDFhNDQGi2vhS
+Device_details_IP: 35.154.143.15
+cart_token: hWNHuCB0XuQmsKWN7ze0DyeC?key=f6ee6454e80d5a2f60ed8064ee373df8
+payment_method: upi
+rzp_3p_utm_ts: 1791855144391
+rzp_device_id: 1.f42faf468b1b236a15f6c40950e1ce4f22043d96.1791855075393.88678716
+rzp_pixel_id: TnDCfEHKZyQsjw
+_wht_user_attributes: {""wht_session_id"":""B3wiVERvaq7lBxz9GAWq6"",""wht_user_id"":""_j-UsmA8KM7QtXJuvAae5""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:navratri-buy3-get-15-off-ad||utm_id:120246482908220298||utm_term:120249247882780298
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: navratri-buy3-get-15-off-ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: IwZXh0bgNhZW0BMABwZG9mBWFkaWQBqzaW_JOqinNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHguEmaQmWgt6Rjc9FCfxFFhNHxoui_JiJboLQ2Oz6A1ejuBtdE3mPL8JBSW1_aem_d0_QnTAX1UZDpqn6xTNUCw
+razorpay_payment_id: pay_TnDIE9yCVXlwHw",,Razorpay,#1794.1,0.00,Janvi Aika,0.00,,,,18937827295603,"Magic, upi",Low,399890841601,0.00,IGST 18%,241.02,,,,,,,,,+917011098811,,,Haryana,Haryana,#1794.1,,,#1794.1
+#1795,varalakshmikadi9@gmail.com,paid,2026-10-13 07:39:03 +0530,unfulfilled,,no,INR,1390.00,0.00,212.03,1390.00,"",0.00,FREE SHIPPING,2026-10-13 07:39:03 +0530,1,Vivid Violet - L,1390.00,,TOP-VV-PU-L,true,true,pending,Varalakshmi Varalakshmi,"Bhadrakali township, B2,ATR towers",Bhadrakali township,"B2,ATR towers",,East Godavari,'533222,AP,IN,+919704309971,Varalakshmi Varalakshmi,"Bhadrakali township, B2,ATR towers",Bhadrakali township,"B2,ATR towers",,East Godavari,'533222,AP,IN,+919704309971,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_TnDpBXGJLXUOma
+Device_details_IP: 35.154.217.40
+cart_token: hWNHuFfKBAhz13LGKjsUU5Mi?key=85aa5abc7dffbde166bd621c65a6a25f
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""aYRMzEexSNTpc1d5mh-lS"",""wht_user_id"":""M8FBnOHIk0ESkkkxgOK55""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:navrathri-hot-campaign-ad-for-website-visitor||utm_id:120246975099520298||utm_term:120246975099510298
+rzp_3p_utm_ts: 1791857178322
+rzp_device_id: 1.644a68b16d5cfa9d157df7534ae0ec878dfef0ae.1786414698463.62755628
+rzp_pixel_id: TnDn2OrLv6rwVv
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: navrathri-hot-campaign-ad-for-website-visitor
+utm_content: Facebook_UA
+utm_term: 120246975099510298
+fbclid: PAZXh0bgNhZW0BMABwZG9mAmFkaWQBqzad9e3WSnNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABp_UXxf6MWoaNxFpCRIPZ8hNwFyDlKRWqOyrof42ZJb_X2qrNQ0kjoN8ZoofC_aem_mrAHYprqhunFhlxYc0YhNQ
+razorpay_payment_id: pay_TnDpJzOJKKozIo",,Razorpay,#1795.1,0.00,Janvi Aika,0.00,,,,18937885589875,"Magic, upi",Low,399890841601,0.00,IGST 18%,212.03,,,,,,,,,+919704309971,,,Andhra Pradesh,Andhra Pradesh,#1795.1,,,#1795.1
+#1796,sonawane.pravin55@gmail.com,paid,2026-10-13 07:41:06 +0530,unfulfilled,,no,INR,1390.00,0.00,212.03,1390.00,"",0.00,FREE SHIPPING,2026-10-13 07:41:05 +0530,1,Mauve Magnolia - M,1390.00,,TOP-MM-LV-M,true,true,pending,Samruddhi Pravin Sonawane,"CS139, Disang Hostel, IIT Guwahati, Amingaon, North Guwahati, Assampin. cell","CS139, Disang Hostel, IIT Guwahati, Amingaon, North Guwahati, Assampin. cell",,,Kamrup,'781039,AS,IN,+918010397323,Samruddhi Pravin Sonawane,"CS139, Disang Hostel, IIT Guwahati, Amingaon, North Guwahati, Assampin. cell","CS139, Disang Hostel, IIT Guwahati, Amingaon, North Guwahati, Assampin. cell",,,Kamrup,'781039,AS,IN,+918010397323,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_TnDjZMY27IMjRY
+Device_details_IP: 35.154.217.40
+cart_token: hWNHuEp7EaDyAbyz2ET0ciuK?key=0becc0f3181729beeb53cb4965fd69b3
+payment_method: upi
+rzp_3p_utm_ts: 1791856879458
+rzp_device_id: 1.d0883633422afaa78dd8a34fc96118cce61ee410.1791856642597.01167881
+rzp_pixel_id: TnDeFtYDhWi2Y1
+_wht_user_attributes: {""wht_session_id"":""fCDHqmHbgfOU9WCqvW0bp"",""wht_user_id"":""Pp1EWS3jn7AGa3hsPMOVZ""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:navratri-buy3-get-15-off-ad||utm_id:120246482908220298||utm_term:120249247882780298
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: navratri-buy3-get-15-off-ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: IwZXh0bgNhZW0BMABwZG9mBWFkaWQBqzaW_JOqinNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHsA9ZDco8bv565mLvL6I-AqwrCzb8Ei_jhqHzx0KVlMZjCjpvxhN1MEsyWjG_aem_mwZcPMEd0-cfx_RJ19oxzQ
+razorpay_payment_id: pay_TnDrz87n0FHpb3",,Razorpay,#1796.1,0.00,Janvi Aika,0.00,,,,18937889259891,"Magic, upi",Low,399890841601,0.00,IGST 18%,212.03,,,,,,,,,+919850279596,,,Assam,Assam,#1796.1,,,#1796.1
+#1797,,paid,2026-10-13 07:57:00 +0530,unfulfilled,,no,INR,1350.00,0.00,205.93,1350.00,"",0.00,FREE SHIPPING,2026-10-13 07:56:59 +0530,1,Majesty Nirvi - XL,1350.00,,CORD-MN-WN-XL,true,true,pending,Jeetan Das,"Nandan Pahar Barmasiya Nearby Sewadham, Sarita Vatika",Nandan Pahar Barmasiya Nearby Sewadham,Sarita Vatika,,Deoghar,'814112,JH,IN,+919162894128,Jeetan Das,"Nandan Pahar Barmasiya Nearby Sewadham, Sarita Vatika",Nandan Pahar Barmasiya Nearby Sewadham,Sarita Vatika,,Deoghar,'814112,JH,IN,+919162894128,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_TnE8GXa2drvfwR
+Device_details_IP: 35.154.22.73
+cart_token: hWNHuHa2aLpQY9PFqS3QzweK?key=d364f12eed7b33a9e37bc4ed6b068aba
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""rztumPTWdGFPz4XzV3aSt"",""wht_user_id"":""rbfKeEvCRT3JgBaXaCt_G""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:navratri-buy3-get-15-off-ad||utm_id:120246482908220298||utm_term:120249247882780298
+rzp_3p_utm_ts: 1791858275525
+rzp_device_id: 1.8f39b4fe42a2e16b6812244291c573136063d04d.1791858275524.31864752
+rzp_pixel_id: TnE70JDyU4pv7B
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: navratri-buy3-get-15-off-ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: IwZXh0bgNhZW0BMABwZG9mBWFkaWQBqzaW_JOqinNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHoBznIWZtC90QBCKrRtWM5EkUmNAGjthnyiCtzpc4XMIStSultTUWHruz0d3_aem_Gae-K5k8nynirMuS-hqSow
+razorpay_payment_id: pay_TnE8VfWqOVnwEm",,Razorpay,#1797.1,0.00,Janvi Aika,0.00,,,,18937915244915,"Magic, upi",Low,399890841601,0.00,IGST 18%,205.93,,,,,,,,,+919162894128,,,Jharkhand,Jharkhand,#1797.1,,,#1797.1
+#1798,madhushree.ghosal@gmail.com,paid,2026-10-13 09:17:14 +0530,unfulfilled,,no,INR,2900.00,0.00,442.37,2900.00,"",0.00,FREE SHIPPING,2026-10-13 09:17:13 +0530,1,Petal Poise - S,1450.00,,CORD-PP-DP-S,true,true,pending,Madhushree Ghoshal,"B4/44, Tribeni Appartment, 11A Dover Lane,","B4/44, Tribeni Appartment","11A Dover Lane,",,Kolkata,'700029,WB,IN,+919820170423,Madhushree Ghoshal,"B4/44, Tribeni Appartment, 11A Dover Lane,","B4/44, Tribeni Appartment","11A Dover Lane,",,Kolkata,'700029,WB,IN,+919820170423,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_TnFTbB9uzi1D0y
+Device_details_IP: 35.154.143.15
+cart_token: hWNHqKKX4CAYSts4UFhkZoGq?key=21b1ab9e5d8fed3175dfaa81bb3d60d2
+payment_method: card
+_wht_user_attributes: {""wht_session_id"":""A2X3O5imHfR4uyfbWf4lA"",""wht_user_id"":""ErIXXnZKj0-3yqrd-q8cR""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
+rzp_3p_utm_ts: 1791863037639
+rzp_device_id: 1.8d1f8cb0ca079f270df60bcff384b15b5fd1c4e7.1791713057490.60301538
+rzp_pixel_id: TnEvQ24U6KJbo4
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: IwZXh0bgNhZW0BMABwZG9mBWFkaWQBqzZPGOo7unNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHpQ3UZKjsc2fwIvqjmbNWAdCBSxj5tSm2j84lUVsDlRimQyqVPZdi5gdpCu-_aem_O3LesvFNxSnMtgzQk3rN4w
+razorpay_payment_id: pay_TnFV7iulUTvJ9G",,Razorpay,#1798.1,0.00,Janvi Aika,0.00,,,,18938034913651,"card, Magic",Low,399890841601,0.00,IGST 18%,442.37,,,,,,,,,+919820170423,,,West Bengal,West Bengal,#1798.1,,,#1798.1
+#1798,madhushree.ghosal@gmail.com,,,,,,,,,,,,,,2026-10-13 09:17:13 +0530,1,Maroon Muse - S,1450.00,"",CORD-MM-LM-S,true,true,pending,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.00,,,,,,,,,,,+919820170423,,,,,,,,
+#1799,manjupandey76@gmail.com,partially_paid,2026-10-13 09:19:33 +0530,unfulfilled,,no,INR,1580.00,0.00,241.02,1580.00,"",0.00,FREE SHIPPING,2026-10-13 09:19:32 +0530,1,Grey Maharani Festive Set - 5XL,1580.00,,C-GMF-BL-5XL,true,true,pending,Manju Pandey,"12a hardham kothi tagore town bhojubeer, Bungalow .12a hardham kothi tagore town - Near bank of India",12a hardham kothi tagore town bhojubeer,Bungalow .12a hardham kothi tagore town - Near bank of India,,Varanasi,'221002,UP,IN,+919198434613,Manju Pandey,"12a hardham kothi tagore town bhojubeer, Bungalow .12a hardham kothi tagore town - Near bank of India",12a hardham kothi tagore town bhojubeer,Bungalow .12a hardham kothi tagore town - Near bank of India,,Varanasi,'221002,UP,IN,+919198434613,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_TnFXVBd5os7mgc
+Device_details_IP: 35.154.217.40
+cart_token: hWNGa8Rgrq3E1PhCbWatQNXA?key=c01900287c2993ecf0b2f0508fc14811
+payment_method: upi
+rzp_3p_utm: utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad
+rzp_3p_utm_ts: 1791863284990
+rzp_device_id: 1.fcf737eb8eae3445bed903f3f5d2c41a8470babc.1790650731702.51386575
+rzp_pixel_id: TnFWOLcNcGnfUp
+_wht_user_attributes: {""wht_session_id"":""LPc4QF7HKz0unXIORLD6U"",""wht_user_id"":""lljfybzfZ19ULeRenpCqi""}
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+razorpay_payment_id: pay_TnFY9eG7XFy0zn, pay_TnFYhyttOMfmQ0",,Razorpay,#1799.1,0.00,Janvi Aika,1381.00,,,,18938038321523,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.00,IGST 18%,241.02,,,,,,,,,+919198434613,,,Uttar Pradesh,Uttar Pradesh,#1799.1,,,#1799.1
