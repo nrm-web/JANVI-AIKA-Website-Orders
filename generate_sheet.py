@@ -31,9 +31,9 @@ def process_and_create_excel():
     s['order_id_clean'] = s['Name'].astype(str).str.extract(r'(\d+)').astype(float).fillna(-1).astype(int)
     sr['order_id_clean'] = sr['Order ID'].astype(str).str.extract(r'(\d+)').astype(float).fillna(-1).astype(int)
     
-    # Filter out orders that failed ID extraction & test draft orders (#1585, #1584, #1428, #1683, #1784, #1786)
-    test_order_ids = [1585, 1584, 1428, 1683, 1784, 1786]
-    test_orders = ['#1585', '#1584', '#1428', '#1683', '#1784', '#1786']
+    # Filter out orders that failed ID extraction & test draft orders (#1585, #1584, #1428, #1683, #1784, #1786, #1973)
+    test_order_ids = [1585, 1584, 1428, 1683, 1784, 1786, 1973]
+    test_orders = ['#1585', '#1584', '#1428', '#1683', '#1784', '#1786', '#1973']
     s = s[(s['order_id_clean'] != -1) & (~s['order_id_clean'].isin(test_order_ids))]
     sr = sr[(sr['order_id_clean'] != -1) & (~sr['order_id_clean'].isin(test_order_ids))]
 
@@ -46,6 +46,8 @@ def process_and_create_excel():
         s_min_id = s['order_id_clean'].min()
         s_valid_ids = set(s['order_id_clean'].unique())
         sr = sr[~((sr['order_id_clean'] >= s_min_id) & (~sr['order_id_clean'].isin(s_valid_ids)))]
+        # Prevent any CANCELED order in Shiprocket from being created if not selected in Shopify
+        sr = sr[~(sr['Status'].astype(str).str.upper().str.contains('CANCEL') & (~sr['order_id_clean'].isin(s_valid_ids)))]
     
     print(f"Shopify unique orders: {s['order_id_clean'].nunique()}")
     print(f"Shiprocket unique orders: {sr['order_id_clean'].nunique()}")
