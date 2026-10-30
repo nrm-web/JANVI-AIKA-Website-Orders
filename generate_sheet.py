@@ -87,7 +87,8 @@ def process_and_create_excel():
         'RTO Reason': 'first',
         'Cancellation Reason': 'first',
         'Customer Name': 'first',
-        'Customer Mobile': 'first'
+        'Customer Mobile': 'first',
+        'Master SKU': lambda x: ', '.join(x.dropna().astype(str).unique())
     }).reset_index()
     
     # Full Outer join to include all orders present in either Shopify or Shiprocket
@@ -104,7 +105,7 @@ def process_and_create_excel():
     merged['Shipping Zip'] = merged['Shipping Zip'].fillna(merged['Address Pincode']).fillna('')
     merged['Billing Name'] = merged['Billing Name'].fillna(merged['Customer Name']).fillna('Customer')
     merged['Lineitem name'] = merged['Lineitem name'].fillna(merged['Product Name']).fillna('Garment Item')
-    merged['Lineitem sku'] = merged['Lineitem sku'].fillna('-')
+    merged['Lineitem sku'] = merged['Lineitem sku'].replace(['', '-', 'nan', None], pd.NA).fillna(merged['Master SKU']).fillna('-')
     print(f"Total unique consolidated orders: {len(merged)}")
     
     # ----------------------------------------------------
@@ -157,6 +158,7 @@ def process_and_create_excel():
             "LG": "LONG GOWN",
             "SHA": "SHARARA",
             "TOP": "TOPS",
+            "TOPS": "TOPS",
             "CORD": "CO-ORD SET"
         }
         
@@ -168,6 +170,14 @@ def process_and_create_excel():
             if not cat:
                 if sku.startswith("CORD"):
                     cat = "CO-ORD SET"
+                elif sku.startswith("TOPS") or sku.startswith("TOP"):
+                    cat = "TOPS"
+                elif sku.startswith("HSL"):
+                    cat = "HALF SAREE LEHENGA"
+                elif sku.startswith("SHA"):
+                    cat = "SHARARA"
+                elif sku.startswith("LG"):
+                    cat = "LONG GOWN"
                 else:
                     cat = "OTHER"
             categories.append(cat)
@@ -462,6 +472,40 @@ def process_and_create_excel():
                 df_consolidated = df_consolidated.sort_values(by='order_id_clean', ascending=False).reset_index(drop=True)
         except Exception as e:
             print(f"Warning: Could not merge historical master data: {e}")
+
+    # Backfill missing SKUs for any historical orders using Shiprocket and backup exports
+    backup_sku_map = {}
+    if os.path.exists(shiprocket_path):
+        try:
+            raw_sr_all = pd.read_csv(shiprocket_path, low_memory=False)
+            raw_sr_all['oid'] = raw_sr_all['Order ID'].astype(str).str.extract(r'(\d+)').fillna(-1).astype(int)
+            for oid, grp in raw_sr_all[raw_sr_all['oid'] != -1].groupby('oid'):
+                skus = grp['Master SKU'].dropna().astype(str).unique()
+                skus = [s.strip() for s in skus if s.strip() not in ('', '-', 'nan')]
+                if skus:
+                    backup_sku_map[oid] = ', '.join(skus)
+        except Exception as e:
+            pass
+            
+    backup_export_path = os.path.join("abandoned cart", "Abandoned cart current.csv")
+    if os.path.exists(backup_export_path):
+        try:
+            df_ab = pd.read_csv(backup_export_path, low_memory=False)
+            df_ab['oid'] = df_ab['Name'].astype(str).str.extract(r'(\d+)').fillna(-1).astype(int)
+            for oid, grp in df_ab[df_ab['oid'] != -1].groupby('oid'):
+                skus = grp['Lineitem sku'].dropna().astype(str).unique()
+                skus = [s.strip() for s in skus if s.strip() not in ('', '-', 'nan')]
+                if skus and oid not in backup_sku_map:
+                    backup_sku_map[oid] = ', '.join(skus)
+        except Exception as e:
+            pass
+    
+    missing_sku_mask = (df_consolidated['SKU'].isna()) | (df_consolidated['SKU'].astype(str).str.strip().isin(['', '-', 'nan']))
+    if missing_sku_mask.any():
+        df_consolidated.loc[missing_sku_mask, 'SKU'] = df_consolidated.loc[missing_sku_mask, 'order_id_clean'].map(backup_sku_map).fillna('-')
+
+    # Re-evaluate Category strictly from SKU for all consolidated orders
+    df_consolidated['Category'] = df_consolidated['SKU'].apply(map_sku_to_category)
     
     # ----------------------------------------------------
     # SECTION 3: DATE RANGE FILTERING
@@ -508,12 +552,16 @@ def process_and_create_excel():
             }
         }
         
-        # Write to data.js
+        # Write to data.js and historical_master_data.js
         with open("data.js", "w", encoding="utf-8") as f:
             f.write("window.DASHBOARD_DATA = ")
             json.dump(payload, f, default=str)
             f.write(";\n")
-        print("Successfully generated/updated local offline data: data.js")
+        with open("historical_master_data.js", "w", encoding="utf-8") as f:
+            f.write("window.DASHBOARD_DATA = ")
+            json.dump(payload, f, default=str)
+            f.write(";\n")
+        print("Successfully generated/updated local offline data: data.js and historical_master_data.js")
     except Exception as e:
         print(f"Warning: Could not write data.js: {e}")
 
