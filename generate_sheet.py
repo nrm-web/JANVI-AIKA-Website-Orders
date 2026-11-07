@@ -73,7 +73,7 @@ def process_and_create_excel():
     # Group Shiprocket orders
     sr_grouped = sr.groupby('order_id_clean').agg({
         'Order ID': 'first',
-        'Channel Created At': 'first',
+        'Channel Created At': 'min', # Preserve original purchase date even if cloned/re-shipped later as -C
         'Order Total': 'first',
         'Payment Method': 'first',
         'Address City': 'first',
