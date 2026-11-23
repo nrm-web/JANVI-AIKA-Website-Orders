@@ -1,5 +1,541 @@
 Name,Email,Financial Status,Paid at,Fulfillment Status,Fulfilled at,Accepts Marketing,Currency,Subtotal,Shipping,Taxes,Total,Discount Code,Discount Amount,Shipping Method,Created at,Lineitem quantity,Lineitem name,Lineitem price,Lineitem compare at price,Lineitem sku,Lineitem requires shipping,Lineitem taxable,Lineitem fulfillment status,Billing Name,Billing Street,Billing Address1,Billing Address2,Billing Company,Billing City,Billing Zip,Billing Province,Billing Country,Billing Phone,Shipping Name,Shipping Street,Shipping Address1,Shipping Address2,Shipping Company,Shipping City,Shipping Zip,Shipping Province,Shipping Country,Shipping Phone,Notes,Note Attributes,Cancelled at,Payment Method,Payment Reference,Refunded Amount,Vendor,Outstanding Balance,Employee,Location,Device ID,Id,Tags,Risk Level,Source,Lineitem discount,Tax 1 Name,Tax 1 Value,Tax 2 Name,Tax 2 Value,Tax 3 Name,Tax 3 Value,Tax 4 Name,Tax 4 Value,Tax 5 Name,Tax 5 Value,Phone,Receipt Number,Duties,Billing Province Name,Shipping Province Name,Payment ID,Payment Terms Name,Next Payment Due At,Payment References
-#2678,9607300373@khyaal.com,paid,2026-11-19 18:42:00 +0530,unfulfilled,,yes,INR,1990.0,0.0,303.56,1990.0,,0.0,,2026-11-19 18:42:00 +0530,1,Arden Rue - 2XL,1990.0,2189.0,C-AR-SB-2XL,True,True,pending,Rama Komarraju,Leverage greens bldg no 40/c flat no 402,Leverage greens bldg no 40/c flat no 402,,,Nagpur,'441111,MH,IN,919607300373.0,Rama Komarraju,Leverage greens bldg no 40/c flat no 402,Leverage greens bldg no 40/c flat no 402,,,Nagpur,'441111,MH,IN,919607300373.0,,,,manual,rrJ9OaMRqgl9QtY1efRGxKYMQ,0.0,Janvi Aika,0.0,Kalpana S,,,19010910355827.0,,Low,shopify_draft_order,0.0,IGST 18%,303.56,,,,,,,,,919607300373,,,Maharashtra,Maharashtra,rrJ9OaMRqgl9QtY1efRGxKYMQ,,,rrJ9OaMRqgl9QtY1efRGxKYMQ
+#2646,,partially_paid,2026-11-15 20:53:23 +0530,fulfilled,2026-11-16 15:48:45 +0530,yes,INR,2180.0,0.0,332.54,2180.0,,0.0,FREE SHIPPING,2026-11-15 20:53:22 +0530,1,Teal Blue Rose Reverie Floral Embroidered Notch V Neck Pleated Kurti - 2XL,2180.0,,A-TBR-TB-2XL,True,True,fulfilled,PRABAVATHI SARAVANAN,"H NO 6/182, Mariyamman Kovil Street, South Alagapuram,",H NO 6/182,"Mariyamman Kovil Street, South Alagapuram,",,Salem,'636004,TN,IN,919344619052.0,PRABAVATHI SARAVANAN,"H NO 6/182, Mariyamman Kovil Street, South Alagapuram,",H NO 6/182,"Mariyamman Kovil Street, South Alagapuram,",,Salem,'636004,TN,IN,919344619052.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U0Uxi3AY1w4hbj
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 157.51.86.62
+cart_token: hWNJBCqVzLEQFhn38JLTSSV2?key=73e174c7c08d00439c4a5f195f48ee5b
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""twVZLKT-l_jhqj-vDLzsb"",""wht_user_id"":""NzgXYFbeysBJPH4QO9zwf""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
+rzp_3p_utm_ts: 1794755996494
+rzp_device_id: 1.4128cf50975420c52a312abc753be65ef8ed2c36.1794755681855.74953589
+rzp_pixel_id: U0UrT2VPxAeEgq
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: PAZXh0bgNhZW0BMABwZG9mAmFkaWQBqzbQEQGt2nNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABpyVJbbSi_Z7Fyf8uuS9Xc1ddBofukFhVW0w5KkqFwb8clZ-BSVed63YbDYlh_aem_mrunRYLJiATYmNCKa2BF4Q
+razorpay_payment_id: pay_U0V065TYtFHSHJ, pay_U0V0b2vcCP9leS",,Razorpay,#2646.1,0.0,Janvi Aika,1981.0,,,,19001491980659.0,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.0,IGST 18%,332.54,,,,,,,,,919344619052.0,,,Tamil Nadu,Tamil Nadu,#2646.1,,,#2646.1
+#2647,muthu.maxval@gmail.com,paid,2026-11-16 11:41:26 +0530,fulfilled,2026-11-16 16:07:47 +0530,yes,INR,3190.0,0.0,486.61,3190.0,,0.0,,2026-11-16 11:41:25 +0530,1,Crimson Naaz Anarkali Dress - M,3190.0,3509.0,A-25612-M,True,True,fulfilled,Muthu Pandi M,"584/11, 1A JP Avenue, Praveen Park Extension, Nedungundram, New Perungalathur, Kolapakkam","584/11, 1A JP Avenue, Praveen Park Extension","Nedungundram, New Perungalathur, Kolapakkam",,Chennai,'600127,TN,IN,919677265154.0,Muthu Pandi M,"584/11, 1A JP Avenue, Praveen Park Extension, Nedungundram, New Perungalathur, Kolapakkam","584/11, 1A JP Avenue, Praveen Park Extension","Nedungundram, New Perungalathur, Kolapakkam",,Chennai,'600127,TN,IN,919677265154.0,,,,manual,rkHp621JfrwQBB2l6HZ9TKl69,0.0,Janvi Aika,0.0,Kalpana S,,,19003339571571.0,,Low,shopify_draft_order,0.0,IGST 18%,486.61,,,,,,,,,,,,Tamil Nadu,Tamil Nadu,rkHp621JfrwQBB2l6HZ9TKl69,,,rkHp621JfrwQBB2l6HZ9TKl69
+#2648,atlaganesh123@gmail.com,refunded,2026-11-16 12:14:25 +0530,fulfilled,2026-11-16 20:46:20 +0530,yes,INR,1480.0,0.0,225.76,1480.0,,0.0,FREE SHIPPING,2026-11-16 12:14:24 +0530,1,Gulabi Dastaan Heritage Embroidered Kurta - M,1480.0,,C-GDH-PNK-M,True,True,fulfilled,Atla ganesh kumar reddy,"63 bn ssb camp,sadanpur,,barasat,north 24 parganas,west Bengal,700124, 63 bn ssb camp","63 bn ssb camp,sadanpur,,barasat,north 24 parganas,west Bengal,700124",63 bn ssb camp,,North Parganas,'700124,WB,IN,919063587190.0,Atla ganesh kumar reddy,"63 bn ssb camp,sadanpur,,barasat,north 24 parganas,west Bengal,700124, 63 bn ssb camp","63 bn ssb camp,sadanpur,,barasat,north 24 parganas,west Bengal,700124",63 bn ssb camp,,North Parganas,'700124,WB,IN,919063587190.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U0kZ7V4TZgjd6B
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 223.184.225.0
+cart_token: hWNJChzCpeY2PmAogndOOhLY?key=fcc8f2b49fc2983a9e5efdf2f89407ac
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""BPmkWPv7ZRl88846WpS4H"",""wht_user_id"":""8jZgrNm3d7GyAwIiRycEc""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
+rzp_3p_utm_ts: 1794810900593
+rzp_device_id: 1.2b26a59991a995db42403a59509650e7627a1b77.1794810833036.83843721
+rzp_pixel_id: U0kWR0O6T23fnx
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: PAZXh0bgNhZW0BMABwZG9mAmFkaWQBqzcx5puRenNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABpxCTg4sbj3Ax2UvGEDflliCXPjXlw4f1fBfPLCSdwghrf7v-z9tYQ6_2K-Yk_aem_qQQVtx4gAoY25ygR-lU9tg
+razorpay_payment_id: pay_U0kglbcFF7gSaN, pay_U0khVxdXZpXzxn",,Razorpay,#2648.1,199.0,Janvi Aika,1281.0,,,,19003381612915.0,"Magic, razorpay_partial_cod, RTO Initiated via Shiprocket, upi",Low,399890841601,0.0,IGST 18%,225.76,,,,,,,,,919063587190.0,,,West Bengal,West Bengal,#2648.1,,,#2648.1 + #2648.2
+#2649,,paid,2026-11-16 14:48:39 +0530,fulfilled,2026-11-16 17:15:13 +0530,yes,INR,1350.0,0.0,205.93,1350.0,,0.0,FREE SHIPPING,2026-11-16 14:48:38 +0530,1,Midnight Muse - XS,1350.0,,CORD-MM-RB-XS,True,True,fulfilled,Amol karambali,"Neharu chouwk,bazar peth,Gadhinglaj","Neharu chouwk,bazar peth,Gadhinglaj",,,Kolhapur,'416502,MH,IN,919850166966.0,Amol karambali,"Neharu chouwk,bazar peth,Gadhinglaj","Neharu chouwk,bazar peth,Gadhinglaj",,,Kolhapur,'416502,MH,IN,919850166966.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U0nHonz60k9zb4
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 152.58.7.68
+cart_token: hWNJCyFcW4ZTfZO5ZcvKNdrg?key=6945d111c943bd3aa2a112291aa6940f
+payment_method: card
+_wht_user_attributes: {""wht_session_id"":""WpLV-paitwbxDuiSqmgn1"",""wht_user_id"":""T0PVr2XWW6xForxxhfamx""}
+rzp_3p_utm: utm_source:(direct)||utm_medium:(none)
+rzp_3p_utm_ts: 1794820535611
+rzp_device_id: 1.93df64e29846683e46cd74a2ca1c9775618e3292.1794820467881.14618607
+rzp_pixel_id: U0nG3rx6TA12kY
+razorpay_payment_id: pay_U0nJPN9hdeq5p0",,Razorpay,#2649.1,0.0,Janvi Aika,0.0,,,,19003599061363.0,"card, Magic",Low,399890841601,0.0,IGST 18%,205.93,,,,,,,,,919850166966.0,,,Maharashtra,Maharashtra,#2649.1,,,#2649.1
+#2650,,paid,2026-11-16 16:55:27 +0530,fulfilled,2026-11-16 20:50:06 +0530,yes,INR,1580.0,0.0,241.02,1580.0,,0.0,FREE SHIPPING,2026-11-16 16:55:26 +0530,1,Ruhani Peacock Heritage Kurta Set - XL,1580.0,,C-RPH-LAV-XL,True,True,fulfilled,Sakshi Parab,"H no 1749/4 om sai ram, vidhyanagar, porvorim,goa., Swami vivekanand road, Bardez, North goa","H no 1749/4 om sai ram, vidhyanagar, porvorim,goa.","Swami vivekanand road, Bardez, North goa",,North Goa,'403521,GA,IN,918767266417.0,Sakshi Parab,"H no 1749/4 om sai ram, vidhyanagar, porvorim,goa., Swami vivekanand road, Bardez, North goa","H no 1749/4 om sai ram, vidhyanagar, porvorim,goa.","Swami vivekanand road, Bardez, North goa",,North Goa,'403521,GA,IN,918767266417.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U0pTg21ghXj7gE
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 152.59.12.184
+cart_token: hWNJD7froL04EDnWIbbNb2fc?key=3ee1a3095d032226e890b0b719b73970
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""FxUej5QIGyqJC4X0PcMV2"",""wht_user_id"":""hmqUmas5F1DtdeKdSzAKj""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
+rzp_3p_utm_ts: 1794828254012
+rzp_device_id: 1.bebbc7c4b72fa896fb9d3b3422e3f6014b0da506.1794826043440.49781836
+rzp_pixel_id: U0oqDqJRIkhWei
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: IwYW9zYgVnxytleHRuA2FlbQEwAHBkb2YFYWRpZAGrNzHnA6Iac3J0YwZhcHBfaWQMMzUwNjg1NTMxNzI4AAEfIkL5mr6mIQr2MOJ24Tmo1kdkrkqOiRGP9NubfjIUxFjn3JoEiRgoAgs-eN8_aem_Se1BbGKNfTtTyinp6Psuvg
+razorpay_payment_id: pay_U0pTrMVVGLZNKG",,Razorpay,#2650.1,0.0,Janvi Aika,0.0,,,,19003785970035.0,"Magic, upi",Low,399890841601,0.0,IGST 18%,241.02,,,,,,,,,918767266417.0,,,Goa,Goa,#2650.1,,,#2650.1
+#2651,blessylitta01@gmail.com,partially_paid,2026-11-16 19:42:53 +0530,fulfilled,2026-11-17 12:25:58 +0530,yes,INR,1390.0,0.0,212.03,1390.0,,0.0,FREE SHIPPING,2026-11-16 19:42:53 +0530,1,Azure Bloom Top - XL,1390.0,,TOP-AB-RB-XL,True,True,fulfilled,Blessy litta,"4/113 karupvilai, Postoffice opposite",4/113 karupvilai,Postoffice opposite,,Kanyakumari,'629161,TN,IN,918940897888.0,Blessy litta,"4/113 karupvilai, Postoffice opposite",4/113 karupvilai,Postoffice opposite,,Kanyakumari,'629161,TN,IN,918940897888.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U0sKHDVvmvgwbA
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 42.107.255.135
+cart_token: hWNJDS1PSOtv2zkuDLOKjulg?key=ca5e260f573a8f6d29c5700318d77659
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""utUZ6MaizLhkRYYWLpCsI"",""wht_user_id"":""mFTBEJy3HD4ugaaw9A8rg""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:hot_campaign_ad_for_website_visitors||utm_id:120246975099520298||utm_term:120246975099510298
+rzp_3p_utm_ts: 1794838301907
+rzp_device_id: 1.575746a1594e20b3f40702af4d90304040233e5c.1794838091941.88344562
+rzp_pixel_id: U0sGLK8RkGRJlr
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: hot_campaign_ad_for_website_visitors
+utm_content: Facebook_UA
+utm_term: 120246975099510298
+fbclid: PAZXh0bgNhZW0BMABwZG9mAmZkaWQWUSVwzX4xBioc_ApffVxnzOxLwt_4eGFkaWQBqzcx5KafSnNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABp-6ACTtO19apjM36nNvoKDF-QWf3K0Qka3lJetj5gTPBrcbzEQa2L7JsfzEc_aem_bUr5WMvwURA5w-0HbWvjew
+razorpay_payment_id: pay_U0sKgf9905ka6n, pay_U0sLFix9WFjgiu",,Razorpay,#2651.1,0.0,Janvi Aika,1191.0,,,,19004029174131.0,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.0,IGST 18%,212.03,,,,,,,,,918940897888.0,,,Tamil Nadu,Tamil Nadu,#2651.1,,,#2651.1
+#2652,thalapathivijay787@gmail.com,partially_paid,2026-11-16 20:49:59 +0530,fulfilled,2026-11-17 12:32:10 +0530,yes,INR,2480.0,0.0,378.31,2480.0,,0.0,FREE SHIPPING,2026-11-16 20:49:58 +0530,1,The Ivory Feather - M,2480.0,,C-IF-HW-M,True,True,fulfilled,Vijayvijay Vijayvijay,"Near kallikottai main Road kondalampatty SGS market, Near kondalampatty police stations jayajothiweeding silk",Near kallikottai main Road kondalampatty SGS market,Near kondalampatty police stations jayajothiweeding silk,,Salem,'636010,TN,IN,919042899787.0,Vijayvijay Vijayvijay,"Near kallikottai main Road kondalampatty SGS market, Near kondalampatty police stations jayajothiweeding silk",Near kallikottai main Road kondalampatty SGS market,Near kondalampatty police stations jayajothiweeding silk,,Salem,'636010,TN,IN,919042899787.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U0tTJwzsSYaJct
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 157.51.110.217
+cart_token: hWNHxCQGiJjl98Rl4RynxdSe?key=f32710eac395afd826b7ce8001c8b17a
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""vEFL-Mesbh2gJfyX9B1YW"",""wht_user_id"":""48QwvRnRJHOmzQTbBIr3g""}
+_wvi: 1
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
+rzp_3p_utm_ts: 1794842329429
+rzp_device_id: 1.92766fd201ed6a19b65181cab347723fce1fc1b3.1786024797797.52463023
+rzp_pixel_id: U0tSwk1nbixpn5
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: IwZXh0bgNhZW0BMABwZG9mAWFkaWQBqzcx5vce-nNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHwovtiEIPE8OB5H6lx2cttJIxuT1sukGSaZ6Bn4FJnOs6nzth8oBkFLvZuV6_aem_PBLnYYmGQdr8uY-3jXra-Q
+razorpay_payment_id: pay_U0tTbrRRXWan0p, pay_U0tU8u4gMqwwVw",,Razorpay,#2652.1,0.0,Janvi Aika,2281.0,,,,19004138258803.0,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.0,IGST 18%,378.31,,,,,,,,,919042899787.0,,,Tamil Nadu,Tamil Nadu,#2652.1,,,#2652.1
+#2653,,paid,2026-11-17 11:12:41 +0530,fulfilled,2026-11-18 12:50:44 +0530,yes,INR,4840.0,0.0,738.31,4840.0,,0.0,FREE SHIPPING,2026-11-16 22:12:12 +0530,1,Turquoise Dabka Floral Notch Neck Anarkali - L,1680.0,,A-TBF-AB-L,True,True,fulfilled,Snehal Gaikwad,"Ambedkar chowk, Rukadi, Ambedkar chowk, Rukadi","Ambedkar chowk, Rukadi","Ambedkar chowk, Rukadi",,Kolhapur,'416118,MH,IN,919359325256.0,Snehal Gaikwad,"Ambedkar chowk, Rukadi, Ambedkar chowk, Rukadi","Ambedkar chowk, Rukadi","Ambedkar chowk, Rukadi",,Kolhapur,'416118,MH,IN,919359325256.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U0ur09Lm7BLRdS
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 106.192.222.113
+cart_token: hWNJDgEJLLTUogNoWFJPwCqS?key=2edde3eb437ae6cd33bce283063c9cae
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""rhbbAg78XmAPwZa-XPhk9"",""wht_user_id"":""kKlNFotbVn7ibHdu7oA7f""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
+rzp_3p_utm_ts: 1794847183175
+rzp_device_id: 1.1455ae7bf9d1b3f714412655f118689e68cfb88d.1794846505003.09953723
+rzp_pixel_id: U0ueSZMM6onK31
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+razorpay_payment_id: pay_U0usTA88MNRK6w, pay_U0ut02j71WQUHc",,"Razorpay + 01 Cards, UPI, NB, Wallets by Razorpay",rj1Kr0n2xhh0lsRh6Jkfi7BNv,0.0,Janvi Aika,0.0,,,,19004276638067.0,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.0,IGST 18%,738.31,,,,,,,,,919359325256.0,,,Maharashtra,Maharashtra,#2653.1 + rj1Kr0n2xhh0lsRh6Jkfi7BNv,,,#2653.1 + rj1Kr0n2xhh0lsRh6Jkfi7BNv
+#2653,,,,,,,,,,,,,,,2026-11-16 22:12:12 +0530,1,Apricot Bloom Printed Set - XL,1580.0,,C-ABP-PCH-XL,True,True,fulfilled,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.0,,,,,,,,,,,919359325256.0,,,,,,,,
+#2653,,,,,,,,,,,,,,,2026-11-16 22:12:12 +0530,1,Spring Lime Floral Set - L,1580.0,,C-SLF-LG-L,True,True,fulfilled,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.0,,,,,,,,,,,919359325256.0,,,,,,,,
+#2654,vasanthanarsha@gmail.com,paid,2026-11-17 01:03:00 +0530,fulfilled,2026-11-17 12:50:49 +0530,yes,INR,1880.0,0.0,286.78,1880.0,,0.0,FREE SHIPPING,2026-11-17 01:02:59 +0530,1,Sugar Plum Sparkle Set - XL,1880.0,,C-SPS-PUR-XL,True,True,fulfilled,Arsha Vasanthan,12/118c sahaya matha street kanyakumariVaadi street kanyakumari,12/118c sahaya matha street kanyakumariVaadi street kanyakumari,,,Kanyakumari,'629702,TN,IN,919080054708.0,Arsha Vasanthan,12/118c sahaya matha street kanyakumariVaadi street kanyakumari,12/118c sahaya matha street kanyakumariVaadi street kanyakumari,,,Kanyakumari,'629702,TN,IN,919080054708.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U0xmcsDVdQmb4s
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 157.51.1.4
+cart_token: hWNHag9NT37qQQ45iz6sEhrI?key=5d59b93c16cda9a11bb98badac816e15
+payment_method: upi
+rzp_3p_utm_ts: 1794857520754
+rzp_device_id: 1.1c9298eed1cc450c73badb154f78d62097709ee7.1791138592268.20981079
+rzp_pixel_id: U0xeeVrbk0QI4a
+_wht_user_attributes: {""wht_session_id"":""3nrzf1yJf8Srv6cL-VxKj"",""wht_user_id"":""EMS1BGBg1-1A324RjeSH9""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:hot_campaign_ad_for_website_visitors||utm_id:120246975099520298||utm_term:120246975099510298
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: hot_campaign_ad_for_website_visitors
+utm_content: Facebook_UA
+utm_term: 120246975099510298
+fbclid: PAZXh0bgNhZW0BMABwZG9mAmFkaWQBqzcx5KafSnNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABp2RWjCrlFBhT9kQK-MKvajo4AEvCqGG4ZFnPZpinB5MM_madwvOEqbQmuMbF_aem_Kdb9BzvhzS2LBezIeqbB5w
+razorpay_payment_id: pay_U0xmuvQMBtx5Wo",,Razorpay,#2654.1,0.0,Janvi Aika,0.0,,,,19004579348851.0,"Magic, upi",Low,399890841601,0.0,IGST 18%,286.78,,,,,,,,,919080054708.0,,,Tamil Nadu,Tamil Nadu,#2654.1,,,#2654.1
+#2655,chitralekhamgchitralekhamg@gmail.com,paid,2026-11-17 08:03:58 +0530,fulfilled,2026-11-17 12:53:26 +0530,yes,INR,1280.0,0.0,195.26,1280.0,,0.0,FREE SHIPPING,2026-11-17 08:03:58 +0530,1,Roseberry Whispers Set - 4XL,1280.0,,C-RW-RP-4XL,True,True,fulfilled,M G Chitralekha Chitralekaha,swamy badavane 2nd stage Shivakumara Swamy Nagara,swamy badavane 2nd stage Shivakumara Swamy Nagara,,,Davangere,'577004,KA,IN,918618146886.0,M G Chitralekha Chitralekaha,swamy badavane 2nd stage Shivakumara Swamy Nagara,swamy badavane 2nd stage Shivakumara Swamy Nagara,,,Davangere,'577004,KA,IN,918618146886.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U14x82upUclvVd
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 152.57.74.17
+cart_token: hWNI9QEYhrmDJnS0JGvHeyG4?key=7b457ef2e5135dd3db36bda5b455d85c
+payment_method: upi
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:hot_campaign_ad_for_website_visitors||utm_id:120246975099520298||utm_term:120246975099510298
+rzp_3p_utm_ts: 1794882764641
+rzp_device_id: 1.4df3f4d73384a28b76fca75bfb97d02d40a2064b.1789404217867.23705154
+rzp_pixel_id: U14vdz9SKG3JXa
+_wht_user_attributes: {""wht_session_id"":""hpMneIqDcriKSfLOIq9vl"",""wht_user_id"":""5v2MgS_nAuml2naAjwA1X""}
+_wvi: 1
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: hot_campaign_ad_for_website_visitors
+utm_content: Facebook_UA
+utm_term: 120246975099510298
+fbclid: PAZXh0bgNhZW0BMABwZG9mAmFkaWQBqzcx5Q5hynNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABp0of1ofuHJH4Kpem099l260vMVZkJBNLVUbpRt60jqZhLSRZGygXjE7OLdfn_aem_74tR2ptetDlRmVRdIKOq2A
+razorpay_payment_id: pay_U14xcbQ7DGCl7h",,Razorpay,#2655.1,0.0,Janvi Aika,0.0,,,,19005364633971.0,"Magic, upi",Low,399890841601,0.0,CGST 9%,97.63,SGST 9%,97.63,,,,,,,918618146886.0,,,Karnataka,Karnataka,#2655.1,,,#2655.1
+#2656,Rajukatral8@gmail.com,paid,2026-11-17 08:27:25 +0530,fulfilled,2026-11-17 13:48:37 +0530,no,INR,1980.0,0.0,302.04,1980.0,,0.0,FREE SHIPPING,2026-11-17 08:27:25 +0530,1,Stone Petalcraft Embroidered Round Neck - 3XL,1980.0,,A-SP-AC-3XL,True,True,fulfilled,Namrata raju katral,"Plot no 127, 2nd stage Hanuman nagar,belgaum, Sharad smurthi building","Plot no 127, 2nd stage Hanuman nagar,belgaum",Sharad smurthi building,,Belagavi,'590010,KA,IN,919763333535.0,Namrata raju katral,"Plot no 127, 2nd stage Hanuman nagar,belgaum, Sharad smurthi building","Plot no 127, 2nd stage Hanuman nagar,belgaum",Sharad smurthi building,,Belagavi,'590010,KA,IN,919763333535.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U15KCkRBu537qK
+SMS_consent: No
+whatsapp_sms_consent: No
+Device_details_IP: 42.104.220.67
+cart_token: hWNIb7EC8f8IS7WGku6wIbLA?key=422f9452ce1bd28a671b9c0e0f4f4977
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""atU608k8bKqGcgcSmUsdN"",""wht_user_id"":""3eJtNLzyOqsQyJ-G1p_J-""}
+_wvi: 1
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:add_to_cart_retargeting_ad||utm_id:120248403168660298||utm_term:120248403168670298
+rzp_3p_utm_ts: 1794884055865
+rzp_device_id: 1.df85970bd5d8553edef9d1351da5275ead52cc4b.1793430741833.37262846
+rzp_pixel_id: U14gH8IEJUeaVj
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: add_to_cart_retargeting_ad
+utm_content: Facebook_UA
+utm_term: 120248403168670298
+razorpay_payment_id: pay_U15MSDQ65VFU1k",,Razorpay,#2656.1,0.0,Janvi Aika,0.0,,,,19005408575859.0,"Magic, upi",Low,399890841601,0.0,CGST 9%,151.02,SGST 9%,151.02,,,,,,,919763333535.0,,,Karnataka,Karnataka,#2656.1,,,#2656.1
+#2657,devikachoudhary@gmail.com,paid,2026-11-17 09:25:05 +0530,fulfilled,2026-11-17 13:02:20 +0530,yes,INR,1980.0,0.0,302.03,1980.0,,0.0,FREE SHIPPING,2026-11-17 09:25:05 +0530,1,Alessa Floral Beadwork Kurta Set - 2XL,1980.0,,C-AFB-HW-2XL,True,True,fulfilled,Devika Choudhary,"Flat no 402,Hridaynivas apartment, Road 3A, Laxminagar Colony, Miyapur, Hridaynivas apartment","Flat no 402,Hridaynivas apartment, Road 3A, Laxminagar Colony, Miyapur",Hridaynivas apartment,,Hyderabad,'500049,TS,IN,919618588123.0,Devika Choudhary,"Flat no 402,Hridaynivas apartment, Road 3A, Laxminagar Colony, Miyapur, Hridaynivas apartment","Flat no 402,Hridaynivas apartment, Road 3A, Laxminagar Colony, Miyapur",Hridaynivas apartment,,Hyderabad,'500049,TS,IN,919618588123.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U16HDg5YEs7Fs6
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 219.91.183.47
+cart_token: hWNJCcwypSMfREScNEU32iOa?key=aa204d0147f5ec58cb82eb8645fa4aa7
+payment_method: card
+rzp_3p_utm_ts: 1794886848133
+rzp_device_id: 1.80b8eca11108c56d3c9030316cc12c18ccb82604.1794807852067.06093205
+rzp_pixel_id: U160McNYNyuI5E
+_wht_user_attributes: {""wht_session_id"":""0doi_kRyxs49cCrcPT-ma"",""wht_user_id"":""ryWnx3Dozu0Pyg4czMAl-""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: IwYW9zYgVorA5leHRuA2FlbQEwAHBkb2YFYWRpZAGrNzHmm5F6c3J0YwZhcHBfaWQMMzUwNjg1NTMxNzI4AAEfp3rKBH67LtOmvztiFzTDOEzxJx5EQgbm_qjtsTcArSPwxWmNzG2PtEAdkX0_aem_R28GuI034l1NeV_chSsb9Q
+razorpay_payment_id: pay_U16L3D9cq3qr9I",,Razorpay,#2657.1,0.0,Janvi Aika,0.0,,,,19005510123891.0,"card, Magic",Low,399890841601,0.0,IGST 18%,302.03,,,,,,,,,919618588123.0,,,Telangana,Telangana,#2657.1,,,#2657.1
+#2658,swetharao1205@gmail.com,partially_paid,2026-11-17 10:03:02 +0530,fulfilled,2026-11-18 09:56:49 +0530,yes,INR,1890.0,0.0,288.31,1890.0,,0.0,FREE SHIPPING,2026-11-17 10:03:02 +0530,1,Berry Paradox Gold Butti Straight Kurta - 2XL,1890.0,,C-BP-RP-2XL,True,True,fulfilled,Desineni Swetha,"Cloud 9 Pride Appartment, flat number 402,road number 13, panchavati colony, manikonda.","Cloud 9 Pride Appartment, flat number 402,road number 13, panchavati colony, manikonda.",,,Hyderabad,'500089,TS,IN,919666859652.0,Desineni Swetha,"Cloud 9 Pride Appartment, flat number 402,road number 13, panchavati colony, manikonda.","Cloud 9 Pride Appartment, flat number 402,road number 13, panchavati colony, manikonda.",,,Hyderabad,'500089,TS,IN,919666859652.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U16xo86FWPddcB
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 49.15.200.139
+cart_token: hWNIirWo9zgjoIuSmeJg6kDM?key=77234b55dccccdd8fbdd736a6547d7dd
+payment_method: upi
+rzp_device_id: 1.4c0796f893349e919b2ded0b5481a100907ff76d.1793715135923.82731596
+rzp_pixel_id: U16gJsO8K8ykRQ
+_wht_user_attributes: {""wht_session_id"":""z2t-BqDMMoijMn-tBZDql"",""wht_user_id"":""ERvSRWcyPKcnJkiK_S_hd""}
+_wvi: 1
+rzp_3p_utm: utm_source:ig||utm_medium:social||utm_content:link_in_bio
+rzp_3p_utm_ts: 1794889555976
+utm_source: ig
+utm_medium: social
+utm_campaign: Others
+utm_content: link_in_bio
+fbclid: PAZXh0bgNhZW0CMTEAcGRvZgJzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAae2XD3S6VGc6z_PQbKgsDpMRgN5V0kU4iTxxdJkdbVaw7Wd67YuPvvpngc0XA_aem_QgjrMep5ZnbEvG_M_AnnrA
+razorpay_payment_id: pay_U16zAZy1edGLj6, pay_U16zrhVfS5mCY6",,Razorpay,#2658.1,0.0,Janvi Aika,1691.0,,,,19005568647539.0,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.0,IGST 18%,288.31,,,,,,,,,919666859652.0,,,Telangana,Telangana,#2658.1,,,#2658.1
+#2659,akhilesh952565@gmail.com,paid,2026-11-17 11:00:05 +0530,fulfilled,2026-11-17 13:04:08 +0530,yes,INR,1350.0,0.0,205.93,1350.0,,0.0,FREE SHIPPING,2026-11-17 11:00:05 +0530,1,Olive Imperial Mirrorwork Floral Kurta - M,1350.0,,CORD-OIM-BR-M,True,True,fulfilled,Akhilesh Kumar Yadav,"Door no.41/7, jeevanandan street,kollampalayam, Amritha milk Parlour","Door no.41/7, jeevanandan street,kollampalayam",Amritha milk Parlour,,Erode,'638002,TN,IN,918610500867.0,Akhilesh Kumar Yadav,"Door no.41/7, jeevanandan street,kollampalayam, Amritha milk Parlour","Door no.41/7, jeevanandan street,kollampalayam",Amritha milk Parlour,,Erode,'638002,TN,IN,918610500867.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U17wMboGbsKNAQ
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 157.49.193.175
+cart_token: hWNJEsWXvCG9plXgSkCgm4mq?key=608f3257546d5c0e4f877d6aed19d190
+payment_method: upi
+rzp_pixel_id: U17vx6O5ZmWzJR
+_wht_user_attributes: {""wht_session_id"":""2Qk-4Xr5taVuqDU6HS0NL"",""wht_user_id"":""t2t1jpgxfNRhoOwb9_TJA""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
+rzp_3p_utm_ts: 1794893279596
+rzp_device_id: 1.cf80fe27479bd5aa39142e88788a178e42f0fb8b.1794890501598.46842954
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: IwZXh0bgNhZW0BMABwZG9mAWFkaWQBqzcx5puRenNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABH0ghwtOOgOvd1WGa420qlxav6Tf3EUF_mgQcw53MeoCDYXb32LkBtiacYeL__aem_B64FcjHQv4BTNn_WRUqkOw
+razorpay_payment_id: pay_U17wvBI5ZT49xm",,Razorpay,#2659.1,0.0,Janvi Aika,0.0,,,,19005655056755.0,"Magic, upi",Low,399890841601,0.0,IGST 18%,205.93,,,,,,,,,918610500867.0,,,Tamil Nadu,Tamil Nadu,#2659.1,,,#2659.1
+#2660,brahmameher@gmail.com,paid,2026-11-17 11:26:04 +0530,fulfilled,2026-11-17 13:51:41 +0530,yes,INR,1980.0,0.0,302.03,1980.0,,0.0,FREE SHIPPING,2026-11-17 11:26:04 +0530,1,Alessa Floral Beadwork Kurta Set - M,1980.0,,C-AFB-HW-M,True,True,fulfilled,Brahmananda Meher,"Arundhati corporate office Odisha coopertive housing corporation ltd. 6th floor, Kharvel nagar, Near Ram mandir BHUBANESWAR, ODISHA 751001 INDIA, Near Ram mandir, Bhubaneswar 751014, Odisha, Near Rammandir","Arundhati corporate office Odisha coopertive housing corporation ltd. 6th floor, Kharvel nagar, Near Ram mandir BHUBANESWAR, ODISHA 751001 INDIA, Near Ram mandir, Bhubaneswar 751014, Odisha",Near Rammandir,,Khorda,'751001,OR,IN,919437030858.0,Brahmananda Meher,"Arundhati corporate office Odisha coopertive housing corporation ltd. 6th floor, Kharvel nagar, Near Ram mandir BHUBANESWAR, ODISHA 751001 INDIA, Near Ram mandir, Bhubaneswar 751014, Odisha, Near Rammandir","Arundhati corporate office Odisha coopertive housing corporation ltd. 6th floor, Kharvel nagar, Near Ram mandir BHUBANESWAR, ODISHA 751001 INDIA, Near Ram mandir, Bhubaneswar 751014, Odisha",Near Rammandir,,Khorda,'751001,OR,IN,919437030858.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U18Ofob9sbNwxA
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 49.42.162.206
+cart_token: hWNJEzuOXPrbgCR6JF1xghaW?key=cf40ba404223c79b621e6eaebe7e3f69
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""1dXnvdkscMY3Eq-GUsa_z"",""wht_user_id"":""VkoJBB3FJnLYQSTPqCtGV""}
+razorpay_payment_id: pay_U18P3rnM8B8Usq",,Razorpay,#2660.1,0.0,Janvi Aika,0.0,,,,19005683827059.0,"Magic, upi",Low,399890841601,0.0,IGST 18%,302.03,,,,,,,,,919437030858.0,,,Odisha,Odisha,#2660.1,,,#2660.1
+#2661,mahendra.dec88@gmail.com,paid,2026-11-17 15:42:18 +0530,fulfilled,2026-11-18 11:59:22 +0530,yes,INR,1680.0,0.0,256.28,1680.0,,0.0,,2026-11-17 15:42:18 +0530,1,Berry Couture Peacock Embroidered Notch Neck Anarkali - 2XL,1680.0,1880.0,A-BCP-RP-2XL,True,True,fulfilled,Mahendran S,"Annapoorneshwari Nilayam , No 114 4th Floor , 19th Block, Arkavathy BDA layout, Babusabpalya, Kalyan Nagar, Chellikere,","Annapoorneshwari Nilayam , No 114 4th Floor , 19th Block","Arkavathy BDA layout, Babusabpalya, Kalyan Nagar, Chellikere,",,Bengaluru,'560113,KA,IN,919986743192.0,Mahendran S,"Annapoorneshwari Nilayam , No 114 4th Floor , 19th Block, Arkavathy BDA layout, Babusabpalya, Kalyan Nagar, Chellikere,","Annapoorneshwari Nilayam , No 114 4th Floor , 19th Block","Arkavathy BDA layout, Babusabpalya, Kalyan Nagar, Chellikere,",,Bengaluru,'560113,KA,IN,919986743192.0,,,,manual,ruTTMvHSmP4w0EC1xskSxStLi,0.0,Janvi Aika,0.0,Kalpana S,,,19006008918387.0,,Low,shopify_draft_order,0.0,CGST 9%,128.14,SGST 9%,128.14,,,,,,,919986743192.0,,,Karnataka,Karnataka,ruTTMvHSmP4w0EC1xskSxStLi,,,ruTTMvHSmP4w0EC1xskSxStLi
+#2662,triveni7678@gmail.com,paid,2026-11-17 21:06:29 +0530,fulfilled,2026-11-18 12:03:32 +0530,yes,INR,1602.0,0.0,244.37,1602.0,WELCOME10,178.0,FREE SHIPPING,2026-11-17 21:06:29 +0530,1,Lemon Daisy Blossom Top - XL,1780.0,,CORD-LDB-LM-XL,True,True,fulfilled,Triveni A,2-53 Near Water Tank,2-53 Near Water Tank,,,West Godavari,'534301,AP,IN,919177073240.0,Triveni A,2-53 Near Water Tank,2-53 Near Water Tank,,,West Godavari,'534301,AP,IN,919177073240.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U1IH8LetzAzRD4
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 157.50.229.14
+cart_token: hWNJ7RTA32MzZsc6Du26ClOu?key=182826cec908ead89e28a1637b8f44be
+payment_method: upi
+rzp_3p_utm_ts: 1794929504839
+rzp_device_id: 1.7e6b8bd6b1f9f78e14d07b866cad1de467e330da.1794617497093.58550152
+rzp_pixel_id: U1IDibCV1MUvFY
+_wht_user_attributes: {""wht_session_id"":""0pFkgPocoE-GYOwkvoErU"",""wht_user_id"":""mMIlPS7nX_WvpWKaf21SZ""}
+_wvi: 1
+rzp_3p_utm: utm_source:shopify||utm_medium:organic
+utm_source: shopify
+utm_medium: Organic
+utm_campaign: Organic
+razorpay_payment_id: pay_U1IIGaNtR38gtI",,Razorpay,#2662.1,0.0,Janvi Aika,0.0,,,,19006430675315.0,"Magic, upi",Low,399890841601,0.0,IGST 18%,244.37,,,,,,,,,919177073240.0,,,Andhra Pradesh,Andhra Pradesh,#2662.1,,,#2662.1
+#2663,ashasiddaramanna@gmail.com,paid,2026-11-17 22:39:09 +0530,fulfilled,2026-11-18 12:06:25 +0530,yes,INR,1780.0,0.0,271.52,1780.0,,0.0,FREE SHIPPING,2026-11-17 22:39:08 +0530,1,Pearl Grey Blossom Embroidered Set - M,1780.0,,CORD-PGB-GRY-M,True,True,fulfilled,Asha H B,"99/6, 3rd A Cross, Doctors Layout, Kasturinagar, Ground floor","99/6, 3rd A Cross, Doctors Layout, Kasturinagar",Ground floor,,Bengaluru,'560043,KA,IN,919243128101.0,Asha H B,"99/6, 3rd A Cross, Doctors Layout, Kasturinagar, Ground floor","99/6, 3rd A Cross, Doctors Layout, Kasturinagar",Ground floor,,Bengaluru,'560043,KA,IN,919243128101.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U1Jqro2LbHID9A
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 122.172.83.61
+cart_token: hWNJG5azAUqmG9ElYadBeRng?key=39733b37af547d4a837f91dbccf3d7dd
+payment_method: upi
+rzp_3p_utm_ts: 1794935236630
+rzp_device_id: 1.fcbc6cf67746d8eb6d07ee83adfec8d20c03b609.1794934948077.51488814
+rzp_pixel_id: U1JlY91TU0VBTn
+_wht_user_attributes: {""wht_session_id"":""Qbyd0V4UYHY44evdmp8Ux"",""wht_user_id"":""oS3onHXrQSFMd2HiGonwD""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: PAYW9leAVpaRNleHRuA2FlbQEwAHBkb2YCYWRpZAGrNzHmm5F6c3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGnD4OQj7CsGRc5kv9nZx8uPZtWlMCrxRnIiGUZxM26hAL07p_OLA1wkCtgeeA_aem_I5iYv_MMSmKUJ00ETvlNOg
+razorpay_payment_id: pay_U1JrXHZSpKXPHd",,Razorpay,#2663.1,0.0,Janvi Aika,0.0,,,,19006582063475.0,"Magic, upi",Low,399890841601,0.0,CGST 9%,135.76,SGST 9%,135.76,,,,,,,919243128101.0,,,Karnataka,Karnataka,#2663.1,,,#2663.1
+#2664,dhanushyadhanushya19@gmail.com,partially_paid,2026-11-18 07:46:33 +0530,fulfilled,2026-11-18 12:09:45 +0530,yes,INR,1332.0,0.0,203.19,1332.0,WELCOME10,148.0,FREE SHIPPING,2026-11-18 07:46:33 +0530,1,Light Teal Blossom Elephant Embroidered Kurta - L,1480.0,,C-LTE-SG-L,True,True,fulfilled,Dhanushya .,"129, Majeeth Street, Srinivasa Nagai Adagu kadai, Pappireddipatti",129,"Majeeth Street, Srinivasa Nagai Adagu kadai, Pappireddipatti",,Dharmapuri,'636905,TN,IN,919361733350.0,Dhanushya .,"129, Majeeth Street, Srinivasa Nagai Adagu kadai, Pappireddipatti",129,"Majeeth Street, Srinivasa Nagai Adagu kadai, Pappireddipatti",,Dharmapuri,'636905,TN,IN,919361733350.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U1TB8iVLAXTnau
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 157.51.106.61
+cart_token: hWNJGyuCCDVdp291OCDMCVoC?key=7102c169f08ad3e12b17f183c454cf34
+payment_method: upi
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:hot_campaign_ad_for_website_visitors||utm_id:120246975099520298||utm_term:120246975099510298
+rzp_3p_utm_ts: 1794968065928
+rzp_device_id: 1.09b6525c737bc1a57f5b5474ead8879c3b7ce3d1.1794480186855.08368043
+rzp_pixel_id: U1T47KSe8kuPK3
+_wht_user_attributes: {""wht_session_id"":""3B5XuwFt5Smg4qm8ekTZS"",""wht_user_id"":""y3J49L_qbTMo2J8j2W7tJ""}
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: hot_campaign_ad_for_website_visitors
+utm_content: Facebook_UA
+utm_term: 120246975099510298
+fbclid: PAZXh0bgNhZW0BMABwZG9mAmFkaWQBqzcx5KafSnNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABp1rR5Q_iIcSxCE9Cci9SmFVN72RxzkR-ON8jgrV5Ug0biHyEIBR2bnY-TQzJ_aem_uEKCTLB77Src2io5-sM-Rg
+razorpay_payment_id: pay_U1TCDGRc6igoFI, pay_U1TCoMR5Nxgkjz",,Razorpay,#2664.1,0.0,Janvi Aika,1133.0,,,,19007514607987.0,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.0,IGST 18%,203.19,,,,,,,,,919361733350.0,,,Tamil Nadu,Tamil Nadu,#2664.1,,,#2664.1
+#2665,,partially_paid,2026-11-18 08:53:05 +0530,fulfilled,2026-11-18 11:52:28 +0530,yes,INR,1890.0,0.0,288.3,1890.0,,0.0,FREE SHIPPING,2026-11-18 08:53:04 +0530,1,Pistachio Pearl Charm - L,1890.0,,C-PPC-GRN-L,True,True,fulfilled,Saraswati .,SHRI KRISHNA Geeta Shri enclave devalagujji manipura udupi,SHRI KRISHNA Geeta Shri enclave devalagujji manipura udupi,,,Udupi,'576120,KA,IN,919480602490.0,Saraswati .,SHRI KRISHNA Geeta Shri enclave devalagujji manipura udupi,SHRI KRISHNA Geeta Shri enclave devalagujji manipura udupi,,,Udupi,'576120,KA,IN,919480602490.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U1UHwqcmuY2e52
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 152.57.53.141
+cart_token: hWNJH4ps5ZMXBua3X6imyd7M?key=961cbf00862e7f2bd6f13aef3da91aa0
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""FdfHkp-GRv0HPAigfzmFt"",""wht_user_id"":""6JIGMoCHcTjyZv8CUrM3q""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
+rzp_3p_utm_ts: 1794971399251
+rzp_device_id: 1.4c3a1ecd2808a2c93b9f9ea1f2fff9cee47205f0.1794971210025.32265674
+rzp_pixel_id: U1U3xgdQAYBDCt
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: PAYW9leAVp9kFleHRuA2FlbQEwAHBkb2YCYWRpZAGrNzHm50B6c3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGnLLBk09iA48MEQAF3JkwlezdkQdH2PC5-MESt2nyeYuBTO7hYdUp7FqlECas_aem_xUstNZHv23GSJ9dPBjHtEg
+razorpay_payment_id: pay_U1UJYQWyW4PEuF, pay_U1UL5SrywuH0B2",,Razorpay,#2665.1,0.0,Janvi Aika,1691.0,,,,19007630049651.0,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.0,CGST 9%,144.15,SGST 9%,144.15,,,,,,,919480602490.0,,,Karnataka,Karnataka,#2665.1,,,#2665.1
+#2666,sandhyaswanya@gmail.com,paid,2026-11-18 09:12:10 +0530,fulfilled,2026-11-18 12:12:17 +0530,yes,INR,1422.0,0.0,216.92,1422.0,WELCOME10,158.0,FREE SHIPPING,2026-11-18 09:12:10 +0530,1,Bubblegum Botanicals Set - M,1580.0,,C-BB-AB-M,True,True,fulfilled,sandhiya swan,"No: 1 Indira medical college and hospital, VGR nagar, VGR garden, Pandur","No: 1 Indira medical college and hospital, VGR nagar, VGR garden",Pandur,,Tiruvallur,'631203,TN,IN,917010488232.0,sandhiya swan,"No: 1 Indira medical college and hospital, VGR nagar, VGR garden, Pandur","No: 1 Indira medical college and hospital, VGR nagar, VGR garden",Pandur,,Tiruvallur,'631203,TN,IN,917010488232.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U1UdSKfrGys7pl
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 152.57.93.11
+cart_token: hWNItbhI9z4VNXSZC3IqndLQ?key=fa3e6fe39f8af9dfd8da0c610104dc6c
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""7M75oMu-hmhmEppcWCGfN"",""wht_user_id"":""ekc3FvMlP9YDhxIoZEwcM""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:add_to_cart_retargeting_ad||utm_id:120248403168660298||utm_term:120248403168670298
+rzp_3p_utm_ts: 1794973158729
+rzp_device_id: 1.3bf97c838ecb195f068a4a3893c7ad15a9beaec6.1794109589118.69362567
+rzp_pixel_id: U1UYkCyqzAK260
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: add_to_cart_retargeting_ad
+utm_content: Facebook_UA
+utm_term: 120248403168670298
+fbclid: PAdGRzdgVYQzxleHRuA2FlbQEwAHBkb2YCYWRpZAGrNtAVTdZ6c3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGnLvuMZ7ly2KdkuFPLNBnpsFQxC44feobrhxFMSUlDGAoPRSHS1ppyYznNn0M_aem_ecEfhefXIKaa6X2d4QPt_g
+razorpay_payment_id: pay_U1Uer3M2cZkBSK",,Razorpay,#2666.1,0.0,Janvi Aika,0.0,,,,19007661736307.0,"Magic, upi",Low,399890841601,0.0,IGST 18%,216.92,,,,,,,,,917010488232.0,,,Tamil Nadu,Tamil Nadu,#2666.1,,,#2666.1
+#2667,,paid,2026-11-18 10:47:46 +0530,fulfilled,2026-11-18 12:24:43 +0530,yes,INR,2480.0,0.0,378.31,2480.0,,0.0,FREE SHIPPING,2026-11-18 10:47:46 +0530,1,Olive Opulence Festive Set - XL,2480.0,,C-OOF-GRN-XL,True,True,fulfilled,Prameela kancherla,"8-3-318/11/22,jayaprakash nagar,ameerpeta,hyd","8-3-318/11/22,jayaprakash nagar,ameerpeta,hyd",,,Hyderabad,'500073,TS,IN,919848039103.0,Prameela kancherla,"8-3-318/11/22,jayaprakash nagar,ameerpeta,hyd","8-3-318/11/22,jayaprakash nagar,ameerpeta,hyd",,,Hyderabad,'500073,TS,IN,919848039103.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U1WAncNjzODLXg
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 106.222.231.143
+cart_token: hWNJHGujDJJzKi48v2HjCa8q?key=8b63414cd35f826fa18b7228f540dbe5
+payment_method: upi
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
+rzp_3p_utm_ts: 1794978505890
+rzp_device_id: 1.ababede8c56dca8785bb1dcaf48bc881fa794c30.1794978505889.72747313
+rzp_pixel_id: U1W8PRIXFQjWiA
+_wht_user_attributes: {""wht_session_id"":""R67Hrw-N8cjv_nAWYtAMC"",""wht_user_id"":""Hil-IDOxQZbW_VYmtRLdO""}
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: PAZXh0bgNhZW0BMABwZG9mAmZkaWQWUSdw_cdnjCngtggzFhE2KSiPqZvXcmFkaWQBqzcx5puRenNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABp7OINbQiE2dRsSVz1qzI49BSCdaIIkTYy7RNLqjq-wmQ9gDZaPUGSbTkLt5V_aem_zMmSYpLLKdcoR7JROT8f0g
+razorpay_payment_id: pay_U1WGwpLI6fndS5",,Razorpay,#2667.1,0.0,Janvi Aika,0.0,,,,19007812141427.0,"Magic, upi",Low,399890841601,0.0,IGST 18%,378.31,,,,,,,,,919848039103.0,,,Telangana,Telangana,#2667.1,,,#2667.1
+#2668,tanudubewar1993@gmail.com,paid,2026-11-18 11:37:28 +0530,fulfilled,2026-11-18 12:46:59 +0530,yes,INR,1690.0,0.0,257.8,1690.0,,0.0,FREE SHIPPING,2026-11-18 11:37:27 +0530,1,Lavender Dew Sharara Set - L,1690.0,,SHA-LD-PUR-L,True,True,fulfilled,Tanmai Kandurwar,"202-102, Amanora Victory Towers, Amanora Park Town, Sade Satara Nali","202-102, Amanora Victory Towers, Amanora Park Town",Sade Satara Nali,,Pune,'411036,MH,IN,918928762237.0,Tanmai Kandurwar,"202-102, Amanora Victory Towers, Amanora Park Town, Sade Satara Nali","202-102, Amanora Victory Towers, Amanora Park Town",Sade Satara Nali,,Pune,'411036,MH,IN,918928762237.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U1X6mh6lYvIJs3
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 152.58.33.195
+cart_token: hWNJHLAkjLynsT3uumyA1kXs?key=2cab76aac60ab5c3053bdb1a3b72474c
+payment_method: upi
+rzp_3p_utm: utm_medium:paid_social||utm_id:120246482908220298||utm_source:facebook||utm_content:Facebook_UA||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_term:120249247882780298
+rzp_3p_utm_ts: 1794981926543
+rzp_device_id: 1.3584720de3ea7e74dc5c8d9a2b78b81946bc4cb5.1794980882900.74575742
+rzp_pixel_id: U1WoG4B4eOF1Vx
+_wht_user_attributes: {""wht_session_id"":""VSMTqLY0uciuuEJcXBHD4"",""wht_user_id"":""QrhgfPnInoxtUqpFMK0Pi""}
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+razorpay_payment_id: pay_U1X7dGQsgtkroF",,Razorpay,#2668.1,0.0,Janvi Aika,0.0,,,,19007879151987.0,"Magic, upi",Low,399890841601,0.0,IGST 18%,257.8,,,,,,,,,918928762237.0,,,Maharashtra,Maharashtra,#2668.1,,,#2668.1
+#2669,kamjyot@ymail.com,paid,2026-11-18 15:41:18 +0530,fulfilled,2026-11-19 16:32:40 +0530,yes,INR,1980.0,0.0,302.03,1980.0,,0.0,FREE SHIPPING,2026-11-18 15:41:18 +0530,1,Tavira Floral Embroidered Kurta Set - 2XL,1980.0,,C-TFE-SG-2XL,True,True,fulfilled,Jyoti Barwe,"l 1004, Flat no 2171, block no. 2 floor no 17th Sobha Nesara Paud Road, Chandani Chawk, Paud road Kothrud.",l 1004,"Flat no 2171, block no. 2 floor no 17th Sobha Nesara Paud Road, Chandani Chawk, Paud road Kothrud.",,pune,'411308,MH,IN,919850821205.0,Jyoti Barwe,"l 1004, Flat no 2171, block no. 2 floor no 17th Sobha Nesara Paud Road, Chandani Chawk, Paud road Kothrud.",l 1004,"Flat no 2171, block no. 2 floor no 17th Sobha Nesara Paud Road, Chandani Chawk, Paud road Kothrud.",,pune,'411308,MH,IN,919850821205.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U1bHCnCtmgzgjL
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 106.221.209.145
+cart_token: hWNJHlZOCAClf32Mb6h2yucG?key=22b86f602b23555f8b2cb960dab6a75a
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""e5mqHs1urmEfuE4xFs_SN"",""wht_user_id"":""jNF_kqfS1anQgsVljJxst""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad
+rzp_3p_utm_ts: 1794996603006
+rzp_device_id: 1.9dfe503ef8818dbf70ffc5597571893028677444.1788519035500.68550412
+rzp_pixel_id: U1bFQmSK3MfjVC
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+fbclid: IwZXh0bgNhZW0CMTEAcGRvZgFzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR_zh6CShK3ZBZ_YeVpaVeaILnePUd7iP_rapnXAdUYISU-Wtl3c4QwMvLdmPg_aem_XcuY7cSxNgZti1B1E5fETg
+razorpay_payment_id: pay_U1bHLbcongaSSN",,Razorpay,#2669.1,0.0,Janvi Aika,0.0,,,,19008176062835.0,"Magic, upi",Low,399890841601,0.0,IGST 18%,302.03,,,,,,,,,919850821205.0,,,Maharashtra,Maharashtra,#2669.1,,,#2669.1
+#2670,sanskritmoyna@gmail.com,paid,2026-11-18 17:48:10 +0530,fulfilled,2026-11-19 13:30:03 +0530,yes,INR,1692.0,0.0,258.1,1692.0,WELCOME10,188.0,FREE SHIPPING,2026-11-18 17:48:09 +0530,1,The Tortouse Heirloom Set - M,1880.0,,C-TH-TG-M,True,True,fulfilled,Kalyan kar,"Suratpur High school, Suratpur Aurobindo High school",Suratpur High school,Suratpur Aurobindo High school,,Daspur,'721211,WB,IN,918101140996.0,Kalyan kar,"Suratpur High school, Suratpur Aurobindo High school",Suratpur High school,Suratpur Aurobindo High school,,Daspur,'721211,WB,IN,918101140996.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U1dQxvL2AIWO5P
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 106.219.250.60
+cart_token: hWNIHUNRolXLu5MdGvfHFqxo?key=b96f3cba4c5ca9bca8842bd7888caf57
+payment_method: upi
+rzp_device_id: 1.a82a471f5c3dadd614fdc29c37dd802ca54ada87.1792710218501.25725679
+rzp_pixel_id: U1dHmqyvgGEHq9
+_wht_user_attributes: {""wht_session_id"":""OB0xBQ_CXzZ9wSR7GOCRj"",""wht_user_id"":""2xo2WDWrzKZuTFnHEGRCk""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
+rzp_3p_utm_ts: 1795003785029
+utm_source: shopify
+utm_medium: Organic
+utm_campaign: Organic
+razorpay_payment_id: pay_U1dRu6VIoQAzyY",,Razorpay,#2670.1,0.0,Janvi Aika,0.0,,,,19008322634099.0,"Magic, upi",Low,399890841601,0.0,IGST 18%,258.1,,,,,,,,,918101140996.0,,,West Bengal,West Bengal,#2670.1,,,#2670.1
+#2671,tanmayeemadipilli13@gmail.com,paid,2026-11-18 18:45:16 +0530,fulfilled,2026-11-19 13:42:06 +0530,yes,INR,1980.0,0.0,302.03,1980.0,,0.0,FREE SHIPPING,2026-11-18 18:45:15 +0530,1,Flamingo Sunset - M,1980.0,,C-FS-PNK-M,True,True,fulfilled,Ms Tarun,Mythri Nivas Ncs Road Vizaganarma,Mythri Nivas Ncs Road Vizaganarma,,,Vizianagaram,'535001,AP,IN,919666547418.0,Ms Tarun,Mythri Nivas Ncs Road Vizaganarma,Mythri Nivas Ncs Road Vizaganarma,,,Vizianagaram,'535001,AP,IN,919666547418.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U1eOrgsPbBRZEJ
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 106.192.5.234
+cart_token: hWNJB4T1iIlNi7wIrpm6za7A?key=c15509676055df29632209cadd0a922b
+payment_method: upi
+rzp_3p_utm_ts: 1795007523250
+rzp_device_id: 1.b60940f6b95728b05840f3b16dd115aa7ef369ed.1794750720938.39758856
+rzp_pixel_id: U1eNHBu7t2JVwr
+_wht_user_attributes: {""wht_session_id"":""vcRUcavN2HHKZ5POVX5vJ"",""wht_user_id"":""MU28prNJSumNiA3s1SoTk""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:hot_campaign_ad_for_website_visitors||utm_id:120246975099520298||utm_term:120246975099510298
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: hot_campaign_ad_for_website_visitors
+utm_content: Facebook_UA
+utm_term: 120246975099510298
+fbclid: PAaWdyZAVqg3FleHRuA2FlbQEwAHBkb2YCYWRpZAGrNzHkpp9Kc3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGnz2lKP_x06z7_uWKiNK5AzNVlj0wmid8D_Xl2LCFB-s57NN9x4cSkFdT85q4_aem_xiic3P9qCcKFtcoXfTc8Fw
+razorpay_payment_id: pay_U1ePUB2NTEEPwC",,Razorpay,#2671.1,0.0,Janvi Aika,0.0,,,,19008390660467.0,"Magic, upi",Low,399890841601,0.0,IGST 18%,302.03,,,,,,,,,919666547418.0,,,Andhra Pradesh,Andhra Pradesh,#2671.1,,,#2671.1
+#2672,narsi.inturi@gmail.com,paid,2026-11-18 23:17:18 +0530,fulfilled,2026-11-19 18:46:06 +0530,yes,INR,1512.0,0.0,230.64,1512.0,WELCOME10,168.0,FREE SHIPPING,2026-11-18 23:17:17 +0530,1,Slate Jewel Meadow Beadwork Round Neck - XL,1680.0,,A-SJ-DG-XL,True,True,fulfilled,Narsi Chowdary Inturi,D-410 Manjeera Diamond Towers,D-410 Manjeera Diamond Towers,,,Hyderabad,'500107,TS,IN,918500086642.0,Narsi Chowdary Inturi,"D-410,Manjeera diamond towers, Nallagandla, hyderabad-500019","D-410,Manjeera diamond towers, Nallagandla, hyderabad-500019",,,Nallagandla,'500046,TS,IN,918500086642.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U1j0gYZEaDj7Gh
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 122.177.243.17
+cart_token: hWNJIVMS1aZd5IElNRMBSlrY?key=fda1860eb4de3e37cd276bc6b5a961cc
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""_Sfjt42jl52uSKr8O7Rbb"",""wht_user_id"":""C5cy6WaBSApaIYB-cSZjx""}
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: IwYW9zYgVqwllleHRuA2FlbQEwAHBkb2YBYWRpZAGrNzHmm5F6c3J0YwZhcHBfaWQMMzUwNjg1NTMxNzI4AAEfpJzHF_AP0BEhitzgGD_BJN51g34_88Zv7cEf5pH5uOxWs9ybg5DPZnrBxVY_aem_SlQqHXE2eN--mHzfluPVwg
+razorpay_payment_id: pay_U1j3LzW8fnnQRh",,Razorpay,#2672.1,0.0,Janvi Aika,0.0,,,,19009220739443.0,"Magic, upi",Low,399890841601,0.0,IGST 18%,230.64,,,,,,,,,918500086642.0,,,Telangana,Telangana,#2672.1,,,#2672.1
+#2673,vinuthadhananje@gmail.com,paid,2026-11-19 08:19:17 +0530,fulfilled,2026-11-19 19:02:02 +0530,yes,INR,9180.0,0.0,1400.34,9180.0,WELCOME10,1020.0,FREE SHIPPING,2026-11-19 08:19:17 +0530,1,Tessara Dotted Panel Embellished U Neck Anarkali - L,3780.0,3980.0,A-TD-PNK-L,True,True,fulfilled,Vinutha M D,"Kashi Nilaya, Kuvempu Layout, Bangalore-Hassan highway Opposite to Mayura hotel Bellur cross Nagamangala Taluk Mandya","Kashi Nilaya, Kuvempu Layout, Bangalore-Hassan highway Opposite to Mayura hotel Bellur cross Nagamangala Taluk Mandya",,,Mandya,'571418,KA,IN,919902912823.0,Vinutha M D,"Kashi Nilaya, Kuvempu Layout, Bangalore-Hassan highway Opposite to Mayura hotel Bellur cross Nagamangala Taluk Mandya","Kashi Nilaya, Kuvempu Layout, Bangalore-Hassan highway Opposite to Mayura hotel Bellur cross Nagamangala Taluk Mandya",,,Mandya,'571418,KA,IN,919902912823.0,,"_wht_user_attributes: {""wht_session_id"":""FmSBZ8hNvWVYxiqh1qe7s"",""wht_user_id"":""IY1oV6oEfevDPHLLDJIb-""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:hot_campaign_ad_for_website_visitors||utm_id:120246975099520298||utm_term:120246975099510298
+rzp_3p_utm_ts: 1794982360462
+rzp_device_id: 1.611ba992bf89eebea8076a1dd225e643a9e92d4a.1793208148557.43720401
+rzp_pixel_id: U1X76Tb6VyqEYq
+magic_checkout_url: https://fxufam-ax.myshopify.com/cart?magic_order_id=dbuk3sjod7gc715tcnpg
+cart_token: hWNIV3J0379wRUmJaUXVpZmW?key=299bc8e68b17a0dc31d30be761c7c1ed
+contact: +919902912823
+checkout_sms_consent: true
+checkout_email_consent: true
+checkout_whatsapp_consent: true",,"01 Cards, UPI, NB, Wallets by Razorpay",rybgCU19YnCYpkjR3drPEB8xz,0.0,Janvi Aika,0.0,,,,19010124546419.0,,Low,399890841601,0.0,CGST 9%,700.17,SGST 9%,700.17,,,,,,,,,,Karnataka,Karnataka,rybgCU19YnCYpkjR3drPEB8xz,,,rybgCU19YnCYpkjR3drPEB8xz
+#2673,vinuthadhananje@gmail.com,,,,,,,,,,,,,,2026-11-19 08:19:17 +0530,1,Astral Pinstripe Star Motif V Neck Anarkali - L,4480.0,4780.0,A-AP-PUR-L,True,True,fulfilled,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.0,,,,,,,,,,,,,,,,,,,
+#2673,vinuthadhananje@gmail.com,,,,,,,,,,,,,,2026-11-19 08:19:17 +0530,1,Little Luxe - L,1940.0,2134.0,C-LL-LPR-L,True,True,fulfilled,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.0,,,,,,,,,,,,,,,,,,,
+#2674,,partially_paid,2026-11-19 08:59:56 +0530,fulfilled,2026-11-20 13:47:03 +0530,yes,INR,1980.0,0.0,302.03,1980.0,,0.0,FREE SHIPPING,2026-11-19 08:59:56 +0530,1,Alessa Floral Beadwork Kurta Set - XL,1980.0,,C-AFB-HW-XL,True,True,fulfilled,Vandana kumar,B block 1310 Rajpushpa Reeglia Kokapet,B block 1310 Rajpushpa Reeglia Kokapet,,,Rangareddy,'500075,TS,IN,919391038396.0,Vandana kumar,B block 1310 Rajpushpa Reeglia Kokapet,B block 1310 Rajpushpa Reeglia Kokapet,,,Rangareddy,'500075,TS,IN,919391038396.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U1sxCJbOiLgqeL
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 223.237.140.7
+cart_token: hWNGMP7N1sUbozOhIWYtWgD6?key=f984e3ec66e14680b19bb31b12f7b9ed
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""oX5SzpHk1mhDaWlDgKXFd"",""wht_user_id"":""VxH4IQp6H6abIXBmjz6pb""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
+rzp_3p_utm_ts: 1795058840660
+rzp_device_id: 1.6705e259c7649de8f6cc1c0fd5e8cb5ff0204d67.1795046769614.78718825
+rzp_pixel_id: U1svL7uSES8G9Z
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: IwZXh0bgNhZW0BMABwZG9mBWZkaWQWUSil2XO0nZ1YdwOELpBgJfUU3g2EYWFkaWQBqzcx5puRenNydGMGYXBwX2lkCjY2Mjg1NjgzNzkAAR-PyfZosYtbvtKW8Sjuu80JGGCXFhBD-4CEhcE4lJoZmgfFxBG30SV5hcRPMQ_aem_zv9AtdKZzZlUdN8MQz7kcA
+razorpay_payment_id: pay_U1syDhr5rVCxVW, pay_U1szS9RB4X8BUB",,Razorpay,#2674.1,0.0,Janvi Aika,1781.0,,,,19010191655283.0,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.0,IGST 18%,302.03,,,,,,,,,919391038396.0,,,Telangana,Telangana,#2674.1,,,#2674.1
+#2675,sanikakale9954@gmail.com,partially_paid,2026-11-19 12:53:54 +0530,unfulfilled,,yes,INR,3190.0,0.0,486.61,3190.0,,0.0,FREE SHIPPING,2026-11-19 12:53:53 +0530,1,Royal Rani Anarkali Dress - M,3190.0,,A-25620-GEO-M,True,True,pending,Kale sanika,"Ram madir road metro shop sangli, Sangli Maharashtra",Ram madir road metro shop sangli,Sangli Maharashtra,,Sangli,'417416,MH,IN,918275829399.0,Kale sanika,"Ram madir road metro shop sangli, Sangli Maharashtra",Ram madir road metro shop sangli,Sangli Maharashtra,,Sangli,'417416,MH,IN,918275829399.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U1wu1nHeDrsLGA
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 49.36.42.246
+cart_token: hWNIimdL37Lkt3zjb39mYIVg?key=a4c4a9c592cc1529eca08fcc53315566
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""ePCfq3eCtPr355gSR9VLl"",""wht_user_id"":""50iy0Nul1YVt1Qo6b8Mx5""}
+rzp_3p_utm: utm_source:ig||utm_medium:social||utm_content:link_in_bio
+rzp_3p_utm_ts: 1795072575906
+rzp_device_id: 1.796cc80169acb95423da4bd45d5e59144d17b32b.1793712239318.91673065
+rzp_pixel_id: U1wqZ1OsoSCB7c
+utm_source: ig
+utm_medium: social
+utm_campaign: Others
+utm_content: link_in_bio
+fbclid: PAZXh0bgNhZW0CMTEAcGRvZgJzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAaedMOvdXAO0OgSRg-YNYNAO-t7oYXrrnbl9WwIaWwHrGspejTl9DubKvbjGZA_aem_cpdnIFOtg7-4cbo3UOtqkQ
+razorpay_payment_id: pay_U1wuclksz1RDZ9, pay_U1wyaQ9hDnXirE",,Razorpay,#2675.1,0.0,Janvi Aika,2991.0,,,,19010486075763.0,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.0,IGST 18%,486.61,,,,,,,,,918275829399.0,,,Maharashtra,Maharashtra,#2675.1,,,#2675.1
+#2676,sales@janviaika.in,paid,2026-11-19 14:09:39 +0530,fulfilled,2026-11-19 19:08:23 +0530,yes,INR,1071.0,0.0,163.37,1071.0,WELCOME10,119.0,FREE SHIPPING,2026-11-19 14:09:39 +0530,1,Silk Anthem - S,1190.0,,TOP-SA-MYG-S,True,True,fulfilled,Pradeepa .,"38,Kaiser garden opposite to advaita school SR nagar south tirupur","38,Kaiser garden opposite to advaita school SR nagar south tirupur",,,Tirupur,'641687,TN,IN,919345582931.0,Pradeepa .,"38,Kaiser garden opposite to advaita school SR nagar south tirupur","38,Kaiser garden opposite to advaita school SR nagar south tirupur",,,Tirupur,'641687,TN,IN,919345582931.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U1yEoMKs8Vunmd
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 103.158.144.190
+cart_token: hWNCiAjcbFOa8XqSGZo0NG89?key=3eab1e801ac4af817526f0633ec16fbd
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""_Mbucz9cYcVmz0UIEchu3"",""wht_user_id"":""wa1iBrPMmjhnj0PKKZfFR""}
+_wvi: 1
+rzp_3p_utm: utm_source:(direct)||utm_medium:(none)
+rzp_3p_utm_ts: 1795074942275
+rzp_device_id: 1.8b52325ec01db0f6296f24b23671e9b77dfdd526.1784880362047.88307132
+rzp_pixel_id: U1xWE5bGDmd304
+wvs: 1
+razorpay_payment_id: pay_U1yGLc2wbJP8Bb",,Razorpay,#2676.1,0.0,Janvi Aika,0.0,,,,19010578252147.0,"Magic, test-order, upi",Low,399890841601,0.0,IGST 18%,163.37,,,,,,,,,919345582931.0,,,Tamil Nadu,Tamil Nadu,#2676.1,,,#2676.1
+#2677,santhiya@gobuzl.com,paid,2026-11-19 15:38:03 +0530,fulfilled,2026-11-19 15:38:40 +0530,yes,INR,2.0,0.0,0.31,2.0,,0.0,FREE SHIPPING,2026-11-19 15:38:03 +0530,1,TEST Product - S,2.0,,,True,True,fulfilled,Mani Santhiya,"Nhnnnn, Bhha",Nhnnnn,Bhha,,Tirunelveli,'627105,TN,IN,918870734819.0,Mani Santhiya,"Nhnnnn, Bhha",Nhnnnn,Bhha,,Tirunelveli,'627105,TN,IN,918870734819.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U1zlX5rHjXDVK6
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 106.51.69.115
+cart_token: hWNG1dhDg7L7J3coLqqa9EJw?key=9d3990e4fdfe4be5ca7241ad59d9d323
+payment_method: upi
+_wvi: 1
+rzp_3p_utm: utm_source:google||utm_medium:organic
+rzp_3p_utm_ts: 1795082826937
+rzp_device_id: 1.4fee6eace0665ec7eb66ac9159b0ddfa890274b8.1787576122298.91027547
+rzp_pixel_id: U1zl2Y78QguJQp
+_wht_user_attributes: {""wht_session_id"":""O5HuS3Xk0jD7iXI1nsvl6"",""wht_user_id"":""hYSQgA3CKWmhBFqacTFmL""}
+utm_source: google
+utm_medium: cpc
+utm_campaign: Others
+gclid: Cj0KCQiA2frXBhC_ARIsAPTFcdOhoRc_mQxCj2u2jfXmNBZpJkzwM5vx5LNMfze3dy7rCENzyr3mc7gaAlBBEALw_wcB
+razorpay_payment_id: pay_U1zljHbVeU4oaY",,Razorpay,#2677.1,0.0,Janvi Aika,0.0,,,,19010682519923.0,"Magic, test-order, upi",Low,399890841601,0.0,IGST 18%,0.31,,,,,,,,,918870734819.0,,,Tamil Nadu,Tamil Nadu,#2677.1,,,#2677.1
+#2678,9607300373@khyaal.com,paid,2026-11-19 18:42:00 +0530,fulfilled,2026-11-21 13:26:43 +0530,yes,INR,1990.0,0.0,303.56,1990.0,,0.0,,2026-11-19 18:42:00 +0530,1,Arden Rue - 2XL,1990.0,2189.0,C-AR-SB-2XL,True,True,fulfilled,Rama Komarraju,Leverage greens bldg no 40/c flat no 402,Leverage greens bldg no 40/c flat no 402,,,Nagpur,'441111,MH,IN,919607300373.0,Rama Komarraju,Leverage greens bldg no 40/c flat no 402,Leverage greens bldg no 40/c flat no 402,,,Nagpur,'441111,MH,IN,919607300373.0,,,,manual,rrJ9OaMRqgl9QtY1efRGxKYMQ,0.0,Janvi Aika,0.0,Kalpana S,,,19010910355827.0,,Low,shopify_draft_order,0.0,IGST 18%,303.56,,,,,,,,,919607300373.0,,,Maharashtra,Maharashtra,rrJ9OaMRqgl9QtY1efRGxKYMQ,,,rrJ9OaMRqgl9QtY1efRGxKYMQ
 #2679,Snehlatache786@gmail.com,paid,2026-11-20 10:47:26 +0530,fulfilled,2026-11-20 13:49:26 +0530,yes,INR,1880.0,0.0,286.78,1880.0,,0.0,FREE SHIPPING,2026-11-20 10:47:26 +0530,1,Zelina Pink Party Wear - L,1880.0,,SHA-ZP-SP-L,True,True,fulfilled,Snehlata singh,"Type B , building no 8 , flat no 3rd floor, room no 60, RCF Sports Club, RCF Colony, Chembur","Type B , building no 8 , flat no 3rd floor, room no 60","RCF Sports Club, RCF Colony, Chembur",,Mumbai,'400071,MH,IN,917355909684.0,Snehlata singh,"Type B , building no 8 , flat no 3rd floor, room no 60, RCF Sports Club, RCF Colony, Chembur","Type B , building no 8 , flat no 3rd floor, room no 60","RCF Sports Club, RCF Colony, Chembur",,Mumbai,'400071,MH,IN,917355909684.0,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_U2JHyVUsKU8U7I
 SMS_consent: Yes
@@ -18,11 +554,11 @@ utm_campaign: hot_campaign_ad_for_website_visitors
 utm_content: Facebook_UA
 utm_term: 120246975099510298
 fbclid: PAYW9leAVstgdleHRuA2FlbQEwAHBkb2YCYWRpZAGrNzHkpp9Kc3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGnfr9Rz9pl4yEDw8gkHGtMCIaJq5vgtj4fBSIZtiYLF4Y9cQvbmT3BGZLOiIQ_aem_AtCN6Bhv-t_6SeiTOtLmEA
-razorpay_payment_id: pay_U2JLPbXSMNn9EB",,Razorpay,#2679.1,0.0,Janvi Aika,0.0,,,,19012530471283.0,"Magic, upi",Low,399890841601,0.0,IGST 18%,286.78,,,,,,,,,917355909684,,,Maharashtra,Maharashtra,#2679.1,,,#2679.1
-#2681,krish.divya@gmail.com,paid,2026-11-20 12:57:00 +0530,fulfilled,2026-11-20 21:08:14 +0530,no,INR,4170.0,0.0,636.1,4170.0,,0.0,,2026-11-20 12:57:00 +0530,1,Mustard Bloom Top - 3XL,1390.0,1529.0,TOP-MB-MY-3XL,True,True,fulfilled,Divya Krishnan,"#126, Pratham Indraprastha, R K Road, Yeshwanthpur","#126, Pratham Indraprastha, R K Road, Yeshwanthpur",,,Bengaluru,'560022,KA,IN,919535316819.0,Divya Krishnan,"#126, Pratham Indraprastha, R K Road, Yeshwanthpur","#126, Pratham Indraprastha, R K Road, Yeshwanthpur",,,Bengaluru,'560022,KA,IN,919535316819.0,,,,manual,rhiu14eZaZiUl4dSpLMRDbZaG,0.0,Janvi Aika,0.0,Kalpana S,,,19012682088819.0,,Low,shopify_draft_order,0.0,CGST 9%,318.05,SGST 9%,318.05,,,,,,,919535316819,,,Karnataka,Karnataka,rhiu14eZaZiUl4dSpLMRDbZaG,,,rhiu14eZaZiUl4dSpLMRDbZaG
-#2681,krish.divya@gmail.com,,,,,,,,,,,,,,2026-11-20 12:57:00 +0530,1,Azure Bloom Top - 3XL,1390.0,1529.0,TOP-AB-RB-3XL,True,True,fulfilled,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.0,,,,,,,,,,,919535316819,,,,,,,,
-#2681,krish.divya@gmail.com,,,,,,,,,,,,,,2026-11-20 12:57:00 +0530,1,Royal Rosa - 3XL,1390.0,1529.0,TOP-RR-PK-3XL,True,True,fulfilled,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.0,,,,,,,,,,,919535316819,,,,,,,,
-#2682,,paid,2026-11-20 17:04:25 +0530,unfulfilled,,yes,INR,1782.0,0.0,271.83,1782.0,WELCOME10,198.0,FREE SHIPPING,2026-11-20 17:04:25 +0530,1,Flamingo Sunset - M,1980.0,,C-FS-PNK-M,True,True,pending,A sathish yadav,"Flat no 315, prithvi vasanth prestige park, armoor road, opposite vaishray gardens.","Flat no 315, prithvi vasanth prestige park, armoor road, opposite vaishray gardens.",,,Nizamabad,'503002,TS,IN,919951296303.0,A sathish yadav,"Flat no 315, prithvi vasanth prestige park, armoor road, opposite vaishray gardens.","Flat no 315, prithvi vasanth prestige park, armoor road, opposite vaishray gardens.",,,Nizamabad,'503002,TS,IN,919951296303.0,,"Paid via: Razorpay Magic Checkout
+razorpay_payment_id: pay_U2JLPbXSMNn9EB",,Razorpay,#2679.1,0.0,Janvi Aika,0.0,,,,19012530471283.0,"Magic, upi",Low,399890841601,0.0,IGST 18%,286.78,,,,,,,,,917355909684.0,,,Maharashtra,Maharashtra,#2679.1,,,#2679.1
+#2681,krish.divya@gmail.com,paid,2026-11-20 12:57:00 +0530,fulfilled,2026-11-20 21:08:14 +0530,no,INR,4170.0,0.0,636.1,4170.0,,0.0,,2026-11-20 12:57:00 +0530,1,Mustard Bloom Top - 3XL,1390.0,1529.0,TOP-MB-MY-3XL,True,True,fulfilled,Divya Krishnan,"#126, Pratham Indraprastha, R K Road, Yeshwanthpur","#126, Pratham Indraprastha, R K Road, Yeshwanthpur",,,Bengaluru,'560022,KA,IN,919535316819.0,Divya Krishnan,"#126, Pratham Indraprastha, R K Road, Yeshwanthpur","#126, Pratham Indraprastha, R K Road, Yeshwanthpur",,,Bengaluru,'560022,KA,IN,919535316819.0,,,,manual,rhiu14eZaZiUl4dSpLMRDbZaG,0.0,Janvi Aika,0.0,Kalpana S,,,19012682088819.0,,Low,shopify_draft_order,0.0,CGST 9%,318.05,SGST 9%,318.05,,,,,,,919535316819.0,,,Karnataka,Karnataka,rhiu14eZaZiUl4dSpLMRDbZaG,,,rhiu14eZaZiUl4dSpLMRDbZaG
+#2681,krish.divya@gmail.com,,,,,,,,,,,,,,2026-11-20 12:57:00 +0530,1,Azure Bloom Top - 3XL,1390.0,1529.0,TOP-AB-RB-3XL,True,True,fulfilled,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.0,,,,,,,,,,,919535316819.0,,,,,,,,
+#2681,krish.divya@gmail.com,,,,,,,,,,,,,,2026-11-20 12:57:00 +0530,1,Royal Rosa - 3XL,1390.0,1529.0,TOP-RR-PK-3XL,True,True,fulfilled,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.0,,,,,,,,,,,919535316819.0,,,,,,,,
+#2682,,paid,2026-11-20 17:04:25 +0530,fulfilled,2026-11-22 11:30:08 +0530,yes,INR,1782.0,0.0,271.83,1782.0,WELCOME10,198.0,FREE SHIPPING,2026-11-20 17:04:25 +0530,1,Flamingo Sunset - M,1980.0,,C-FS-PNK-M,True,True,fulfilled,A sathish yadav,"Flat no 315, prithvi vasanth prestige park, armoor road, opposite vaishray gardens.","Flat no 315, prithvi vasanth prestige park, armoor road, opposite vaishray gardens.",,,Nizamabad,'503002,TS,IN,919951296303.0,A sathish yadav,"Flat no 315, prithvi vasanth prestige park, armoor road, opposite vaishray gardens.","Flat no 315, prithvi vasanth prestige park, armoor road, opposite vaishray gardens.",,,Nizamabad,'503002,TS,IN,919951296303.0,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_U2PklHhVKOob59
 SMS_consent: Yes
 whatsapp_sms_consent: Yes
@@ -40,9 +576,9 @@ utm_campaign: hot_campaign_ad_for_website_visitors
 utm_content: Facebook_UA
 utm_term: 120246975099510298
 fbclid: PAZXh0bgNhZW0BMABwZG9mAmFkaWQBqzcx5KafSnNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABpzcqAtO6EQHOmiFIDCpSSXoXmo42lUaUVG18N0z9du6_UynxMEPBfw5LjkRU_aem_qlOR-EpT2MVrxjaO7nxQIQ
-razorpay_payment_id: pay_U2PlgVe4N47Ks7",,Razorpay,#2682.1,0.0,Janvi Aika,0.0,,,,19012950753651.0,"Magic, upi",Low,399890841601,0.0,IGST 18%,271.83,,,,,,,,,919951296303,,,Telangana,Telangana,#2682.1,,,#2682.1
-#2683,karthik.m@ivymobility.com,paid,2026-11-20 20:56:35 +0530,fulfilled,2026-11-20 20:57:06 +0530,yes,INR,2490.0,0.0,379.83,2490.0,,0.0,,2026-11-20 20:56:34 +0530,1,Copper Leaf Chudidhar Set - 2XL,2490.0,2739.0,C-CL-OR-2XL,True,True,fulfilled,Karthik murugesan,"9/8 A , Periyar 3 Rd Cross Street, Srinivasa nagar, padi","9/8 A , Periyar 3 Rd Cross Street, Srinivasa nagar, padi",,,Tiruvallur,'600050,TN,IN,917358744355.0,Karthik murugesan,"9/8 A , Periyar 3 Rd Cross Street, Srinivasa nagar, padi","9/8 A , Periyar 3 Rd Cross Street, Srinivasa nagar, padi",,,Tiruvallur,'600050,TN,IN,917358744355.0,,,,manual,rIThnXAzNSNqSkqj2xwQ5fSMj,0.0,Janvi Aika,0.0,Kalpana S,,,19013309006195.0,,Low,shopify_draft_order,0.0,IGST 18%,379.83,,,,,,,,,917358744355,,,Tamil Nadu,Tamil Nadu,rIThnXAzNSNqSkqj2xwQ5fSMj,,,rIThnXAzNSNqSkqj2xwQ5fSMj
-#2684,,partially_paid,2026-11-20 22:14:14 +0530,unfulfilled,,yes,INR,1880.0,0.0,286.78,1880.0,,0.0,FREE SHIPPING,2026-11-20 22:14:14 +0530,1,The Tortouse Heirloom Set - M,1880.0,,C-TH-TG-M,True,True,pending,Kiran Kumari,"Ward 4, Masumganj babamasumeswar nath mandir",Ward 4,Masumganj babamasumeswar nath mandir,,Saran,'841301,BR,IN,917258954291.0,Kiran Kumari,"Ward 4, Masumganj babamasumeswar nath mandir",Ward 4,Masumganj babamasumeswar nath mandir,,Saran,'841301,BR,IN,917258954291.0,,"Paid via: Razorpay Magic Checkout
+razorpay_payment_id: pay_U2PlgVe4N47Ks7",,Razorpay,#2682.1,0.0,Janvi Aika,0.0,,,,19012950753651.0,"Magic, upi",Low,399890841601,0.0,IGST 18%,271.83,,,,,,,,,919951296303.0,,,Telangana,Telangana,#2682.1,,,#2682.1
+#2683,karthik.m@ivymobility.com,paid,2026-11-20 20:56:35 +0530,fulfilled,2026-11-20 20:57:06 +0530,yes,INR,2490.0,0.0,379.83,2490.0,,0.0,,2026-11-20 20:56:34 +0530,1,Copper Leaf Chudidhar Set - 2XL,2490.0,2739.0,C-CL-OR-2XL,True,True,fulfilled,Karthik murugesan,"9/8 A , Periyar 3 Rd Cross Street, Srinivasa nagar, padi","9/8 A , Periyar 3 Rd Cross Street, Srinivasa nagar, padi",,,Tiruvallur,'600050,TN,IN,917358744355.0,Karthik murugesan,"9/8 A , Periyar 3 Rd Cross Street, Srinivasa nagar, padi","9/8 A , Periyar 3 Rd Cross Street, Srinivasa nagar, padi",,,Tiruvallur,'600050,TN,IN,917358744355.0,,,,manual,rIThnXAzNSNqSkqj2xwQ5fSMj,0.0,Janvi Aika,0.0,Kalpana S,,,19013309006195.0,,Low,shopify_draft_order,0.0,IGST 18%,379.83,,,,,,,,,917358744355.0,,,Tamil Nadu,Tamil Nadu,rIThnXAzNSNqSkqj2xwQ5fSMj,,,rIThnXAzNSNqSkqj2xwQ5fSMj
+#2684,,partially_paid,2026-11-20 22:14:14 +0530,fulfilled,2026-11-21 15:50:20 +0530,yes,INR,1880.0,0.0,286.78,1880.0,,0.0,FREE SHIPPING,2026-11-20 22:14:14 +0530,1,The Tortouse Heirloom Set - M,1880.0,,C-TH-TG-M,True,True,fulfilled,Kiran Kumari,"Ward 4, Masumganj babamasumeswar nath mandir",Ward 4,Masumganj babamasumeswar nath mandir,,Saran,'841301,BR,IN,917258954291.0,Kiran Kumari,"Ward 4, Masumganj babamasumeswar nath mandir",Ward 4,Masumganj babamasumeswar nath mandir,,Saran,'841301,BR,IN,917258954291.0,,"Paid via: Razorpay Magic Checkout
 razorpay_order_id: order_U2UwC4CgxqgLuz
 SMS_consent: Yes
 whatsapp_sms_consent: Yes
@@ -56,4 +592,179 @@ utm_campaign: hot_campaign_ad_for_website_visitors
 utm_content: Facebook_UA
 utm_term: 120246975099510298
 fbclid: PAZXh0bgNhZW0BMABwZG9mAmFkaWQBqzcx5KafSnNydGMGYXBwX2lkDzU2NzA2NzM0MzM1MjQyNwABp7TPcDkc43kpC-S8Lr-LP0CzHmUb01zMqxxJ7KX4VrKi_tYZiJP-zCsE1ATZ_aem_x86QTSWLYJjjDZ4ARLwIvg
-razorpay_payment_id: pay_U2V2NFc5neF4MQ, pay_U2V3cXuRV71Haq",,Razorpay,#2684.1,0.0,Janvi Aika,1681.0,,,,19013459706227.0,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.0,IGST 18%,286.78,,,,,,,,,917258954291,,,Bihar,Bihar,#2684.1,,,#2684.1
+razorpay_payment_id: pay_U2V2NFc5neF4MQ, pay_U2V3cXuRV71Haq",,Razorpay,#2684.1,0.0,Janvi Aika,1681.0,,,,19013459706227.0,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.0,IGST 18%,286.78,,,,,,,,,917258954291.0,,,Bihar,Bihar,#2684.1,,,#2684.1
+#2685,revatispradhan@gmail.com,paid,2026-11-21 12:42:23 +0530,fulfilled,2026-11-21 16:02:18 +0530,yes,INR,5440.0,0.0,829.83,5440.0,,0.0,FREE SHIPPING,2026-11-21 12:42:23 +0530,1,Midnight Lagoon Scallop Lace Round Neck Panelled Flare Kurti - XL,1880.0,,A-MLS-BL-XL,True,True,fulfilled,Revati pradhan,"A2 404, Shashi Tara Vihar,Anandnagar, Behind Santosh Hall, Sinhagad road, Pune.","A2 404, Shashi Tara Vihar,Anandnagar, Behind Santosh Hall, Sinhagad road, Pune.",,,Pune,'411051,MH,IN,919112260731.0,Revati pradhan,"A2 404, Shashi Tara Vihar,Anandnagar, Behind Santosh Hall, Sinhagad road, Pune.","A2 404, Shashi Tara Vihar,Anandnagar, Behind Santosh Hall, Sinhagad road, Pune.",,,Pune,'411051,MH,IN,919112260731.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U2jpr20L8Qb1ty
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 42.108.236.169
+cart_token: hWNIgcylJvl5xfaP2kEHFrr2?key=ffaecdcca32d9809e2f9e5965375552f
+payment_method: upi
+_wvi: 1
+rzp_3p_utm: utm_source:google||utm_medium:organic
+rzp_3p_utm_ts: 1795243846287
+rzp_device_id: 1.ffbb6454f34fe0eec951b84a09037781fd0b3509.1793633100274.09949372
+rzp_pixel_id: U2jTsNPRj6llyt
+_wht_user_attributes: {""wht_session_id"":""UHkjUzr4ZgzMydOsaJq9A"",""wht_user_id"":""vDq_cCRDsSxCBY5YfgjyN""}
+utm_source: google
+utm_medium: Organic
+utm_campaign: Organic
+razorpay_payment_id: pay_U2jqCAWLkGMx1h",,Razorpay,#2685.1,0.0,Janvi Aika,0.0,,,,19015253229939.0,"Magic, upi",Low,399890841601,0.0,IGST 18%,829.83,,,,,,,,,919112260731.0,,,Maharashtra,Maharashtra,#2685.1,,,#2685.1
+#2685,revatispradhan@gmail.com,,,,,,,,,,,,,,2026-11-21 12:42:23 +0530,1,Rosewater Pink Gulmohar Symphony Anarkali - XL,1780.0,,A-RWP-BP-XL,True,True,fulfilled,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.0,,,,,,,,,,,919112260731.0,,,,,,,,
+#2685,revatispradhan@gmail.com,,,,,,,,,,,,,,2026-11-21 12:42:23 +0530,1,Moonlit Ivory Gulmohar Symphony Anarkali - XL,1780.0,,A-MIG-IVO-XL,True,True,fulfilled,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.0,,,,,,,,,,,919112260731.0,,,,,,,,
+#2686,k.vsnarayana5@gmail.com,paid,2026-11-21 20:37:50 +0530,fulfilled,2026-11-22 19:23:02 +0530,yes,INR,1962.0,0.0,299.29,1962.0,WELCOME10,218.0,FREE SHIPPING,2026-11-21 20:37:50 +0530,1,Galze Salsa Party Wear - L,2180.0,,SHA-GS-OP-L,True,True,fulfilled,Suryanarayana K,"H.No - 30-7-2/1, Mummidi vari street, Opp Sachivalayam, Gantalamma temple Opp street","H.No - 30-7-2/1, Mummidi vari street","Opp Sachivalayam, Gantalamma temple Opp street",,East Godavari,'533101,AP,IN,918977773488.0,Suryanarayana K,"H.No - 30-7-2/1, Mummidi vari street, Opp Sachivalayam, Gantalamma temple Opp street","H.No - 30-7-2/1, Mummidi vari street","Opp Sachivalayam, Gantalamma temple Opp street",,East Godavari,'533101,AP,IN,918977773488.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U2ruKIuoLxAmNz
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 152.57.98.136
+cart_token: hWNJLyNLZdIU79uzMCacomay?key=4d8a0ae186ba90b80bb8a84ab33d1ad4
+payment_method: upi
+rzp_3p_utm_ts: 1795273455761
+rzp_device_id: 1.e9d9f0870ce69a7d668f60a99f22949dab7a372d.1795150941900.56419938
+rzp_pixel_id: U2qQmdFQOGqood
+_wht_user_attributes: {""wht_session_id"":""cgrAeZaSwh2EnUWcBDZq0"",""wht_user_id"":""soX0Oira0zm7kZ-NIQCSN""}
+_wvi: 1
+rzp_3p_utm: utm_source:shopify||utm_medium:organic
+utm_source: shopify
+utm_medium: Organic
+utm_campaign: Organic
+razorpay_payment_id: pay_U2rvqz3yEM9cKf",,Razorpay,#2686.1,0.0,Janvi Aika,0.0,,,,19015827226995.0,"Magic, upi",Low,399890841601,0.0,IGST 18%,299.29,,,,,,,,,918977773488.0,,,Andhra Pradesh,Andhra Pradesh,#2686.1,,,#2686.1
+#2687,,partially_paid,2026-11-22 09:21:11 +0530,fulfilled,2026-11-22 11:19:20 +0530,yes,INR,1780.0,0.0,271.53,1780.0,,0.0,FREE SHIPPING,2026-11-22 09:21:10 +0530,1,Frosted Aqua Gulmohar Symphony Anarkali - M,1780.0,,A-FAG-SB-M,True,True,fulfilled,Jahangir Jahangir,11 - 35 - 1 Azeemabad,11 - 35 - 1 Azeemabad,,,Visakhapatnam,'530026,AP,IN,919866962006.0,Jahangir Jahangir,11 - 35 - 1 Azeemabad,11 - 35 - 1 Azeemabad,,,Visakhapatnam,'530026,AP,IN,919866962006.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U34vkQV4TR7992
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 157.50.147.53
+cart_token: hWNJQYhRIAJtHfW7MiArRdwa?key=25e79f3206f8af50487226f0c968deea
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""9s1-6ow8KnY3J7KmxMVAc"",""wht_user_id"":""LjI2YA7BldzHvEXvrVjm1""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
+rzp_3p_utm_ts: 1795319370100
+rzp_device_id: 1.8a0d68a09e4874e25838996858bd893c05d2a44a.1795319313183.57389475
+rzp_pixel_id: U34uVqEsTm7FBF
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: IwYW9leAVvRZlleHRuA2FlbQEwAHBkb2YFZmRpZBZRK_mTqzxkRdixNB1eCVsDHY09UpfDYWRpZAGrNzHmm5F6c3J0YwZhcHBfaWQKNjYyODU2ODM3OQABH8Rdp-KTbDthc1o7YiG7yHgEd6Hh-A09OEQbjMBhk9voTwL-RGRA8hei7y1n_aem_8wO1nFPl_9vTUeIRoaWqLg
+razorpay_payment_id: pay_U34wlebFXKqtlL, pay_U34xF63ogbQ5JE",,Razorpay,#2687.1,0.0,Janvi Aika,1581.0,,,,19017312764275.0,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.0,IGST 18%,271.53,,,,,,,,,919866962006.0,,,Andhra Pradesh,Andhra Pradesh,#2687.1,,,#2687.1
+#2688,chandanaganeshreddy@gmail.com,partially_paid,2026-11-22 10:29:42 +0530,unfulfilled,,yes,INR,1890.0,0.0,288.31,1890.0,,0.0,FREE SHIPPING,2026-11-22 10:29:41 +0530,1,Crimson Eclipse Deer Motif Kurta - 2XL,1890.0,,C-CED-MB-2XL,True,True,pending,Chandana Ganeshreddy,"Flat no 201,K.B.R.Hills,, Vinayak nagar, Avilala","Flat no 201,K.B.R.Hills,, Vinayak nagar, Avilala",,,Chittoor,'517507,AP,IN,919441578020.0,Chandana Ganeshreddy,"Flat no 201,K.B.R.Hills,, Vinayak nagar, Avilala","Flat no 201,K.B.R.Hills,, Vinayak nagar, Avilala",,,Chittoor,'517507,AP,IN,919441578020.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U366A7EP2SVIr6
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 106.200.29.133
+cart_token: hWNINefFQeUCho4veqMmj78W?key=5441691e99cf4332a85fa49b8f529113
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""AsdSDbl0JZcZTSzoivFQ4"",""wht_user_id"":""nd8YCgyjle-6uo4SsEwKV""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
+rzp_3p_utm_ts: 1795323471060
+rzp_device_id: 1.c07c0d563276e6dc79b43a212d2b3e1c0c4c30e1.1792936577207.92739454
+rzp_pixel_id: U365WVvMUwXkMW
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: IwZXh0bgNhZW0BMABwZG9mBWFkaWQBqzcx5puRenNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABH3xnRKOqz5YjfVr8SBmGjWe9qBi9BgzH3uYCqPQjHpu1SDpbVLFhJ1Mo6oy4_aem_sCp0ijSLDfGVcRMNS0DMfg
+razorpay_payment_id: pay_U366mgot5TFkn5, pay_U367dcju8RNDPN",,Razorpay,#2688.1,0.0,Janvi Aika,1691.0,,,,19017409790323.0,"Magic, razorpay_partial_cod, upi",Low,399890841601,0.0,IGST 18%,288.31,,,,,,,,,919441578020.0,,,Andhra Pradesh,Andhra Pradesh,#2688.1,,,#2688.1
+#2689,nish2001@gmail.com,paid,2026-11-22 11:14:16 +0530,fulfilled,2026-11-22 17:05:04 +0530,yes,INR,2871.0,0.0,437.95,2871.0,WELCOME10,319.0,FREE SHIPPING,2026-11-22 11:14:16 +0530,1,Raagamanjari Anarkali Dress - XL,3190.0,,A-25612-GEO-XL,True,True,fulfilled,NISHA N,"Flat No A1 4D, Garden Court Apartment , Civil Line Road, Alinchuvadu, Edapally",Flat No A1 4D,"Garden Court Apartment , Civil Line Road, Alinchuvadu, Edapally",,Ernakulam,'682024,KL,IN,919746905445.0,NISHA N,"Flat No A1 4D, Garden Court Apartment , Civil Line Road, Alinchuvadu, Edapally",Flat No A1 4D,"Garden Court Apartment , Civil Line Road, Alinchuvadu, Edapally",,Ernakulam,'682024,KL,IN,919746905445.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U36qPKbo08VyPu
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 202.164.131.190
+cart_token: hWNJQk1snE2WzxrO780WqLv2?key=440187562aadc2abbee9034a5efc7f50
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""uK817hEbiEgphQ0zRAkPN"",""wht_user_id"":""DFUiShCIzVrYuQxfoboYt""}
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: IwYW9zYgVvX4JleHRuA2FlbQEwAHBkb2YFYWRpZAGrNzHm9x76c3J0YwZhcHBfaWQMMzUwNjg1NTMxNzI4AAEfDJVpuJ90srQrtLotDYEzpy1VzSJb6n4mOopbWvBgukdIKVfQBEdoFlJpjso_aem_72U8A2rwqTnkLOjGXHzzXA
+razorpay_payment_id: pay_U36s1qHb0kiqhK",,Razorpay,#2689.1,0.0,Janvi Aika,0.0,,,,19017480896883.0,"Magic, upi",Low,399890841601,0.0,IGST 18%,437.95,,,,,,,,,919746905445.0,,,Kerala,Kerala,#2689.1,,,#2689.1
+#2690,smithaganesha@gmail.com,paid,2026-11-22 11:29:48 +0530,fulfilled,2026-11-22 17:08:12 +0530,yes,INR,1780.0,0.0,271.52,1780.0,,0.0,FREE SHIPPING,2026-11-22 11:29:48 +0530,1,Royal Heritage Embroidered Chudidhar – Teal Blue - XL,1780.0,,C-RHTB-TB-XL,True,True,fulfilled,Smitha Ganesh,"833 Sobha Dewflower, Sobha Dewflower Apartments 4th Cross Road",833 Sobha Dewflower,Sobha Dewflower Apartments 4th Cross Road,,Bengaluru,'560078,KA,IN,919845069842.0,Smitha Ganesh,"833 Sobha Dewflower, Sobha Dewflower Apartments 4th Cross Road",833 Sobha Dewflower,Sobha Dewflower Apartments 4th Cross Road,,Bengaluru,'560078,KA,IN,919845069842.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U378d1jwV8NQQJ
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 101.0.63.25
+cart_token: hWNJQludwVaYPDr86GGIXZUS?key=98a2040884f23c2213019988a367d89d
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""77gXJiETb1_DedWebWNsf"",""wht_user_id"":""5s7VjSs-eh3tZWx-LU2iO""}
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: IwYW9zYgVvY-BleHRuA2FlbQEwAHBkb2YFYWRpZAGrNzHmm5F6c3J0YwZhcHBfaWQMMzUwNjg1NTMxNzI4AAEf3xEuEmhBMV6_kVDod7N1I5V8ieTnIT2jrZHTmYXB1Gw_23I948HVe_25uDM_aem_3TuMT_0f4AuY92TsNIYrTA
+razorpay_payment_id: pay_U378iu8qGpSPTK",,Razorpay,#2690.1,0.0,Janvi Aika,0.0,,,,19017499509107.0,"Magic, upi",Low,399890841601,0.0,CGST 9%,135.76,SGST 9%,135.76,,,,,,,919845069842.0,,,Karnataka,Karnataka,#2690.1,,,#2690.1
+#2691,parul.singhgzp@gmail.com,paid,2026-11-22 11:42:55 +0530,fulfilled,2026-11-22 19:26:43 +0530,yes,INR,3231.0,0.0,492.86,3231.0,WELCOME10,359.0,FREE SHIPPING,2026-11-22 11:42:55 +0530,1,Mehfil Muse Sharara Set - L,3590.0,,SHA-MM-MG-L,True,True,fulfilled,Parul Singh,"Range Forest Office Pipari ,Beside Renukoot Railway Station Renukoot","Range Forest Office Pipari ,Beside Renukoot Railway Station Renukoot",,,Sonbhadra,'231217,UP,IN,919696517637.0,Parul Singh,"Range Forest Office Pipari ,Beside Renukoot Railway Station Renukoot","Range Forest Office Pipari ,Beside Renukoot Railway Station Renukoot",,,Sonbhadra,'231217,UP,IN,919696517637.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U37MBVDwSRcRA4
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 49.36.214.30
+cart_token: hWNJQmNRTJDH4WQuG9KwDzTI?key=1188018f89d314f994025686668017c9
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""eykwmrw4M4ESObZkKT14b"",""wht_user_id"":""HiAyc_wWL3iyA-WTtKujY""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad
+rzp_3p_utm_ts: 1795327912315
+rzp_device_id: 1.e23e47bc01bd4985057de897d0f79b19f8aab7a0.1795327395146.92623908
+rzp_pixel_id: U37CnhSUDmUNnl
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+fbclid: IwZXh0bgNhZW0BMABwZG9mBWZkaWQWUSsm6mNXOoRcwkIzWXj0_MWPB2PnCWFkaWQBqzcx5vce-nNydGMGYXBwX2lkCjY2Mjg1NjgzNzkAAR9MhDYVpe92hD1AIrE3XFIUcw4_pxmH_FrN96NiHN6KcNWF_I6UtRfZPO7-NA_aem_cOYuUlEIvljbeAk5xORcdA
+razorpay_payment_id: pay_U37MX4sxfd1Pwl",,Razorpay,#2691.1,0.0,Janvi Aika,0.0,,,,19017517662579.0,"Magic, upi",Low,399890841601,0.0,IGST 18%,492.86,,,,,,,,,919696517637.0,,,Uttar Pradesh,Uttar Pradesh,#2691.1,,,#2691.1
+#2692,aparna_hp@yahoo.in,paid,2026-11-22 12:13:21 +0530,fulfilled,2026-11-22 19:34:46 +0530,yes,INR,1395.0,0.0,212.8,1395.0,WELCOME10,155.0,FREE SHIPPING,2026-11-22 12:13:21 +0530,1,Berry Rouge Antique Rose Embroidered Round Neck Kurti - XL,1550.0,,C-BR-PN-XL,True,True,fulfilled,Dr Aparna C Babu,"MIG 1, 7/23, Brindhavan Towers, Anna Main Road, K K Nagar, Near ESIC Medical College","MIG 1, 7/23, Brindhavan Towers, Anna Main Road, K K Nagar, Near ESIC Medical College",,,Chennai,'600078,TN,IN,919446153632.0,Dr Aparna C Babu,"MIG 1, 7/23, Brindhavan Towers, Anna Main Road, K K Nagar, Near ESIC Medical College","MIG 1, 7/23, Brindhavan Towers, Anna Main Road, K K Nagar, Near ESIC Medical College",,,Chennai,'600078,TN,IN,919446153632.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U37qLOYRkZkK9G
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 122.164.85.37
+cart_token: hWNJQogOq5q8wcOUJS6mij80?key=d96269b12b516488f85062c0b0763731
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""a2Yhb8VmFDwL8XsFSVGgM"",""wht_user_id"":""IAQirfPi-7ljbp-Vq406K""}
+utm_source: google
+utm_medium: cpc
+utm_campaign: Others
+gclid: EAIaIQobChMIxd-25viamAMVNJlmAh33VypBEAAYASAAEgLjXPD_BwE
+razorpay_payment_id: pay_U37s9EtwK58JEx",,Razorpay,#2692.1,0.0,Janvi Aika,0.0,,,,19017553183091.0,"Magic, upi",Low,399890841601,0.0,IGST 18%,212.8,,,,,,,,,919446153632.0,,,Tamil Nadu,Tamil Nadu,#2692.1,,,#2692.1
+#2693,silbose@gmail.com,paid,2026-11-22 12:55:45 +0530,unfulfilled,,yes,INR,1780.0,0.0,271.53,1780.0,,0.0,,2026-11-22 12:55:45 +0530,1,Mint Blossom Embroidered Set - XL,1780.0,1980.0,CORD-MBE-GRN-XL,True,True,pending,Siladitya Bose,"587/N, Raja Rammohan Roy Road, Sukanta Pally, Sarada Pally",587/N,"Raja Rammohan Roy Road, Sukanta Pally, Sarada Pally",,Kolkata,'700041,WB,IN,919432669882.0,Siladitya Bose,"587/N, Raja Rammohan Roy Road, Sukanta Pally, Sarada Pally",587/N,"Raja Rammohan Roy Road, Sukanta Pally, Sarada Pally",,Kolkata,'700041,WB,IN,919432669882.0,,,,manual,r8XY93p5SwuBxADqkowW6F6ix,0.0,Janvi Aika,0.0,Kalpana S,,,19017602400627.0,,Low,shopify_draft_order,0.0,IGST 18%,271.53,,,,,,,,,919432669882.0,,,West Bengal,West Bengal,r8XY93p5SwuBxADqkowW6F6ix,,,r8XY93p5SwuBxADqkowW6F6ix
+#2694,Krishnamohan.s@live.com,paid,2026-11-22 20:39:06 +0530,unfulfilled,,yes,INR,2780.0,0.0,424.07,2780.0,,0.0,FREE SHIPPING,2026-11-22 20:39:06 +0530,1,Royal Teal Top - M,1390.0,,TOP-RT-RB-M,True,True,pending,S KRISHNA MOHAN,"E-539, ARK TOWERS, MAYURI NAGAR, MIYAPUR, HYDERABAD","E-539, ARK TOWERS, MAYURI NAGAR, MIYAPUR, HYDERABAD",,,Trimulgherry,'500049,TS,IN,917729926112.0,S KRISHNA MOHAN,"E-539, ARK TOWERS, MAYURI NAGAR, MIYAPUR, HYDERABAD","E-539, ARK TOWERS, MAYURI NAGAR, MIYAPUR, HYDERABAD",,,Trimulgherry,'500049,TS,IN,917729926112.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U3GTlOwsLNcErU
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 122.177.242.80
+cart_token: hWNJRf5y23Q5N9q6gYP1BpwK?key=cf9890d6e9cb1a4634363dfc7c1bc016
+payment_method: upi
+_wht_user_attributes: {""wht_session_id"":""2RBR8EssUvWkllE6VIRcw"",""wht_user_id"":""2PxXJKnVz2tPXrZMJC8WA""}
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:janviaika_all_products_excl_lehenga_long_gowns_ad||utm_id:120246482908220298||utm_term:120249247882780298
+rzp_3p_utm_ts: 1795359844388
+rzp_device_id: 1.76ec69da76fa36f2331c434d54c42888e5097cc7.1795359796291.79784592
+rzp_pixel_id: U3GPEzs4Q48to8
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: janviaika_all_products_excl_lehenga_long_gowns_ad
+utm_content: Facebook_UA
+utm_term: 120249247882780298
+fbclid: IwZXh0bgNhZW0BMABwZG9mBGFkaWQBqzcx5puRenNydGMGYXBwX2lkDzI3NTI1NDY5MjU5ODI3OQABH61wCM8pQXMdTHORfYJTkIGjO2DA-a2n4g7RtO_yl4d5BvdpXxiX_P7iz7D6_aem_GPzOGf9jdnJZlT0W1vBUiA
+razorpay_payment_id: pay_U3GUxu5E752wmN",,Razorpay,#2694.1,0.0,Janvi Aika,0.0,,,,19018234888563.0,"Magic, upi",Low,399890841601,0.0,IGST 18%,424.07,,,,,,,,,917729926112.0,,,Telangana,Telangana,#2694.1,,,#2694.1
+#2694,Krishnamohan.s@live.com,,,,,,,,,,,,,,2026-11-22 20:39:06 +0530,1,Vanya Bloom Top - L,1390.0,,TOP-VB-GR-L,True,True,pending,,,,,,,,,,,,,,,,,,,,,,,,,,,Janvi Aika,,,,,,,,,0.0,,,,,,,,,,,917729926112.0,,,,,,,,
+#2695,sujatha.sivakumar@gmail.com,paid,2026-11-22 22:14:54 +0530,unfulfilled,,yes,INR,1215.0,0.0,185.34,1215.0,WELCOME10,135.0,FREE SHIPPING,2026-11-22 22:14:54 +0530,1,Majesty Nirvi - S,1350.0,,CORD-MN-WN-S,True,True,pending,Sangeetha Sivakumar,"Plot No 57, Second Street, Mohan Nagar, Selaiyur P.O, Kanchipuram, Chennai 600073","Plot No 57, Second Street, Mohan Nagar, Selaiyur P.O, Kanchipuram, Chennai 600073",,,Kancheepuram,'600073,TN,IN,919789067840.0,Sangeetha Sivakumar,"Plot No 57, Second Street, Mohan Nagar, Selaiyur P.O, Kanchipuram, Chennai 600073","Plot No 57, Second Street, Mohan Nagar, Selaiyur P.O, Kanchipuram, Chennai 600073",,,Kancheepuram,'600073,TN,IN,919789067840.0,,"Paid via: Razorpay Magic Checkout
+razorpay_order_id: order_U3I6a85P7QqH5T
+SMS_consent: Yes
+whatsapp_sms_consent: Yes
+Device_details_IP: 122.167.102.142
+cart_token: hWNJQgb6ri8OXHQ39WkyPsQe?key=f126f25c41a3396dc15cda8e1f7e1446
+payment_method: upi
+rzp_3p_utm: utm_content:Facebook_UA||utm_source:facebook||utm_medium:paid_social||utm_campaign:hot_campaign_ad_for_website_visitors||utm_id:120246975099520298||utm_term:120246975099510298
+rzp_3p_utm_ts: 1795365686597
+rzp_device_id: 1.a27c6f3f9256b6e20bcc08eb61521a87a54a1e8a.1795323972935.85221366
+rzp_pixel_id: U3I3A6vqxENVRz
+_wht_user_attributes: {""wht_session_id"":""SoqcToj9a1Y_muHfFv8AG"",""wht_user_id"":""iHWmMlu82o5Pa8AmYhNyx""}
+utm_source: facebook
+utm_medium: paid_social
+utm_campaign: hot_campaign_ad_for_website_visitors
+utm_content: Facebook_UA
+utm_term: 120246975099510298
+fbclid: PAZXh0bgNhZW0BMABwZG9mAmZkaWQWUSsSNWOnhGTHTlIVRvBPP9uut5WQAGFkaWQBqzcx5KafSnNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABp3JL6TZ-e8f1Yw5p9pXXoyDDF3NN79KLVLcUJRfzSPO3Uc585ixW4nQsJPod_aem_usGmKlpztbHYKKMV47S02w
+razorpay_payment_id: pay_U3I7Z7mp0OTrGS",,Razorpay,#2695.1,0.0,Janvi Aika,0.0,,,,19018414850419.0,"Magic, upi",Low,399890841601,0.0,IGST 18%,185.34,,,,,,,,,919789067840.0,,,Tamil Nadu,Tamil Nadu,#2695.1,,,#2695.1
